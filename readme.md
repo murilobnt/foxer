@@ -91,4 +91,4 @@ And then, to execute it, you need to be at the **root of the project folder**. T
 ## Author
 
 [Murilo Bento](https://github.com/murilobnt)
-(murilo.araujo.md@gmail.com)
+(mourilob@gmail.com)
