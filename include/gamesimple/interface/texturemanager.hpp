@@ -3,8 +3,8 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "reusable/enum/textureindex.hpp"
-#include "reusable/concrete/textureloader.hpp"
+#include "gamesimple/concrete/textureloader.hpp"
+#include "gamesimple/enum/textureindex.hpp"
 
 class TextureManager {
 public:

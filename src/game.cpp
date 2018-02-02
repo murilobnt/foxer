@@ -1,15 +1,15 @@
-#include "reusable/concrete/game.hpp"
+#include "gamesimple/concrete/game.hpp"
 
 Game::Game(int gameWidth, int gameHeight, std::string gameTitle)
-    : gameScreen(sf::VideoMode(gameWidth, gameHeight), gameTitle,
-                 sf::Style::Fullscreen),
+    : gameScreen(sf::VideoMode(gameWidth, gameHeight), gameTitle),
       gameFrequency(sf::seconds(1.f / 60.f)) {
   this->gameWidth = gameWidth;
   this->gameHeight = gameHeight;
 }
 
-void Game::gameStart(bool vsync) {
+void Game::gameStart(Scene *firstScene, bool vsync) {
   gameScreen.setVerticalSyncEnabled(vsync);
+  sceneManager.setScene(firstScene);
   while (this->gameScreen.isOpen()) {
     handleTimeActions();
     clearNDraw();
@@ -48,3 +48,5 @@ void Game::clearNDraw() {
 
 int Game::getGameWidth() const { return this->gameWidth; }
 int Game::getGameHeight() const { return this->gameHeight; }
+
+SceneManager *Game::getSceneManager() { return &this->sceneManager; }

@@ -1,17 +1,13 @@
-#include "reusable/abstract/scene.hpp"
+#include "gamesimple/abstract/scene.hpp"
 
-Scene::Scene(SceneManager* sceneManager){
-	this->sceneManager = sceneManager;
+Scene::Scene(SceneManager *sceneManager) { this->sceneManager = sceneManager; }
+
+void Scene::setSceneManager(SceneManager *sceneManager) {
+  this->sceneManager = sceneManager;
 }
 
-void Scene::setSceneManager(SceneManager* sceneManager){
-	this->sceneManager = sceneManager;
-}
+SceneManager *Scene::getSceneManager() { return this->sceneManager; }
 
-SceneManager* Scene::getSceneManager(){
-	return this->sceneManager;
-}
-
-void Scene::changeScene(SceneCatalog sceneCatalog){
-	this->sceneManager->changeScene(sceneCatalog);
+void Scene::changeScene(Scene *nextScene) {
+  this->sceneManager->changeScene(nextScene);
 }

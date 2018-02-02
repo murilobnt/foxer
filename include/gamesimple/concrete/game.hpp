@@ -7,10 +7,11 @@
 #include <string>
 
 // # Internal
-#include "reusable/concrete/clockhandler.hpp"
-#include "reusable/concrete/generictimehandler.hpp"
-#include "reusable/concrete/scenemanager.hpp"
-#include "reusable/interface/texturemanager.hpp"
+#include "gamesimple/concrete/clockhandler.hpp"
+#include "gamesimple/concrete/timehandler.hpp"
+#include "gamesimple/concrete/scenemanager.hpp"
+#include "gamesimple/interface/texturemanager.hpp"
+#include "gamesimple/abstract/scene.hpp"
 
 class Game {
 
@@ -21,7 +22,7 @@ private:
   int gameHeight;
 
   ClockHandler clockHandler;
-  GenericTimeHandler gameFrequency;
+  TimeHandler gameFrequency;
   TextureManager *textureManager;
   SceneManager sceneManager;
 
@@ -34,13 +35,15 @@ public:
    */
   Game(int gameWidth, int gameHeight, std::string gameTitle);
 
-  void gameStart(bool vsync);
+  void gameStart(Scene* firstScene, bool vsync);
   void handleTimeActions();
   void processEvents();
   void clearNDraw();
 
   int getGameWidth() const;
   int getGameHeight() const;
+
+  SceneManager* getSceneManager();
 };
 
 #endif

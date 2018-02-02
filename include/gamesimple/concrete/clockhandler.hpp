@@ -1,7 +1,7 @@
 #ifndef _CLOCKHANDLER_HPP_
 #define _CLOCKHANDLER_HPP_
 
-#include "reusable/concrete/generictimehandler.hpp"
+#include "gamesimple/concrete/timehandler.hpp"
 
 class ClockHandler {
 private:
@@ -12,7 +12,7 @@ public:
   ClockHandler();
 
   void restartClock();
-  void restartTimeHandler(GenericTimeHandler *genericTimeHandler);
+  void restartTimeHandler(TimeHandler *genericTimeHandler);
 };
 
 #endif

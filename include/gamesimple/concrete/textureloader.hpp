@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 
-#include "outside/collision.h"
+#include "external/collision.h"
 
 class TextureLoader {
 private:

@@ -2,6 +2,8 @@
 ### Since makefile isn't the easier thing to comprehend, I'll comment what
 ### I do below :D
 
+### And, yes, I took it from my last project. Deal. With. It.
+
 # SECTION: VARIABLES
 
 ## The compiler / O compilador
@@ -14,7 +16,7 @@ FLAGS =
 LANGUAGE = c++11
 
 ## The executable / O executável
-TARGET = anygame
+TARGET = gamesimpleapp
 
 ## Headers' inclusion / A inclusão dos headers
 INCLUDES = -I ./include

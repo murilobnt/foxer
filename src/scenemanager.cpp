@@ -1,38 +1,19 @@
-#include "reusable/concrete/scenemanager.hpp"
+#include "gamesimple/concrete/scenemanager.hpp"
 
-#include "reusable/abstract/scene.hpp"
+#include "gamesimple/abstract/scene.hpp"
 
-SceneManager::SceneManager() {
-  // this->scene = new MenuScene(textureManager, this);
-  //this->textureManager = textureManager;
-}
+SceneManager::SceneManager() {}
 
 SceneManager::~SceneManager() { delete scene; }
 
-void SceneManager::changeScene(SceneCatalog sceneCatalog) {
+void SceneManager::changeScene(Scene *nextScene) {
   scene->onExit();
-  delete scene;
-  switch (sceneCatalog) {
-  case GAME:
-    // this->scene = new GameScene(textureManager, this);
-    // this->scene->start();
-    break;
-  case MENU:
-    // this->scene = new MenuScene(textureManager, this);
-    // this->scene->start();
-    break;
-  }
+  scene = nextScene;
 }
 
-void SceneManager::changeToRuntimeScene(SceneCatalog sceneCatalog) {
+void SceneManager::changeToRuntimeScene(Scene *nextScene) {
   this->lastScene = this->scene;
-
-  switch (sceneCatalog) {
-  case GAMEMENU:
-    // this->scene = new GameMenuScene(textureManager, this);
-    // this->scene->start();
-    break;
-  }
+  this->scene = nextScene;
 }
 
 void SceneManager::removeLastScene() { delete lastScene; }
@@ -64,5 +45,5 @@ Scene *SceneManager::getScene() const { return this->scene; }
 
 void SceneManager::setScene(Scene *scene) {
   this->scene = scene;
-  scene->start();
+  this->scene->start();
 }

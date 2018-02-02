@@ -3,9 +3,8 @@
 
 #include <cstring>
 
-#include "reusable/interface/texturemanager.hpp"
-#include "reusable/concrete/clockhandler.hpp"
-#include "reusable/enum/scenecatalog.hpp"
+#include "gamesimple/interface/texturemanager.hpp"
+#include "gamesimple/concrete/clockhandler.hpp"
 
 class Scene;
 
@@ -20,8 +19,8 @@ public:
 	SceneManager();
 	~SceneManager();
 
-	void changeScene(SceneCatalog sceneCatalog);
-	void changeToRuntimeScene(SceneCatalog sceneCatalog);
+	void changeScene(Scene* nextScene);
+	void changeToRuntimeScene(Scene* nextScene);
 	void removeLastScene();
 
 	void start();
