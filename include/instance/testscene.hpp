@@ -4,17 +4,19 @@
 #include <iostream>
 
 #include "gamesimple/abstract/scene.hpp"
+#include "gamesimple/components/spritedentity.hpp"
 #include "instance/character.hpp"
 
 class TestScene : public Scene {
 private:
-    Character character;
-  sf::CircleShape shape;
+  sf::Texture charTexture;
+  sf::Texture bgTexture;
+
+  Character character;
+  SpritedEntity bg;
 
 public:
-  TestScene(SceneManager *sceneManager, TextureLoader &textureLoader);
-TestScene(SceneManager *sceneManager, std::string pathToImage, int w, int h,
-          bool isRepeated = false, bool hasBitmask = false);
+  TestScene(SceneManager *sceneManager);
 
   void start();
   void update();

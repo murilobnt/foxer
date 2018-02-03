@@ -11,9 +11,12 @@ public:
   SpritedEntity(sf::Texture const &texture, int spriteX, int spriteY,
                 int spriteW = 32, int spriteH = 32);
 
+  SpritedEntity();
+
   void configureSpriteRect(int x, int y, int w, int h);
   void setSpritePosition(sf::Vector2f position);
   void setSpritePosition(float x, float y);
+  void setSpriteScale(float x, float y);
   void moveSprite(sf::Vector2f movement);
   void setSpriteColor(sf::Color color);
 

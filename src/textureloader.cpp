@@ -2,36 +2,27 @@
 
 #include <string>
 
-void TextureLoader::loadTexture(std::string pathToImage) {
-  if (!this->texture.loadFromFile(pathToImage)) {
+void TextureLoader::loadTexture(sf::Texture &texture,std::string pathToImage) {
+  if (!texture.loadFromFile(pathToImage)) {
     // error
   }
 }
 
-void TextureLoader::createTexture(int w, int h) {
-  if (!this->texture.create(w, h)) {
+void TextureLoader::createTexture(sf::Texture &texture, int w, int h) {
+  if (!texture.create(w, h)) {
     // error
   }
 }
 
-TextureLoader::TextureLoader() { haveTextureLoaded = false; }
+TextureLoader::TextureLoader() {}
 
-TextureLoader::TextureLoader(std::string pathToImage, int w, int h,
-                             bool isRepeated, bool hasBitmask) {
-  setTextureFromFile(pathToImage, w, h, isRepeated, hasBitmask);
-}
-
-void TextureLoader::setTextureFromFile(std::string pathToImage, int w, int h,
+void TextureLoader::setTextureFromFile(sf::Texture &textureToBeLoaded, std::string pathToImage, int w, int h,
                                        bool isRepeated, bool hasBitmask) {
-  haveTextureLoaded = true;
-
   if (!hasBitmask)
-    loadTexture(pathToImage);
+    loadTexture(textureToBeLoaded, pathToImage);
   else
-    Collision::CreateTextureAndBitmask(texture, pathToImage);
+    Collision::CreateTextureAndBitmask(textureToBeLoaded, pathToImage);
 
-  createTexture(w, h);
-  this->texture.setRepeated(isRepeated);
+  createTexture(textureToBeLoaded, w, h);
+  texture.setRepeated(isRepeated);
 }
-
-sf::Texture &TextureLoader::getTexture() { return this->texture; }

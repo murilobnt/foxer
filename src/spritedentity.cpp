@@ -6,6 +6,8 @@ SpritedEntity::SpritedEntity(sf::Texture const &texture, int spriteX,
   configureSpriteRect(spriteX, spriteY, spriteW, spriteH);
 }
 
+SpritedEntity::SpritedEntity() {}
+
 void SpritedEntity::configureSpriteRect(int x, int y, int w, int h) {
   this->sprite.setTextureRect(sf::IntRect(x, y, w, h));
 }
@@ -16,6 +18,10 @@ void SpritedEntity::setSpritePosition(sf::Vector2f position) {
 
 void SpritedEntity::setSpritePosition(float x, float y) {
   this->sprite.setPosition(x, y);
+}
+
+void SpritedEntity::setSpriteScale(float x, float y){
+    this->sprite.setScale(x, y);
 }
 
 void SpritedEntity::moveSprite(sf::Vector2f movement) {

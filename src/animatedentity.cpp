@@ -6,7 +6,10 @@ AnimatedEntity::AnimatedEntity(int spriteInitX, int spriteEndX, int spriteInitY,
   this->spriteEndX = spriteEndX;
   this->spriteInitY = spriteInitY;
   this->spriteEndY = spriteEndY;
+  this->animationLoopState = 0;
 }
+
+AnimatedEntity::AnimatedEntity(){}
 
 int AnimatedEntity::getSpriteInitX() const { return this->spriteInitX; }
 

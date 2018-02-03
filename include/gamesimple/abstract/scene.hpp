@@ -7,8 +7,6 @@
 #include "gamesimple/concrete/scenemanager.hpp"
 #include "gamesimple/concrete/textureloader.hpp"
 
-// Control camera vai estar no update se for necessário :D
-
 class Scene {
 protected:
   SceneManager *sceneManager;
@@ -16,9 +14,6 @@ protected:
 
 public:
   Scene(SceneManager *sceneManager);
-  Scene(SceneManager *sceneManager, TextureLoader &textureLoader);
-  Scene(SceneManager *sceneManager, std::string pathToImage, int w, int h,
-                           bool isRepeated = false, bool hasBitmask = false);
 
   virtual void start() = 0;
   virtual void update() = 0;
@@ -33,9 +28,6 @@ public:
   virtual void resumeScene() = 0;
 
   void changeScene(Scene *nextScene);
-  void setTextureLoader(TextureLoader &textureLoader);
-  void createTextureLoader(std::string pathToImage, int w, int h,
-                           bool isRepeated = false, bool hasBitmask = false);
 
   void setSceneManager(SceneManager *sceneManager);
   SceneManager *getSceneManager();
