@@ -14,8 +14,17 @@ void TextureLoader::createTexture(int w, int h) {
   }
 }
 
+TextureLoader::TextureLoader() { haveTextureLoaded = false; }
+
 TextureLoader::TextureLoader(std::string pathToImage, int w, int h,
                              bool isRepeated, bool hasBitmask) {
+  setTextureFromFile(pathToImage, w, h, isRepeated, hasBitmask);
+}
+
+void TextureLoader::setTextureFromFile(std::string pathToImage, int w, int h,
+                                       bool isRepeated, bool hasBitmask) {
+  haveTextureLoaded = true;
+
   if (!hasBitmask)
     loadTexture(pathToImage);
   else

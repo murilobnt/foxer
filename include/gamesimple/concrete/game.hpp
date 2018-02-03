@@ -10,7 +10,6 @@
 #include "gamesimple/concrete/clockhandler.hpp"
 #include "gamesimple/concrete/timehandler.hpp"
 #include "gamesimple/concrete/scenemanager.hpp"
-#include "gamesimple/interface/texturemanager.hpp"
 #include "gamesimple/abstract/scene.hpp"
 
 class Game {
@@ -23,7 +22,6 @@ private:
 
   ClockHandler clockHandler;
   TimeHandler gameFrequency;
-  TextureManager *textureManager;
   SceneManager sceneManager;
 
 public:

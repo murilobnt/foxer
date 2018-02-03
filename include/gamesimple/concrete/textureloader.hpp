@@ -12,6 +12,8 @@ private:
   // The texture
   sf::Texture texture;
 
+  bool haveTextureLoaded;
+
   /**
    * Load the texture.
    * @param pathToImage the path to the image
@@ -26,6 +28,8 @@ private:
   void createTexture(int w, int h);
 
 public:
+  TextureLoader();
+
   /**
    * Constructor.
    * @param pathToImage the path to the image
@@ -34,6 +38,9 @@ public:
    */
   TextureLoader(std::string pathToImage, int w, int h, bool isRepeated = false,
                 bool hasBitmask = false);
+
+  void setTextureFromFile(std::string pathToImage, int w, int h,
+                  bool isRepeated = false, bool hasBitmask = false);
 
   /**
    * Get the texture.

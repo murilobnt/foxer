@@ -3,7 +3,6 @@
 
 #include <cstring>
 
-#include "gamesimple/interface/texturemanager.hpp"
 #include "gamesimple/concrete/clockhandler.hpp"
 
 class Scene;
@@ -12,8 +11,6 @@ class SceneManager {
 private:
 	Scene* scene;
 	Scene* lastScene;
-
-	TextureManager* textureManager;
 
 public:
 	SceneManager();
