@@ -17,6 +17,8 @@ which is a 2D platform game in development.
 - [x] Implement the [SFML example](https://www.sfml-dev.org/tutorials/2.4/start-linux.php#compiling-a-sfml-program) using the framework;
 - [x] Get rid of enums;
 - [x] Ease the development of animations;
+- [x] Documment .hpp files;
+- [ ] Documment the .hpp files of the instance (wish me luck lol);
 - [ ] Implement classes to ease the development of platform and classic RPG games (like Final Fantasy).
 
 ## How it works

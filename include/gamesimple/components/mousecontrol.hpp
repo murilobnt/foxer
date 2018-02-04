@@ -30,8 +30,17 @@
 
 #include "generics/spritedentity.hpp"
 
+// Represents an entity to have mouse controls. In this case,
+// it is recommended that the entity to have mouse control
+// have the information of the screen, sf::RenderWindow in
+// particular to SFML, so it can define what will happen
+// when the mouse clicks some point.
+
 class MouseControl {
 public:
+  // Defines the control for an entity by using the mouse.
+  // It needs the event, the sprited entity to be manipulated
+  // and the position of the mouse.
   virtual void controlEntityByMouse(sf::Event event,
                                     SpritedEntity &spritedEntity,
                                     sf::Vector2f mousePos) = 0;

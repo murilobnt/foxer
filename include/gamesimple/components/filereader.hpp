@@ -28,8 +28,14 @@
 
 #include <string>
 
+// Represents a file reader. Loading of informations from a file
+// can be done over here, and the application of those informations
+// to make use of the data.
+
 class FileReader {
 public:
+  // Defines how the file reader will read the file and how the
+  // information will be used on entities.
   virtual void readFile(std::string fileName) = 0;
 };
 

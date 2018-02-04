@@ -26,8 +26,29 @@
 #ifndef _CONTROLABLEENTITY_HPP_
 #define _CONTROLABLEENTITY_HPP_
 
+// Represents a controlable entity. The entity will have to respond
+// to when a key of the keyboard is pressed or released, and the
+// method controlEntity will be responsible for doing so.
+// e.g.:
+//     class Car : public ControlableEntity {
+//         void controlEntity(sf::Keyboard::Key key, bool release){
+//             switch(key){
+//             case sf::Keyboard::Space:
+//                 this->accelerate();
+//                 break;
+//             case sf::Keyboard::LShift:
+//                 this->brake();
+//                 break;
+//             }
+//         }
+//     }
+
 class ControlableEntity {
 public:
+  // Defines how the entity will respond to the given key when it is
+  // either pressed or released.
+  // The bool release is true if the key is released and false if
+  // the key is pressed.
   virtual void controlEntity(sf::Keyboard::Key key, bool release) = 0;
 };
 
