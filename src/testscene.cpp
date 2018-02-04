@@ -5,7 +5,7 @@ TestScene::TestScene(SceneManager *sceneManager) : Scene::Scene(sceneManager) {}
 void TestScene::start() {
   textureLoader.setTextureFromFile(
       this->charTexture, std::string("images/linkEdit.png"), 1200, 1040);
-  character = Character(this->charTexture, 0, 0, 120, 130, 0, 1200, 520, 910);
+  character = Character(this->charTexture, 0, 0, 120, 130, 0, 1200, 520, 910, 20);
   character.setSpriteScale(0.4, 0.4);
 
   textureLoader.setTextureFromFile(

@@ -15,7 +15,8 @@ which is a 2D platform game in development.
 - [x] Reuse vulnus' classes;
 - [x] Bring inside, immutable, operations up;
 - [x] Implement the [SFML example](https://www.sfml-dev.org/tutorials/2.4/start-linux.php#compiling-a-sfml-program) using the framework;
-- [ ] Get rid of enums;
+- [x] Get rid of enums;
+- [x] Ease the development of animations;
 - [ ] Implement classes to ease the development of platform and classic RPG games (like Final Fantasy).
 
 ## How it works

@@ -6,6 +6,7 @@
 class SpritedEntity {
 private:
   sf::Sprite sprite;
+  sf::Vector2i spriteDimensions;
 
 public:
   SpritedEntity(sf::Texture const &texture, int spriteX, int spriteY,
@@ -14,6 +15,7 @@ public:
   SpritedEntity();
 
   void configureSpriteRect(int x, int y, int w, int h);
+  void configureSpriteRect(int x, int y);
   void setSpritePosition(sf::Vector2f position);
   void setSpritePosition(float x, float y);
   void setSpriteScale(float x, float y);
@@ -22,6 +24,7 @@ public:
 
   sf::Sprite getSprite() const;
   sf::Vector2f getSpritePosition() const;
+  sf::Vector2i getSpriteDimensions() const;
   sf::FloatRect getSpriteGlobalBounds() const;
   sf::FloatRect getSpriteLocalBounds() const;
 };
