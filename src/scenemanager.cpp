@@ -9,6 +9,7 @@ SceneManager::~SceneManager() { delete scene; }
 void SceneManager::changeScene(Scene *nextScene) {
   scene->onExit();
   scene = nextScene;
+  scene->start();
 }
 
 void SceneManager::changeToRuntimeScene(Scene *nextScene) {
@@ -43,7 +44,7 @@ void SceneManager::setLastScene() {
 
 Scene *SceneManager::getScene() const { return this->scene; }
 
-void SceneManager::setScene(Scene *scene) {
-  this->scene = scene;
-  this->scene->start();
+void SceneManager::setScene(Scene *scene){
+    this->scene = scene;
+    this->scene->start();
 }

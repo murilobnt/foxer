@@ -2,8 +2,13 @@
 
 Scene::Scene(SceneManager *sceneManager) { this->sceneManager = sceneManager; }
 
+Scene::Scene() {}
+
+Scene::~Scene() {}
+
 void Scene::changeScene(Scene *nextScene) {
   this->sceneManager->changeScene(nextScene);
+  delete this;
 }
 
 void Scene::setSceneManager(SceneManager *sceneManager) {

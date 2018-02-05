@@ -68,7 +68,7 @@ public:
   // Start the game. This begins the game cycle, verifying if the
   // window is still open to do the operations. It requires the first
   // scene to be played and the bool to use vsync.
-  void gameStart(Scene* firstScene, bool vsync);
+  void gameStart(Scene* firstScene, bool vsync = true);
 
   // This will handle the actions inside the framerate.
   void handleTimeActions();

@@ -1,4 +1,4 @@
-// File: testscene.hpp
+// File: secondscene.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,38 +23,30 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef _TESTSCENE_HPP_
-#define _TESTSCENE_HPP_
+#ifndef _SECONDSCENE_HPP_
+#define _SECONDSCENE_HPP_
 
 #include <iostream>
 
 #include "gamesimple/abstract/scene.hpp"
-#include "gamesimple/components/spritedentity.hpp"
-#include "instance/character.hpp"
-#include "instance/secondscene.hpp"
 
-class TestScene : public Scene {
+class SecondScene : public Scene {
 private:
-  sf::Texture charTexture;
-  sf::Texture bgTexture;
-
-  Character character;
-  SpritedEntity bg;
-
+    sf::CircleShape shape;
 public:
-  ~TestScene();
-  
-  void start();
-  void update();
+    SecondScene(SceneManager *sceneManager);
+    SecondScene();
 
-  void handleEvent(sf::Event event, sf::RenderWindow &screen);
-  void drawEntities(sf::RenderWindow &window);
+    void start();
+    void update();
 
-  void doInternalTimedActions();
-  void resetTimeHandlers(ClockHandler &clockHandler);
+    void handleEvent(sf::Event event, sf::RenderWindow &screen);
+    void drawEntities(sf::RenderWindow &window);
 
-  void onExit();
-  void resumeScene();
+    void doInternalTimedActions();
+    void resetTimeHandlers(ClockHandler &clockHandler);
+    void onExit();
+    void resumeScene();
 };
 
 #endif

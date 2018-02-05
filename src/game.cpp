@@ -9,6 +9,7 @@ Game::Game(int gameWidth, int gameHeight, std::string gameTitle)
 
 void Game::gameStart(Scene *firstScene, bool vsync) {
   gameScreen.setVerticalSyncEnabled(vsync);
+  firstScene->setSceneManager(this->getSceneManager());
   sceneManager.setScene(firstScene);
   while (this->gameScreen.isOpen()) {
     handleTimeActions();

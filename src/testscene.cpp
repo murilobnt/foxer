@@ -1,6 +1,8 @@
 #include "instance/testscene.hpp"
 
-TestScene::TestScene(SceneManager *sceneManager) : Scene::Scene(sceneManager) {}
+TestScene::~TestScene(){
+    std::cout << "My destructor have been called. Yay!" << std::endl;
+}
 
 void TestScene::start() {
   textureLoader.setTextureFromFile(
@@ -22,6 +24,9 @@ void TestScene::handleEvent(sf::Event event, sf::RenderWindow &screen) {
   switch (event.type) {
   case sf::Event::KeyReleased:
     character.controlEntity(event.key.code, true);
+    if(event.key.code == sf::Keyboard::Return){
+        changeScene(new SecondScene(this->sceneManager));
+    }
     break;
   case sf::Event::KeyPressed:
     character.controlEntity(event.key.code, false);

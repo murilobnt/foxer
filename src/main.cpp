@@ -5,7 +5,6 @@
 
 int main() {
   Game game(1366, 768, std::string("Tartaruga"));
-  TestScene *initialScene = new TestScene(game.getSceneManager());
-  game.gameStart(initialScene, true);
+  game.gameStart(new TestScene());
   return 0;
 }

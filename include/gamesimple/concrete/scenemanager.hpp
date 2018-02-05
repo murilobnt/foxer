@@ -80,7 +80,10 @@ public:
 	void doInternalTimedActions();
 	void resetTimeHandlers(ClockHandler& clockHandler);
 
-	// Setter for the scene.
+	// Setter for the scene. CAUTION: If you are changing from inside
+	// a scene, it is recommended that you use changeScene, from
+	// Scene, instead. Calling this method does not free the
+	// pointer of the last scene, making it garbage in the execution.
 	void setScene(Scene* scene);
 
 	// Setter for the last scene.

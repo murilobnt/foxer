@@ -56,6 +56,14 @@ public:
   // Constructor. Sets the scene manager for the scene.
   Scene(SceneManager *sceneManager);
 
+  // Empty constructor. Important for delaying the SceneManager
+  // pointer initialization.
+  Scene();
+
+  // Virtual destructor. This means allocated memory with the new
+  // operator can be freed on the child scene.
+  virtual ~Scene();
+
   // Resources loading, like creating textures and setting sprites position.
   virtual void start() = 0;
 
