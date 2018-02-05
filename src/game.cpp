@@ -1,8 +1,8 @@
 #include "gamesimple/concrete/game.hpp"
 
-Game::Game(int gameWidth, int gameHeight, std::string gameTitle)
+Game::Game(int gameWidth, int gameHeight, std::string gameTitle, float frameratePerSecond)
     : gameScreen(sf::VideoMode(gameWidth, gameHeight), gameTitle),
-      gameFrequency(sf::seconds(1.f / 60.f)) {
+      gameFrequency(sf::seconds(1.f / frameratePerSecond)) {
   this->gameWidth = gameWidth;
   this->gameHeight = gameHeight;
 }
