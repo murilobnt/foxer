@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef _ANIMATEDENTITY_HPP_
-#define _ANIMATEDENTITY_HPP_
+#ifndef ANIMATEDENTITY_HPP
+#define ANIMATEDENTITY_HPP
 
 #include "gamesimple/components/spritedentity.hpp"
 #include "gamesimple/concrete/timehandler.hpp"

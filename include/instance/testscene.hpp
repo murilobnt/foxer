@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef _TESTSCENE_HPP_
-#define _TESTSCENE_HPP_
+#ifndef TESTSCENE_HPP
+#define TESTSCENE_HPP
 
 #include <iostream>
 
@@ -43,7 +43,7 @@ private:
 
 public:
   ~TestScene();
-  
+
   void start();
   void update();
 

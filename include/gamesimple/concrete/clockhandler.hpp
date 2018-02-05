@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef _CLOCKHANDLER_HPP_
-#define _CLOCKHANDLER_HPP_
+#ifndef CLOCKHANDLER_HPP
+#define CLOCKHANDLER_HPP
 
 #include "gamesimple/concrete/timehandler.hpp"
 

@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef _CONTROLABLEENTITY_HPP_
-#define _CONTROLABLEENTITY_HPP_
+#ifndef CONTROLABLEENTITY_HPP
+#define CONTROLABLEENTITY_HPP
 
 // Represents a controlable entity. The entity will have to respond
 // to when a key of the keyboard is pressed or released, and the

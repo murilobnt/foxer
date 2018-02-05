@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef _SCENE_HPP_
-#define _SCENE_HPP_
+#ifndef SCENE_HPP
+#define SCENE_HPP
 
 #include <SFML/Graphics.hpp>
 
