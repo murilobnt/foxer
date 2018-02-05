@@ -2,27 +2,27 @@
 
 AnimatedEntity::AnimatedEntity(sf::Texture const &texture, int spriteX,
                                int spriteY, int spriteW, int spriteH,
-                               int spriteInitX, int spriteEndX, int spriteInitY,
-                               int spriteEndY, float animationFramesPerSecond)
+                               int animationInitialXPosition, int animationFinalXPosition, int animationInitialYPosition,
+                               int animationFinalYPosition, float animationFramesPerSecond)
     : SpritedEntity::SpritedEntity(texture, spriteX, spriteY, spriteW, spriteH),
       animationTimeHandler(sf::seconds(1.f / animationFramesPerSecond)) {
-  this->spriteInitX = spriteInitX;
-  this->spriteEndX = spriteEndX;
-  this->spriteInitY = spriteInitY;
-  this->spriteEndY = spriteEndY;
+  this->animationInitialXPosition = animationInitialXPosition;
+  this->animationFinalXPosition = animationFinalXPosition;
+  this->animationInitialYPosition = animationInitialYPosition;
+  this->animationFinalYPosition = animationFinalYPosition;
 
   this->animationLoopState = 0;
 }
 
 AnimatedEntity::AnimatedEntity() {}
 
-int AnimatedEntity::getSpriteInitX() const { return this->spriteInitX; }
+int AnimatedEntity::getAnimationInitialXPosition() const { return this->animationInitialXPosition; }
 
-int AnimatedEntity::getSpriteEndX() const { return this->spriteEndX; }
+int AnimatedEntity::getAnimationFinalXPosition() const { return this->animationFinalXPosition; }
 
-int AnimatedEntity::getSpriteInitY() const { return this->spriteInitY; }
+int AnimatedEntity::getAnimationInitialYPosition() const { return this->animationInitialYPosition; }
 
-int AnimatedEntity::getSpriteEndY() const { return this->spriteEndY; }
+int AnimatedEntity::getAnimationFinalYPosition() const { return this->animationFinalYPosition; }
 
 TimeHandler &AnimatedEntity::getAnimationTimeHandler() {
   return this->animationTimeHandler;
@@ -30,12 +30,12 @@ TimeHandler &AnimatedEntity::getAnimationTimeHandler() {
 
 void AnimatedEntity::applyAnimation(int row) {
   sf::Vector2i spriteDimensions = getSpriteDimensions();
-  if (getSpriteInitX() + this->animationLoopState * spriteDimensions.x >=
-      getSpriteEndX())
+  if (getAnimationInitialXPosition() + this->animationLoopState * spriteDimensions.x >=
+      getAnimationFinalXPosition())
     this->animationLoopState = 0;
 
-  configureSpriteRect(getSpriteInitX() +
+  configureSpriteRect(getAnimationInitialXPosition() +
                           animationLoopState * spriteDimensions.x,
-                      getSpriteInitY() + row * spriteDimensions.y);
+                      getAnimationInitialYPosition() + row * spriteDimensions.y);
   ++this->animationLoopState;
 }

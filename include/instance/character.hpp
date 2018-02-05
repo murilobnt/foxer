@@ -46,8 +46,8 @@ private:
 
 public:
   Character(sf::Texture const &texture, int spriteX, int spriteY, int spriteW,
-            int spriteH, int spriteInitX, int spriteEndX, int spriteInitY,
-            int spriteEndY, int animationFramesPerSeconds);
+            int spriteH, int animationInitialXPosition, int animationFinalXPosition, int animationInitialYPosition,
+            int animationFinalYPosition, int animationFramesPerSeconds);
   Character();
   void controlEntity(sf::Keyboard::Key key, bool release);
   void moveCharacter();

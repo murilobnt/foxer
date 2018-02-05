@@ -43,7 +43,7 @@
 
 class Scene {
 protected:
-  // A reference to the scene manager of the game. It is important for
+  // The reference to the scene manager of the game. It is important for
   // the coder can change the current scene for another one inside the
   // scene.
   SceneManager *sceneManager;

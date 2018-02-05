@@ -1,12 +1,12 @@
 #include "instance/character.hpp"
 
 Character::Character(sf::Texture const &texture, int spriteX, int spriteY,
-                     int spriteW, int spriteH, int spriteInitX, int spriteEndX,
-                     int spriteInitY, int spriteEndY,
+                     int spriteW, int spriteH, int animationInitialXPosition, int animationFinalXPosition,
+                     int animationInitialYPosition, int animationFinalYPosition,
                      int animationFramesPerSeconds)
     : AnimatedEntity::AnimatedEntity(
-          texture, spriteX, spriteY, spriteW, spriteH, spriteInitX, spriteEndX,
-          spriteInitY, spriteEndY, animationFramesPerSeconds) {
+          texture, spriteX, spriteY, spriteW, spriteH, animationInitialXPosition, animationFinalXPosition,
+          animationInitialYPosition, animationFinalYPosition, animationFramesPerSeconds) {
   this->movement = sf::Vector2f(0, 0);
   facingUp = false;
   facingDown = false;

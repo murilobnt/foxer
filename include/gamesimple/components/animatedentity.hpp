@@ -46,7 +46,7 @@ private:
   // this field would have to have the value of 0.
   // It will be used to iterate through the animation.
   // The anchor of the sprite is the upper left corner.
-  int spriteInitX;
+  int animationInitialXPosition;
 
   // The X position of the last frame of the animated sprite.
   // e.g. if the last frame of the animation is located at the end
@@ -54,21 +54,21 @@ private:
   // size is 32x32px, this field would have to have the value of
   // 192 - 32, which is 160.
   // The anchor of the sprite is the upper left corner.
-  int spriteEndX;
+  int animationFinalXPosition;
 
   // The Y position of the first frame of the animated sprite.
   // This field will be used to iterate through the rows
   // of the animation. By rows, it is this initial position
   // plus the height of the sprite.
   // The anchor of the sprite is the upper left corner.
-  int spriteInitY;
+  int animationInitialYPosition;
 
   // The Y position of the last frame in the Y position.
   // This field can be used if the animmation is set on a column
   // insted of a row, so we can loop through the animation
   // with this information.
   // The anchor of the sprite is the upper left corner.
-  int spriteEndY;
+  int animationFinalYPosition;
 
   // A time handler to define the animation framerate. It is important
   // to reset this time handler in the scene of this sprite, so
@@ -90,8 +90,8 @@ public:
   // framerate of the animation.
   // The anchor of the sprite is the upper left corner.
   AnimatedEntity(sf::Texture const &texture, int spriteX, int spriteY,
-                 int spriteW, int spriteH, int spriteInitX,
-                 int spriteEndX, int spriteInitY, int spriteEndY, float animationFramesPerSecond);
+                 int spriteW, int spriteH, int animationInitialXPosition,
+                 int animationFinalXPosition, int animationInitialYPosition, int animationFinalYPosition, float animationFramesPerSecond);
 
   // Empty constructor. This is important so the user of the
   // animated sprite can choose to initialize it later (but it's
@@ -99,16 +99,16 @@ public:
   AnimatedEntity();
 
   // Getter for the X position of the first frame of the animated sprite.
-  int getSpriteInitX() const;
+  int getAnimationInitialXPosition() const;
 
   // Getter for the X position of the last frame of the animated sprite.
-  int getSpriteEndX() const;
+  int getAnimationFinalXPosition() const;
 
   // Getter for the Y position of the first frame of the animated sprite.
-  int getSpriteInitY() const;
+  int getAnimationInitialYPosition() const;
 
   // Getter for the Y position of the last frame in the Y position.
-  int getSpriteEndY() const;
+  int getAnimationFinalYPosition() const;
 
   // Getter for the time handler of the animation.
   TimeHandler &getAnimationTimeHandler();
