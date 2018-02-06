@@ -1,4 +1,4 @@
-// File: mousecontrol.hpp
+// File: genericgrid.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,27 +23,23 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef MOUSECONTROL_HPP
-#define MOUSECONTROL_HPP
+#ifndef GENERICGRID_HPP
+#define GENERICGRID_HPP
 
-#include <SFML/Graphics.hpp>
+#include <cmath>
 
-#include "gamesimple/components/spritedentity.hpp"
+class GenericGrid{
+protected:
+  int w;
+  int h;
+  int unitySize;
 
-// Represents an entity to have mouse controls. In this case,
-// it is recommended that the entity to have mouse control
-// have the information of the screen, sf::RenderWindow in
-// particular to SFML, so it can define what will happen
-// when the mouse clicks some point.
+  int xCells;
+  int yCells;
 
-class MouseControl {
 public:
-  // Defines the control for an entity by using the mouse.
-  // It needs the event, the sprited entity to be manipulated
-  // and the position of the mouse.
-  virtual void controlEntityByMouse(sf::Event event,
-                                    SpritedEntity &spritedEntity,
-                                    sf::Vector2f mousePos) = 0;
+    GenericGrid();
+	GenericGrid(int w, int h, int unitySize);
 };
 
 #endif

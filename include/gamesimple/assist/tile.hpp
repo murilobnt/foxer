@@ -1,4 +1,4 @@
-// File: mousecontrol.hpp
+// File: tile.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,27 +23,50 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef MOUSECONTROL_HPP
-#define MOUSECONTROL_HPP
+#ifndef TILE_HPP
+#define TILE_HPP
 
+// # External
 #include <SFML/Graphics.hpp>
 
-#include "gamesimple/components/spritedentity.hpp"
+class Tile{
+private:
+  // The position of the tile
+  sf::Vector2f tilePosition;
 
-// Represents an entity to have mouse controls. In this case,
-// it is recommended that the entity to have mouse control
-// have the information of the screen, sf::RenderWindow in
-// particular to SFML, so it can define what will happen
-// when the mouse clicks some point.
+  // The rect of the tile
+  sf::FloatRect tileRect;
 
-class MouseControl {
 public:
-  // Defines the control for an entity by using the mouse.
-  // It needs the event, the sprited entity to be manipulated
-  // and the position of the mouse.
-  virtual void controlEntityByMouse(sf::Event event,
-                                    SpritedEntity &spritedEntity,
-                                    sf::Vector2f mousePos) = 0;
+  /**
+   * Constructor.
+   * @param tilePosition the position of the tile
+   */
+  Tile(sf::Vector2f tilePosition, float tileWidth, float timeHeight);
+
+  /**
+   * Get the position of the tile.
+   * @return the position of the tile
+   */
+  sf::Vector2f getPosition() const;
+
+  /**
+   * Get the position in x axis.
+   * @return the position in x axis
+   */
+  float getPositionX() const;
+
+  /**
+   * Get the position in y axis.
+   * @return the position in y axis
+   */
+  float getPositionY() const;
+
+  /**
+   * Get the tile rect.
+   * @return the tile rect
+   */
+  sf::FloatRect getTileRect() const;
 };
 
 #endif
