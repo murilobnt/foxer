@@ -17,12 +17,12 @@ Character::Character(sf::Texture const &texture, int spriteX, int spriteY,
 
 Character::Character() : AnimatedEntity::AnimatedEntity() {}
 
-void Character::controlEntity(sf::Keyboard::Key key, bool release) {
+void Character::controlEntity(sf::Keyboard::Key key, bool pressed) {
   switch (key) {
   case sf::Keyboard::W:
     if (!facingLeft && !facingRight)
-      facingUp = !release;
-    if (release) {
+      facingUp = pressed;
+    if (!pressed) {
       lastFacingPosition = UP;
       this->movement.y = 0;
     } else
@@ -30,8 +30,8 @@ void Character::controlEntity(sf::Keyboard::Key key, bool release) {
     break;
   case sf::Keyboard::A:
     if (!facingUp && !facingDown)
-      facingLeft = !release;
-    if (release) {
+      facingLeft = pressed;
+    if (!pressed) {
       lastFacingPosition = LEFT;
       this->movement.x = 0;
     } else
@@ -39,8 +39,8 @@ void Character::controlEntity(sf::Keyboard::Key key, bool release) {
     break;
   case sf::Keyboard::S:
     if (!facingLeft && !facingRight)
-      facingDown = !release;
-    if (release) {
+      facingDown = pressed;
+    if (!pressed) {
       lastFacingPosition = DOWN;
       this->movement.y = 0;
     } else
@@ -48,8 +48,8 @@ void Character::controlEntity(sf::Keyboard::Key key, bool release) {
     break;
   case sf::Keyboard::D:
     if (!facingUp && !facingDown)
-      facingRight = !release;
-    if (release) {
+      facingRight = pressed;
+    if (!pressed) {
       lastFacingPosition = RIGHT;
       this->movement.x = 0;
     } else

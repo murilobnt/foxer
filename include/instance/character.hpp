@@ -49,7 +49,7 @@ public:
             int spriteH, int animationInitialXPosition, int animationFinalXPosition, int animationInitialYPosition,
             int animationFinalYPosition, int animationFramesPerSeconds);
   Character();
-  void controlEntity(sf::Keyboard::Key key, bool release);
+  void controlEntity(sf::Keyboard::Key key, bool pressed);
   void moveCharacter();
   void animate();
 };

@@ -77,7 +77,6 @@ public:
 	void update();
 	void handleEvent(sf::Event event, sf::RenderWindow& screen);
 	void drawEntities(sf::RenderWindow& window);
-	void doInternalTimedActions();
 	void resetTimeHandlers(ClockHandler& clockHandler);
 
 	// Setter for the scene. CAUTION: If you are changing from inside

@@ -26,7 +26,6 @@ void SecondScene::handleEvent(sf::Event event, sf::RenderWindow &screen) {
 
 void SecondScene::drawEntities(sf::RenderWindow &window) { window.draw(shape); }
 
-void SecondScene::doInternalTimedActions() {}
 void SecondScene::resetTimeHandlers(ClockHandler &clockHandler) {}
 void SecondScene::onExit() {}
 void SecondScene::resumeScene() {}

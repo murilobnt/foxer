@@ -44,10 +44,11 @@ This is the most important part: The Scene abstract class. It will be used for c
 - **void update()** will be what the scene will do during the 1/FPS seconds;
 - **void handleEvent(sf::Event event, sf::RenderWindow &screen)** will be how your scene will react to that event;
 - **void drawEntities(sf::RenderWindow &window)** will be the drawing of your entities on the game window;
-- **void doInternalTimedActions()** will be about timed actions (using the class TimeHandler is strongly recommended);
-- **void resetTimeHandlers(ClockHandler &clockHandler)** will be to reset all the time handlers of the scene;
-- **void onExit()** will be what the scene will do when changed;
-- **void resumeScene()** will be to resume scene on some point (like enemies).
+
+A few methods can be overriden:
+
+- **void resetTimeHandlers(ClockHandler &clockHandler)** will be to reset all the time handlers of the scene. By default, the scene uses the vector of time handlers called timeHandlers to reset them "automatically". You need to add the time handlers, to the vector, at the start method, for it to work.
+- **void onExit()** will be what the scene will do when changed. It does nothing by default.
 
 ### The classes in gamesimple/components
 

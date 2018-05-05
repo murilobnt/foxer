@@ -25,7 +25,6 @@ void Game::handleTimeActions() {
   while (gameFrequency.timeToUpdate()) {
     processEvents();
     sceneManager.update();
-    sceneManager.doInternalTimedActions();
   }
 }
 

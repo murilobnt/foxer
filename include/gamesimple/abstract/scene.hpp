@@ -31,6 +31,7 @@
 #include "gamesimple/concrete/clockhandler.hpp"
 #include "gamesimple/concrete/scenemanager.hpp"
 #include "gamesimple/concrete/textureloader.hpp"
+#include "gamesimple/concrete/timehandler.hpp"
 
 // Scenes serves as the mold for any scene, e.g. the main menu
 // and the pause screen. It contains methods for loading resources,
@@ -48,9 +49,8 @@ protected:
   // scene.
   SceneManager *sceneManager;
 
-  // A texture loader to help the user on loading any texture. Better used
-  // in the start function.
-  TextureLoader textureLoader;
+  // The time handlers of the scene.
+  std::vector<TimeHandler*> timeHandlers;
 
 public:
   // Constructor. Sets the scene manager for the scene.
@@ -65,6 +65,9 @@ public:
   virtual ~Scene();
 
   // Resources loading, like creating textures and setting sprites position.
+  // If you're not implementing the method resetTimeHandlers in the child,
+  // I suggest to add every TimeHandler you may create to the vector timeHandlers
+  // of this class.
   virtual void start() = 0;
 
   // Updating phase. The method to implement this function will be called every
@@ -80,23 +83,14 @@ public:
   // to draw every drawable entity of the scene,
   virtual void drawEntities(sf::RenderWindow &window) = 0;
 
-  // This will define actions that occur in different rates than the update.
-  // e.g. the animation of a sprite that has a framerate of 20
-  // can be called inside here.
-  virtual void doInternalTimedActions() = 0;
-
   // This shall be implemented to reset all the time handlers used
   // in the scene, so they can be sycronized to the clock of the
   // entire application.
-  virtual void resetTimeHandlers(ClockHandler &clockHandler) = 0;
+  virtual void resetTimeHandlers(ClockHandler &clockHandler);
 
   // This will define what will happen once the user have exited
   // the scene.
-  virtual void onExit() = 0;
-
-  // This will define what will happen once the user have resumed
-  // the scene.
-  virtual void resumeScene() = 0;
+  virtual void onExit();
 
   // This will change the current scene for another one.
   // The new scene is passed through the parameter, and it is

@@ -51,10 +51,6 @@ public:
   void drawEntities(sf::RenderWindow &window);
 
   void doInternalTimedActions();
-  void resetTimeHandlers(ClockHandler &clockHandler);
-
-  void onExit();
-  void resumeScene();
 };
 
 #endif

@@ -31,15 +31,12 @@ void SceneManager::drawEntities(sf::RenderWindow &window) {
   scene->drawEntities(window);
 }
 
-void SceneManager::doInternalTimedActions() { scene->doInternalTimedActions(); }
-
 void SceneManager::resetTimeHandlers(ClockHandler &clockHandler) {
   scene->resetTimeHandlers(clockHandler);
 }
 
 void SceneManager::setLastScene() {
   this->scene = lastScene;
-  this->scene->resumeScene();
 }
 
 Scene *SceneManager::getScene() const { return this->scene; }

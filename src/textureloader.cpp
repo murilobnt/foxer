@@ -14,8 +14,6 @@ void TextureLoader::createTexture(sf::Texture &texture, int w, int h) {
   }
 }
 
-TextureLoader::TextureLoader() {}
-
 void TextureLoader::setTextureFromFile(sf::Texture &textureToBeLoaded, std::string pathToImage, int w, int h,
                                        bool isRepeated, bool hasBitmask) {
   if (!hasBitmask)
@@ -24,5 +22,5 @@ void TextureLoader::setTextureFromFile(sf::Texture &textureToBeLoaded, std::stri
     Collision::CreateTextureAndBitmask(textureToBeLoaded, pathToImage);
 
   createTexture(textureToBeLoaded, w, h);
-  texture.setRepeated(isRepeated);
+  textureToBeLoaded.setRepeated(isRepeated);
 }
