@@ -76,7 +76,7 @@ public:
   virtual void update() = 0;
 
   // The method to implement this function will tell how an received event will
-  // be handled. Using the ControlableEntity class is strongly recommended.
+  // be handled. Using the EBControlableEntity class is strongly recommended.
   virtual void handleEvent(sf::Event event, sf::RenderWindow &screen) = 0;
 
   // Drawing phase. The method to implement this will be responsible

@@ -1,4 +1,4 @@
-// File: controlableentity.hpp
+// File: ibcontrolableentity.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,33 +23,24 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CONTROLABLEENTITY_HPP
-#define CONTROLABLEENTITY_HPP
+#ifndef IBCONTROLABLEENTITY_HPP
+#define IBCONTROLABLEENTITY_HPP
 
-// Represents a controlable entity. The entity will have to respond
-// to when a key of the keyboard is pressed or released, and the
+// Represents an input based controlable entity. The entity will have to respond
+// to when a key of the keyboard is pressed or not, and the
 // method controlEntity will be responsible for doing so.
 // e.g.:
-//     class Car : public ControlableEntity {
-//         void controlEntity(sf::Keyboard::Key key, bool release){
-//             switch(key){
-//             case sf::Keyboard::Space:
-//                 this->accelerate();
-//                 break;
-//             case sf::Keyboard::LShift:
-//                 this->brake();
-//                 break;
-//             }
+//     class Car : public IBControlableEntity {
+//         void controlEntity(){
+//           if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+//             this->moveUp();
 //         }
 //     }
 
-class ControlableEntity {
+class IBControlableEntity {
 public:
-  // Defines how the entity will respond to the given key when it is
-  // either pressed or released.
-  // The bool pressed is true if the key is pressed and false if
-  // the key is released.
-  virtual void controlEntity(sf::Keyboard::Key key, bool pressed) = 0;
+  // Defines how the entity will respond to any input.
+  virtual void controlEntity() = 0;
 };
 
 #endif

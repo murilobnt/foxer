@@ -8,57 +8,84 @@ Character::Character(sf::Texture const &texture, int spriteX, int spriteY,
           texture, spriteX, spriteY, spriteW, spriteH, animationInitialXPosition, animationFinalXPosition,
           animationInitialYPosition, animationFinalYPosition, animationFramesPerSeconds) {
   this->movement = sf::Vector2f(0, 0);
-  facingUp = false;
-  facingDown = false;
-  facingLeft = false;
-  facingRight = false;
   lastFacingPosition = DOWN;
+  currentFacingPos = FREE;
+  movingUp = false;
+  movingDown = false;
+  movingLeft = false;
+  movingRight = false;
 }
 
 Character::Character() : AnimatedEntity::AnimatedEntity() {}
 
-void Character::controlEntity(sf::Keyboard::Key key, bool pressed) {
-  switch (key) {
-  case sf::Keyboard::W:
-    if (!facingLeft && !facingRight)
-      facingUp = pressed;
-    if (!pressed) {
-      lastFacingPosition = UP;
-      this->movement.y = 0;
-    } else
-      this->movement.y = -2;
-    break;
-  case sf::Keyboard::A:
-    if (!facingUp && !facingDown)
-      facingLeft = pressed;
-    if (!pressed) {
-      lastFacingPosition = LEFT;
-      this->movement.x = 0;
-    } else
-      this->movement.x = -2;
-    break;
-  case sf::Keyboard::S:
-    if (!facingLeft && !facingRight)
-      facingDown = pressed;
-    if (!pressed) {
-      lastFacingPosition = DOWN;
-      this->movement.y = 0;
-    } else
-      this->movement.y = 2;
-    break;
-  case sf::Keyboard::D:
-    if (!facingUp && !facingDown)
-      facingRight = pressed;
-    if (!pressed) {
-      lastFacingPosition = RIGHT;
-      this->movement.x = 0;
-    } else
-      this->movement.x = 2;
-    break;
+void Character::controlEntity() {
+  if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
+    movingLeft = true;
+    if(currentFacingPos == FREE)
+        currentFacingPos = LEFT;
   }
+  else {
+    movingLeft = false;
+    if(currentFacingPos == LEFT){
+      lastFacingPosition = currentFacingPos;
+      currentFacingPos = FREE;
+    }
+  }
+
+  if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
+    movingDown = true;
+    if(currentFacingPos == FREE)
+        currentFacingPos = DOWN;
+  }
+  else {
+    movingDown = false;
+    if(currentFacingPos == DOWN){
+      lastFacingPosition = currentFacingPos;
+      currentFacingPos = FREE;
+    }
+  }
+
+  if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+    movingRight = true;
+    if(currentFacingPos == FREE)
+        currentFacingPos = RIGHT;
+  }
+  else {
+    movingRight = false;
+    if(currentFacingPos == RIGHT){
+      lastFacingPosition = currentFacingPos;
+      currentFacingPos = FREE;
+    }
+  }
+
+  if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
+    movingUp = true;
+    if(currentFacingPos == FREE)
+        currentFacingPos = UP;
+  }
+  else {
+    movingUp = false;
+    if(currentFacingPos == UP){
+      lastFacingPosition = currentFacingPos;
+      currentFacingPos = FREE;
+    }
+  }
+
+  if(movingLeft)
+    this->movement.x = -2;
+  if(movingDown)
+    this->movement.y = 2;
+  if(movingRight)
+    this->movement.x = 2;
+  if(movingUp)
+    this->movement.y = -2;
 }
 
-void Character::moveCharacter() { moveSprite(movement); }
+void Character::moveCharacter() {
+  moveSprite(movement);
+  this->movement.x = 0;
+  this->movement.y = 0;
+}
 
 void Character::animate() {
   if (this->movement.x == 0.f && this->movement.y == 0.f) {
@@ -78,12 +105,18 @@ void Character::animate() {
     }
   }
 
-  if (facingLeft)
-    applyAnimation(1);
-  if (facingRight)
-    applyAnimation(3);
-  if (facingDown)
-    applyAnimation(0);
-  if (facingUp)
-    applyAnimation(2);
+  switch (currentFacingPos) {
+    case LEFT:
+      applyAnimation(1);
+    break;
+    case RIGHT:
+      applyAnimation(3);
+    break;
+    case DOWN:
+      applyAnimation(0);
+    break;
+    case UP:
+      applyAnimation(2);
+    break;
+  }
 }

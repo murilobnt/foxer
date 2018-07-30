@@ -57,7 +57,8 @@ All the classes in gamesimple/components can be used to ease the development of 
 - **SpritedEntity** can be extended by an entity that needs a sprite;
 - **AnimatedEntity** can be extended by an entity with an animated sprite;
 - **FileReader** can be implemented by an entity that reads a file;
-- **ControlableEntity** can be implemented by an entity that can be controled by an input;
+- **EBControlableEntity** can be implemented by an entity that can be controled by an event;
+- **IBControlableEntity** can be implemented by an entity that can be controled by an input;
 - **MouseControl** can be implemented by an entity that wants to handle clicks in the game window.
 
 ## Little tutorial

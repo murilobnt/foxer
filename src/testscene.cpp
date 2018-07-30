@@ -20,19 +20,13 @@ void TestScene::start() {
   bg.setSpritePosition(sf::Vector2f(0, 0));
 }
 
-void TestScene::update() { doInternalTimedActions(); character.moveCharacter(); }
+void TestScene::update() { doInternalTimedActions(); character.controlEntity(); character.moveCharacter(); }
 
 void TestScene::handleEvent(sf::Event event, sf::RenderWindow &screen) {
   switch (event.type) {
   case sf::Event::KeyReleased:
-    character.controlEntity(event.key.code, false);
-    if(event.key.code == sf::Keyboard::Return){
+    if(event.key.code == sf::Keyboard::Return)
         changeScene(new SecondScene(this->sceneManager));
-    }
-    break;
-  case sf::Event::KeyPressed:
-    character.controlEntity(event.key.code, true);
-    break;
   }
 }
 
