@@ -81,6 +81,8 @@ All the classes in gamesimple/components can be used to ease the development of 
 
 All lion pictures used by this readme were downloaded from [http://pngimagesfree.com](http://pngimagesfree.com).
 
-## Author
+## Development team
 
-[Murilo Bento](https://github.com/murilobnt) (mourilob@gmail.com)
+[<img src="https://avatars1.githubusercontent.com/u/6081758?s=400&v=4" width="100"/>](https://github.com/murilobnt) | |
+--- |
+[Murilo Bento](https://github.com/murilobnt) |
