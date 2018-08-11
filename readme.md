@@ -15,8 +15,6 @@ This tool will help you on focus on the game. All you have to do is to create yo
 -   [x] Has docummented classes.
 -   [x] Provides abstract components related to game entities.
 -   [x] Provides Scenes: A mold to create game flow.
-
-
 -   [ ] Has default scenes (menu, save, loading, ...).
 -   [ ] Has scene transitions.
 -   [ ] Provides world components (camera, tilemap, events, ...).
