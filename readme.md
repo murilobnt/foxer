@@ -83,6 +83,6 @@ All lion pictures used by this readme were downloaded from [http://pngimagesfree
 
 ## Development team
 
-[<img src="https://avatars1.githubusercontent.com/u/6081758?s=400&v=4" width="100"/>](https://github.com/murilobnt) | |
---- |
-[Murilo Bento](https://github.com/murilobnt) |
+[<img src="https://avatars1.githubusercontent.com/u/6081758?s=400&v=4" width="100"/>](https://github.com/murilobnt)
+
+[Murilo Bento](https://github.com/murilobnt)
