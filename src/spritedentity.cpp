@@ -2,57 +2,60 @@
 
 SpritedEntity::SpritedEntity(sf::Texture const &texture, int spriteX,
                              int spriteY, int spriteW, int spriteH)
-    : spriteDimensions(spriteW, spriteH) {
-  this->sprite.setTexture(texture);
-  configureSpriteRect(spriteX, spriteY, spriteW, spriteH);
+        : spriteDimensions(spriteW, spriteH) {
+        sprite.setTexture(texture);
+        configureSpriteRect(spriteX, spriteY, spriteW, spriteH);
 }
 
-SpritedEntity::SpritedEntity() {}
+SpritedEntity::SpritedEntity() {
+}
 
 void SpritedEntity::configureSpriteRect(int x, int y, int w, int h) {
-  this->sprite.setTextureRect(sf::IntRect(x, y, w, h));
+        sprite.setTextureRect(sf::IntRect(x, y, w, h));
 }
 
 void SpritedEntity::configureSpriteRect(int x, int y) {
-  int w = spriteDimensions.x;
-  int h = spriteDimensions.y;
-  this->sprite.setTextureRect(sf::IntRect(x, y, w, h));
+        int w = spriteDimensions.x;
+        int h = spriteDimensions.y;
+        sprite.setTextureRect(sf::IntRect(x, y, w, h));
 }
 
 void SpritedEntity::setSpritePosition(sf::Vector2f position) {
-  this->sprite.setPosition(position);
+        sprite.setPosition(position);
 }
 
 void SpritedEntity::setSpritePosition(float x, float y) {
-  this->sprite.setPosition(x, y);
+        sprite.setPosition(x, y);
 }
 
 void SpritedEntity::setSpriteScale(float x, float y) {
-  this->sprite.setScale(x, y);
+        sprite.setScale(x, y);
 }
 
 void SpritedEntity::moveSprite(sf::Vector2f movement) {
-  this->sprite.move(movement);
+        sprite.move(movement);
 }
 
 void SpritedEntity::setSpriteColor(sf::Color color) {
-  this->sprite.setColor(color);
+        sprite.setColor(color);
 }
 
-sf::Sprite SpritedEntity::getSprite() const { return this->sprite; }
+sf::Sprite SpritedEntity::getSprite() const {
+        return sprite;
+}
 
 sf::Vector2f SpritedEntity::getSpritePosition() const {
-  return this->sprite.getPosition();
+        return sprite.getPosition();
 }
 
-sf::Vector2i SpritedEntity::getSpriteDimensions() const{
-    return this->spriteDimensions;
+sf::Vector2i SpritedEntity::getSpriteDimensions() const {
+        return spriteDimensions;
 }
 
 sf::FloatRect SpritedEntity::getSpriteGlobalBounds() const {
-  return this->sprite.getGlobalBounds();
+        return sprite.getGlobalBounds();
 }
 
 sf::FloatRect SpritedEntity::getSpriteLocalBounds() const {
-  return this->sprite.getLocalBounds();
+        return sprite.getLocalBounds();
 }

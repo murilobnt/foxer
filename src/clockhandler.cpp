@@ -1,9 +1,12 @@
 #include "gamesimple/concrete/clockhandler.hpp"
 
-ClockHandler::ClockHandler() {}
+ClockHandler::ClockHandler() {
+}
 
-void ClockHandler::restartClock() { this->elapsedTime = this->clock.restart(); }
+void ClockHandler::restartClock() {
+        elapsedTime = clock.restart();
+}
 
 void ClockHandler::restartTimeHandler(TimeHandler *genericTimeHandler) {
-  genericTimeHandler->restart(this->elapsedTime);
+        genericTimeHandler->restart(elapsedTime);
 }

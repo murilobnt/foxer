@@ -37,13 +37,15 @@
 // when the mouse clicks some point.
 
 class MouseControl {
+
 public:
-  // Defines the control for an entity by using the mouse.
-  // It needs the event, the sprited entity to be manipulated
-  // and the position of the mouse.
-  virtual void controlEntityByMouse(sf::Event event,
+    // Defines the control for an entity by using the mouse.
+    // It needs the event, the sprited entity to be manipulated
+    // and the position of the mouse.
+    virtual void controlEntityByMouse(sf::Event event,
                                     SpritedEntity &spritedEntity,
                                     sf::Vector2f mousePos) = 0;
+
 };
 
 #endif

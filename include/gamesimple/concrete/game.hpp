@@ -63,7 +63,7 @@ private:
 public:
   // Constructor. Requires the width and height of the game window and its
   // title too.
-  Game(int gameWidth, int gameHeight, std::string gameTitle, float frameratePerSecond = 60.f);
+  Game(int gameWidth, int gameHeight, std::string gameTitle, float framerate = 60.f);
 
   // Start the game. This begins the game cycle, verifying if the
   // window is still open to do the operations. It requires the first
@@ -79,7 +79,7 @@ public:
   // This will clear the screen, draw and display the entities of
   // the current scene. It calls for the drawEntities method from the
   // scene.
-  void clearNDraw();
+  void clearAndDraw();
 
   // Getters for the game width and height.
   int getGameWidth() const;
@@ -87,6 +87,7 @@ public:
 
   // Getter for the scene manager.
   SceneManager* getSceneManager();
+  
 };
 
 #endif

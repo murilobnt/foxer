@@ -34,23 +34,25 @@
 #include "instance/secondscene.hpp"
 
 class TestScene : public Scene {
-private:
-  sf::Texture charTexture;
-  sf::Texture bgTexture;
 
-  Character character;
-  SpritedEntity bg;
+private:
+    sf::Texture charTexture;
+    sf::Texture bgTexture;
+
+    Character character;
+    SpritedEntity bg;
+
+    void timedEvents();
 
 public:
-  ~TestScene();
+    ~TestScene();
 
-  void start();
-  void update();
+    void start();
+    void update();
 
-  void handleEvent(sf::Event event, sf::RenderWindow &screen);
-  void drawEntities(sf::RenderWindow &window);
+    void handleEvent(sf::Event event, sf::RenderWindow &screen);
+    void drawEntities(sf::RenderWindow &window);
 
-  void doInternalTimedActions();
 };
 
 #endif

@@ -31,8 +31,10 @@
 #include "gamesimple/abstract/scene.hpp"
 
 class SecondScene : public Scene {
+
 private:
     sf::CircleShape shape;
+
 public:
     SecondScene(SceneManager *sceneManager);
     SecondScene();
@@ -42,11 +44,7 @@ public:
 
     void handleEvent(sf::Event event, sf::RenderWindow &screen);
     void drawEntities(sf::RenderWindow &window);
-
-    void doInternalTimedActions();
-    void resetTimeHandlers(ClockHandler &clockHandler);
-    void onExit();
-    void resumeScene();
+    
 };
 
 #endif

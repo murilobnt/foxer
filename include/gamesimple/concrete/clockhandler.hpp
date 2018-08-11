@@ -33,22 +33,24 @@
 // time handlers.
 
 class ClockHandler {
-private:
-  // The SFML clock.
-  sf::Clock clock;
 
-  // The elapsed time of the clock.
-  sf::Time elapsedTime;
+private:
+    // The SFML clock.
+    sf::Clock clock;
+
+    // The elapsed time of the clock.
+    sf::Time elapsedTime;
 
 public:
-  // Constructor.
-  ClockHandler();
+    // Constructor.
+    ClockHandler();
 
-  // Restart the clock and register the elapsed time.
-  void restartClock();
+    // Restart the clock and register the elapsed time.
+    void restartClock();
 
-  // Restart the given time handler to the clock's elapsed time.
-  void restartTimeHandler(TimeHandler *genericTimeHandler);
+    // Restart the given time handler to the clock's elapsed time.
+    void restartTimeHandler(TimeHandler *genericTimeHandler);
+    
 };
 
 #endif

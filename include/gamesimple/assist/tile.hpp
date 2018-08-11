@@ -31,42 +31,43 @@
 
 class Tile{
 private:
-  // The position of the tile
-  sf::Vector2f tilePosition;
+    // The position of the tile
+    sf::Vector2f tilePosition;
 
-  // The rect of the tile
-  sf::FloatRect tileRect;
+    // The rect of the tile
+    sf::FloatRect tileRect;
 
 public:
-  /**
-   * Constructor.
-   * @param tilePosition the position of the tile
-   */
-  Tile(sf::Vector2f tilePosition, float tileWidth, float timeHeight);
+    /**
+    * Constructor.
+    * @param tilePosition the position of the tile
+    */
+    Tile(sf::Vector2f tilePosition, float tileWidth, float timeHeight);
 
-  /**
-   * Get the position of the tile.
-   * @return the position of the tile
-   */
-  sf::Vector2f getPosition() const;
+    /**
+    * Get the position of the tile.
+    * @return the position of the tile
+    */
+    sf::Vector2f getPosition() const;
 
-  /**
-   * Get the position in x axis.
-   * @return the position in x axis
-   */
-  float getPositionX() const;
+    /**
+    * Get the position in x axis.
+    * @return the position in x axis
+    */
+    float getPositionX() const;
 
-  /**
-   * Get the position in y axis.
-   * @return the position in y axis
-   */
-  float getPositionY() const;
+    /**
+    * Get the position in y axis.
+    * @return the position in y axis
+    */
+    float getPositionY() const;
 
-  /**
-   * Get the tile rect.
-   * @return the tile rect
-   */
-  sf::FloatRect getTileRect() const;
+    /**
+    * Get the tile rect.
+    * @return the tile rect
+    */
+    sf::FloatRect getTileRect() const;
+    
 };
 
 #endif

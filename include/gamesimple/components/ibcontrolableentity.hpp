@@ -38,9 +38,11 @@
 //     }
 
 class IBControlableEntity {
+
 public:
-  // Defines how the entity will respond to any input.
-  virtual void controlEntity() = 0;
+    // Defines how the entity will respond to any input.
+    virtual void controlEntity() = 0;
+    
 };
 
 #endif

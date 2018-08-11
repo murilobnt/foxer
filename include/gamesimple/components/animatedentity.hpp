@@ -91,7 +91,8 @@ public:
   // The anchor of the sprite is the upper left corner.
   AnimatedEntity(sf::Texture const &texture, int spriteX, int spriteY,
                  int spriteW, int spriteH, int animationInitialXPosition,
-                 int animationFinalXPosition, int animationInitialYPosition, int animationFinalYPosition, float animationFramesPerSecond);
+                 int animationFinalXPosition, int animationInitialYPosition,
+                 int animationFinalYPosition, float animationFramesPerSecond);
 
   // Empty constructor. This is important so the user of the
   // animated sprite can choose to initialize it later (but it's

@@ -1,52 +1,61 @@
 #include "gamesimple/concrete/game.hpp"
 
-Game::Game(int gameWidth, int gameHeight, std::string gameTitle, float frameratePerSecond)
-    : gameScreen(sf::VideoMode(gameWidth, gameHeight), gameTitle),
-      gameFrequency(sf::seconds(1.f / frameratePerSecond)) {
-  this->gameWidth = gameWidth;
-  this->gameHeight = gameHeight;
+Game::Game(int gameWidth, int gameHeight,
+           std::string gameTitle, float framerate)
+        : gameScreen(sf::VideoMode(gameWidth, gameHeight), gameTitle),
+        gameFrequency(sf::seconds(1.f / framerate)) {
+        this->gameWidth = gameWidth;
+        this->gameHeight = gameHeight;
 }
 
 void Game::gameStart(Scene *firstScene, bool vsync) {
-  gameScreen.setVerticalSyncEnabled(vsync);
-  firstScene->setSceneManager(this->getSceneManager());
-  sceneManager.setScene(firstScene);
-  while (this->gameScreen.isOpen()) {
-    handleTimeActions();
-    clearNDraw();
+        gameScreen.setVerticalSyncEnabled(vsync);
+        firstScene->setSceneManager(getSceneManager());
+        sceneManager.setScene(firstScene);
 
-    this->clockHandler.restartClock();
-    this->clockHandler.restartTimeHandler(&gameFrequency);
-    sceneManager.resetTimeHandlers(clockHandler);
-  }
+        while (gameScreen.isOpen()) {
+                handleTimeActions();
+                clearAndDraw();
+
+                clockHandler.restartClock();
+                clockHandler.restartTimeHandler(&gameFrequency);
+                sceneManager.resetTimeHandlers(clockHandler);
+        }
 }
 
 void Game::handleTimeActions() {
-  while (gameFrequency.timeToUpdate()) {
-    processEvents();
-    sceneManager.update();
-  }
+        while (gameFrequency.timeToUpdate()) {
+                processEvents();
+                sceneManager.update();
+        }
 }
 
 void Game::processEvents() {
-  sf::Event event;
+        sf::Event event;
 
-  while (this->gameScreen.pollEvent(event)) {
-    if (event.type == sf::Event::Closed) {
-      gameScreen.close();
-    }
+        while (gameScreen.pollEvent(event)) {
+                if (event.type == sf::Event::Closed) {
+                        gameScreen.close();
+                }
 
-    sceneManager.handleEvent(event, gameScreen);
-  }
+                sceneManager.handleEvent(event, gameScreen);
+        }
 }
 
-void Game::clearNDraw() {
-  this->gameScreen.clear();
-  sceneManager.drawEntities(gameScreen);
-  this->gameScreen.display();
+void Game::clearAndDraw() {
+        gameScreen.clear();
+        sceneManager.drawEntities(gameScreen);
+        gameScreen.display();
 }
 
-int Game::getGameWidth() const { return this->gameWidth; }
-int Game::getGameHeight() const { return this->gameHeight; }
+int Game::getGameWidth() const {
+        return gameWidth;
+}
 
-SceneManager *Game::getSceneManager() { return &this->sceneManager; }
+int Game::getGameHeight() const {
+        return gameHeight;
+}
+
+SceneManager *Game::getSceneManager() {
+        return &sceneManager;
+}

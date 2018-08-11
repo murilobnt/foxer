@@ -44,12 +44,14 @@
 //     }
 
 class EBControlableEntity {
+
 public:
-  // Defines how the entity will respond to the given key when it is
-  // either pressed or released.
-  // The bool pressed is true if the key is pressed and false if
-  // the key is released.
-  virtual void controlEntity(sf::Keyboard::Key key, bool pressed) = 0;
+    // Defines how the entity will respond to the given key when it is
+    // either pressed or released.
+    // The bool pressed is true if the key is pressed and false if
+    // the key is released.
+    virtual void controlEntity(sf::Keyboard::Key key, bool pressed) = 0;
+    
 };
 
 #endif

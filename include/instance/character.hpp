@@ -36,27 +36,30 @@
 #include "instance/facingposition.hpp"
 
 class Character : public AnimatedEntity, public IBControlableEntity {
+
 private:
-  sf::Vector2f movement;
-  TimeHandler animationTimeHandler;
+    sf::Vector2f movement;
+    TimeHandler animationTimeHandler;
 
-  bool movingUp;
-  bool movingDown;
-  bool movingLeft;
-  bool movingRight;
+    bool movingUp;
+    bool movingDown;
+    bool movingLeft;
+    bool movingRight;
 
-  FacingPosition currentFacingPos;
-  FacingPosition lastFacingPosition;
+    FacingPosition currentFacingPos;
+    FacingPosition lastFacingPosition;
 
-  void checkAndUpdateCurrentPosition();
+    void checkAndUpdateCurrentPosition();
+
 public:
-  Character(sf::Texture const &texture, int spriteX, int spriteY, int spriteW,
+    Character(sf::Texture const &texture, int spriteX, int spriteY, int spriteW,
             int spriteH, int animationInitialXPosition, int animationFinalXPosition, int animationInitialYPosition,
             int animationFinalYPosition, int animationFramesPerSeconds);
-  Character();
-  void controlEntity();
-  void moveCharacter();
-  void animate();
+    Character();
+    void controlEntity();
+    void moveCharacter();
+    void animate();
+    
 };
 
 #endif

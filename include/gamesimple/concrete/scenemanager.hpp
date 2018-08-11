@@ -42,6 +42,7 @@ class Scene;
 // change.
 
 class SceneManager {
+
 private:
 	// The current scene. This will be the scene to be used on the
 	// methods of this class.
@@ -90,6 +91,7 @@ public:
 
 	// Getter for the scene.
 	Scene* getScene() const;
+	
 };
 
 #endif
