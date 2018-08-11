@@ -3,10 +3,10 @@
 ClockHandler::ClockHandler() {
 }
 
-void ClockHandler::restartClock() {
-        elapsedTime = clock.restart();
+void ClockHandler::restart_clock() {
+        elapsed_time = clock.restart();
 }
 
-void ClockHandler::restartTimeHandler(TimeHandler *genericTimeHandler) {
-        genericTimeHandler->restart(elapsedTime);
+void ClockHandler::restart_time_handler(TimeHandler *time_handler) {
+        time_handler->restart(elapsed_time);
 }

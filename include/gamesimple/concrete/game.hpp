@@ -45,49 +45,49 @@ class Game {
 
 private:
   // The window of the application.
-  sf::RenderWindow gameScreen;
+  sf::RenderWindow game_screen;
 
   // The width and the height of the game window.
-  int gameWidth;
-  int gameHeight;
+  int game_width;
+  int game_height;
 
   // The clock of the game.
-  ClockHandler clockHandler;
+  ClockHandler clock_handler;
 
   // The timehandler to define the framerate of the game.
-  TimeHandler gameFrequency;
+  TimeHandler game_frequency;
 
   // The scene manager to delegate actions for the scene.
-  SceneManager sceneManager;
+  SceneManager scene_manager;
 
 public:
   // Constructor. Requires the width and height of the game window and its
   // title too.
-  Game(int gameWidth, int gameHeight, std::string gameTitle, float framerate = 60.f);
+  Game(int game_width, int game_height, std::string game_title, float framerate = 60.f);
 
   // Start the game. This begins the game cycle, verifying if the
   // window is still open to do the operations. It requires the first
   // scene to be played and the bool to use vsync.
-  void gameStart(Scene* firstScene, bool vsync = true);
+  void game_start(Scene* first_scene, bool vsync = true);
 
   // This will handle the actions inside the framerate.
-  void handleTimeActions();
+  void handle_time_actions();
 
   // This will process the events.
-  void processEvents();
+  void process_events();
 
   // This will clear the screen, draw and display the entities of
-  // the current scene. It calls for the drawEntities method from the
+  // the current scene. It calls for the draw_entities method from the
   // scene.
-  void clearAndDraw();
+  void clear_and_draw();
 
   // Getters for the game width and height.
-  int getGameWidth() const;
-  int getGameHeight() const;
+  int get_game_width() const;
+  int get_game_height() const;
 
   // Getter for the scene manager.
-  SceneManager* getSceneManager();
-  
+  SceneManager* get_scene_manager();
+
 };
 
 #endif

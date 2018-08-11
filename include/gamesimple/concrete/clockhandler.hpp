@@ -39,18 +39,18 @@ private:
     sf::Clock clock;
 
     // The elapsed time of the clock.
-    sf::Time elapsedTime;
+    sf::Time elapsed_time;
 
 public:
     // Constructor.
     ClockHandler();
 
     // Restart the clock and register the elapsed time.
-    void restartClock();
+    void restart_clock();
 
     // Restart the given time handler to the clock's elapsed time.
-    void restartTimeHandler(TimeHandler *genericTimeHandler);
-    
+    void restart_time_handler(TimeHandler *time_handler);
+
 };
 
 #endif

@@ -32,42 +32,42 @@
 class Tile{
 private:
     // The position of the tile
-    sf::Vector2f tilePosition;
+    sf::Vector2f tile_position;
 
     // The rect of the tile
-    sf::FloatRect tileRect;
+    sf::FloatRect tile_rect;
 
 public:
     /**
     * Constructor.
-    * @param tilePosition the position of the tile
+    * @param tile_position the position of the tile
     */
-    Tile(sf::Vector2f tilePosition, float tileWidth, float timeHeight);
+    Tile(sf::Vector2f tile_position, float tile_width, float tile_height);
 
     /**
     * Get the position of the tile.
     * @return the position of the tile
     */
-    sf::Vector2f getPosition() const;
+    sf::Vector2f get_position() const;
 
     /**
     * Get the position in x axis.
     * @return the position in x axis
     */
-    float getPositionX() const;
+    float get_position_x() const;
 
     /**
     * Get the position in y axis.
     * @return the position in y axis
     */
-    float getPositionY() const;
+    float get_position_y() const;
 
     /**
     * Get the tile rect.
     * @return the tile rect
     */
-    sf::FloatRect getTileRect() const;
-    
+    sf::FloatRect get_tile_rect() const;
+
 };
 
 #endif

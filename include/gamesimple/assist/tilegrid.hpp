@@ -25,13 +25,13 @@ private:
 public:
     TileGrid();
 
-    TileGrid(int w, int h, int unitySize);
+    TileGrid(int w, int h, int unity_size);
 
     Unity* getUnity(int x, int y);
 
     void addTile(Tile tile);
 
-    std::vector<Unity> getUnitiesOnPosition(sf::Vector2f spriteUpperLeft) const;
+    std::vector<Unity> getUnitiesOnPosition(sf::Vector2f sprite_upper_left) const;
 
 };
 

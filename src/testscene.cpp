@@ -5,45 +5,45 @@ TestScene::~TestScene(){
 }
 
 void TestScene::start() {
-        timeHandlers.push_back(&character.getAnimationTimeHandler());
+        time_handlers.push_back(&character.get_animation_time_handler());
 
-        TextureLoader::setTextureFromFile(charTexture,
+        TextureLoader::set_texture_from_file(char_texture,
                                           std::string("images/linkEdit.png"),
                                           1200, 1040);
-        character = Character(charTexture,
+        character = Character(char_texture,
                               0, 0, 120, 130, 0,
                               1200, 520, 910, 20);
-        character.setSpriteScale(0.4, 0.4);
+        character.set_sprite_scale(0.4, 0.4);
 
-        TextureLoader::setTextureFromFile(bgTexture,
+        TextureLoader::set_texture_from_file(bg_texture,
                                           std::string("images/7536921_orig.png"),
                                           1000, 750);
-        bg = SpritedEntity(bgTexture, 0, 0, 1000, 750);
+        bg = SpritedEntity(bg_texture, 0, 0, 1000, 750);
 
-        character.setSpritePosition(sf::Vector2f(0, 0));
-        bg.setSpritePosition(sf::Vector2f(0, 0));
+        character.set_sprite_position(sf::Vector2f(0, 0));
+        bg.set_sprite_position(sf::Vector2f(0, 0));
 }
 
 void TestScene::update() {
-        timedEvents();
-        character.controlEntity();
-        character.moveCharacter();
+        timed_events();
+        character.control_entity();
+        character.move_character();
 }
 
-void TestScene::handleEvent(sf::Event event, sf::RenderWindow &screen) {
+void TestScene::handle_event(sf::Event event, sf::RenderWindow &screen) {
         switch (event.type) {
         case sf::Event::KeyReleased:
                 if(event.key.code == sf::Keyboard::Return)
-                        changeScene(new SecondScene(sceneManager));
+                        change_scene(new SecondScene(scene_manager));
         }
 }
 
-void TestScene::drawEntities(sf::RenderWindow &window) {
-        window.draw(bg.getSprite());
-        window.draw(character.getSprite());
+void TestScene::draw_entities(sf::RenderWindow &window) {
+        window.draw(bg.get_sprite());
+        window.draw(character.get_sprite());
 }
 
-void TestScene::timedEvents() {
-        while (character.getAnimationTimeHandler().timeToUpdate())
+void TestScene::timed_events() {
+        while (character.get_animation_time_handler().time_to_update())
                 character.animate();
 }

@@ -37,8 +37,8 @@ class FileReader {
 public:
     // Defines how the file reader will read the file and how the
     // information will be used on entities.
-    virtual void readFile(std::string fileName) = 0;
-    
+    virtual void read_file(std::string filename) = 0;
+
 };
 
 #endif

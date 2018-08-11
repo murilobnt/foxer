@@ -3,11 +3,11 @@
 GenericGrid::GenericGrid(){
 }
 
-GenericGrid::GenericGrid(int w, int h, int unitySize) {
+GenericGrid::GenericGrid(int w, int h, int unity_size) {
 	this->w = w;
 	this->h = h;
-	this->unitySize = unitySize;
+	this->unity_size = unity_size;
 
-	xCells = ceil((float)w / unitySize);
-	yCells = ceil((float)h / unitySize);
+	x_cells = ceil((float)w / unity_size);
+	y_cells = ceil((float)h / unity_size);
 }

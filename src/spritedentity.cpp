@@ -1,61 +1,61 @@
 #include "gamesimple/components/spritedentity.hpp"
 
-SpritedEntity::SpritedEntity(sf::Texture const &texture, int spriteX,
-                             int spriteY, int spriteW, int spriteH)
-        : spriteDimensions(spriteW, spriteH) {
+SpritedEntity::SpritedEntity(sf::Texture const &texture, int sprite_x,
+                             int sprite_y, int sprite_w, int sprite_h)
+        : sprite_dimensions(sprite_w, sprite_h) {
         sprite.setTexture(texture);
-        configureSpriteRect(spriteX, spriteY, spriteW, spriteH);
+        configure_sprite_rect(sprite_x, sprite_y, sprite_w, sprite_h);
 }
 
 SpritedEntity::SpritedEntity() {
 }
 
-void SpritedEntity::configureSpriteRect(int x, int y, int w, int h) {
+void SpritedEntity::configure_sprite_rect(int x, int y, int w, int h) {
         sprite.setTextureRect(sf::IntRect(x, y, w, h));
 }
 
-void SpritedEntity::configureSpriteRect(int x, int y) {
-        int w = spriteDimensions.x;
-        int h = spriteDimensions.y;
+void SpritedEntity::configure_sprite_rect(int x, int y) {
+        int w = sprite_dimensions.x;
+        int h = sprite_dimensions.y;
         sprite.setTextureRect(sf::IntRect(x, y, w, h));
 }
 
-void SpritedEntity::setSpritePosition(sf::Vector2f position) {
+void SpritedEntity::set_sprite_position(sf::Vector2f position) {
         sprite.setPosition(position);
 }
 
-void SpritedEntity::setSpritePosition(float x, float y) {
+void SpritedEntity::set_sprite_position(float x, float y) {
         sprite.setPosition(x, y);
 }
 
-void SpritedEntity::setSpriteScale(float x, float y) {
+void SpritedEntity::set_sprite_scale(float x, float y) {
         sprite.setScale(x, y);
 }
 
-void SpritedEntity::moveSprite(sf::Vector2f movement) {
+void SpritedEntity::move_sprite(sf::Vector2f movement) {
         sprite.move(movement);
 }
 
-void SpritedEntity::setSpriteColor(sf::Color color) {
+void SpritedEntity::set_sprite_color(sf::Color color) {
         sprite.setColor(color);
 }
 
-sf::Sprite SpritedEntity::getSprite() const {
+sf::Sprite SpritedEntity::get_sprite() const {
         return sprite;
 }
 
-sf::Vector2f SpritedEntity::getSpritePosition() const {
-        return sprite.getPosition();
+sf::Vector2f SpritedEntity::get_sprite_position() const {
+        return sprite.get_position();
 }
 
-sf::Vector2i SpritedEntity::getSpriteDimensions() const {
-        return spriteDimensions;
+sf::Vector2i SpritedEntity::get_sprite_dimensions() const {
+        return sprite_dimensions;
 }
 
-sf::FloatRect SpritedEntity::getSpriteGlobalBounds() const {
+sf::FloatRect SpritedEntity::get_sprite_global_bounds() const {
         return sprite.getGlobalBounds();
 }
 
-sf::FloatRect SpritedEntity::getSpriteLocalBounds() const {
+sf::FloatRect SpritedEntity::get_sprite_local_bounds() const {
         return sprite.getLocalBounds();
 }

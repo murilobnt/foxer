@@ -1,24 +1,24 @@
 #include "gamesimple/assist/tile.hpp"
 
-Tile::Tile(sf::Vector2f tilePosition, float tileWidth, float tileHeight){
-        this->tilePosition = tilePosition;
+Tile::Tile(sf::Vector2f tile_position, float tile_width, float tile_height){
+        this->tile_position = tile_position;
 
-        tileRect = sf::FloatRect(tilePosition,
-                                 sf::Vector2f(tileWidth, tileHeight));
+        tile_rect = sf::FloatRect(tile_position,
+                                 sf::Vector2f(tile_width, tile_height));
 }
 
-sf::Vector2f Tile::getPosition() const {
-        return tilePosition;
+sf::Vector2f Tile::get_position() const {
+        return tile_position;
 }
 
-float Tile::getPositionX() const {
-        return tilePosition.x;
+float Tile::get_position_x() const {
+        return tile_position.x;
 }
 
-float Tile::getPositionY() const {
-        return tilePosition.y;
+float Tile::get_position_y() const {
+        return tile_position.y;
 }
 
-sf::FloatRect Tile::getTileRect() const {
-        return tileRect;
+sf::FloatRect Tile::get_tile_rect() const {
+        return tile_rect;
 }

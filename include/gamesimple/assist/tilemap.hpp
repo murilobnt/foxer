@@ -61,21 +61,21 @@ public:
     /**
     * Load the tileset.
     * @param tileset the path to tiles' texture
-    * @param tileSize the size of every tile
+    * @param tile_size the size of every tile
     * @param tiles the level represented on array
     * @param width the width of the level array
     * @param height the height of the level array
     * @param selected the selected tiles to be collided
     * @param lenght the lenght of selected array
     */
-    bool load(const std::string& tileset, sf::Vector2u tileSize, const int* tiles, unsigned int width, unsigned int height);
+    bool load(const std::string& tileset, sf::Vector2u tile_size, const int* tiles, unsigned int width, unsigned int height);
 
     /**
     * Get the size of the level.
     * @return the size of the level
     */
     sf::Vector2u getLevelSize() const;
-    
+
 };
 
 #endif

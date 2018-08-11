@@ -38,18 +38,18 @@ class TextureLoader {
 
 private:
     // Load the given texture by the path to its corresponding image.
-    static void loadTexture(sf::Texture &texture, std::string pathToImage);
+    static void load_texture(sf::Texture &texture, std::string path);
 
     // Create the given texture with the given width and height.
-    static void createTexture(sf::Texture &texture, int w, int h);
+    static void create_texture(sf::Texture &texture, int w, int h);
 
 public:
     // Set the given texture with the image from the given path, with
     // the given width and height, also defining if the texture is repeated
     // or if has bitmask.
-    static void setTextureFromFile(sf::Texture &textureToBeLoaded,
-                          std::string pathToImage, int w, int h,
-                          bool isRepeated = false, bool hasBitmask = false);
+    static void set_texture_from_file(sf::Texture &texture_to_be_loaded,
+                          std::string path, int w, int h,
+                          bool is_repeated = false, bool has_bitmask = false);
 
 };
 

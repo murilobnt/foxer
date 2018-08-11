@@ -36,14 +36,14 @@ private:
     sf::CircleShape shape;
 
 public:
-    SecondScene(SceneManager *sceneManager);
+    SecondScene(SceneManager *scene_manager);
     SecondScene();
 
     void start();
     void update();
 
-    void handleEvent(sf::Event event, sf::RenderWindow &screen);
-    void drawEntities(sf::RenderWindow &window);
+    void handle_event(sf::Event event, sf::RenderWindow &screen);
+    void draw_entities(sf::RenderWindow &window);
     
 };
 

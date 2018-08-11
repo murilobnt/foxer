@@ -16,7 +16,7 @@
 // copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// IMPLIED, INCLUDING BUT Nget_game_heightOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
@@ -52,7 +52,7 @@ private:
 	// to create a return to the last scene (such as a pause menu to
 	// return to the game), the information of the last scene can
 	// be stored here.
-	Scene* lastScene;
+	Scene* last_scene;
 
 public:
 	// Constructor.
@@ -64,34 +64,34 @@ public:
 	// Change the scene to a new scene. Since the scene has a
 	// pointer to the scene manager, the scene can change to another
 	// one inside itself by calling this method.
-	void changeScene(Scene* nextScene);
+	void change_scene(Scene* next_scene);
 
 	// Change the scene to a new scene and store the last scene,
 	// so it can be returned to the last one in the future.
-	void changeToRuntimeScene(Scene* nextScene);
+	void change_to_runtime_scene(Scene* next_scene);
 
 	// Delete the last scene.
-	void removeLastScene();
+	void remove_last_scene();
 
 	// The following methods will repass the call for the current scene.
 	void start();
 	void update();
-	void handleEvent(sf::Event event, sf::RenderWindow& screen);
-	void drawEntities(sf::RenderWindow& window);
-	void resetTimeHandlers(ClockHandler& clockHandler);
+	void handle_event(sf::Event event, sf::RenderWindow& screen);
+	void draw_entities(sf::RenderWindow& window);
+	void reset_time_handlers(ClockHandler& clock_handler);
 
 	// Setter for the scene. CAUTION: If you are changing from inside
-	// a scene, it is recommended that you use changeScene, from
+	// a scene, it is recommended that you use change_scene, from
 	// Scene, instead. Calling this method does not free the
 	// pointer of the last scene, making it garbage in the execution.
-	void setScene(Scene* scene);
+	void set_scene(Scene* scene);
 
 	// Setter for the last scene.
-	void setLastScene();
+	void set_last_scene();
 
 	// Getter for the scene.
-	Scene* getScene() const;
-	
+	Scene* get_scene() const;
+
 };
 
 #endif

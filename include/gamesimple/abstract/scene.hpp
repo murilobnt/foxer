@@ -48,14 +48,14 @@ protected:
     // The reference to the scene manager of the game. It is important for
     // the coder can change the current scene for another one inside the
     // scene.
-    SceneManager *sceneManager;
+    SceneManager *scene_manager;
 
     // The time handlers of the scene.
-    std::vector<TimeHandler*> timeHandlers;
+    std::vector<TimeHandler*> time_handlers;
 
 public:
     // Constructor. Sets the scene manager for the scene.
-    Scene(SceneManager *sceneManager);
+    Scene(SceneManager *scene_manager);
 
     // Empty constructor. Important for delaying the SceneManager
     // pointer initialization.
@@ -66,8 +66,8 @@ public:
     virtual ~Scene();
 
     // Resources loading, like creating textures and setting sprites position.
-    // If you're not implementing the method resetTimeHandlers in the child,
-    // I suggest to add every TimeHandler you may create to the vector timeHandlers
+    // If you're not implementing the method reset_time_handlers in the child,
+    // I suggest to add every TimeHandler you may create to the vector time_handlers
     // of this class.
     virtual void start() = 0;
 
@@ -78,31 +78,31 @@ public:
 
     // The method to implement this function will tell how an received event will
     // be handled. Using the EBControlableEntity class is strongly recommended.
-    virtual void handleEvent(sf::Event event, sf::RenderWindow &screen) = 0;
+    virtual void handle_event(sf::Event event, sf::RenderWindow &screen) = 0;
 
     // Drawing phase. The method to implement this will be responsible
     // to draw every drawable entity of the scene,
-    virtual void drawEntities(sf::RenderWindow &window) = 0;
+    virtual void draw_entities(sf::RenderWindow &window) = 0;
 
     // This shall be implemented to reset all the time handlers used
     // in the scene, so they can be sycronized to the clock of the
     // entire application.
-    virtual void resetTimeHandlers(ClockHandler &clockHandler);
+    virtual void reset_time_handlers(ClockHandler &clock_handler);
 
     // This will define what will happen once the user have exited
     // the scene.
-    virtual void onExit();
+    virtual void on_exit();
 
     // This will change the current scene for another one.
     // The new scene is passed through the parameter, and it is
     // set into the scene manager, and used by the game.
-    void changeScene(Scene *nextScene);
+    void change_scene(Scene *next_scene);
 
     // Will set a new scene manager to the scene.
-    void setSceneManager(SceneManager *sceneManager);
+    void set_scene_manager(SceneManager *scene_manager);
 
     // Returns the scene manager of the scene.
-    SceneManager *getSceneManager();
+    SceneManager *get_scene_manager();
 
 };
 

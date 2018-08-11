@@ -1,57 +1,57 @@
 #include "gamesimple/components/animatedentity.hpp"
 
-AnimatedEntity::AnimatedEntity(sf::Texture const &texture, int spriteX,
-                               int spriteY, int spriteW, int spriteH,
-                               int animationInitialXPosition,
-                               int animationFinalXPosition,
-                               int animationInitialYPosition,
-                               int animationFinalYPosition,
-                               float animationFramesPerSecond)
-        : SpritedEntity::SpritedEntity(texture, spriteX, spriteY,
-                                       spriteW, spriteH),
-        animationTimeHandler(sf::seconds(1.f / animationFramesPerSecond)) {
-        this->animationInitialXPosition = animationInitialXPosition;
-        this->animationFinalXPosition = animationFinalXPosition;
-        this->animationInitialYPosition = animationInitialYPosition;
-        this->animationFinalYPosition = animationFinalYPosition;
+AnimatedEntity::AnimatedEntity(sf::Texture const &texture, int sprite_x,
+                               int sprite_y, int sprite_w, int sprite_h,
+                               int animation_initial_x_position,
+                               int animation_final_x_position,
+                               int animation_initial_y_position,
+                               int animation_final_y_position,
+                               float animation_framerate)
+        : SpritedEntity::SpritedEntity(texture, sprite_x, sprite_y,
+                                       sprite_w, sprite_h),
+        animation_time_handler(sf::seconds(1.f / animation_framerate)) {
+        this->animation_initial_x_position = animation_initial_x_position;
+        this->animation_final_x_position = animation_final_x_position;
+        this->animation_initial_y_position = animation_initial_y_position;
+        this->animation_final_y_position = animation_final_y_position;
 
-        animationLoopState = 0;
+        animation_loop_state = 0;
 }
 
 AnimatedEntity::AnimatedEntity() {
 }
 
-int AnimatedEntity::getAnimationInitialXPosition() const {
-        return animationInitialXPosition;
+int AnimatedEntity::get_animation_initial_x_position() const {
+        return animation_initial_x_position;
 }
 
-int AnimatedEntity::getAnimationFinalXPosition() const {
-        return animationFinalXPosition;
+int AnimatedEntity::get_animation_final_x_position() const {
+        return animation_final_x_position;
 }
 
-int AnimatedEntity::getAnimationInitialYPosition() const {
-        return animationInitialYPosition;
+int AnimatedEntity::get_animation_initial_y_position() const {
+        return animation_initial_y_position;
 }
 
-int AnimatedEntity::getAnimationFinalYPosition() const {
-        return animationFinalYPosition;
+int AnimatedEntity::get_animation_final_y_position() const {
+        return animation_final_y_position;
 }
 
-TimeHandler &AnimatedEntity::getAnimationTimeHandler() {
-        return animationTimeHandler;
+TimeHandler &AnimatedEntity::get_animation_time_handler() {
+        return animation_time_handler;
 }
 
-void AnimatedEntity::applyAnimation(int row) {
-        sf::Vector2i spriteDimensions = getSpriteDimensions();
-        if (getAnimationInitialXPosition() +
-            animationLoopState * spriteDimensions.x >=
-            getAnimationFinalXPosition())
-                animationLoopState = 0;
+void AnimatedEntity::apply_animation(int row) {
+        sf::Vector2i sprite_dimensions = get_sprite_dimensions();
+        if (get_animation_initial_x_position() +
+            animation_loop_state * sprite_dimensions.x >=
+            get_animation_final_x_position())
+                animation_loop_state = 0;
 
-        configureSpriteRect(getAnimationInitialXPosition() +
-                            animationLoopState * spriteDimensions.x,
-                            getAnimationInitialYPosition() +
-                            row * spriteDimensions.y);
+        configure_sprite_rect(get_animation_initial_x_position() +
+                            animation_loop_state * sprite_dimensions.x,
+                            get_animation_initial_y_position() +
+                            row * sprite_dimensions.y);
 
-        ++animationLoopState;
+        ++animation_loop_state;
 }

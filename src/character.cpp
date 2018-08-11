@@ -1,126 +1,126 @@
 #include "instance/character.hpp"
 
-Character::Character(sf::Texture const &texture, int spriteX, int spriteY,
-                     int spriteW, int spriteH,
-                     int animationInitialXPosition, int animationFinalXPosition,
-                     int animationInitialYPosition, int animationFinalYPosition,
-                     int animationFramesPerSeconds)
+Character::Character(sf::Texture const &texture, int sprite_x, int sprite_y,
+                     int sprite_w, int sprite_h,
+                     int animation_initial_x_position, int animation_final_x_position,
+                     int animation_initial_y_position, int animation_final_y_position,
+                     int animation_framerates)
         : AnimatedEntity::AnimatedEntity(
-                texture, spriteX, spriteY, spriteW, spriteH,
-                animationInitialXPosition, animationFinalXPosition,
-                animationInitialYPosition, animationFinalYPosition,
-                animationFramesPerSeconds) {
+                texture, sprite_x, sprite_y, sprite_w, sprite_h,
+                animation_initial_x_position, animation_final_x_position,
+                animation_initial_y_position, animation_final_y_position,
+                animation_framerates) {
         movement = sf::Vector2f(0, 0);
-        lastFacingPosition = DOWN;
-        currentFacingPos = FREE;
-        movingUp = false;
-        movingDown = false;
-        movingLeft = false;
-        movingRight = false;
+        last_facing_pos = DOWN;
+        current_facing_pos = FREE;
+        moving_up = false;
+        moving_down = false;
+        moving_left = false;
+        moving_right = false;
 }
 
 Character::Character() : AnimatedEntity::AnimatedEntity() {
 }
 
-void Character::controlEntity() {
+void Character::control_entity() {
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-                movingLeft = true;
-                if(currentFacingPos == FREE)
-                        currentFacingPos = LEFT;
+                moving_left = true;
+                if(current_facing_pos == FREE)
+                        current_facing_pos = LEFT;
         }
         else {
-                movingLeft = false;
-                if(currentFacingPos == LEFT) {
-                        lastFacingPosition = currentFacingPos;
-                        currentFacingPos = FREE;
+                moving_left = false;
+                if(current_facing_pos == LEFT) {
+                        last_facing_pos = current_facing_pos;
+                        current_facing_pos = FREE;
                 }
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-                movingDown = true;
-                if(currentFacingPos == FREE)
-                        currentFacingPos = DOWN;
+                moving_down = true;
+                if(current_facing_pos == FREE)
+                        current_facing_pos = DOWN;
         }
         else {
-                movingDown = false;
-                if(currentFacingPos == DOWN) {
-                        lastFacingPosition = currentFacingPos;
-                        currentFacingPos = FREE;
+                moving_down = false;
+                if(current_facing_pos == DOWN) {
+                        last_facing_pos = current_facing_pos;
+                        current_facing_pos = FREE;
                 }
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-                movingRight = true;
-                if(currentFacingPos == FREE)
-                        currentFacingPos = RIGHT;
+                moving_right = true;
+                if(current_facing_pos == FREE)
+                        current_facing_pos = RIGHT;
         }
         else {
-                movingRight = false;
-                if(currentFacingPos == RIGHT) {
-                        lastFacingPosition = currentFacingPos;
-                        currentFacingPos = FREE;
+                moving_right = false;
+                if(current_facing_pos == RIGHT) {
+                        last_facing_pos = current_facing_pos;
+                        current_facing_pos = FREE;
                 }
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-                movingUp = true;
-                if(currentFacingPos == FREE)
-                        currentFacingPos = UP;
+                moving_up = true;
+                if(current_facing_pos == FREE)
+                        current_facing_pos = UP;
         }
         else {
-                movingUp = false;
-                if(currentFacingPos == UP) {
-                        lastFacingPosition = currentFacingPos;
-                        currentFacingPos = FREE;
+                moving_up = false;
+                if(current_facing_pos == UP) {
+                        last_facing_pos = current_facing_pos;
+                        current_facing_pos = FREE;
                 }
         }
 
-        if(movingLeft)
+        if(moving_left)
                 movement.x = -2;
-        if(movingDown)
+        if(moving_down)
                 movement.y = 2;
-        if(movingRight)
+        if(moving_right)
                 movement.x = 2;
-        if(movingUp)
+        if(moving_up)
                 movement.y = -2;
 }
 
-void Character::moveCharacter() {
-        moveSprite(movement);
+void Character::move_character() {
+        move_sprite(movement);
         movement.x = 0;
         movement.y = 0;
 }
 
 void Character::animate() {
         if (movement.x == 0.f && movement.y == 0.f) {
-                switch (lastFacingPosition) {
+                switch (last_facing_pos) {
                 case UP:
-                        configureSpriteRect(0, 260);
+                        configure_sprite_rect(0, 260);
                         break;
                 case DOWN:
-                        configureSpriteRect(0, 0);
+                        configure_sprite_rect(0, 0);
                         break;
                 case LEFT:
-                        configureSpriteRect(0, 130);
+                        configure_sprite_rect(0, 130);
                         break;
                 case RIGHT:
-                        configureSpriteRect(0, 390);
+                        configure_sprite_rect(0, 390);
                         break;
                 }
         }
 
-        switch (currentFacingPos) {
+        switch (current_facing_pos) {
         case LEFT:
-                applyAnimation(1);
+                apply_animation(1);
                 break;
         case RIGHT:
-                applyAnimation(3);
+                apply_animation(3);
                 break;
         case DOWN:
-                applyAnimation(0);
+                apply_animation(0);
                 break;
         case UP:
-                applyAnimation(2);
+                apply_animation(2);
                 break;
         }
 }

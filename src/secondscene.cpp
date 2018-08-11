@@ -1,7 +1,7 @@
 #include "instance/secondscene.hpp"
 
-SecondScene::SecondScene(SceneManager *sceneManager)
-        : Scene::Scene(sceneManager) {
+SecondScene::SecondScene(SceneManager *scene_manager)
+        : Scene::Scene(scene_manager) {
 }
 
 SecondScene::SecondScene() : Scene::Scene() {
@@ -15,18 +15,18 @@ void SecondScene::start() {
 void SecondScene::update() {
 }
 
-void SecondScene::handleEvent(sf::Event event, sf::RenderWindow &screen) {
+void SecondScene::handle_event(sf::Event event, sf::RenderWindow &screen) {
         switch (event.type) {
         case sf::Event::KeyReleased:
                 switch (event.key.code) {
                 case sf::Keyboard::Return:
-                        changeScene(new SecondScene(sceneManager));
+                        change_scene(new SecondScene(scene_manager));
                         break;
                 }
                 break;
         }
 }
 
-void SecondScene::drawEntities(sf::RenderWindow &window) {
+void SecondScene::draw_entities(sf::RenderWindow &window) {
         window.draw(shape);
 }

@@ -33,15 +33,15 @@ class GenericGrid{
 protected:
     int w;
     int h;
-    int unitySize;
+    int unity_size;
 
-    int xCells;
-    int yCells;
+    int x_cells;
+    int y_cells;
 
 public:
     GenericGrid();
-    GenericGrid(int w, int h, int unitySize);
-    
+    GenericGrid(int w, int h, int unity_size);
+
 };
 
 #endif

@@ -28,10 +28,10 @@
 
 // Represents an event based controlable entity. The entity will have to respond
 // to when a key of the keyboard is pressed or released, and the
-// method controlEntity will be responsible for doing so.
+// method control_entity will be responsible for doing so.
 // e.g.:
 //     class Car : public EBControlableEntity {
-//         void controlEntity(sf::Keyboard::Key key, bool release){
+//         void control_entity(sf::Keyboard::Key key, bool release){
 //             switch(key){
 //             case sf::Keyboard::Space:
 //                 this->accelerate();
@@ -50,8 +50,8 @@ public:
     // either pressed or released.
     // The bool pressed is true if the key is pressed and false if
     // the key is released.
-    virtual void controlEntity(sf::Keyboard::Key key, bool pressed) = 0;
-    
+    virtual void control_entity(sf::Keyboard::Key key, bool pressed) = 0;
+
 };
 
 #endif

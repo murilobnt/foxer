@@ -36,13 +36,13 @@
 class TestScene : public Scene {
 
 private:
-    sf::Texture charTexture;
-    sf::Texture bgTexture;
+    sf::Texture char_texture;
+    sf::Texture bg_texture;
 
     Character character;
     SpritedEntity bg;
 
-    void timedEvents();
+    void timed_events();
 
 public:
     ~TestScene();
@@ -50,8 +50,8 @@ public:
     void start();
     void update();
 
-    void handleEvent(sf::Event event, sf::RenderWindow &screen);
-    void drawEntities(sf::RenderWindow &window);
+    void handle_event(sf::Event event, sf::RenderWindow &screen);
+    void draw_entities(sf::RenderWindow &window);
 
 };
 

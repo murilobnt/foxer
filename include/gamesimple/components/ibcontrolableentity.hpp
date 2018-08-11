@@ -28,10 +28,10 @@
 
 // Represents an input based controlable entity. The entity will have to respond
 // to when a key of the keyboard is pressed or not, and the
-// method controlEntity will be responsible for doing so.
+// method control_entity will be responsible for doing so.
 // e.g.:
 //     class Car : public IBControlableEntity {
-//         void controlEntity(){
+//         void control_entity(){
 //           if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 //             this->moveUp();
 //         }
@@ -41,7 +41,7 @@ class IBControlableEntity {
 
 public:
     // Defines how the entity will respond to any input.
-    virtual void controlEntity() = 0;
+    virtual void control_entity() = 0;
     
 };
 
