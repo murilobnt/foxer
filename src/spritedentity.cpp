@@ -45,7 +45,7 @@ sf::Sprite SpritedEntity::get_sprite() const {
 }
 
 sf::Vector2f SpritedEntity::get_sprite_position() const {
-        return sprite.get_position();
+        return sprite.getPosition();
 }
 
 sf::Vector2i SpritedEntity::get_sprite_dimensions() const {

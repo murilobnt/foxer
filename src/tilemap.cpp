@@ -65,6 +65,6 @@ void TileMap::draw(sf::RenderTarget &target, sf::RenderStates states) const {
         target.draw(m_vertices, states);
 }
 
-sf::Vector2u TileMap::getLevelSize() const {
+sf::Vector2u TileMap::get_level_size() const {
         return sf::Vector2u(level_width, level_height);
 }

@@ -48,12 +48,12 @@ private:
     sf::Texture m_tileset;
 
     // The width of the level
-    unsigned int levelWidth;
+    unsigned int level_width;
 
     // The height of the level
-    unsigned int levelHeight;
+    unsigned int level_height;
 
-    TileGrid tileGrid;
+    TileGrid tile_grid;
 
 public:
     TileMap();
@@ -74,7 +74,7 @@ public:
     * Get the size of the level.
     * @return the size of the level
     */
-    sf::Vector2u getLevelSize() const;
+    sf::Vector2u get_level_size() const;
 
 };
 
