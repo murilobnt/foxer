@@ -1,4 +1,4 @@
-// File: character.hpp
+// File: test_scene.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,40 +23,41 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef TEST_SCENE_HPP
+#define TEST_SCENE_HPP
 
-#include <SFML/Graphics.hpp>
 #include <iostream>
 
-#include "gs2d_engine/abstract/animated_entity.hpp"
-#include "gs2d_engine/abstract/ib_controlable_entity.hpp"
+#include "gs2d_engine/abstract/scene.hpp"
 #include "gs2d_engine/components/sprited_entity.hpp"
-#include "gs2d_engine/concrete/time_handler.hpp"
-#include "instance/facing_position.hpp"
+#include "instance/character.hpp"
+#include "instance/second_scene.hpp"
+#include "gs2d_engine/concrete/scene_changer.hpp"
 
-class Character : public AnimatedEntity, public IBControlableEntity {
+class MenuExample;
+
+class TestScene : public Scene {
 
 private:
-    sf::Vector2f movement;
-    TimeHandler animation_time_handler;
+    sf::Texture char_texture;
+    sf::Texture bg_texture;
 
-    bool moving_up;
-    bool moving_down;
-    bool moving_left;
-    bool moving_right;
+    Character character;
+    SpritedEntity bg;
 
-    FacingPosition current_facing_pos;
-    FacingPosition last_facing_pos;
+    void timed_events();
 
 public:
-    Character(sf::Texture const &texture, int sprite_x, int sprite_y, int sprite_w,
-            int sprite_h, int animation_initial_x_position, int animation_final_x_position, int animation_initial_y_position,
-            int animation_final_y_position, int animation_framerates);
-    Character();
-    void control_entity();
-    void move_character();
-    void animate();
+    TestScene();
+    TestScene(SceneManager* scene_manager);
+
+    ~TestScene();
+
+    void start();
+    void update();
+
+    void handle_event(sf::Event event, sf::RenderWindow &screen);
+    void draw_entities(sf::RenderWindow &window);
 
 };
 

@@ -1,4 +1,4 @@
-// File: character.hpp
+// File: texture_loader.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,40 +23,33 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef TEXTURE_LOADER_HPP
+#define TEXTURE_LOADER_HPP
 
+// # External
 #include <SFML/Graphics.hpp>
-#include <iostream>
+#include <string>
 
-#include "gs2d_engine/abstract/animated_entity.hpp"
-#include "gs2d_engine/abstract/ib_controlable_entity.hpp"
-#include "gs2d_engine/components/sprited_entity.hpp"
-#include "gs2d_engine/concrete/time_handler.hpp"
-#include "instance/facing_position.hpp"
+#include "external/collision.h"
 
-class Character : public AnimatedEntity, public IBControlableEntity {
+// Texture loader is a tool to ease the loading of textures.
+
+class TextureLoader {
 
 private:
-    sf::Vector2f movement;
-    TimeHandler animation_time_handler;
+    // Load the given texture by the path to its corresponding image.
+    static void load_texture(sf::Texture &texture, std::string path);
 
-    bool moving_up;
-    bool moving_down;
-    bool moving_left;
-    bool moving_right;
-
-    FacingPosition current_facing_pos;
-    FacingPosition last_facing_pos;
+    // Create the given texture with the given width and height.
+    static void create_texture(sf::Texture &texture, int w, int h);
 
 public:
-    Character(sf::Texture const &texture, int sprite_x, int sprite_y, int sprite_w,
-            int sprite_h, int animation_initial_x_position, int animation_final_x_position, int animation_initial_y_position,
-            int animation_final_y_position, int animation_framerates);
-    Character();
-    void control_entity();
-    void move_character();
-    void animate();
+    // Set the given texture with the image from the given path, with
+    // the given width and height, also defining if the texture is repeated
+    // or if has bitmask.
+    static void set_texture_from_file(sf::Texture &texture_to_be_loaded,
+                          std::string path, int w, int h,
+                          bool is_repeated = false, bool has_bitmask = false);
 
 };
 

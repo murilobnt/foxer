@@ -1,4 +1,4 @@
-// File: character.hpp
+// File: simple_menu_scene.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,41 +23,43 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef SIMPLE_MENU_SCENE_HPP
+#define SIMPLE_MENU_SCENE_HPP
 
 #include <SFML/Graphics.hpp>
-#include <iostream>
+#include <vector>
+#include <string>
 
-#include "gs2d_engine/abstract/animated_entity.hpp"
-#include "gs2d_engine/abstract/ib_controlable_entity.hpp"
-#include "gs2d_engine/components/sprited_entity.hpp"
-#include "gs2d_engine/concrete/time_handler.hpp"
-#include "instance/facing_position.hpp"
+#include "gs2d_engine/ui_components/ui_button.hpp"
+#include "gs2d_engine/abstract/scene.hpp"
 
-class Character : public AnimatedEntity, public IBControlableEntity {
+class SimpleMenuScene : public Scene {
 
 private:
-    sf::Vector2f movement;
-    TimeHandler animation_time_handler;
+    sf::Texture background_texture;
+    sf::Sprite background;
+    std::vector<sf::Text> ui_text_vec;
 
-    bool moving_up;
-    bool moving_down;
-    bool moving_left;
-    bool moving_right;
-
-    FacingPosition current_facing_pos;
-    FacingPosition last_facing_pos;
+protected:
+	std::vector<UIButton> ui_button_vec;
+    std::vector<UIButton>::iterator ui_button_vec_it;
 
 public:
-    Character(sf::Texture const &texture, int sprite_x, int sprite_y, int sprite_w,
-            int sprite_h, int animation_initial_x_position, int animation_final_x_position, int animation_initial_y_position,
-            int animation_final_y_position, int animation_framerates);
-    Character();
-    void control_entity();
-    void move_character();
-    void animate();
+    SimpleMenuScene(std::string background_texture_path,
+                    int w, int h);
 
+	void start();
+    void update();
+    void handle_event(sf::Event event, sf::RenderWindow &screen);
+
+	void draw_entities(sf::RenderWindow& window);
+    void add_button(UIButton& button);
+    void add_text(sf::Text& text);
+
+    virtual void delayed_start() = 0;
+    virtual void delayed_handle_event(sf::Event event, sf::RenderWindow &screen) = 0;
+    virtual void delayed_update();
+    virtual void delayed_draw(sf::RenderWindow& window);
 };
 
 #endif

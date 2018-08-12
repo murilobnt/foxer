@@ -1,4 +1,4 @@
-// File: character.hpp
+// File: generic_grid.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,40 +23,24 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef GENERIC_GRID_HPP
+#define GENERIC_GRID_HPP
 
-#include <SFML/Graphics.hpp>
-#include <iostream>
+#include <cmath>
 
-#include "gs2d_engine/abstract/animated_entity.hpp"
-#include "gs2d_engine/abstract/ib_controlable_entity.hpp"
-#include "gs2d_engine/components/sprited_entity.hpp"
-#include "gs2d_engine/concrete/time_handler.hpp"
-#include "instance/facing_position.hpp"
+class GenericGrid{
 
-class Character : public AnimatedEntity, public IBControlableEntity {
+protected:
+    int w;
+    int h;
+    int unity_size;
 
-private:
-    sf::Vector2f movement;
-    TimeHandler animation_time_handler;
-
-    bool moving_up;
-    bool moving_down;
-    bool moving_left;
-    bool moving_right;
-
-    FacingPosition current_facing_pos;
-    FacingPosition last_facing_pos;
+    int x_cells;
+    int y_cells;
 
 public:
-    Character(sf::Texture const &texture, int sprite_x, int sprite_y, int sprite_w,
-            int sprite_h, int animation_initial_x_position, int animation_final_x_position, int animation_initial_y_position,
-            int animation_final_y_position, int animation_framerates);
-    Character();
-    void control_entity();
-    void move_character();
-    void animate();
+    GenericGrid();
+    GenericGrid(int w, int h, int unity_size);
 
 };
 

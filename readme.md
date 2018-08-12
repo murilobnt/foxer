@@ -1,37 +1,38 @@
 # GS2D Engine
 
-<center><img src="/images/lion_baby_png_photo.png" width=50%></center>
+<img src="/readme_assets/lion_baby_png_photo.png" width=15%>
 
 ## Introduction
 
-**GS2D Engine** aims to be a game engine on creating 2D games using SFML on the C++ programming language. Most of the classes here are reused from my another project, [vulnus](https://github.com/murilobnt/vulnus), which is a 2D platform game in development.
+**GS2D Engine** aims to be a game engine on creating 2D games using SFML on the C++ programming language. Most of the classes here are based on my another project, [vulnus](https://github.com/murilobnt/vulnus), which is a 2D platform game in development.
 
-This tool will help you on focus on the game. All you have to do is to create your own scenes and to set up the main method.
-
-## Features and TO DOs
-
--   [x] Controls game cycle.
--   [x] Eases the control of timed events.
--   [x] Has docummented classes.
--   [x] Provides abstract components related to game entities.
--   [x] Provides Scenes: A mold to create game flow.
--   [ ] Has default scenes (menu, save, loading, ...).
--   [ ] Has scene transitions.
--   [ ] Provides world components (camera, tilemap, events, ...).
+This tool will help you focus on the game. All you have to do is to create your own scenes and to set up the main method.
 
 ## Requires
 
-- GCC
-- SFML
+-   GCC compiler.
+-   SFML library.
 
-## Compiling and executing
+## Features and TO DOs
+
+| Feature              | % Functional | % Documented | Seen in execution | Tested |
+| -------------------- | ------------ | ------------ | ----------------- | ------ |
+| Game cycle control   | 100%         | 100%         | Yes               | **No** |
+| Timed events control | 95%          | 100%         | Yes               | **No** |
+| Scene handling       | 90%          | 100%         | Yes               | **No** |
+| Game entities        | 70%          | 100%         | Yes               | **No** |
+| Default scenes       | 30%          | 0%           | Yes               | **No** |
+| Game components      | 10%          | 0%           | No                | **No** |
+| Scene transitions    | 0%           | 0%           | No                | **No** |
+
+## Compile and execute
 
 At the root of the project:
 
-```
-make
-./bin/gamesimpleapp
-```
+    make
+    ./bin/gamesimpleapp
+
+If you only pulled the project, it will execute my sample application in *include/instance*.
 
 ## How it works
 
@@ -72,12 +73,12 @@ All the classes in gamesimple/components can be used to ease the development of 
 -   **AnimatedEntity** can be extended by an entity with an animated sprite;
 -   **FileReader** can be implemented by an entity that reads a file;
 -   **EBControlableEntity** can be implemented by an entity that can be controled by an event;
--   **IBControlableEntity** can be implemented by an entity that can be controled by an input;
+-   **ib_controlable_entity.hpp** can be implemented by an entity that can be controled by an input;
 -   **MouseControl** can be implemented by an entity that wants to handle clicks in the game window.
 
 ## Note
 
-All lion pictures used by this readme were downloaded from [http://pngimagesfree.com](http://pngimagesfree.com).
+All lion pictures used by this readme were downloaded from <http://pngimagesfree.com>.
 
 ## Development team
 

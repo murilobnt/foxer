@@ -1,4 +1,4 @@
-// File: character.hpp
+// File: time_handler.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,40 +23,41 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef TIME_HANDLER_HPP
+#define TIME_HANDLER_HPP
 
 #include <SFML/Graphics.hpp>
-#include <iostream>
 
-#include "gs2d_engine/abstract/animated_entity.hpp"
-#include "gs2d_engine/abstract/ib_controlable_entity.hpp"
-#include "gs2d_engine/components/sprited_entity.hpp"
-#include "gs2d_engine/concrete/time_handler.hpp"
-#include "instance/facing_position.hpp"
+// Time handler handles the time for an entity. It can be a member of
+// the entity (recommended) or of the scene containing the entity.
 
-class Character : public AnimatedEntity, public IBControlableEntity {
+class TimeHandler {
 
-private:
-    sf::Vector2f movement;
-    TimeHandler animation_time_handler;
+protected:
+    // The time since the last update.
+    sf::Time last_update;
 
-    bool moving_up;
-    bool moving_down;
-    bool moving_left;
-    bool moving_right;
-
-    FacingPosition current_facing_pos;
-    FacingPosition last_facing_pos;
+    // The framerate, in seconds.
+    sf::Time fps;
 
 public:
-    Character(sf::Texture const &texture, int sprite_x, int sprite_y, int sprite_w,
-            int sprite_h, int animation_initial_x_position, int animation_final_x_position, int animation_initial_y_position,
-            int animation_final_y_position, int animation_framerates);
-    Character();
-    void control_entity();
-    void move_character();
-    void animate();
+    // Constructor.
+    TimeHandler();
+
+    // Constructor. Sets the framerate.
+    TimeHandler(sf::Time fps);
+
+    // Restart the time handler with the elapsed_time. The elapsed time is
+    // known by the ClockHandler, and it is recommended that the time handler
+    // restarts any time handler
+    //(by clockhandler.restart_time_handler(TimeHandler*)).
+    void restart(sf::Time elapsed_time);
+
+    // Update the last update to the restart of the clock;
+    void reset_last_update();
+
+    void set_fps(sf::Time fps);
+    bool time_to_update();
 
 };
 

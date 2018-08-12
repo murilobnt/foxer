@@ -1,4 +1,4 @@
-// File: character.hpp
+// File: ib_controlable_entity.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,40 +23,25 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef IB_CONTROLABLE_ENTITY_HPP
+#define IB_CONTROLABLE_ENTITY_HPP
 
-#include <SFML/Graphics.hpp>
-#include <iostream>
+// Represents an input based controlable entity. The entity will have to respond
+// to when a key of the keyboard is pressed or not, and the
+// method control_entity will be responsible for doing so.
+// e.g.:
+//     class Car : public IBControlableEntity {
+//         void control_entity(){
+//           if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+//             this->moveUp();
+//         }
+//     }
 
-#include "gs2d_engine/abstract/animated_entity.hpp"
-#include "gs2d_engine/abstract/ib_controlable_entity.hpp"
-#include "gs2d_engine/components/sprited_entity.hpp"
-#include "gs2d_engine/concrete/time_handler.hpp"
-#include "instance/facing_position.hpp"
-
-class Character : public AnimatedEntity, public IBControlableEntity {
-
-private:
-    sf::Vector2f movement;
-    TimeHandler animation_time_handler;
-
-    bool moving_up;
-    bool moving_down;
-    bool moving_left;
-    bool moving_right;
-
-    FacingPosition current_facing_pos;
-    FacingPosition last_facing_pos;
+class IBControlableEntity{
 
 public:
-    Character(sf::Texture const &texture, int sprite_x, int sprite_y, int sprite_w,
-            int sprite_h, int animation_initial_x_position, int animation_final_x_position, int animation_initial_y_position,
-            int animation_final_y_position, int animation_framerates);
-    Character();
-    void control_entity();
-    void move_character();
-    void animate();
+    // Defines how the entity will respond to any input.
+    virtual void control_entity() = 0;
 
 };
 

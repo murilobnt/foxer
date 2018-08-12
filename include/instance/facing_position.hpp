@@ -1,4 +1,4 @@
-// File: character.hpp
+// File: facing_position.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,41 +23,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef FACING_POSITION_HPP
+#define FACING_POSITION_HPP
 
-#include <SFML/Graphics.hpp>
-#include <iostream>
-
-#include "gs2d_engine/abstract/animated_entity.hpp"
-#include "gs2d_engine/abstract/ib_controlable_entity.hpp"
-#include "gs2d_engine/components/sprited_entity.hpp"
-#include "gs2d_engine/concrete/time_handler.hpp"
-#include "instance/facing_position.hpp"
-
-class Character : public AnimatedEntity, public IBControlableEntity {
-
-private:
-    sf::Vector2f movement;
-    TimeHandler animation_time_handler;
-
-    bool moving_up;
-    bool moving_down;
-    bool moving_left;
-    bool moving_right;
-
-    FacingPosition current_facing_pos;
-    FacingPosition last_facing_pos;
-
-public:
-    Character(sf::Texture const &texture, int sprite_x, int sprite_y, int sprite_w,
-            int sprite_h, int animation_initial_x_position, int animation_final_x_position, int animation_initial_y_position,
-            int animation_final_y_position, int animation_framerates);
-    Character();
-    void control_entity();
-    void move_character();
-    void animate();
-
-};
+enum FacingPosition { UP, LEFT, DOWN, RIGHT, FREE };
 
 #endif

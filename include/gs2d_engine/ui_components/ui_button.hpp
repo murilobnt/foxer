@@ -1,4 +1,4 @@
-// File: character.hpp
+// File: ui_button.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,41 +23,33 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef UI_BUTTON_HPP
+#define UI_BUTTON_HPP
 
 #include <SFML/Graphics.hpp>
-#include <iostream>
+#include <string>
 
-#include "gs2d_engine/abstract/animated_entity.hpp"
-#include "gs2d_engine/abstract/ib_controlable_entity.hpp"
 #include "gs2d_engine/components/sprited_entity.hpp"
-#include "gs2d_engine/concrete/time_handler.hpp"
-#include "instance/facing_position.hpp"
 
-class Character : public AnimatedEntity, public IBControlableEntity {
+class UIButton : public SpritedEntity {
 
 private:
-    sf::Vector2f movement;
-    TimeHandler animation_time_handler;
-
-    bool moving_up;
-    bool moving_down;
-    bool moving_left;
-    bool moving_right;
-
-    FacingPosition current_facing_pos;
-    FacingPosition last_facing_pos;
+    int id;
+    bool focused;
+    sf::Text button_text;
 
 public:
-    Character(sf::Texture const &texture, int sprite_x, int sprite_y, int sprite_w,
-            int sprite_h, int animation_initial_x_position, int animation_final_x_position, int animation_initial_y_position,
-            int animation_final_y_position, int animation_framerates);
-    Character();
-    void control_entity();
-    void move_character();
-    void animate();
-
+    UIButton(int id, float x, float y,
+             sf::Texture const& texture,
+             int spriteX, int spriteY,
+             int spriteW, int spriteH,
+             sf::Font& font, std::string text_content);
+    UIButton();
+    void set_focused(bool focused);
+    bool is_focused();
+    sf::Text& get_button_text();
+    int get_id();
+    void init_text(sf::Font& font, std::string text_content);
 };
 
 #endif

@@ -1,4 +1,4 @@
-#include "gamesimple/concrete/game.hpp"
+#include "gs2d_engine/concrete/game.hpp"
 
 Game::Game(int game_width, int game_height,
            std::string game_title, float framerate)

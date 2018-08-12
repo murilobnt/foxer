@@ -1,4 +1,4 @@
-// File: character.hpp
+// File: tile_grid.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,40 +23,40 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef TILE_GRID_HPP
+#define TILE_GRID_HPP
 
-#include <SFML/Graphics.hpp>
-#include <iostream>
+// # External
+#include <vector>
+#include <cmath>
 
-#include "gs2d_engine/abstract/animated_entity.hpp"
-#include "gs2d_engine/abstract/ib_controlable_entity.hpp"
-#include "gs2d_engine/components/sprited_entity.hpp"
-#include "gs2d_engine/concrete/time_handler.hpp"
-#include "instance/facing_position.hpp"
+// # Internal
+#include "gs2d_engine/assist/tile.hpp"
+#include "gs2d_engine/assist/generic_grid.hpp"
 
-class Character : public AnimatedEntity, public IBControlableEntity {
-
-private:
-    sf::Vector2f movement;
-    TimeHandler animation_time_handler;
-
-    bool moving_up;
-    bool moving_down;
-    bool moving_left;
-    bool moving_right;
-
-    FacingPosition current_facing_pos;
-    FacingPosition last_facing_pos;
+struct Unity {
 
 public:
-    Character(sf::Texture const &texture, int sprite_x, int sprite_y, int sprite_w,
-            int sprite_h, int animation_initial_x_position, int animation_final_x_position, int animation_initial_y_position,
-            int animation_final_y_position, int animation_framerates);
-    Character();
-    void control_entity();
-    void move_character();
-    void animate();
+    std::vector<Tile> tiles;
+
+};
+
+class TileGrid : public GenericGrid {
+
+private:
+    std::vector<Unity> unities;
+    sf::Vector2i checkBoundaries(sf::Vector2i before) const;
+
+public:
+    TileGrid();
+
+    TileGrid(int w, int h, int unity_size);
+
+    Unity* getUnity(int x, int y);
+
+    void addTile(Tile tile);
+
+    std::vector<Unity> getUnitiesOnPosition(sf::Vector2f sprite_upper_left) const;
 
 };
 

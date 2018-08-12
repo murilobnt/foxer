@@ -1,4 +1,4 @@
-// File: character.hpp
+// File: clock_handler.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,40 +23,33 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef CLOCK_HANDLER_HPP
+#define CLOCK_HANDLER_HPP
 
-#include <SFML/Graphics.hpp>
-#include <iostream>
-
-#include "gs2d_engine/abstract/animated_entity.hpp"
-#include "gs2d_engine/abstract/ib_controlable_entity.hpp"
-#include "gs2d_engine/components/sprited_entity.hpp"
 #include "gs2d_engine/concrete/time_handler.hpp"
-#include "instance/facing_position.hpp"
 
-class Character : public AnimatedEntity, public IBControlableEntity {
+// Handles the clock of the game. It serves to make the game only
+// have a single clock, which every entity can use to syncronize their
+// time handlers.
+
+class ClockHandler {
 
 private:
-    sf::Vector2f movement;
-    TimeHandler animation_time_handler;
+    // The SFML clock.
+    sf::Clock clock;
 
-    bool moving_up;
-    bool moving_down;
-    bool moving_left;
-    bool moving_right;
-
-    FacingPosition current_facing_pos;
-    FacingPosition last_facing_pos;
+    // The elapsed time of the clock.
+    sf::Time elapsed_time;
 
 public:
-    Character(sf::Texture const &texture, int sprite_x, int sprite_y, int sprite_w,
-            int sprite_h, int animation_initial_x_position, int animation_final_x_position, int animation_initial_y_position,
-            int animation_final_y_position, int animation_framerates);
-    Character();
-    void control_entity();
-    void move_character();
-    void animate();
+    // Constructor.
+    ClockHandler();
+
+    // Restart the clock and register the elapsed time.
+    void restart_clock();
+
+    // Restart the given time handler to the clock's elapsed time.
+    void restart_time_handler(TimeHandler *time_handler);
 
 };
 

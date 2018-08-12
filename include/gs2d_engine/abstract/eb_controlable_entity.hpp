@@ -1,4 +1,4 @@
-// File: character.hpp
+// File: eb_controlable_entity.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,40 +23,34 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef EB_CONTROLABLE_ENTITY_HPP
+#define EB_CONTROLABLE_ENTITY_HPP
 
-#include <SFML/Graphics.hpp>
-#include <iostream>
+// Represents an event based controlable entity. The entity will have to respond
+// to when a key of the keyboard is pressed or released, and the
+// method control_entity will be responsible for doing so.
+// e.g.:
+//     class Car : public EBControlableEntity {
+//         void control_entity(sf::Keyboard::Key key, bool release){
+//             switch(key){
+//             case sf::Keyboard::Space:
+//                 this->accelerate();
+//                 break;
+//             case sf::Keyboard::LShift:
+//                 this->brake();
+//                 break;
+//             }
+//         }
+//     }
 
-#include "gs2d_engine/abstract/animated_entity.hpp"
-#include "gs2d_engine/abstract/ib_controlable_entity.hpp"
-#include "gs2d_engine/components/sprited_entity.hpp"
-#include "gs2d_engine/concrete/time_handler.hpp"
-#include "instance/facing_position.hpp"
-
-class Character : public AnimatedEntity, public IBControlableEntity {
-
-private:
-    sf::Vector2f movement;
-    TimeHandler animation_time_handler;
-
-    bool moving_up;
-    bool moving_down;
-    bool moving_left;
-    bool moving_right;
-
-    FacingPosition current_facing_pos;
-    FacingPosition last_facing_pos;
+class EBControlableEntity {
 
 public:
-    Character(sf::Texture const &texture, int sprite_x, int sprite_y, int sprite_w,
-            int sprite_h, int animation_initial_x_position, int animation_final_x_position, int animation_initial_y_position,
-            int animation_final_y_position, int animation_framerates);
-    Character();
-    void control_entity();
-    void move_character();
-    void animate();
+    // Defines how the entity will respond to the given key when it is
+    // either pressed or released.
+    // The bool pressed is true if the key is pressed and false if
+    // the key is released.
+    virtual void control_entity(sf::Keyboard::Key key, bool pressed) = 0;
 
 };
 

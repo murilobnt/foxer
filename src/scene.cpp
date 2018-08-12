@@ -1,4 +1,4 @@
-#include "gamesimple/abstract/scene.hpp"
+#include "gs2d_engine/abstract/scene.hpp"
 
 Scene::Scene(SceneManager *scene_manager) {
         this->scene_manager = scene_manager;
