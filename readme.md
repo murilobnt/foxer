@@ -30,7 +30,7 @@ This tool will help you focus on the game. All you have to do is to create your 
 At the root of the project:
 
     make
-    ./bin/gamesimpleapp
+    ./bin/gs2d_app
 
 If you only pulled the project, it will execute my sample application in *include/instance*.
 

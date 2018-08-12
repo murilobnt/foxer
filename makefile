@@ -16,7 +16,7 @@ FLAGS =
 LANGUAGE = c++11
 
 ## The executable / O executável
-TARGET = gamesimpleapp
+TARGET = gs2d_app
 
 ## Headers' inclusion / A inclusão dos headers
 INCLUDES = -I ./include
