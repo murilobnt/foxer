@@ -1,13 +1,6 @@
 #include "instance/second_scene.hpp"
 #include "instance/menu_example.hpp"
 
-SecondScene::SecondScene(SceneManager *scene_manager)
-        : Scene(scene_manager) {
-}
-
-SecondScene::SecondScene() : Scene::Scene() {
-}
-
 void SecondScene::start() {
         shape = sf::CircleShape(100.f);
         shape.setFillColor(sf::Color::Green);

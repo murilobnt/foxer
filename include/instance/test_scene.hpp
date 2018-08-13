@@ -29,10 +29,10 @@
 #include <iostream>
 
 #include "gs2d_engine/abstract/scene.hpp"
+#include "gs2d_engine/concrete/scene_changer.hpp"
 #include "gs2d_engine/components/sprited_entity.hpp"
 #include "instance/character.hpp"
 #include "instance/second_scene.hpp"
-#include "gs2d_engine/concrete/scene_changer.hpp"
 
 class MenuExample;
 
@@ -48,9 +48,6 @@ private:
     void timed_events();
 
 public:
-    TestScene();
-    TestScene(SceneManager* scene_manager);
-
     ~TestScene();
 
     void start();

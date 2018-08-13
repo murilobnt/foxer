@@ -26,10 +26,7 @@
 #ifndef SECOND_SCENE_HPP
 #define SECOND_SCENE_HPP
 
-#include <iostream>
-
 #include "gs2d_engine/abstract/scene.hpp"
-#include "gs2d_engine/concrete/scene_changer.hpp"
 
 class MenuExample;
 
@@ -39,9 +36,6 @@ private:
     sf::CircleShape shape;
 
 public:
-    SecondScene(SceneManager *scene_manager);
-    SecondScene();
-
     void start();
     void update();
 

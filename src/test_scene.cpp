@@ -1,12 +1,6 @@
 #include "instance/test_scene.hpp"
 #include "instance/menu_example.hpp"
 
-TestScene::TestScene(SceneManager* scene_manager) : Scene(scene_manager) {
-}
-
-TestScene::TestScene() : Scene() {
-}
-
 TestScene::~TestScene(){
         std::cout << "My destructor have been called. Yay!" << std::endl;
 }
