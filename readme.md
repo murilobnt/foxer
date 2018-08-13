@@ -10,13 +10,15 @@ This tool will help you focus on the game. All you have to do is to create your 
 
 ## Requires
 
--   GCC compiler.
--   SFML library.
+-   [GCC](http://gcc.gnu.org).
+-   [SFML](https://www.sfml-dev.org).
+-   [CxxTest](https://cxxtest.com).
 
 ## Features and TO DOs
 
 | Feature              | % Functional | % Documented | Seen in execution | Tested |
 | -------------------- | ------------ | ------------ | ----------------- | ------ |
+| Makefile             | 100%         | 100%         | Yes               | ------ |
 | Game cycle control   | 100%         | 100%         | Yes               | **No** |
 | Timed events control | 95%          | 100%         | Yes               | **No** |
 | Scene handling       | 90%          | 100%         | Yes               | **No** |
