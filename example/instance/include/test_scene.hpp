@@ -1,4 +1,4 @@
-// File: simple_menu_scene.hpp
+// File: test_scene.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,27 +23,39 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef MENU_EXAMPLE_HPP
-#define MENU_EXAMPLE_HPP
+#ifndef TEST_SCENE_HPP
+#define TEST_SCENE_HPP
 
-#include "gs2d_engine/abstract/default_scenes/simple_menu_scene.hpp"
+#include <iostream>
+
+#include "gs2d_engine/abstract/scene.hpp"
 #include "gs2d_engine/concrete/scene_changer.hpp"
-#include "instance/test_scene.hpp"
+#include "gs2d_engine/components/sprited_entity.hpp"
+#include "character.hpp"
+#include "second_scene.hpp"
 
-class MenuExample : public SimpleMenuScene {
+class MenuExample;
+
+class TestScene : public Scene {
 
 private:
-    sf::Texture button_background_texture;
-    sf::Font button_font;
+    sf::Texture char_texture;
+    sf::Texture bg_texture;
 
-    UIButton goto_test_scene;
-	UIButton goto_second_scene;
+    Character character;
+    SpritedEntity bg;
+
+    void timed_events();
 
 public:
-    MenuExample();
+    ~TestScene();
 
-    void delayed_start();
-    void delayed_handle_event(sf::Event event, sf::RenderWindow &screen);
+    void start();
+    void update();
+
+    void handle_event(sf::Event event, sf::RenderWindow &screen);
+    void draw_entities(sf::RenderWindow &window);
+
 };
 
 #endif

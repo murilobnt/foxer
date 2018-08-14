@@ -1,4 +1,4 @@
-// File: character.hpp
+// File: simple_menu_scene.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,41 +23,27 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef MENU_EXAMPLE_HPP
+#define MENU_EXAMPLE_HPP
 
-#include <SFML/Graphics.hpp>
-#include <iostream>
+#include "gs2d_engine/abstract/default_scenes/simple_menu_scene.hpp"
+#include "gs2d_engine/concrete/scene_changer.hpp"
+#include "test_scene.hpp"
 
-#include "gs2d_engine/abstract/animated_entity.hpp"
-#include "gs2d_engine/abstract/ib_controlable_entity.hpp"
-#include "gs2d_engine/components/sprited_entity.hpp"
-#include "gs2d_engine/concrete/time_handler.hpp"
-#include "instance/facing_position.hpp"
-
-class Character : public AnimatedEntity, public IBControlableEntity {
+class MenuExample : public SimpleMenuScene {
 
 private:
-    sf::Vector2f movement;
-    TimeHandler animation_time_handler;
+    sf::Texture button_background_texture;
+    sf::Font button_font;
 
-    bool moving_up;
-    bool moving_down;
-    bool moving_left;
-    bool moving_right;
-
-    FacingPosition current_facing_pos;
-    FacingPosition last_facing_pos;
+    UIButton goto_test_scene;
+	UIButton goto_second_scene;
 
 public:
-    Character(sf::Texture const &texture, int sprite_x, int sprite_y, int sprite_w,
-            int sprite_h, int animation_initial_x_position, int animation_final_x_position, int animation_initial_y_position,
-            int animation_final_y_position, int animation_framerates);
-    Character();
-    void control_entity();
-    void move_character();
-    void animate();
+    MenuExample();
 
+    void delayed_start();
+    void delayed_handle_event(sf::Event event, sf::RenderWindow &screen);
 };
 
 #endif

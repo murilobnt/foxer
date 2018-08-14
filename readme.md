@@ -18,23 +18,35 @@ This tool will help you focus on the game. All you have to do is to create your 
 
 | Feature              | % Functional | % Documented | Seen in execution | Tested |
 | -------------------- | ------------ | ------------ | ----------------- | ------ |
-| Makefile             | 100%         | 100%         | Yes               | ------ |
 | Game cycle control   | 100%         | 100%         | Yes               | **No** |
+| Makefile             | 100%         | 60%          | Yes               | ------ |
 | Timed events control | 95%          | 100%         | Yes               | **No** |
 | Scene handling       | 90%          | 100%         | Yes               | **No** |
 | Game entities        | 70%          | 100%         | Yes               | **No** |
 | Default scenes       | 30%          | 0%           | Yes               | **No** |
 | Game components      | 10%          | 0%           | No                | **No** |
 | Scene transitions    | 0%           | 0%           | No                | **No** |
+| Tutorial             | 0%           | ------       | ------            | ------ |
 
-## Compile and execute
+## Compile
 
-At the root of the project:
+### Engine
 
-    make
-    ./bin/gs2d_app
+To compile the engine to a static library,
+go to the root of the project:
 
-If you only pulled the project, it will execute my sample application in *include/instance*.
+```
+make
+```
+
+### Example
+
+To compile and execute the example, go to *example/instance*:
+
+```
+make
+./bin/example
+```
 
 ## How it works
 
@@ -67,9 +79,9 @@ A few methods can be overriden:
 -   **void reset_time_handlers(ClockHandler &clock_handler)** will be to reset all the time handlers of the scene. By default, the scene uses the vector of time handlers called time_handlers to reset them "automatically". You need to add the time handlers, to the vector, at the start method, for it to work.
 -   **void on_exit()** will be what the scene will do when changed. It does nothing by default.
 
-### The classes in gamesimple/components
+### Components
 
-All the classes in gamesimple/components can be used to ease the development of a game.
+Some components can be used to ease the development of a game.
 
 -   **SpritedEntity** can be extended by an entity that needs a sprite;
 -   **AnimatedEntity** can be extended by an entity with an animated sprite;

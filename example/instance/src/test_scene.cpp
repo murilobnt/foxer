@@ -1,5 +1,5 @@
-#include "instance/test_scene.hpp"
-#include "instance/menu_example.hpp"
+#include "test_scene.hpp"
+#include "menu_example.hpp"
 
 TestScene::~TestScene(){
         std::cout << "My destructor have been called. Yay!" << std::endl;
@@ -9,7 +9,7 @@ void TestScene::start() {
         time_handlers.push_back(&character.get_animation_time_handler());
 
         TextureLoader::set_texture_from_file(char_texture,
-                                             std::string("include/gs2d_engine/assets/link_edit.png"),
+                                             std::string("../../gs2d/assets/link_edit.png"),
                                              1200, 1040);
         character = Character(char_texture,
                               0, 0, 120, 130, 0,
@@ -17,7 +17,7 @@ void TestScene::start() {
         character.set_sprite_scale(0.4, 0.4);
 
         TextureLoader::set_texture_from_file(bg_texture,
-                                             std::string("include/gs2d_engine/assets/7536921_orig.png"),
+                                             std::string("../../gs2d/assets/7536921_orig.png"),
                                              1000, 750);
         bg = SpritedEntity(bg_texture, 0, 0, 1000, 750);
 

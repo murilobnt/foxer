@@ -1,4 +1,4 @@
-// File: test_scene.hpp
+// File: character.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,38 +23,40 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef TEST_SCENE_HPP
-#define TEST_SCENE_HPP
+#ifndef CHARACTER_HPP
+#define CHARACTER_HPP
 
+#include <SFML/Graphics.hpp>
 #include <iostream>
 
-#include "gs2d_engine/abstract/scene.hpp"
-#include "gs2d_engine/concrete/scene_changer.hpp"
+#include "gs2d_engine/abstract/animated_entity.hpp"
+#include "gs2d_engine/abstract/ib_controlable_entity.hpp"
 #include "gs2d_engine/components/sprited_entity.hpp"
-#include "instance/character.hpp"
-#include "instance/second_scene.hpp"
+#include "gs2d_engine/concrete/time_handler.hpp"
+#include "facing_position.hpp"
 
-class MenuExample;
-
-class TestScene : public Scene {
+class Character : public AnimatedEntity, public IBControlableEntity {
 
 private:
-    sf::Texture char_texture;
-    sf::Texture bg_texture;
+    sf::Vector2f movement;
+    TimeHandler animation_time_handler;
 
-    Character character;
-    SpritedEntity bg;
+    bool moving_up;
+    bool moving_down;
+    bool moving_left;
+    bool moving_right;
 
-    void timed_events();
+    FacingPosition current_facing_pos;
+    FacingPosition last_facing_pos;
 
 public:
-    ~TestScene();
-
-    void start();
-    void update();
-
-    void handle_event(sf::Event event, sf::RenderWindow &screen);
-    void draw_entities(sf::RenderWindow &window);
+    Character(sf::Texture const &texture, int sprite_x, int sprite_y, int sprite_w,
+            int sprite_h, int animation_initial_x_position, int animation_final_x_position, int animation_initial_y_position,
+            int animation_final_y_position, int animation_framerates);
+    Character();
+    void control_entity();
+    void move_character();
+    void animate();
 
 };
 

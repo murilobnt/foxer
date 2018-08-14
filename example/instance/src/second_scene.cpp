@@ -1,5 +1,5 @@
-#include "instance/second_scene.hpp"
-#include "instance/menu_example.hpp"
+#include "second_scene.hpp"
+#include "menu_example.hpp"
 
 void SecondScene::start() {
         shape = sf::CircleShape(100.f);

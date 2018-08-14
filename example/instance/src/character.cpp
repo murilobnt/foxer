@@ -1,4 +1,4 @@
-#include "instance/character.hpp"
+#include "character.hpp"
 
 Character::Character(sf::Texture const &texture, int sprite_x, int sprite_y,
                      int sprite_w, int sprite_h,
