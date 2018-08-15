@@ -24,9 +24,15 @@ You can click this section's name to download this project's ZIP. It will be the
 You can get this repository by pulling it with GIT. This part of the tutorial will require you to go to the terminal. If you need help with it, this  [article](https://www.digitalocean.com/community/tutorials/basic-linux-navigation-and-file-management) may be able to help you with it.
 
 -   Install GIT, if you don't have it installed.
-        sudo apt install git
+
+   ```
+   sudo apt install git
+   ```
 -   Then, clone the project in a directory you want it to be.
-        git clone https://github.com/murilobnt/gs2d_engine.git
+
+   ```
+   git clone https://github.com/murilobnt/gs2d_engine.git
+   ```
 
 And... donezo!
 
