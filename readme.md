@@ -1,6 +1,6 @@
 # GS2D Engine
 
-<img src="readme_assets/lion_baby_png_photo.png" width=15%>
+<p align="center"><img src="readme_assets/lion_baby_png_photo.png" width=30%></p>
 
 ## Introduction
 
@@ -13,6 +13,16 @@ This tool will help you focus on the game. All you have to do is to create your 
 -   [GCC](http://gcc.gnu.org).
 -   [SFML](https://www.sfml-dev.org).
 -   [CxxTest](https://cxxtest.com).
+
+## Tutorial
+
+You can check the tutorial by clicking one of the topics below (only available for linux at the moment).
+
+#### 1. [Where the heck do I start?](/tutorials/linux/start)
+#### 2. [Understanding some concepts](/tutorials/linux/understanding)
+#### 3. [The first step](/tutorials/linux/first_step)
+#### 4. [Coding the first scene](/tutorials/linux/first_scene)
+#### 5. [Executing the project](/tutorials/linux/executing)
 
 ## Features and TO DOs
 
