@@ -40,7 +40,7 @@ The last one is the icing on the cake. In other words...
    void on_exit();
    ```
 
-You don't have to implement the scene changing. You can call it by doing the following call, anywhere your code.
+You don't have to implement the scene changing. You can call it by doing the following call, anywhere in your code.
 
    ```
    change_scene(SceneChanger::create_scene(new <scene>, scene_manager));

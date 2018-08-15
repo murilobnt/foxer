@@ -70,6 +70,7 @@ This is the result.
 
 This is what the Makefile I've put into *your_project* is doing:
 
+   - It sets include paths to both gs2d/include and your_project/include.
    - It compiles your source code (under *src*) into objects.
    - It links these objects with the gs2d.a static library under *gs2d/lib* and create the executable.
 

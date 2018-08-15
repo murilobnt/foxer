@@ -56,8 +56,8 @@ something missing.
 ## The Game object: What is it missing?
 
 Since Game controls the game cycle, it can't be responsible for what the
-game itself (entities, event handling, entities drawing, etc.), we need something
-else to do those things. This something else is called **Scene**.
+game itself (entities, event handling, entities drawing, etc.) does, so we need
+something else to do those things. This something else is called **Scene**.
 
 That's what is missing to our main. We need a starting scene to our game.
 And that's what we'll be doing in the next tutorial.
