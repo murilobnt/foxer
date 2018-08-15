@@ -4,7 +4,8 @@ So, here we are. This is the first tutorial about the project itself.
 Finally, huh?
 
 In this tutorial, we'll be starting your project.
-You might be expectating this already, so there are some things we need to know first.
+You might be expectating this already, so there are some things we need to
+know first.
 
    * The Game object: What does it do?
    * The Game object: What is it missing?
@@ -34,12 +35,17 @@ int main(){
 }
 ```
 
-And it works pretty well! I've, basically, done an university project with only this.
-But... can it be more simple, so I can focus on the game? This' the thought what made me code this project.
+And it works pretty well! I've, basically, done an university project with only
+this. But... can it be more simple, so I can focus on the game?
+This' the thought what made me code this project.
 
-The game object is responsible for providing a structure to handle the game's processing cycle. Framerate, which is something you might take some time to apply to your project, is a simple argument you pass through its constructor.
+The game object is responsible for providing a structure to handle the game's
+ processing cycle. Framerate, which is something you might take some time to
+  apply to your project, is a simple argument you pass through its constructor.
 
-So, now, let's create our main. At the root of the project, go to *your_project/src* and create a file called **main.cpp**. This is what you'll put in there.
+So, now, let's create our main. At the root of the project, go to
+*your_project/src* and create a file called **main.cpp**. This is what you'll
+ put in there.
 
 ```
 #include "gs2d_engine/concrete/game.hpp"

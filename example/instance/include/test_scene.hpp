@@ -29,7 +29,6 @@
 #include <iostream>
 
 #include "gs2d_engine/abstract/scene.hpp"
-#include "gs2d_engine/concrete/scene_changer.hpp"
 #include "gs2d_engine/components/sprited_entity.hpp"
 #include "character.hpp"
 #include "second_scene.hpp"

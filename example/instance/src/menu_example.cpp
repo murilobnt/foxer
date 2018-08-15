@@ -36,14 +36,10 @@ void MenuExample::delayed_handle_event(sf::Event event, sf::RenderWindow &screen
                 case sf::Keyboard::Space:
                         switch((*ui_button_vec_it).get_id()) {
                         case 1:
-                                change_scene(SceneChanger::
-                                             create_scene(new TestScene(),
-                                                          scene_manager));
+                                change_scene(new TestScene());
                                 break;
                         case 2:
-                                change_scene(SceneChanger::
-                                             create_scene(new SecondScene(),
-                                                          scene_manager));
+                                change_scene(new SecondScene());
                                 break;
                         }
                         break;

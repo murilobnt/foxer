@@ -36,14 +36,10 @@ void TestScene::handle_event(sf::Event event, sf::RenderWindow &screen) {
         case sf::Event::KeyReleased:
             switch(event.key.code){
             case sf::Keyboard::P:
-                change_scene(SceneChanger::
-                             create_scene(new SecondScene(),
-                                          scene_manager));
+                change_scene(new SecondScene());
                 break;
             case sf::Keyboard::Escape:
-                change_scene(SceneChanger::
-                             create_scene(new MenuExample(),
-                                          scene_manager));
+                change_scene(new MenuExample());
                 break;
             }
         }

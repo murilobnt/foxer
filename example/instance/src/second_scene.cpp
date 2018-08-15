@@ -14,9 +14,7 @@ void SecondScene::handle_event(sf::Event event, sf::RenderWindow &screen) {
         case sf::Event::KeyReleased:
                 switch (event.key.code) {
                 case sf::Keyboard::Escape:
-                        change_scene(SceneChanger::
-                                     create_scene(new MenuExample(),
-                                                  scene_manager));
+                        change_scene(new MenuExample());
                         break;
                 }
                 break;
