@@ -1,6 +1,6 @@
 # GS2D Engine
 
-<img src="/readme_assets/lion_baby_png_photo.png" width=15%>
+<img src="http://pngimagesfree.com/ANIMALS/Lion/lion_baby_png_photo.png" width=15%>
 
 ## Introduction
 
