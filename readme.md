@@ -4,7 +4,7 @@
 
 ## Introduction
 
-**GS2D Engine** aims to be a game engine on creating 2D games using SFML on the C++ programming language. Most of the classes here are based on my another project, [vulnus](https://github.com/murilobnt/vulnus), which is a 2D platform game in development.
+**GS2D Engine** aims to be a game engine for creating 2D games using SFML on the C++ programming language. Most of the classes here are based on my another project, [vulnus](https://github.com/murilobnt/vulnus), which is a 2D platform game in development.
 
 This tool will help you focus on the game. All you have to do is to create your own scenes and to set up the main method.
 
