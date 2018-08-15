@@ -1,6 +1,6 @@
 # GS2D Engine
 
-<p align="center"><img src="readme_assets/lion_baby_png_photo.png" width=30%></p>
+<p align="center"><img src="readme_assets/lion_psd_image_free.png" width=30%></p>
 
 ## Introduction
 
