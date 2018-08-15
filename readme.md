@@ -33,10 +33,10 @@ You can check the tutorial by clicking one of the topics below (only available f
 | Timed events control | 95%          | 100%         | Yes               | **No** |
 | Scene handling       | 90%          | 100%         | Yes               | **No** |
 | Game entities        | 70%          | 100%         | Yes               | **No** |
+| Tutorial             | 40%          | ------       | ------            | ------ |
 | Default scenes       | 30%          | 0%           | Yes               | **No** |
 | Game components      | 10%          | 0%           | No                | **No** |
 | Scene transitions    | 0%           | 0%           | No                | **No** |
-| Tutorial             | 0%           | ------       | ------            | ------ |
 
 ## Compile
 
