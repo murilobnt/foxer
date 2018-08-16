@@ -22,15 +22,15 @@ You can check the tutorial by clicking one of the topics below (only available f
 
 <h3 align="center"> The base </h3>
 
-#### 1. [Where the heck do I start?](/tutorials/linux/start)
-#### 2. [Understanding some concepts](/tutorials/linux/understanding)
-#### 3. [The first step](/tutorials/linux/first_step)
-#### 4. [Coding the first scene](/tutorials/linux/first_scene)
-#### 5. [Executing the project](/tutorials/linux/executing)
+<h4 align="center"> 1. [Where the heck do I start?](/tutorials/linux/start) </h4>
+<h4 align="center"> 2. [Understanding some concepts](/tutorials/linux/understanding) </h4>
+<h4 align="center"> 3. [The first step](/tutorials/linux/first_step) </h4>
+<h4 align="center"> 4. [Coding the first scene](/tutorials/linux/first_scene) </h4>
+<h4 align="center"> 5. [Executing the project](/tutorials/linux/executing) </h4>
 
 <h3 align="center"> The deepening </h3>
 
-#### 6. [Time handling](/tutorials/linux/time)
+<h4 align="center"> 6. [Time handling](/tutorials/linux/time) </h4>
 
 ## Features and TO-DOs
 
