@@ -1,4 +1,4 @@
-# GS2D Engine
+<h1 align="center"> GS2D Engine </h1>
 
 <p align="center"><img src="readme_assets/lion_psd_image_free.png" width=30%></p>
 
@@ -7,6 +7,8 @@
 **GS2D Engine** aims to be a game engine for creating 2D games using SFML on the C++ programming language. Most of the classes here are based on my another project, [vulnus](https://github.com/murilobnt/vulnus), which is a 2D platform game in development.
 
 This tool will help you focus on the game. All you have to do is to create your own scenes and to set up the main method.
+
+> Note: All lion pictures used by this readme were downloaded from <http://pngimagesfree.com>.
 
 ## Requires
 
@@ -18,13 +20,19 @@ This tool will help you focus on the game. All you have to do is to create your 
 
 You can check the tutorial by clicking one of the topics below (only available for linux at the moment).
 
+<h3 align="center"> The base </h3>
+
 #### 1. [Where the heck do I start?](/tutorials/linux/start)
 #### 2. [Understanding some concepts](/tutorials/linux/understanding)
 #### 3. [The first step](/tutorials/linux/first_step)
 #### 4. [Coding the first scene](/tutorials/linux/first_scene)
 #### 5. [Executing the project](/tutorials/linux/executing)
 
-## Features and TO DOs
+<h3 align="center"> The deepening </h3>
+
+#### 6. [Time handling](/tutorials/linux/time)
+
+## Features and TO-DOs
 
 | Feature              | % Functional | % Documented | Seen in execution | Tested |
 | -------------------- | ------------ | ------------ | ----------------- | ------ |
@@ -57,10 +65,6 @@ To compile and execute the example, go to *example/instance*:
 make
 ./bin/example
 ```
-
-## Note
-
-All lion pictures used by this readme were downloaded from <http://pngimagesfree.com>.
 
 ## Development team
 

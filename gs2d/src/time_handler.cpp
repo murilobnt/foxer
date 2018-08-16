@@ -3,9 +3,9 @@
 TimeHandler::TimeHandler() {
 }
 
-TimeHandler::TimeHandler(sf::Time fps) {
+TimeHandler::TimeHandler(sf::Time update_rate) {
         last_update = sf::Time::Zero;
-        this->fps = fps;
+        this->update_rate = update_rate;
 }
 
 void TimeHandler::restart(sf::Time elapsed_time) {
@@ -16,16 +16,16 @@ void TimeHandler::reset_last_update() {
         last_update = sf::Time::Zero;
 }
 
-void TimeHandler::set_fps(sf::Time fps) {
-        last_update = sf::seconds(fps.asSeconds() /
-                                 (this->fps.asSeconds() /
+void TimeHandler::set_update_rate(sf::Time update_rate) {
+        last_update = sf::seconds(update_rate.asSeconds() /
+                                 (this->update_rate.asSeconds() /
                                   last_update.asSeconds()));
-        this->fps = fps;
+        this->update_rate = update_rate;
 }
 
 bool TimeHandler::time_to_update() {
-        if (last_update > fps) {
-                last_update -= fps;
+        if (last_update > update_rate) {
+                last_update -= update_rate;
                 return true;
         }
 

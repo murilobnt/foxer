@@ -92,6 +92,7 @@ void MyScene::start(){
    circle = sf::CircleShape(100.f);
    circle.setFillColor(sf::Color::Green);
 }
+
 void MyScene::update(){
    // we'll do nothing over here
 }
@@ -99,6 +100,7 @@ void MyScene::update(){
 void MyScene::handle_event(sf::Event event, sf::RenderWindow& screen){
    // also nothing over here
 }
+
 void MyScene::draw_entities(sf::RenderWindow& screen){
    screen.draw(circle);
 }

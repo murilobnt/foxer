@@ -11,8 +11,8 @@ Here are the concepts we will be exploring here.
 
 ## C++ programming
 
-It's desired that you know some things about C++ before using this engine. T
-hose are concepts it's important for you to know.
+It's desired that you know some things about C++ before using this engine.
+Those are concepts it's important for you to know.
 
    * C++ syntax. [HELP!](https://www.tutorialspoint.com/cplusplus/index.htm)
    * Data structures. [HELP!](https://stackoverflow.com/questions/22579697/what-is-a-stack-queue-vector-array-and-list)
@@ -24,7 +24,7 @@ If you know that, you might not run into much problem... I guess ^^.
 
 ## Object Oriented Programming (OOP)
 
-I love OOP. I can list a lot of advantages (and disadvantages) of it, but the 
+I love OOP. I can list a lot of advantages (and disadvantages) of it, but the
 main reason I love it is because your code is less likely to become one big
 crumpled piece of paper. If you like to organize stuff, then OOP is for you :D.
 

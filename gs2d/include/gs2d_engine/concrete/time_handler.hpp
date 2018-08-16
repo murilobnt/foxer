@@ -38,14 +38,14 @@ protected:
     sf::Time last_update;
 
     // The framerate, in seconds.
-    sf::Time fps;
+    sf::Time update_rate;
 
 public:
     // Constructor.
     TimeHandler();
 
     // Constructor. Sets the framerate.
-    TimeHandler(sf::Time fps);
+    TimeHandler(sf::Time update_rate);
 
     // Restart the time handler with the elapsed_time. The elapsed time is
     // known by the ClockHandler, and it is recommended that the time handler
@@ -56,7 +56,7 @@ public:
     // Update the last update to the restart of the clock;
     void reset_last_update();
 
-    void set_fps(sf::Time fps);
+    void set_update_rate(sf::Time update_rate);
     bool time_to_update();
 
 };

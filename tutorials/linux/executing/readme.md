@@ -78,9 +78,8 @@ This is what the Makefile I've put into *your_project* is doing:
    - It links these objects with the gs2d.a static library under *gs2d/lib* and
    create the executable.
 
-That's all I've got for now! Thanks for reading this tutorial. I'm going to
-write more in the future! :D
+# Where do we go from here?
 
-# Thank you!
+#### [Next: Time handling](/tutorials/linux/time)
 
 #### [Table of Contents / Home](https://github.com/murilobnt/gs2d_engine#tutorial)
