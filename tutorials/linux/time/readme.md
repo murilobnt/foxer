@@ -22,6 +22,10 @@ This is the content of this tutorial.
 
 ### What
 
+> Note: TimeHandler has an empty constructor, so you don't need to write a
+constructor for your scene only to create the instance of your TimeHandler.
+Do it in start() :D
+
 **TimeHandler** is an object you can use to control timed
 events of your scene. It works alongside the **ClockHandler**,
 which is a member of **Game**.
@@ -56,7 +60,7 @@ can happen:
 ## Adding TimeHandlers
 
 Every **Scene** has a vector of time handlers. The time handlers in this
-vector are, by the *reset_time_handlers(ClockHandler &clock_handler)* method,  
+vector are, by the *reset_time_handlers(ClockHandler &clock_handler)* method,
 already reseted by it. Knowing that, we have two options. Regardless of the
 option, we create a **TimeHandler** as a member function. Then:
 
