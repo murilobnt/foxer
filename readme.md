@@ -18,7 +18,7 @@ This tool will help you focus on the game. All you have to do is to create your 
 
 ## Tutorials
 
-Tutorials are available at the [wiki](https://github.com/murilobnt/gs2d_engine/wiki/).
+Tutorials are available at the [wiki](https://github.com/murilobnt/gs2d_engine/wiki#hands-on-tutorial).
 
 ## Features and TO-DOs
 
