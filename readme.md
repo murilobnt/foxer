@@ -16,38 +16,6 @@ This tool will help you focus on the game. All you have to do is to create your 
 -   [SFML](https://www.sfml-dev.org).
 -   [CxxTest](https://cxxtest.com).
 
-## Tutorial
-
-You can check the tutorial by clicking one of the topics below (only available for linux at the moment).
-
-<h3 align="center"> The base </h3>
-
-<h4 align="center">
-<a href="/tutorials/linux/start">1. Where the heck do I start? </a>
-</h4>
-
-<h4 align="center">
-<a href="/tutorials/linux/understanding">2. Understanding some concepts </a>
-</h4>
-
-<h4 align="center">
-<a href="/tutorials/linux/first_step"> 3. The first step </a>
-</h4>
-
-<h4 align="center">
-<a href="/tutorials/linux/first_scene"> 4. Coding the first scene </a>
-</h4>
-
-<h4 align="center">
-<a href="/tutorials/linux/executing"> 5. Executing the project </a>
-</h4>
-
-<h3 align="center"> The deepening </h3>
-
-<h4 align="center">
-<a href="/tutorials/linux/time"> 6. Time handling </a>
-</h4>
-
 ## Features and TO-DOs
 
 | Feature              | % Functional | % Documented | Seen in execution | Tested |
@@ -81,6 +49,10 @@ To compile and execute the example, go to *example/instance*:
 make
 ./bin/example
 ```
+
+## Tutorials
+
+Tutorials are available at the [wiki](https://github.com/murilobnt/gs2d_engine/wiki/).
 
 ## Development team
 
