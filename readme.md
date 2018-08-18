@@ -16,6 +16,10 @@ This tool will help you focus on the game. All you have to do is to create your 
 -   [SFML](https://www.sfml-dev.org).
 -   [CxxTest](https://cxxtest.com).
 
+## Tutorials
+
+Tutorials are available at the [wiki](https://github.com/murilobnt/gs2d_engine/wiki/).
+
 ## Features and TO-DOs
 
 | Feature              | % Functional | % Documented | Seen in execution | Tested |
@@ -49,10 +53,6 @@ To compile and execute the example, go to *example/instance*:
 make
 ./bin/example
 ```
-
-## Tutorials
-
-Tutorials are available at the [wiki](https://github.com/murilobnt/gs2d_engine/wiki/).
 
 ## Development team
 
