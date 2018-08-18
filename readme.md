@@ -16,9 +16,9 @@ This tool will help you focus on the game. All you have to do is to create your 
 -   [SFML](https://www.sfml-dev.org).
 -   [CxxTest](https://cxxtest.com).
 
-## Tutorials
+## Tutorials and documentation
 
-Tutorials are available at the [wiki](https://github.com/murilobnt/gs2d_engine/wiki#hands-on-tutorial).
+Tutorials and documentation are available at the [wiki](https://github.com/murilobnt/gs2d_engine/wiki).
 
 ## Features and TO-DOs
 
