@@ -50,92 +50,17 @@ You can check the tutorial by clicking one of the topics below (only available f
 
 ## Features and TO-DOs
 
-<center>
-
-<table align="center">
-
-<tr>
-<th>Feature</th>
-<th>% Functional</th>
-<th>% Documented</th>
-<th>Seen in execution</th>
-<th>Tested</th>
-</tr>
-
-<tr>
-<td>Game cycle control</td>
-<td>100%</td>
-<td>100%</td>
-<td>Yes</td>
-<td>**No**</td>
-</tr>
-
-<tr>
-<td>Makefile</td>
-<td>100%</td>
-<td>60%</td>
-<td>Yes</td>
-<td>------</td>
-</tr>
-
-<tr>
-<td>Timed events control</td>
-<td>95%</td>
-<td>100%</td>
-<td>Yes</td>
-<td>**No**</td>
-</tr>
-
-<tr>
-<td>Scene handling</td>
-<td>90%</td>
-<td>100%</td>
-<td>Yes</td>
-<td>**No**</td>
-</tr>
-
-<tr>
-<td>Game entities</td>
-<td>70%</td>
-<td>100%</td>
-<td>Yes</td>
-<td>**No**</td>
-</tr>
-
-<tr>
-<td>Tutorial</td>
-<td>50%</td>
-<td>------</td>
-<td>------</td>
-<td>------</td>
-</tr>
-
-<tr>
-<td>Default scenes</td>
-<td>30%</td>
-<td>0%</td>
-<td>Yes</td>
-<td>**No**</td>
-</tr>
-
-<tr>
-<td>Game components</td>
-<td>10%</td>
-<td>0%</td>
-<td>No</td>
-<td>**No**</td>
-</tr>
-
-<tr>
-<td>Scene transitions</td>
-<td>0%</td>
-<td>0%</td>
-<td>No</td>
-<td>**No**</td>
-</tr>
-
-</table>
-</center>
+| Feature              | % Functional | % Documented | Seen in execution | Tested |
+| -------------------- | ------------ | ------------ | ----------------- | ------ |
+| Game cycle control   | 100%         | 100%         | Yes               | **No** |
+| Makefile             | 100%         | 60%          | Yes               | ------ |
+| Timed events control | 95%          | 100%         | Yes               | **No** |
+| Scene handling       | 90%          | 100%         | Yes               | **No** |
+| Game entities        | 70%          | 100%         | Yes               | **No** |
+| Tutorial             | 50%          | ------       | ------            | ------ |
+| Default scenes       | 30%          | 0%           | Yes               | **No** |
+| Game components      | 10%          | 0%           | No                | **No** |
+| Scene transitions    | 0%           | 0%           | No                | **No** |
 
 ## Compile
 
