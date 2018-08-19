@@ -10,7 +10,7 @@ Game::Game(int game_width, int game_height,
 
 void Game::game_start(Scene *first_scene, bool vsync) {
         game_screen.setVerticalSyncEnabled(vsync);
-        first_scene->set_scene_manager(get_scene_manager());
+        first_scene->set_scene_manager(&scene_manager);
         scene_manager.set_scene(first_scene);
 
         while (game_screen.isOpen()) {
@@ -24,7 +24,7 @@ void Game::game_start(Scene *first_scene, bool vsync) {
 }
 
 void Game::handle_time_actions() {
-        while (game_frequency.time_to_update()) {
+        if (game_frequency.time_to_update()) {
                 process_events();
                 scene_manager.update();
         }
@@ -54,8 +54,4 @@ int Game::get_game_width() const {
 
 int Game::get_game_height() const {
         return game_height;
-}
-
-SceneManager *Game::get_scene_manager() {
-        return &scene_manager;
 }

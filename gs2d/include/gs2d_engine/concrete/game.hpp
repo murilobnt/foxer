@@ -60,16 +60,6 @@ private:
   // The scene manager to delegate actions for the scene.
   SceneManager scene_manager;
 
-public:
-  // Constructor. Requires the width and height of the game window and its
-  // title too.
-  Game(int game_width, int game_height, std::string game_title, float framerate = 60.f);
-
-  // Start the game. This begins the game cycle, verifying if the
-  // window is still open to do the operations. It requires the first
-  // scene to be played and the bool to use vsync.
-  void game_start(Scene* first_scene, bool vsync = true);
-
   // This will handle the actions inside the framerate.
   void handle_time_actions();
 
@@ -81,12 +71,19 @@ public:
   // scene.
   void clear_and_draw();
 
+public:
+  // Constructor. Requires the width and height of the game window and its
+  // title too.
+  Game(int game_width, int game_height, std::string game_title, float framerate = 60.f);
+
+  // Start the game. This begins the game cycle, verifying if the
+  // window is still open to do the operations. It requires the first
+  // scene to be played and the bool to use vsync.
+  void game_start(Scene* first_scene, bool vsync = true);
+
   // Getters for the game width and height.
   int get_game_width() const;
   int get_game_height() const;
-
-  // Getter for the scene manager.
-  SceneManager* get_scene_manager();
 
 };
 

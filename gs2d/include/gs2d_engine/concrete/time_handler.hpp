@@ -33,7 +33,7 @@
 
 class TimeHandler {
 
-protected:
+private:
     // The time since the last update.
     sf::Time last_update;
 

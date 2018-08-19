@@ -23,7 +23,3 @@ void Scene::change_scene(Scene *next_scene) {
 void Scene::set_scene_manager(SceneManager *scene_manager) {
         this->scene_manager = scene_manager;
 }
-
-SceneManager *Scene::get_scene_manager() {
-        return scene_manager;
-}

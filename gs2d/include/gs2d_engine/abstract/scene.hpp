@@ -44,12 +44,13 @@
 
 class Scene {
 
-protected:
+private:
     // The reference to the scene manager of the game. It is important for
     // the coder can change the current scene for another one inside the
     // scene.
     SceneManager *scene_manager;
 
+protected:
     // The time handlers of the scene.
     std::vector<TimeHandler*> time_handlers;
 
@@ -77,11 +78,6 @@ public:
     // to draw every drawable entity of the scene,
     virtual void draw_entities(sf::RenderWindow &window) = 0;
 
-    // This shall be implemented to reset all the time handlers used
-    // in the scene, so they can be sycronized to the clock of the
-    // entire application.
-    virtual void reset_time_handlers(ClockHandler &clock_handler);
-
     // This will define what will happen once the user have exited
     // the scene.
     virtual void on_exit();
@@ -91,11 +87,12 @@ public:
     // set into the scene manager, and used by the game.
     void change_scene(Scene *next_scene);
 
+    // Reset all the time handlers used in the scene, in time_handlers vector 
+    // so they can be sycronized to the clock of the entire application.
+    void reset_time_handlers(ClockHandler &clock_handler);
+
     // Will set a new scene manager to the scene.
     void set_scene_manager(SceneManager *scene_manager);
-
-    // Returns the scene manager of the scene.
-    SceneManager *get_scene_manager();
 
 };
 
