@@ -14,7 +14,7 @@ This tool will help you focus on the game. All you have to do is to create your 
 
 -   [GCC](http://gcc.gnu.org).
 -   [SFML](https://www.sfml-dev.org).
--   [CxxTest](https://cxxtest.com).
+-   [Google Test](https://github.com/google/googletest).
 
 ## Tutorials and documentation
 
