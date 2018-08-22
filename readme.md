@@ -1,6 +1,6 @@
 <h1 align="center"> GS2D Engine </h1>
 
-<p align="center"><img src="markdown_assets/readme_assets/lion_psd_image_free.png" width=30%></p>
+<p align="center"><img src="markdown_assets/markdown_assets/readme/lion_psd_image_free.png" width=30%></p>
 
 ## Introduction
 
