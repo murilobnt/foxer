@@ -31,6 +31,8 @@
 // Time handler handles the time for an entity. It can be a member of
 // the entity (recommended) or of the scene containing the entity.
 
+namespace gs {
+
 class TimeHandler {
 
 private:
@@ -65,5 +67,7 @@ public:
     bool time_to_update();
 
 };
+
+}
 
 #endif

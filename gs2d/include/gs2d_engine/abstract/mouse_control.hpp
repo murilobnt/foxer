@@ -36,6 +36,8 @@
 // particular to SFML, so it can define what will happen
 // when the mouse clicks some point.
 
+namespace gs {
+
 class MouseControl {
 
 public:
@@ -47,5 +49,7 @@ public:
                                     sf::Vector2f mouse_position) = 0;
 
 };
+
+}
 
 #endif

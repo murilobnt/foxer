@@ -34,6 +34,8 @@
 
 // Texture loader is a tool to ease the loading of textures.
 
+namespace gs {
+
 class TextureLoader {
 
 private:
@@ -52,5 +54,7 @@ public:
                           bool is_repeated = false, bool has_bitmask = false);
 
 };
+
+}
 
 #endif

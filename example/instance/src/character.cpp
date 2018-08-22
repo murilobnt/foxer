@@ -5,7 +5,7 @@ Character::Character(sf::Texture const &texture, int sprite_x, int sprite_y,
                      int animation_initial_x_position, int animation_final_x_position,
                      int animation_initial_y_position, int animation_final_y_position,
                      int animation_framerates)
-        : AnimatedEntity::AnimatedEntity(
+        : gs::AnimatedEntity(
                 texture, sprite_x, sprite_y, sprite_w, sprite_h,
                 animation_initial_x_position, animation_final_x_position,
                 animation_initial_y_position, animation_final_y_position,
@@ -19,7 +19,7 @@ Character::Character(sf::Texture const &texture, int sprite_x, int sprite_y,
         moving_right = false;
 }
 
-Character::Character() : AnimatedEntity::AnimatedEntity() {
+Character::Character() : gs::AnimatedEntity() {
 }
 
 void Character::control_entity() {

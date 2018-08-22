@@ -30,7 +30,7 @@
 
 class MenuExample;
 
-class SecondScene : public Scene {
+class SecondScene : public gs::Scene {
 
 private:
     sf::CircleShape shape;

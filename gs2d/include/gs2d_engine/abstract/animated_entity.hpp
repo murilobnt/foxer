@@ -39,6 +39,8 @@
 // It is important that the time handler be resetted in the
 // scene, so it can be sycronized with the game clock.
 
+namespace gs {
+
 class AnimatedEntity : public SpritedEntity {
 private:
   // The X position of the first frame of the animated sprite.
@@ -123,5 +125,7 @@ public:
   // animation will happen.
   virtual void animate() = 0;
 };
+
+}
 
 #endif

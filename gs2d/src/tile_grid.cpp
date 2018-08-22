@@ -1,5 +1,7 @@
 #include "gs2d_engine/assist/tile_grid.hpp"
 
+namespace gs {
+
 sf::Vector2i TileGrid::checkBoundaries(sf::Vector2i before) const {
         if (before.x < 0)
                 before.x = 0;
@@ -105,4 +107,6 @@ TileGrid::getUnitiesOnPosition(sf::Vector2f sprite_upper_left) const {
         }
 
         return adjacent;
+}
+
 }

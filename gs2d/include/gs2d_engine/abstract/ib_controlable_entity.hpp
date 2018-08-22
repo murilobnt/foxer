@@ -37,6 +37,8 @@
 //         }
 //     }
 
+namespace gs {
+
 class IBControlableEntity{
 
 public:
@@ -44,5 +46,7 @@ public:
     virtual void control_entity() = 0;
 
 };
+
+}
 
 #endif

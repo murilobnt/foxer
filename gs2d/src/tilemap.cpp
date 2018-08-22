@@ -1,5 +1,7 @@
 #include "gs2d_engine/assist/tilemap.hpp"
 
+namespace gs {
+
 TileMap::TileMap() {
 }
 
@@ -67,4 +69,6 @@ void TileMap::draw(sf::RenderTarget &target, sf::RenderStates states) const {
 
 sf::Vector2u TileMap::get_level_size() const {
         return sf::Vector2u(level_width, level_height);
+}
+
 }

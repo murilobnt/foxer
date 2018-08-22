@@ -29,14 +29,14 @@
 #include "gs2d_engine/abstract/default_scenes/simple_menu_scene.hpp"
 #include "test_scene.hpp"
 
-class MenuExample : public SimpleMenuScene {
+class MenuExample : public gs::SimpleMenuScene {
 
 private:
     sf::Texture button_background_texture;
     sf::Font button_font;
 
-    UIButton goto_test_scene;
-	UIButton goto_second_scene;
+    gs::UIButton goto_test_scene;
+	gs::UIButton goto_second_scene;
 
 public:
     MenuExample();

@@ -1,5 +1,7 @@
 #include "gs2d_engine/concrete/game.hpp"
 
+namespace gs {
+
 Game::Game(int game_width, int game_height,
            std::string game_title, float framerate)
         : game_screen(sf::VideoMode(game_width, game_height), game_title),
@@ -54,4 +56,6 @@ int Game::get_game_width() const {
 
 int Game::get_game_height() const {
         return game_height;
+}
+
 }

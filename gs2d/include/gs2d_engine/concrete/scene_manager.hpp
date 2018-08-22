@@ -32,6 +32,8 @@
 
 // Forward declaration of the scene.
 
+namespace gs {
+
 class Scene;
 
 // The scene manager will be responsible to delegate actions to
@@ -93,5 +95,7 @@ public:
 	Scene* get_scene() const;
 
 };
+
+}
 
 #endif

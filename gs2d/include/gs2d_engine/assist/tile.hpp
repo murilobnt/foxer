@@ -29,6 +29,8 @@
 // # External
 #include <SFML/Graphics.hpp>
 
+namespace gs {
+
 class Tile{
 private:
     // The position of the tile
@@ -69,5 +71,7 @@ public:
     sf::FloatRect get_tile_rect() const;
 
 };
+
+}
 
 #endif

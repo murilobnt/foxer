@@ -1,23 +1,23 @@
 #include "menu_example.hpp"
 
 MenuExample::MenuExample()
-        : SimpleMenuScene(std::string
+        : gs::SimpleMenuScene(std::string
                                   ("../../gs2d/assets/7579418_altered.png"),
                           800, 600){
 
 }
 
 void MenuExample::delayed_start() {
-        TextureLoader::set_texture_from_file(button_background_texture,
+        gs::TextureLoader::set_texture_from_file(button_background_texture,
                                              std::string("../../gs2d/assets/uibutton.png"),
                                              250, 35);
 
         button_font.loadFromFile("../../gs2d/assets/Muli/Muli-Bold.ttf");
 
-        goto_test_scene = UIButton(1, 0, 225, button_background_texture,
+        goto_test_scene = gs::UIButton(1, 0, 225, button_background_texture,
                                    0, 0, 250, 35,
                                    button_font, std::string("Test"));
-        goto_second_scene = UIButton(2, 0, 300, button_background_texture,
+        goto_second_scene = gs::UIButton(2, 0, 300, button_background_texture,
                                      0, 0, 250, 35,
                                      button_font, std::string("Second"));
 

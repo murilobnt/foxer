@@ -1,5 +1,7 @@
 #include "gs2d_engine/abstract/scene.hpp"
 
+namespace gs {
+
 Scene::~Scene() {
 }
 
@@ -22,4 +24,6 @@ void Scene::change_scene(Scene *next_scene) {
 
 void Scene::set_scene_manager(SceneManager *scene_manager) {
         this->scene_manager = scene_manager;
+}
+
 }

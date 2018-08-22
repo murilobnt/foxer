@@ -31,6 +31,8 @@
 
 #include "gs2d_engine/assist/tile_grid.hpp"
 
+namespace gs {
+
 class TileMap : public sf::Drawable, public sf::Transformable {
 
 private:
@@ -77,5 +79,7 @@ public:
     sf::Vector2u get_level_size() const;
 
 };
+
+}
 
 #endif

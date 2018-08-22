@@ -35,14 +35,14 @@
 
 class MenuExample;
 
-class TestScene : public Scene {
+class TestScene : public gs::Scene {
 
 private:
     sf::Texture char_texture;
     sf::Texture bg_texture;
 
     Character character;
-    SpritedEntity bg;
+    gs::SpritedEntity bg;
 
     void timed_events();
 

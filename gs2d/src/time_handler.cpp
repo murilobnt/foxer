@@ -1,5 +1,7 @@
 #include "gs2d_engine/concrete/time_handler.hpp"
 
+namespace gs {
+
 TimeHandler::TimeHandler() {
 }
 
@@ -30,4 +32,6 @@ bool TimeHandler::time_to_update() {
         }
 
         return false;
+}
+
 }

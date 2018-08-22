@@ -28,6 +28,8 @@
 
 #include <cmath>
 
+namespace gs {
+
 class GenericGrid{
 
 protected:
@@ -43,5 +45,7 @@ public:
     GenericGrid(int w, int h, int unity_size);
 
 };
+
+}
 
 #endif

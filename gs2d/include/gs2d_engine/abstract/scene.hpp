@@ -42,6 +42,8 @@
 // Every virtual method of this class is called by the game class
 // which uses a scene manager to do the calls
 
+namespace gs {
+
 class Scene {
 
 private:
@@ -95,5 +97,7 @@ public:
     void set_scene_manager(SceneManager *scene_manager);
 
 };
+
+}
 
 #endif

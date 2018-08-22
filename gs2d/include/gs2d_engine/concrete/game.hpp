@@ -41,6 +41,8 @@
 // delegating actions for its scene managers, which repasses it
 // to its current scene. It also keeps the game to the framerate.
 
+namespace gs {
+
 class Game {
 
 private:
@@ -86,5 +88,7 @@ public:
     int get_game_height() const;
 
 };
+
+}
 
 #endif

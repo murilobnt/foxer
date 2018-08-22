@@ -1,5 +1,7 @@
 #include "gs2d_engine/ui_components/ui_button.hpp"
 
+namespace gs {
+
 UIButton::UIButton(int id, float x, float y,
                    sf::Texture const& texture,
                    int spriteX, int spriteY,
@@ -40,4 +42,6 @@ void UIButton::init_text(sf::Font& font, std::string text_content){
         button_text.setString(text_content);
 
         button_text.setPosition(get_sprite_position().x + get_sprite_local_bounds().width/2 - button_text.getLocalBounds().width/2, get_sprite_position().y);
+}
+
 }

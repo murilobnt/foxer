@@ -32,6 +32,8 @@
 // have a single clock, which every entity can use to syncronize their
 // time handlers.
 
+namespace gs {
+
 class ClockHandler {
 
 private:
@@ -52,5 +54,7 @@ public:
     void restart_time_handler(TimeHandler *time_handler);
 
 };
+
+}
 
 #endif

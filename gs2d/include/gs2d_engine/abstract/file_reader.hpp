@@ -32,6 +32,8 @@
 // can be done over here, and the application of those informations
 // to make use of the data.
 
+namespace gs {
+
 class FileReader {
 
 public:
@@ -40,5 +42,7 @@ public:
     virtual void read_file(std::string filename) = 0;
 
 };
+
+}
 
 #endif

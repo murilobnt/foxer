@@ -31,6 +31,8 @@
 
 #include "gs2d_engine/components/sprited_entity.hpp"
 
+namespace gs {
+
 class UIButton : public SpritedEntity {
 
 private:
@@ -51,5 +53,7 @@ public:
     int get_id();
     void init_text(sf::Font& font, std::string text_content);
 };
+
+}
 
 #endif

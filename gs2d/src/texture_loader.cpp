@@ -1,5 +1,7 @@
 #include "gs2d_engine/concrete/texture_loader.hpp"
 
+namespace gs {
+
 void TextureLoader::load_texture(sf::Texture &texture,std::string path) {
         if (!texture.loadFromFile(path)) {
                 // Error. Still need to do something if this occurs.
@@ -24,4 +26,6 @@ void TextureLoader::set_texture_from_file(sf::Texture &texture_to_be_loaded,
 
         create_texture(texture_to_be_loaded, w, h);
         texture_to_be_loaded.setRepeated(is_repeated);
+}
+
 }

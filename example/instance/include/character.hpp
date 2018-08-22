@@ -35,11 +35,11 @@
 #include "gs2d_engine/concrete/time_handler.hpp"
 #include "facing_position.hpp"
 
-class Character : public AnimatedEntity, public IBControlableEntity {
+class Character : public gs::AnimatedEntity, public gs::IBControlableEntity {
 
 private:
     sf::Vector2f movement;
-    TimeHandler animation_time_handler;
+    gs::TimeHandler animation_time_handler;
 
     bool moving_up;
     bool moving_down;

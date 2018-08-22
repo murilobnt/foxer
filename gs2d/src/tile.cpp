@@ -1,5 +1,7 @@
 #include "gs2d_engine/assist/tile.hpp"
 
+namespace gs {
+
 Tile::Tile(sf::Vector2f tile_position, float tile_width, float tile_height){
         this->tile_position = tile_position;
 
@@ -21,4 +23,6 @@ float Tile::get_position_y() const {
 
 sf::FloatRect Tile::get_tile_rect() const {
         return tile_rect;
+}
+
 }

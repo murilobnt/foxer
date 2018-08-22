@@ -33,6 +33,8 @@
 // a sprite of an entity without having to get its member
 // sprite.
 
+namespace gs {
+
 class SpritedEntity {
 
 private:
@@ -91,5 +93,7 @@ public:
     sf::FloatRect get_sprite_local_bounds() const;
 
 };
+
+}
 
 #endif

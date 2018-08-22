@@ -43,6 +43,8 @@
 //         }
 //     }
 
+namespace gs {
+
 class EBControlableEntity {
 
 public:
@@ -53,5 +55,7 @@ public:
     virtual void control_entity(sf::Keyboard::Key key, bool pressed) = 0;
 
 };
+
+}
 
 #endif

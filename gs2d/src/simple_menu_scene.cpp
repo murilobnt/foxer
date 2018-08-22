@@ -1,5 +1,7 @@
 #include "gs2d_engine/abstract/default_scenes/simple_menu_scene.hpp"
 
+namespace gs {
+
 SimpleMenuScene::SimpleMenuScene(std::string background_texture_path,
                                  int w, int h)
 {
@@ -49,5 +51,7 @@ void SimpleMenuScene::delayed_update(){
 }
 
 void SimpleMenuScene::delayed_draw(sf::RenderWindow& window){
+
+}
 
 }

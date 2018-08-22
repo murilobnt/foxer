@@ -1,6 +1,8 @@
 #include <cxxtest/TestSuite.h>
 #include "../../include/gs2d_engine/concrete/time_handler.hpp"
 
+namespace gs {
+
 class TimeHandlerTest : public CxxTest::TestSuite,
         public TimeHandler {
 public:
@@ -10,3 +12,5 @@ void testAddition( void )
         TS_ASSERT_EQUALS( 1 + 1, 2 );
 }
 };
+
+}

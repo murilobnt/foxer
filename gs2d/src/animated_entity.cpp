@@ -1,5 +1,7 @@
 #include "gs2d_engine/abstract/animated_entity.hpp"
 
+namespace gs {
+
 AnimatedEntity::AnimatedEntity(sf::Texture const &texture, int sprite_x,
                                int sprite_y, int sprite_w, int sprite_h,
                                int animation_initial_x_position,
@@ -7,7 +9,7 @@ AnimatedEntity::AnimatedEntity(sf::Texture const &texture, int sprite_x,
                                int animation_initial_y_position,
                                int animation_final_y_position,
                                float animation_framerate)
-        : SpritedEntity::SpritedEntity(texture, sprite_x, sprite_y,
+        : SpritedEntity(texture, sprite_x, sprite_y,
                                        sprite_w, sprite_h),
         animation_time_handler(sf::seconds(1.f / animation_framerate)) {
         this->animation_initial_x_position = animation_initial_x_position;
@@ -54,4 +56,6 @@ void AnimatedEntity::apply_animation(int row) {
                             row * sprite_dimensions.y);
 
         ++animation_loop_state;
+}
+
 }

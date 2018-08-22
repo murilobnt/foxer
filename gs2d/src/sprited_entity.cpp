@@ -1,5 +1,7 @@
 #include "gs2d_engine/components/sprited_entity.hpp"
 
+namespace gs {
+
 SpritedEntity::SpritedEntity(sf::Texture const &texture, int sprite_x,
                              int sprite_y, int sprite_w, int sprite_h)
         : sprite_dimensions(sprite_w, sprite_h) {
@@ -58,4 +60,6 @@ sf::FloatRect SpritedEntity::get_sprite_global_bounds() const {
 
 sf::FloatRect SpritedEntity::get_sprite_local_bounds() const {
         return sprite.getLocalBounds();
+}
+
 }

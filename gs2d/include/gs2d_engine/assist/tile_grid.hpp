@@ -37,9 +37,11 @@
 struct Unity {
 
 public:
-    std::vector<Tile> tiles;
+    std::vector<gs::Tile> tiles;
 
 };
+
+namespace gs {
 
 class TileGrid : public GenericGrid {
 
@@ -59,5 +61,7 @@ public:
     std::vector<Unity> getUnitiesOnPosition(sf::Vector2f sprite_upper_left) const;
 
 };
+
+}
 
 #endif
