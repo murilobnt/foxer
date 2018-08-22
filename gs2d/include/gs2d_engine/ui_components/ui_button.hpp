@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef UI_BUTTON_HPP
-#define UI_BUTTON_HPP
+#ifndef GS_UI_BUTTON_HPP
+#define GS_UI_BUTTON_HPP
 
 #include <SFML/Graphics.hpp>
 #include <string>

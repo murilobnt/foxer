@@ -28,8 +28,7 @@
 
 #include <iostream>
 
-#include "gs2d_engine/abstract/scene.hpp"
-#include "gs2d_engine/components/sprited_entity.hpp"
+#include "gs2d_engine/scene.hpp"
 #include "character.hpp"
 #include "second_scene.hpp"
 

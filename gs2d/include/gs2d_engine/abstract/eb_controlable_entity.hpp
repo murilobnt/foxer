@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef EB_CONTROLABLE_ENTITY_HPP
-#define EB_CONTROLABLE_ENTITY_HPP
+#ifndef GS_EB_CONTROLABLE_ENTITY_HPP
+#define GS_EB_CONTROLABLE_ENTITY_HPP
 
 // Represents an event based controlable entity. The entity will have to respond
 // to when a key of the keyboard is pressed or released, and the

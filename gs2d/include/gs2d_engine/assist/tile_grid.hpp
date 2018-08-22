@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef TILE_GRID_HPP
-#define TILE_GRID_HPP
+#ifndef GS_TILE_GRID_HPP
+#define GS_TILE_GRID_HPP
 
 // # External
 #include <vector>

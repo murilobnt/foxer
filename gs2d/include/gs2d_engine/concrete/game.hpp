@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef GAME_HPP
-#define GAME_HPP
+#ifndef GS_GAME_HPP
+#define GS_GAME_HPP
 
 // # External
 #include <SFML/Audio.hpp>

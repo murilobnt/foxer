@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef TILEMAP_HPP
-#define TILEMAP_HPP
+#ifndef GS_TILEMAP_HPP
+#define GS_TILEMAP_HPP
 
 // # External
 #include <SFML/Graphics.hpp>

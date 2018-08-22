@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef TILE_HPP
-#define TILE_HPP
+#ifndef GS_TILE_HPP
+#define GS_TILE_HPP
 
 // # External
 #include <SFML/Graphics.hpp>

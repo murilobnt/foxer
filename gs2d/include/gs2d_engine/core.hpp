@@ -1,4 +1,4 @@
-// File: clock_handler.hpp
+// File: core.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,38 +23,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef GS_CLOCK_HANDLER_HPP
-#define GS_CLOCK_HANDLER_HPP
+#ifndef GS_CORE_HPP
+#define GS_CORE_HPP
 
-#include "gs2d_engine/concrete/time_handler.hpp"
-
-// Handles the clock of the game. It serves to make the game only
-// have a single clock, which every entity can use to syncronize their
-// time handlers.
-
-namespace gs {
-
-class ClockHandler {
-
-private:
-    // The SFML clock.
-    sf::Clock clock;
-
-    // The elapsed time of the clock.
-    sf::Time elapsed_time;
-
-public:
-    // Constructor.
-    ClockHandler();
-
-    // Restart the clock and register the elapsed time.
-    void restart_clock();
-
-    // Restart the given time handler to the clock's elapsed time.
-    void restart_time_handler(TimeHandler *time_handler);
-
-};
-
-}
+#include "gs2d_engine/concrete/game.hpp"
 
 #endif

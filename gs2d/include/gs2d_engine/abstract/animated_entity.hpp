@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef ANIMATED_ENTITY_HPP
-#define ANIMATED_ENTITY_HPP
+#ifndef GS_ANIMATED_ENTITY_HPP
+#define GS_ANIMATED_ENTITY_HPP
 
 #include "gs2d_engine/components/sprited_entity.hpp"
 #include "gs2d_engine/concrete/time_handler.hpp"

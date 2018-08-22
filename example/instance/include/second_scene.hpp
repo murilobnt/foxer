@@ -26,7 +26,7 @@
 #ifndef SECOND_SCENE_HPP
 #define SECOND_SCENE_HPP
 
-#include "gs2d_engine/abstract/scene.hpp"
+#include "gs2d_engine/scene.hpp"
 
 class MenuExample;
 

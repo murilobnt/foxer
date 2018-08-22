@@ -29,10 +29,8 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-#include "gs2d_engine/abstract/animated_entity.hpp"
-#include "gs2d_engine/abstract/ib_controlable_entity.hpp"
-#include "gs2d_engine/components/sprited_entity.hpp"
-#include "gs2d_engine/concrete/time_handler.hpp"
+#include "gs2d_engine/scene_component.hpp"
+#include "gs2d_engine/time.hpp"
 #include "facing_position.hpp"
 
 class Character : public gs::AnimatedEntity, public gs::IBControlableEntity {
