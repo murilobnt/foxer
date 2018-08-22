@@ -1,5 +1,5 @@
 #### Note: You must have compiled the engine.
-#### To do so, go to the directory above, through console,
+#### To do so, go to this project's root directory, through console,
 #### and type make.
 
 CC = g++
