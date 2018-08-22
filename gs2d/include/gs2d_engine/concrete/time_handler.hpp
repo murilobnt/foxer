@@ -44,7 +44,7 @@ public:
     // Constructor.
     TimeHandler();
 
-    // Constructor. Sets the framerate.
+    // Constructor. Sets the update rate.
     TimeHandler(sf::Time update_rate);
 
     // Restart the time handler with the elapsed_time. The elapsed time is
@@ -53,10 +53,15 @@ public:
     //(by clockhandler.restart_time_handler(TimeHandler*)).
     void restart(sf::Time elapsed_time);
 
-    // Update the last update to the restart of the clock;
+    // Update the last update to the restart of the clock.
     void reset_last_update();
 
+    // Setter for update_rate.
     void set_update_rate(sf::Time update_rate);
+
+    // Returns true if it's time to update something. False otherwise.
+    // By update, it's meant the time space of update_rate after
+    // the last_update.
     bool time_to_update();
 
 };

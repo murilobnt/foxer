@@ -75,7 +75,7 @@ public:
     virtual void handle_event(sf::Event event, sf::RenderWindow &screen) = 0;
 
     // Drawing phase. The method to implement this will be responsible
-    // to draw every drawable entity of the scene,
+    // to draw every drawable entity of the scene.
     virtual void draw_entities(sf::RenderWindow &window) = 0;
 
     // This will define what will happen once the user have exited
@@ -87,7 +87,7 @@ public:
     // set into the scene manager, and used by the game.
     void change_scene(Scene *next_scene);
 
-    // Reset all the time handlers used in the scene, in time_handlers vector 
+    // Reset all the time handlers used in the scene, in time_handlers vector
     // so they can be sycronized to the clock of the entire application.
     void reset_time_handlers(ClockHandler &clock_handler);
 
