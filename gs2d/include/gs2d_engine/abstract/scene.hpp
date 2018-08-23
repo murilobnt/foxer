@@ -56,7 +56,7 @@ protected:
     // The time handlers of the scene.
     std::vector<TimeHandler*> time_handlers;
 
-    // The screen of the game.
+    // The window of the application.
     sf::RenderWindow *app_window;
 
 public:
