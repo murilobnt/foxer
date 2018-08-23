@@ -15,6 +15,7 @@ This tool will help you focus on the game. All you have to do is to create your 
 -   [GCC](http://gcc.gnu.org).
 -   [SFML](https://www.sfml-dev.org).
 -   [Google Test](https://github.com/google/googletest) (for tests. The engine works without it).
+-   [LCOV](http://ltp.sourceforge.net/coverage/lcov.php) (for coverage report. The engine works without it).
 
 ## Tutorials and documentation
 
