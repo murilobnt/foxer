@@ -2,7 +2,7 @@
 
 CLEANENGINE = $(RM) $(BDIR)/*.o $(LDIR)/$(TARGET).a
 CLEANCOVERAGE = $(RM) $(CBDIR)/*.o $(CBDIR)/*.gcno $(CBDIR)/*.gcda $(CLDIR)/$(CTARGET).a
-CLEANTESTS = find $(TBDIR) -type f -not -name '*.txt' -print0 | xargs -0 rm -f --
+CLEANTESTS = $(RM) $(TBDIR)/*.o $(TBDIR)/$(TTARGET)
 CLEANCOVREPORT = $(RM) -r $(LCOV) $(RTARGET)
 
 # SECTION: LIBRARY VARIABLES ---------------------------------------------------
