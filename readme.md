@@ -22,17 +22,17 @@ Tutorials and documentation are available at the [wiki](https://github.com/muril
 
 ## Features and TO-DOs
 
-| Feature              | % Functional | % Documented | Seen in execution | Tested |
-| -------------------- | ------------ | ------------ | ----------------- | ------ |
-| Game cycle control   | 100%         | 100%         | Yes               | **No** |
-| Makefile             | 100%         | 60%          | Yes               | ------ |
-| Timed events control | 95%          | 100%         | Yes               | **No** |
-| Scene handling       | 90%          | 100%         | Yes               | **No** |
-| Game entities        | 70%          | 100%         | Yes               | **No** |
-| Tutorial             | 50%          | ------       | ------            | ------ |
-| Default scenes       | 30%          | 0%           | Yes               | **No** |
-| Game components      | 10%          | 0%           | No                | **No** |
-| Scene transitions    | 0%           | 0%           | No                | **No** |
+| Feature              | % Functional | % Documented | Seen in execution | Tested  |
+| -------------------- | ------------ | ------------ | ----------------- | ------- |
+| Game cycle control   | 100%         | 100%         | Yes               | **No**  |
+| Makefile             | 100%         | 60%          | Yes               | ------  |
+| Timed events control | 95%          | 100%         | Yes               | **Yes** |
+| Scene handling       | 90%          | 100%         | Yes               | **No**  |
+| Game entities        | 70%          | 100%         | Yes               | **No**  |
+| Tutorial             | 50%          | ------       | ------            | ------  |
+| Default scenes       | 30%          | 0%           | Yes               | **No**  |
+| Game components      | 10%          | 0%           | No                | **No**  |
+| Scene transitions    | 0%           | 0%           | No                | **No**  |
 
 ## Compile
 
@@ -41,18 +41,14 @@ Tutorials and documentation are available at the [wiki](https://github.com/muril
 To compile the engine to a static library,
 go to the root of the project:
 
-```
-make
-```
+    make
 
 ### Example
 
-To compile and execute the example, go to *example/instance*:
+To compile and execute the example, go to _example/instance_:
 
-```
-make
-./bin/example
-```
+    make
+    ./bin/example
 
 ## Development team
 
