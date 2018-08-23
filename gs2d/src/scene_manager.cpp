@@ -17,33 +17,34 @@ void SceneManager::change_scene(Scene *next_scene) {
         scene->start();
 }
 
-void SceneManager::change_to_runtime_scene(Scene *next_scene) {
-        last_scene = scene;
-        scene = next_scene;
-}
-
-void SceneManager::remove_last_scene() {
-        delete last_scene;
-}
-
 void SceneManager::start() {
         scene->start();
 }
 
-void SceneManager::handle_event(sf::Event event, sf::RenderWindow &screen) {
-        scene->handle_event(event, screen);
+void SceneManager::handle_event(sf::Event &event) {
+        scene->handle_event(event);
 }
 
 void SceneManager::update() {
         scene->update();
 }
 
-void SceneManager::draw_entities(sf::RenderWindow &window) {
-        scene->draw_entities(window);
+void SceneManager::draw_entities() {
+        scene->draw_entities();
 }
 
 void SceneManager::reset_time_handlers(ClockHandler &clock_handler) {
         scene->reset_time_handlers(clock_handler);
+}
+
+void SceneManager::change_to_runtime_scene(Scene *next_scene) {
+        last_scene = scene;
+        scene = next_scene;
+        scene->start();
+}
+
+void SceneManager::remove_last_scene() {
+        delete last_scene;
 }
 
 void SceneManager::set_last_scene() {

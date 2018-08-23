@@ -9,8 +9,11 @@ void SecondScene::start() {
 void SecondScene::update() {
 }
 
-void SecondScene::handle_event(sf::Event event, sf::RenderWindow &screen) {
+void SecondScene::handle_event(sf::Event &event) {
         switch (event.type) {
+        case sf::Event::Closed:
+            app_window->close();
+        break;
         case sf::Event::KeyReleased:
                 switch (event.key.code) {
                 case sf::Keyboard::Escape:
@@ -21,6 +24,6 @@ void SecondScene::handle_event(sf::Event event, sf::RenderWindow &screen) {
         }
 }
 
-void SecondScene::draw_entities(sf::RenderWindow &window) {
-        window.draw(shape);
+void SecondScene::draw_entities() {
+        app_window->draw(shape);
 }

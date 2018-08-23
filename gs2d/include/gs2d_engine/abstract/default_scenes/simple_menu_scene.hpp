@@ -52,16 +52,16 @@ public:
 
 	void start();
     void update();
-    void handle_event(sf::Event event, sf::RenderWindow &screen);
+    void handle_event(sf::Event &event);
 
-	void draw_entities(sf::RenderWindow& window);
+	void draw_entities();
     void add_button(UIButton& button);
     void add_text(sf::Text& text);
 
     virtual void delayed_start() = 0;
-    virtual void delayed_handle_event(sf::Event event, sf::RenderWindow &screen) = 0;
+    virtual void delayed_handle_event(sf::Event &event) = 0;
     virtual void delayed_update();
-    virtual void delayed_draw(sf::RenderWindow& window);
+    virtual void delayed_draw();
 };
 
 }

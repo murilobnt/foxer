@@ -56,6 +56,9 @@ protected:
     // The time handlers of the scene.
     std::vector<TimeHandler*> time_handlers;
 
+    // The screen of the game.
+    sf::RenderWindow *app_window;
+
 public:
     // Virtual destructor. This means allocated memory with the new
     // operator can be freed on the child scene.
@@ -74,11 +77,11 @@ public:
 
     // The method to implement this function will tell how an received event will
     // be handled. Using the EBControlableEntity class is recommended.
-    virtual void handle_event(sf::Event event, sf::RenderWindow &screen) = 0;
+    virtual void handle_event(sf::Event &event);
 
     // Drawing phase. The method to implement this will be responsible
     // to draw every drawable entity of the scene.
-    virtual void draw_entities(sf::RenderWindow &window) = 0;
+    virtual void draw_entities() = 0;
 
     // This will define what will happen once the user have exited
     // the scene.
@@ -95,6 +98,9 @@ public:
 
     // Will set a new scene manager to the scene.
     void set_scene_manager(SceneManager *scene_manager);
+
+    // Setter of app_window.
+    void set_app_window(sf::RenderWindow *app_window);
 
 };
 

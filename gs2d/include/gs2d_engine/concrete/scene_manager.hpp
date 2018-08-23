@@ -78,8 +78,8 @@ public:
 	// The following methods will repass the call for the current scene.
 	void start();
 	void update();
-	void handle_event(sf::Event event, sf::RenderWindow& screen);
-	void draw_entities(sf::RenderWindow& window);
+	void handle_event(sf::Event &event);
+	void draw_entities();
 	void reset_time_handlers(ClockHandler& clock_handler);
 
 	// Setter for the scene. CAUTION: If you are changing from inside

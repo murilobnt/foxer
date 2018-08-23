@@ -44,7 +44,7 @@ public:
     // Defines the control for an entity by using the mouse.
     // It needs the event, the sprited entity to be manipulated
     // and the position of the mouse.
-    virtual void control_entity_by_mouse(sf::Event event,
+    virtual void control_entity_by_mouse(sf::Event &event,
                                     SpritedEntity &sprited_entity,
                                     sf::Vector2f mouse_position) = 0;
 

@@ -47,7 +47,10 @@ class Game {
 
 private:
     // The window of the application.
-    sf::RenderWindow game_screen;
+    sf::RenderWindow *app_window;
+
+    // The title of the game window.
+    std::string game_title;
 
     // The width and the height of the game window.
     int game_width;
@@ -74,9 +77,13 @@ private:
     void clear_and_draw();
 
 public:
+    Game();
     // Constructor. Requires the width and height of the game window and its
     // title too.
     Game(int game_width, int game_height, std::string game_title, float framerate = 60.f);
+
+    // Destructor.
+    ~Game();
 
     // Start the game. This begins the game cycle, verifying if the
     // window is still open to do the operations. It requires the first
@@ -86,7 +93,6 @@ public:
     // Getters for the game width and height.
     int get_game_width() const;
     int get_game_height() const;
-
 };
 
 }

@@ -27,8 +27,11 @@ void MenuExample::delayed_start() {
         ui_button_vec[0].set_focused(true);
 }
 
-void MenuExample::delayed_handle_event(sf::Event event, sf::RenderWindow &screen){
+void MenuExample::delayed_handle_event(sf::Event &event){
         switch(event.type) {
+        case sf::Event::Closed:
+            app_window->close();
+        break;
         case sf::Event::KeyReleased:
                 switch(event.key.code) {
                 case sf::Keyboard::Z:

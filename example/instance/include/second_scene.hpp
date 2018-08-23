@@ -39,8 +39,8 @@ public:
     void start();
     void update();
 
-    void handle_event(sf::Event event, sf::RenderWindow &screen);
-    void draw_entities(sf::RenderWindow &window);
+    void handle_event(sf::Event &event);
+    void draw_entities();
 
 };
 

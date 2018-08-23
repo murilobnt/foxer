@@ -42,7 +42,7 @@ public:
     MenuExample();
 
     void delayed_start();
-    void delayed_handle_event(sf::Event event, sf::RenderWindow &screen);
+    void delayed_handle_event(sf::Event &event);
 };
 
 #endif

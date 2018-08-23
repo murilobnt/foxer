@@ -31,8 +31,11 @@ void TestScene::update() {
         character.move_character();
 }
 
-void TestScene::handle_event(sf::Event event, sf::RenderWindow &screen) {
+void TestScene::handle_event(sf::Event &event) {
         switch (event.type) {
+        case sf::Event::Closed:
+            app_window->close();
+        break;
         case sf::Event::KeyReleased:
             switch(event.key.code){
             case sf::Keyboard::P:
@@ -45,9 +48,9 @@ void TestScene::handle_event(sf::Event event, sf::RenderWindow &screen) {
         }
 }
 
-void TestScene::draw_entities(sf::RenderWindow &window) {
-        window.draw(bg.get_sprite());
-        window.draw(character.get_sprite());
+void TestScene::draw_entities() {
+        app_window->draw(bg.get_sprite());
+        app_window->draw(character.get_sprite());
 }
 
 void TestScene::timed_events() {

@@ -2,20 +2,32 @@
 
 namespace gs {
 
+Game::Game() {}
+
 Game::Game(int game_width, int game_height,
            std::string game_title, float framerate)
-        : game_screen(sf::VideoMode(game_width, game_height), game_title),
-        game_frequency(sf::seconds(1.f / framerate)) {
-        this->game_width = game_width;
-        this->game_height = game_height;
+        : game_frequency(sf::seconds(1.f / framerate)),
+          game_title(game_title),
+          game_width(game_width),
+          game_height(game_height){
+
+          }
+
+Game::~Game(){
+    delete app_window;
 }
 
 void Game::game_start(Scene *first_scene, bool vsync) {
-        game_screen.setVerticalSyncEnabled(vsync);
+
+        app_window = new sf::RenderWindow(sf::VideoMode(game_width, game_height), game_title);
+        app_window->setVerticalSyncEnabled(vsync);
+
         first_scene->set_scene_manager(&scene_manager);
+        first_scene->set_app_window(app_window);
+
         scene_manager.set_scene(first_scene);
 
-        while (game_screen.isOpen()) {
+        while (app_window->isOpen()) {
                 handle_time_actions();
                 clear_and_draw();
 
@@ -35,19 +47,15 @@ void Game::handle_time_actions() {
 void Game::process_events() {
         sf::Event event;
 
-        while (game_screen.pollEvent(event)) {
-                if (event.type == sf::Event::Closed) {
-                        game_screen.close();
-                }
-
-                scene_manager.handle_event(event, game_screen);
+        while (app_window->pollEvent(event)) {
+                scene_manager.handle_event(event);
         }
 }
 
 void Game::clear_and_draw() {
-        game_screen.clear();
-        scene_manager.draw_entities(game_screen);
-        game_screen.display();
+        app_window->clear();
+        scene_manager.draw_entities();
+        app_window->display();
 }
 
 int Game::get_game_width() const {

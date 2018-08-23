@@ -20,22 +20,22 @@ void SimpleMenuScene::update(){
         delayed_update();
 }
 
-void SimpleMenuScene::handle_event(sf::Event event, sf::RenderWindow &screen){
-        delayed_handle_event(event, screen);
+void SimpleMenuScene::handle_event(sf::Event &event){
+        delayed_handle_event(event);
 }
 
-void SimpleMenuScene::draw_entities(sf::RenderWindow& window){
-        window.draw(background);
+void SimpleMenuScene::draw_entities(){
+        app_window->draw(background);
         for(int i = 0; i < ui_button_vec.size(); ++i) {
                 UIButton button = ui_button_vec[i];
-                window.draw(button.get_sprite());
-                window.draw(button.get_button_text());
+                app_window->draw(button.get_sprite());
+                app_window->draw(button.get_button_text());
         }
 
         for(int i = 0; i < ui_text_vec.size(); ++i)
-                window.draw(ui_text_vec[i]);
+                app_window->draw(ui_text_vec[i]);
 
-        delayed_draw(window);
+        delayed_draw();
 }
 
 void SimpleMenuScene::add_button(UIButton& button){
@@ -50,7 +50,7 @@ void SimpleMenuScene::delayed_update(){
 
 }
 
-void SimpleMenuScene::delayed_draw(sf::RenderWindow& window){
+void SimpleMenuScene::delayed_draw(){
 
 }
 
