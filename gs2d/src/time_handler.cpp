@@ -34,4 +34,12 @@ bool TimeHandler::time_to_update() {
         return false;
 }
 
+sf::Time TimeHandler::get_last_update() const {
+    return last_update;
+}
+
+sf::Time TimeHandler::get_update_rate() const {
+    return update_rate;
+}
+
 }

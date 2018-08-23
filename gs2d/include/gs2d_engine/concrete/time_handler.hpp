@@ -66,6 +66,10 @@ public:
     // the last_update.
     bool time_to_update();
 
+    // Getters.
+    sf::Time get_last_update() const;
+    sf::Time get_update_rate() const;
+
 };
 
 }

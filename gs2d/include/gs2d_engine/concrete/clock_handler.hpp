@@ -53,6 +53,9 @@ public:
     // Restart the given time handler to the clock's elapsed time.
     void restart_time_handler(TimeHandler *time_handler);
 
+    // Getters.
+    sf::Time get_elapsed_time() const;
+
 };
 
 }

@@ -1,3 +1,10 @@
+# SECTION: CLEAN COMMANDS ------------------------------------------------------
+
+CLEANENGINE = $(RM) $(BDIR)/*.o $(LDIR)/$(TARGET).a
+CLEANCOVERAGE = $(RM) $(CBDIR)/*.o $(CBDIR)/*.gcno $(CBDIR)/*.gcda $(CLDIR)/$(CTARGET).a
+CLEANTESTS = find $(TBDIR) -type f -not -name '*.txt' -print0 | xargs -0 rm -f --
+CLEANCOVREPORT = $(RM) -r $(LCOV) $(RTARGET)
+
 # SECTION: LIBRARY VARIABLES ---------------------------------------------------
 
 ## The compiler
@@ -23,6 +30,11 @@ LDIR = ./gs2d/lib
 
 ## Source files directory
 SRC = ./gs2d/src
+
+## Code coverage dir
+CDIR = ./coverage
+
+CBDIR = $(CDIR)/bin
 
 ## The source code files
 CPPS = $(wildcard $(SRC)/*.cpp)
@@ -50,7 +62,27 @@ $(BDIR)/%.o: $(SRC)/%.cpp
 
 ## For entry "clean" (make clean), delete the objects and the executable.
 clean :
-	$(RM) $(BDIR)/*.o $(LDIR)/$(TARGET).a
+	$(CLEANENGINE)
+
+# SECTION: COVERAGE OBJECTS ----------------------------------------------------
+
+CTARGET = gs2d_coverage
+
+GCNO = $(addprefix $(CBDIR)/,$(notdir $(CPPS:.cpp=.gcno)))
+COBJS = $(addprefix $(CBDIR)/,$(notdir $(CPPS:.cpp=.o)))
+
+CLDIR = $(CDIR)/lib
+
+coverage : $(CTARGET)
+
+$(CTARGET) : $(COBJS)
+	ar rs $(CLDIR)/$(CTARGET).a ./$^
+
+$(CBDIR)/%.o: $(SRC)/%.cpp
+	$(CC) $(FLAGS) --coverage $(INCLUDE) ./$< -o ./$@
+
+cleancoverage :
+		$(CLEANCOVERAGE)
 
 # SECTION: TESTS VARIABLES -----------------------------------------------------
 
@@ -70,7 +102,7 @@ TDIR = ./gs2d/test
 TSRC = $(TDIR)/src
 
 ## Test binaries directory
-TBDIR = $(TDIR)/bin
+TBDIR = $(BDIR)/test
 
 ## The test target file name
 TTARGET = gs2d_tests
@@ -88,12 +120,35 @@ tests : $(TTARGET)
 
 ## To get the test target file, the dependency is the binaries.
 $(TTARGET) : $(TB)
-	$(CC) -pthread ./$^ $(GTLIB) $(LDIR)/$(TARGET).a $(SFML) -o $(TBDIR)/$(TTARGET)
+	$(CC) -pthread --coverage ./$^ $(GTLIB) $(CLDIR)/$(CTARGET).a $(SFML) -o $(TBDIR)/$(TTARGET)
 
 ## To get the binaries, the dependency is the source code (and we have them).
 $(TBDIR)/%.o : $(TSRC)/%.cpp
 	$(CC) $(FLAGS) $(INCLUDE) $(GTINCLUDE) ./$< -o ./$@
 
 ## I guess you know what this does xD (clean tests generated files).
-tclean :
-	find $(TBDIR) -type f -not -name '*.txt' -print0 | xargs -0 rm -f --
+cleantests :
+	$(CLEANTESTS)
+
+# SECTION: CODE COVERAGE VARIABLES ---------------------------------------------
+
+RTARGET = $(CDIR)/report
+
+LCOV = $(CDIR)/lcov.info
+
+creport : $(RTARGET)
+
+$(RTARGET) : $(LCOV)
+	genhtml -o ./$@ ./$<
+
+$(LCOV) :
+	lcov -t "gs2d_coverage_report" -o $(CDIR)/lcov.info -c -d $(CBDIR)/.
+
+cleancreport :
+	$(CLEANCOVREPORT)
+
+cleaneverything :
+		$(CLEANENGINE)
+		$(CLEANCOVERAGE)
+		$(CLEANTESTS)
+		$(CLEANCOVREPORT)
