@@ -42,15 +42,15 @@ Tutorials and documentation are available at the [wiki](https://github.com/muril
 
 | Feature              | % Functional | % Documented | Seen in execution | Tested        |
 | -------------------- | ------------ | ------------ | ----------------- | ------------- |
-| Game cycle control   | 100%         | 100%         | Yes               | **Yes**       |
-| Makefile             | 100%         | 60%          | Yes               | ------        |
-| Timed events control | 95%          | 100%         | Yes               | **Yes**       |
-| Scene handling       | 90%          | 100%         | Yes               | **Partially** |
-| Game entities        | 70%          | 100%         | Yes               | **No**        |
+| Game cycle control   | 100%         | 100%         | :heavy_check_mark:               | :heavy_check_mark:       |
+| Makefile             | 100%         | 60%          | :heavy_check_mark:               | ------        |
+| Timed events control | 95%          | 100%         | :heavy_check_mark:               | :heavy_check_mark:       |
+| Scene handling       | 90%          | 100%         | :heavy_check_mark:               | **Partially** |
+| Game entities        | 70%          | 100%         | :heavy_check_mark:               | :x:        |
 | Tutorial             | 50%          | ------       | ------            | ------        |
-| Default scenes       | 30%          | 0%           | Yes               | **No**        |
-| Game components      | 10%          | 0%           | No                | **No**        |
-| Scene transitions    | 0%           | 0%           | No                | **No**        |
+| Default scenes       | 30%          | 0%           | :heavy_check_mark:               | :x:        |
+| Game components      | 10%          | 0%           | :x:                | :x:        |
+| Scene transitions    | 0%           | 0%           | :x:                | :x:        |
 
 ## Stage
 
@@ -72,8 +72,6 @@ To compile and execute the example, go to _example/instance_:
     make
     ./bin/example
 
-## Development team
+## Contributors
 
-[<img src="https://avatars1.githubusercontent.com/u/6081758?s=400&v=4" width="15%"/>](https://github.com/murilobnt)
-
-[Murilo Bento](https://github.com/murilobnt)
+* [:cat: Murilo Bento](https://github.com/murilobnt) has created the GS2D_Engine and is the only developer and tester of it.
