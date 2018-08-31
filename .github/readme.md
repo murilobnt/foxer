@@ -25,6 +25,7 @@ Game engine to create 2D games in C++ with SFML
 
 This tool will help you focus on the game. All you have to do is to create your own scenes and to set up the main method.
 
+> Note check out the [wiki](https://github.com/murilobnt/wiki) for commpiling instructions.
 > Note: All lion pictures used by this readme were downloaded from <http://pngimagesfree.com>.
 
 ## Requires
@@ -55,22 +56,6 @@ Tutorials and documentation are available at the [wiki](https://github.com/muril
 ## Stage
 
 <img src="../markdown_assets/readme/lion_psd_image_free.png" width=15%>
-
-## Compile
-
-### Engine
-
-To compile the engine to a static library,
-go to the root of the project:
-
-    make
-
-### Example
-
-To compile and execute the example, go to _example/instance_:
-
-    make
-    ./bin/example
 
 ## Contributors
 
