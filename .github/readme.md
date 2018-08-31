@@ -25,7 +25,8 @@ Game engine to create 2D games in C++ with SFML
 
 This tool will help you focus on the game. All you have to do is to create your own scenes and to set up the main method.
 
-> Note check out the [wiki](https://github.com/murilobnt/wiki) for commpiling instructions.
+> Note check out the [wiki](https://github.com/murilobnt/wiki) for compiling instructions.
+
 > Note: All lion pictures used by this readme were downloaded from <http://pngimagesfree.com>.
 
 ## Requires
