@@ -1,6 +1,23 @@
 <h1 align="center"> GS2D Engine </h1>
+<p align=center>
+Game engine to create 2D games in C++ with SFML
+</p>
+<p align=center>
+![LOC](https://img.shields.io/:loc-1089-green.svg)
+[![MIT](https://img.shields.io/:license-MIT-blue.svg)](https://github.com/murilobnt/gs2d_engine/blob/master/LICENSE)
+[![Contributors](https://img.shields.io/:contributors-1-yellow.svg)](https://github.com/murilobnt/gs2d_engine/graphs/contributors)
+</p>
 
-<p align="center"><img src="markdown_assets/readme/lion_psd_image_free.png" width=30%></p>
+<p align=center>
+![forthebadge](https://forthebadge.com/images/badges/made-with-c-plus-plus.svg)
+![forthebadge](https://forthebadge.com/images/badges/for-you.svg)
+</p>
+
+---
+
+<p align=center>
+[![forthebadge](https://img.shields.io/badge/check--the-wiki-brightgreen.svg?longCache=true&style=for-the-badge)](https://github.com/murilobnt/gs2d_engine/wiki)
+</p>
 
 ## Introduction
 
@@ -35,6 +52,10 @@ Tutorials and documentation are available at the [wiki](https://github.com/muril
 | Game components      | 10%          | 0%           | No                | **No**        |
 | Scene transitions    | 0%           | 0%           | No                | **No**        |
 
+## Stage
+
+<img src="../markdown_assets/readme/lion_psd_image_free.png" width=15%>
+
 ## Compile
 
 ### Engine
@@ -53,6 +74,6 @@ To compile and execute the example, go to _example/instance_:
 
 ## Development team
 
-[<img src="https://avatars1.githubusercontent.com/u/6081758?s=400&v=4" width="100"/>](https://github.com/murilobnt)
+[<img src="https://avatars1.githubusercontent.com/u/6081758?s=400&v=4" width="15%"/>](https://github.com/murilobnt)
 
 [Murilo Bento](https://github.com/murilobnt)
