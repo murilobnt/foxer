@@ -64,7 +64,7 @@ make
 
 And code your project under the directory *your_project*. You can choose to select another directory for your project, but it needs to use the *gs2d.a* file under *gs2d/lib* when compiling it.
 
-More information about it can be found at [this page of the wiki](https://github.com/murilobnt/gs2d_engine/wiki/Tutorial:-The-first-step) and the following.
+More information about it can be found at [this page of the wiki](https://github.com/murilobnt/gs2d_engine/wiki/Tutorial:-The-first-step) and the following ones.
 
 ## Tutorials and documentation
 
