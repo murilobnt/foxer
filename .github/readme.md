@@ -3,20 +3,20 @@
 Game engine to create 2D games in C++ with SFML
 </p>
 <p align=center>
-![LOC](https://img.shields.io/:loc-1089-green.svg)
-[![MIT](https://img.shields.io/:license-MIT-blue.svg)](https://github.com/murilobnt/gs2d_engine/blob/master/LICENSE)
-[![Contributors](https://img.shields.io/:contributors-1-yellow.svg)](https://github.com/murilobnt/gs2d_engine/graphs/contributors)
+<img src="https://img.shields.io/:loc-1089-green.svg" alt="loc"/>
+<a href="https://github.com/murilobnt/gs2d_engine/blob/master/LICENSE"><img src="https://img.shields.io/:license-MIT-blue.svg" alt="license"/></a>
+<a href="https://github.com/murilobnt/gs2d_engine/graphs/contributors"><img src="https://img.shields.io/:contributors-1-yellow.svg" alt="contributors"/></a>
 </p>
 
 <p align=center>
-![forthebadge](https://forthebadge.com/images/badges/made-with-c-plus-plus.svg)
-![forthebadge](https://forthebadge.com/images/badges/for-you.svg)
+<img src="https://forthebadge.com/images/badges/made-with-c-plus-plus.svg" alt="Made with C++">
+<img src="https://forthebadge.com/images/badges/for-you.svg" alt="For you"/>
 </p>
 
 ---
 
 <p align=center>
-[![forthebadge](https://img.shields.io/badge/check--the-wiki-brightgreen.svg?longCache=true&style=for-the-badge)](https://github.com/murilobnt/gs2d_engine/wiki)
+<a href="https://github.com/murilobnt/gs2d_engine/wiki"><img src="https://img.shields.io/badge/check--the-wiki-brightgreen.svg?longCache=true&style=for-the-badge" alt="Check the wiki"/></a>
 </p>
 
 ## Introduction
