@@ -60,4 +60,4 @@ Tutorials and documentation are available at the [wiki](https://github.com/muril
 
 ## Contributors
 
-* [:cat: Murilo Bento](https://github.com/murilobnt) has created the GS2D_Engine and is the only developer and tester of it.
+* [:cat: Murilo Bento](https://github.com/murilobnt) has created the GS2D_Engine and currently is the only developer and tester of it.
