@@ -19,7 +19,7 @@ Game engine to create 2D games in C++ with SFML
 <a href="https://github.com/murilobnt/gs2d_engine/wiki"><img src="https://img.shields.io/badge/check--the-wiki-brightgreen.svg?longCache=true&style=for-the-badge" alt="Check the wiki"/></a>
 </p>
 
-## Introduction
+## Description
 
 **GS2D Engine** aims to be a game engine for creating 2D games using SFML on the C++ programming language. Most of the classes here are based on my another project, [vulnus](https://github.com/murilobnt/vulnus), which is a 2D platform game in development.
 
@@ -40,6 +40,31 @@ This tool will help you focus on the game. All you have to do is to create your 
 
 -   [Google Test](https://github.com/google/googletest)
 -   [LCOV](http://ltp.sourceforge.net/coverage/lcov.php)
+
+## Installation
+
+You first need to clone or download the ZIP of this repository.
+
+Both GCC and SFML can be installed in Debian/Debian based by entering the following commands at the terminal.
+
+```
+sudo apt install gcc
+sudo apt install libsfml-dev
+```
+
+More information about it can be found at [this page of the wiki](https://github.com/murilobnt/gs2d_engine/wiki/Insight:-Starting-point).
+
+## Usage
+
+Compile the engine by entering, at the root of the project:
+
+```
+make
+```
+
+And code your project under the directory *your_project*. You can choose to select another directory for your project, but it needs to use the *gs2d.a* file under *gs2d/lib* when compiling it.
+
+More information about it can be found at [this page of the wiki](https://github.com/murilobnt/gs2d_engine/wiki/Tutorial:-The-first-step) and the following.
 
 ## Tutorials and documentation
 
