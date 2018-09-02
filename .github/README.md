@@ -1,16 +1,24 @@
-<h1 align="center"> GS2D Engine </h1>
+<p align=center>
+
+<img src="../markdown/assets/readme/gs2d_logo.png" width=30%/>
+
+</p>
+
 <p align=center>
 Game engine to create 2D games in C++ with SFML
 </p>
+
 <p align=center>
 <img src="https://img.shields.io/:loc-1089-green.svg" alt="loc"/>
-<a href="https://github.com/murilobnt/gs2d_engine/blob/master/LICENSE"><img src="https://img.shields.io/:license-MIT-blue.svg" alt="license"/></a>
-<a href="https://github.com/murilobnt/gs2d_engine/graphs/contributors"><img src="https://img.shields.io/:contributors-1-yellow.svg" alt="contributors"/></a>
+<a href="https://github.com/murilobnt/gs2d_engine/blob/master/LICENSE">
+<img src="https://img.shields.io/:license-MIT-blue.svg" alt="license"/></a>
+<a href="https://github.com/murilobnt/gs2d_engine/graphs/contributors">
+<img src="https://img.shields.io/:contributors-1-yellow.svg" alt="contributors"/></a>
 </p>
 
 <p align=center>
 <a href="http://www.cplusplus.com">
-<img src="https://forthebadge.com/images/badges/made-with-c-plus-plus.svg" alt="Made with C++">
+<img src="https://forthebadge.com/images/badges/made-with-c-plus-plus.svg" alt="Made with C++"/>
 </a>
 <a href="https://github.com/murilobnt/gs2d_engine/blob/master/markdown/for_you.md">
 <img src="https://forthebadge.com/images/badges/for-you.svg" alt="For you"/>
@@ -20,7 +28,8 @@ Game engine to create 2D games in C++ with SFML
 * * *
 
 <p align=center>
-<a href="https://github.com/murilobnt/gs2d_engine/wiki"><img src="https://img.shields.io/badge/check--the-wiki-brightgreen.svg?longCache=true&style=for-the-badge" alt="Check the wiki"/></a>
+<a href="https://github.com/murilobnt/gs2d_engine/wiki">
+<img src="https://img.shields.io/badge/check--the-wiki-brightgreen.svg?longCache=true&style=for-the-badge" alt="Check the wiki"/></a>
 </p>
 
 ## Description
@@ -86,7 +95,7 @@ Tutorials and documentation are available at the [wiki](https://github.com/muril
 
 ## Stage
 
-<img src="../markdown/assets/readme/lion_psd_image_free.png" width=15%>
+<img src="../markdown/assets/readme/lion_psd_image_free.png" width=15%/>
 
 ## Contributors
 
