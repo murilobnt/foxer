@@ -12,14 +12,16 @@ void TestScene::start() {
                                              std::string("../../gs2d/assets/link_edit.png"),
                                              1200, 1040);
         character = Character(char_texture,
-                              0, 0, 120, 130, 0,
-                              1200, 520, 910, 20);
+                              sf::Vector2i(0, 0),
+                              sf::Vector2i(120, 130),
+                              sf::Vector2i(0, 1200),
+                              sf::Vector2i(520, 910), 20);
         character.set_sprite_scale(0.4, 0.4);
 
         gs::TextureLoader::set_texture_from_file(bg_texture,
                                              std::string("../../gs2d/assets/7536921_orig.png"),
                                              1000, 750);
-        bg = gs::SpritedEntity(bg_texture, 0, 0, 1000, 750);
+        bg = gs::SpritedEntity(bg_texture, sf::Vector2i(0, 0), sf::Vector2i(1000, 750));
 
         character.set_sprite_position(sf::Vector2f(0, 0));
         bg.set_sprite_position(sf::Vector2f(0, 0));

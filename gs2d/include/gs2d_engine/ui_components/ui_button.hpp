@@ -43,8 +43,8 @@ private:
 public:
     UIButton(int id, float x, float y,
              sf::Texture const& texture,
-             int spriteX, int spriteY,
-             int spriteW, int spriteH,
+             sf::Vector2i sprite_pos_at_tex,
+             sf::Vector2i sprite_dimensions,
              sf::Font& font, std::string text_content);
     UIButton();
     void set_focused(bool focused);

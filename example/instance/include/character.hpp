@@ -48,9 +48,9 @@ private:
     FacingPosition last_facing_pos;
 
 public:
-    Character(sf::Texture const &texture, int sprite_x, int sprite_y, int sprite_w,
-            int sprite_h, int animation_initial_x_position, int animation_final_x_position, int animation_initial_y_position,
-            int animation_final_y_position, int animation_framerates);
+    Character(sf::Texture const &texture, sf::Vector2i sprite_pos_at_tex,
+              sf::Vector2i sprite_dimensions, sf::Vector2i animation_x,
+              sf::Vector2i animation_y, int animation_framerate);
     Character();
     void control_entity();
     void move_character();

@@ -49,8 +49,8 @@ private:
 public:
     // Constructor. It takes the texture, the X and Y positions,
     // and the width and height of this sprite.
-    SpritedEntity(sf::Texture const &texture, int sprite_x, int sprite_y,
-                int sprite_w = 32, int sprite_h = 32);
+    SpritedEntity(sf::Texture const &texture, sf::Vector2i sprite_pos_at_tex,
+                  sf::Vector2i sprite_dimensions);
 
     // Empty constructor. This is important so the user of the
     // animated sprite can choose to initialize it later (but it's

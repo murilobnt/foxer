@@ -48,7 +48,7 @@ private:
   // this field would have to have the value of 0.
   // It will be used to iterate through the animation.
   // The anchor of the sprite is the upper left corner.
-  int animation_initial_x_position;
+  // int animation_initial_x_position;
 
   // The X position of the last frame of the animated sprite.
   // e.g. if the last frame of the animation is located at the end
@@ -56,21 +56,25 @@ private:
   // size is 32x32px, this field would have to have the value of
   // 192 - 32, which is 160.
   // The anchor of the sprite is the upper left corner.
-  int animation_final_x_position;
+  // int animation_final_x_position;
+
+  sf::Vector2i animation_x;
 
   // The Y position of the first frame of the animated sprite.
   // This field will be used to iterate through the rows
   // of the animation. By rows, it is this initial position
   // plus the height of the sprite.
   // The anchor of the sprite is the upper left corner.
-  int animation_initial_y_position;
+  // int animation_initial_y_position;
 
   // The Y position of the last frame in the Y position.
   // This field can be used if the animmation is set on a column
   // insted of a row, so we can loop through the animation
   // with this information.
   // The anchor of the sprite is the upper left corner.
-  int animation_final_y_position;
+  // int animation_final_y_position;
+
+  sf::Vector2i animation_y;
 
   // A time handler to define the animation framerate. It is important
   // to reset this time handler in the scene of this sprite, so
@@ -91,27 +95,18 @@ public:
   // frame of the animation, in the Y axis, and then specifying the
   // framerate of the animation.
   // The anchor of the sprite is the upper left corner.
-  AnimatedEntity(sf::Texture const &texture, int sprite_x, int sprite_y,
-                 int sprite_w, int sprite_h, int animation_initial_x_position,
-                 int animation_final_x_position, int animation_initial_y_position,
-                 int animation_final_y_position, float animation_framerate);
+  AnimatedEntity(sf::Texture const &texture, sf::Vector2i sprite_idle_at_tex,
+                 sf::Vector2i sprite_dimensions, sf::Vector2i animation_x,
+                 sf::Vector2i animation_y, float animation_framerate);
 
   // Empty constructor. This is important so the user of the
   // animated sprite can choose to initialize it later (but it's
   // important to not forget to do so).
   AnimatedEntity();
 
-  // Getter for the X position of the first frame of the animated sprite.
-  int get_animation_initial_x_position() const;
+  sf::Vector2i get_animation_x() const;
 
-  // Getter for the X position of the last frame of the animated sprite.
-  int get_animation_final_x_position() const;
-
-  // Getter for the Y position of the first frame of the animated sprite.
-  int get_animation_initial_y_position() const;
-
-  // Getter for the Y position of the last frame in the Y position.
-  int get_animation_final_y_position() const;
+  sf::Vector2i get_animation_y() const;
 
   // Getter for the time handler of the animation.
   TimeHandler &get_animation_time_handler();
@@ -119,7 +114,7 @@ public:
   // Applies the animation of the row. This means it will iterate through
   // the first frame until the last frame, and go back to the first frame
   // again in a loop.
-  void apply_animation(int row);
+  virtual void apply_animation(int row);
 
   // Defines what will trigger the animation and which/how the
   // animation will happen.

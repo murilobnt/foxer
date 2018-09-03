@@ -15,10 +15,10 @@ void MenuExample::delayed_start() {
         button_font.loadFromFile("../../gs2d/assets/Muli/Muli-Bold.ttf");
 
         goto_test_scene = gs::UIButton(1, 0, 225, button_background_texture,
-                                   0, 0, 250, 35,
+                                   sf::Vector2i(0, 0), sf::Vector2i(250, 35),
                                    button_font, std::string("Test"));
         goto_second_scene = gs::UIButton(2, 0, 300, button_background_texture,
-                                     0, 0, 250, 35,
+                                     sf::Vector2i(0, 0), sf::Vector2i(250, 35),
                                      button_font, std::string("Second"));
 
         add_button(goto_test_scene);

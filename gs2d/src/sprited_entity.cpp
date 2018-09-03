@@ -2,11 +2,12 @@
 
 namespace gs {
 
-SpritedEntity::SpritedEntity(sf::Texture const &texture, int sprite_x,
-                             int sprite_y, int sprite_w, int sprite_h)
-        : sprite_dimensions(sprite_w, sprite_h) {
+SpritedEntity::SpritedEntity(sf::Texture const &texture,
+                             sf::Vector2i sprite_pos_at_tex,
+                             sf::Vector2i sprite_dimensions)
+        : sprite_dimensions(sprite_dimensions) {
         sprite.setTexture(texture);
-        configure_sprite_rect(sprite_x, sprite_y, sprite_w, sprite_h);
+        configure_sprite_rect(sprite_pos_at_tex.x, sprite_pos_at_tex.y);
 }
 
 SpritedEntity::SpritedEntity() {

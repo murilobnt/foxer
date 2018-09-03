@@ -1,15 +1,11 @@
 #include "character.hpp"
 
-Character::Character(sf::Texture const &texture, int sprite_x, int sprite_y,
-                     int sprite_w, int sprite_h,
-                     int animation_initial_x_position, int animation_final_x_position,
-                     int animation_initial_y_position, int animation_final_y_position,
-                     int animation_framerates)
+Character::Character(sf::Texture const &texture, sf::Vector2i sprite_pos_at_tex,
+                     sf::Vector2i sprite_dimensions, sf::Vector2i animation_x,
+                     sf::Vector2i animation_y, int animation_framerate)
         : gs::AnimatedEntity(
-                texture, sprite_x, sprite_y, sprite_w, sprite_h,
-                animation_initial_x_position, animation_final_x_position,
-                animation_initial_y_position, animation_final_y_position,
-                animation_framerates) {
+                texture, sprite_pos_at_tex, sprite_dimensions,
+                animation_x, animation_y, animation_framerate) {
         movement = sf::Vector2f(0, 0);
         last_facing_pos = DOWN;
         current_facing_pos = FREE;

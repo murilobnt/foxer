@@ -4,10 +4,11 @@ namespace gs {
 
 UIButton::UIButton(int id, float x, float y,
                    sf::Texture const& texture,
-                   int spriteX, int spriteY,
-                   int spriteW, int spriteH,
+                   sf::Vector2i sprite_pos_at_tex,
+                   sf::Vector2i sprite_dimensions,
                    sf::Font& font, std::string text_content)
-        : SpritedEntity::SpritedEntity(texture, spriteX, spriteY, spriteW, spriteH) {
+        : SpritedEntity::SpritedEntity(texture, sprite_pos_at_tex,
+                                       sprite_dimensions) {
         this->id = id;
         set_focused(false);
 
