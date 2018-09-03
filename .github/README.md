@@ -1,6 +1,6 @@
 <p align=center>
 
-<img src="../markdown/assets/readme/gs2d_logo.png" width=30%/>
+<img src="../markdown/assets/readme/gs2d_logo.png" width=300/>
 
 </p>
 
