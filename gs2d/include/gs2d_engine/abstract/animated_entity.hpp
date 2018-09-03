@@ -83,7 +83,7 @@ private:
 
   // The integer to iterate through the animation frames. It is initialized
   // by zero (the first frame) and it is incremented when a frame is already
-  // set to the sprite. When it reaches the final sprite, it is resetted to
+  // set to the sprite. When it reaches the final sprite, it is reseted to
   // zero once again.
   int animation_loop_state;
 
@@ -92,7 +92,7 @@ public:
   // the unnanimated, and the width and height of this sprite,
   // followed up by the position of the first and the last frame of
   // the animation, in the X axis, and the position of the first and last
-  // frame of the animation, in the Y axis, and then specifying the
+  // frame of the animation, in the Y axis, and then the
   // framerate of the animation.
   // The anchor of the sprite is the upper left corner.
   AnimatedEntity(sf::Texture const &texture, sf::Vector2i sprite_idle_at_tex,
@@ -104,8 +104,10 @@ public:
   // important to not forget to do so).
   AnimatedEntity();
 
+  // Getter for animation_x.
   sf::Vector2i get_animation_x() const;
 
+  // Getter for animation_y.
   sf::Vector2i get_animation_y() const;
 
   // Getter for the time handler of the animation.
