@@ -6,6 +6,8 @@ TestScene::~TestScene(){
 }
 
 void TestScene::start() {
+        camera = gs::Camera(sf::Vector2f(800, 600));
+
         time_handlers.push_back(&character.get_animation_time_handler());
 
         gs::TextureLoader::set_texture_from_file(char_texture,
@@ -28,6 +30,8 @@ void TestScene::start() {
 }
 
 void TestScene::update() {
+        camera.center_at_sprite(character.get_sprite());
+        app_window->setView(camera.get_view());
         timed_events();
         character.control_entity();
         character.move_character();

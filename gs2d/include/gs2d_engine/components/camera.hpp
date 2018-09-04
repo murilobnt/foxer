@@ -1,4 +1,4 @@
-// File: test_scene.hpp
+// File: sprited_entity.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,39 +23,34 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef TEST_SCENE_HPP
-#define TEST_SCENE_HPP
+#ifndef GS2D_CAMERA_HPP
+#define GS2D_CAMERA_HPP
 
-#include <iostream>
+#include <SFML/Graphics.hpp>
 
-#include "gs2d_engine/scene.hpp"
-#include "character.hpp"
-#include "second_scene.hpp"
+namespace gs {
 
-class MenuExample;
-
-class TestScene : public gs::Scene {
-
+class Camera {
 private:
-    gs::Camera camera;
-
-    sf::Texture char_texture;
-    sf::Texture bg_texture;
-
-    Character character;
-    gs::SpritedEntity bg;
-
-    void timed_events();
+    sf::View view;
 
 public:
-    ~TestScene();
+    Camera(sf::Vector2f const camera_center_position,
+           sf::Vector2f const camera_dimensions);
 
-    void start();
-    void update();
+    Camera(sf::Vector2f const camera_center_position,
+           sf::Vector2f const camera_dimensions, float const zoom);
 
-    void handle_event(sf::Event &event);
-    void draw_entities();
+    Camera(sf::Vector2f const camera_dimensions);
+    Camera(sf::Vector2f const camera_dimensions, float const zoom);
 
+    Camera();
+
+    void apply_zoom(float const zoom);
+    void center_at_sprite(const sf::Sprite& sprite);
+    sf::View get_view() const;
 };
+
+}
 
 #endif
