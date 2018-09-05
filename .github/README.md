@@ -97,3 +97,7 @@ Tutorials and documentation are available at the [wiki](https://github.com/muril
 ## Contributors
 
 -   [:cat: Murilo Bento](https://github.com/murilobnt) has created the GS2D Engine and currently is the only developer and tester of it.
+
+## License
+
+GS2D Engine is licensed under the [MIT License](https://github.com/murilobnt/gs2d_engine/blob/master/LICENSE).
