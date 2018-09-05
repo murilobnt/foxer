@@ -9,7 +9,6 @@ Game engine to create 2D games in C++ with SFML
 </p>
 
 <p align=center>
-<img src="https://img.shields.io/:loc-1089-green.svg" alt="loc"/>
 <a href="https://github.com/murilobnt/gs2d_engine/blob/master/LICENSE">
 <img src="https://img.shields.io/:license-MIT-blue.svg" alt="license"/></a>
 <a href="https://github.com/murilobnt/gs2d_engine/graphs/contributors">
