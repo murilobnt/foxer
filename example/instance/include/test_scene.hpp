@@ -29,6 +29,8 @@
 #include <iostream>
 
 #include "gs2d_engine/scene.hpp"
+#include "gs2d_engine/assist/tilemap.hpp"
+
 #include "character.hpp"
 #include "second_scene.hpp"
 
@@ -38,12 +40,11 @@ class TestScene : public gs::Scene {
 
 private:
     gs::Camera camera;
+    gs::TileMap test_tm;
 
     sf::Texture char_texture;
-    sf::Texture bg_texture;
 
     Character character;
-    gs::SpritedEntity bg;
 
     void timed_events();
 
@@ -55,6 +56,8 @@ public:
 
     void handle_event(sf::Event &event);
     void draw_entities();
+
+    void on_exit();
 
 };
 

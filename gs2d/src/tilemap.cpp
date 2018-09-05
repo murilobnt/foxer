@@ -28,7 +28,7 @@ bool TileMap::load(const std::string &tileset, sf::Vector2u tile_size,
                         int tu = tile_number % (m_tileset.getSize().x / tile_size.x);
                         int tv = tile_number / (m_tileset.getSize().x / tile_size.x);
 
-                        if (tu != 0) {
+                        if (tu != -1) {
                                 // get a pointer to the current tile's quad
                                 sf::Vertex *quad = &m_vertices[(i + j * width) * 4];
 

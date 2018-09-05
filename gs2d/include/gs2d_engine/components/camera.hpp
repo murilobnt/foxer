@@ -48,6 +48,7 @@ public:
 
     void apply_zoom(float const zoom);
     void center_at_sprite(const sf::Sprite& sprite);
+    void center_at_position(sf::Vector2f position);
     sf::View get_view() const;
 };
 

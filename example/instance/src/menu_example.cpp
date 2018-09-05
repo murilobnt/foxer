@@ -2,7 +2,7 @@
 
 MenuExample::MenuExample()
         : gs::SimpleMenuScene(std::string
-                                  ("../../gs2d/assets/7579418_altered.png"),
+                                  ("assets/7579418_altered.png"),
                           800, 600){
 
 }

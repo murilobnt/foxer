@@ -8,10 +8,17 @@ TestScene::~TestScene(){
 void TestScene::start() {
         camera = gs::Camera(sf::Vector2f(800, 600));
 
+        const int level[] = {-1, -1, -1, -1, -1,
+                             0, 1, 0, 1, 0,
+                             -1, 2, 1, -1, 0,
+                             1, 2, 1, 0, 2};
+
+        test_tm.load("assets/test_tileset.png", sf::Vector2u(40, 40), level, 5, 4);
+
         time_handlers.push_back(&character.get_animation_time_handler());
 
         gs::TextureLoader::set_texture_from_file(char_texture,
-                                             std::string("../../gs2d/assets/link_edit.png"),
+                                             std::string("assets/link_edit.png"),
                                              1200, 1040);
         character = Character(char_texture,
                               sf::Vector2i(0, 0),
@@ -20,13 +27,7 @@ void TestScene::start() {
                               sf::Vector2i(520, 910), 20);
         character.set_sprite_scale(0.4, 0.4);
 
-        gs::TextureLoader::set_texture_from_file(bg_texture,
-                                             std::string("../../gs2d/assets/7536921_orig.png"),
-                                             1000, 750);
-        bg = gs::SpritedEntity(bg_texture, sf::Vector2i(0, 0), sf::Vector2i(1000, 750));
-
-        character.set_sprite_position(sf::Vector2f(0, 0));
-        bg.set_sprite_position(sf::Vector2f(0, 0));
+        character.set_sprite_position(sf::Vector2f(0, 20));
 }
 
 void TestScene::update() {
@@ -55,11 +56,17 @@ void TestScene::handle_event(sf::Event &event) {
 }
 
 void TestScene::draw_entities() {
-        app_window->draw(bg.get_sprite());
+        app_window->draw(test_tm);
         app_window->draw(character.get_sprite());
 }
 
 void TestScene::timed_events() {
         while (character.get_animation_time_handler().time_to_update())
                 character.animate();
+}
+
+void TestScene::on_exit(){
+    sf::Vector2u window_size = app_window->getSize();
+    camera.center_at_position(sf::Vector2f(window_size.x/2, window_size.y/2));
+    app_window->setView(camera.get_view());
 }
