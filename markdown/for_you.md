@@ -13,7 +13,7 @@ The objective of this project is to:
 ## Simple yet complete
 
 <p align="justify">
-Story time: I was developing [vulnus](https://github.com/murilobnt/vulnus): A
+Story time: I was developing <a href="https://github.com/murilobnt/vulnus">vulnus</a>: A
 C++ SFML 2D platform game. Things were going pretty well and, currently, I have
 a functional simple level, where you can walk around, shoot, jump and teleport.
 There is enemies and even time mechanics (Morning, afternoon, evening and
