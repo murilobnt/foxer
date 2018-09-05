@@ -62,7 +62,7 @@ private:
     // The timehandler to define the framerate of the application.
     TimeHandler app_frequency;
 
-    // The scene manager to delegate actions for the scene.
+    // The scene proxy to delegate actions for the scene.
     SceneProxy scene_proxy;
 
     // This will handle the actions inside the framerate.
