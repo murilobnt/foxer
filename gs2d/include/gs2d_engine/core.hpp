@@ -26,6 +26,6 @@
 #ifndef GS_CORE_HPP
 #define GS_CORE_HPP
 
-#include "gs2d_engine/concrete/game.hpp"
+#include "gs2d_engine/app_cycle/app.hpp"
 
 #endif

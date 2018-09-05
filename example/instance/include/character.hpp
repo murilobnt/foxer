@@ -29,7 +29,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-#include "gs2d_engine/scene_component.hpp"
+#include "gs2d_engine/scene_components.hpp"
 #include "gs2d_engine/time.hpp"
 #include "facing_position.hpp"
 

@@ -1,4 +1,4 @@
-// File: scene_manager.hpp
+// File: scene_proxy.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -16,19 +16,19 @@
 // copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT Nget_game_heightOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// IMPLIED, INCLUDING BUT Nget_app_heightOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef GS_SCENE_MANAGER_HPP
-#define GS_SCENE_MANAGER_HPP
+#ifndef GS_SCENE_PROXY_HPP
+#define GS_SCENE_PROXY_HPP
 
 #include <cstring>
 
-#include "gs2d_engine/concrete/clock_handler.hpp"
+#include "gs2d_engine/time/clock_handler.hpp"
 
 // Forward declaration of the scene.
 
@@ -43,7 +43,7 @@ class Scene;
 // scene. If the scene is changed, the call to the scene manager will not
 // change.
 
-class SceneManager {
+class SceneProxy {
 
 private:
 	// The current scene. This will be the scene to be used on the
@@ -58,10 +58,10 @@ private:
 
 public:
 	// Constructor.
-	SceneManager();
+	SceneProxy();
 
 	// Destructor.
-	~SceneManager();
+	~SceneProxy();
 
 	// Change the scene to a new scene. Since the scene has a
 	// pointer to the scene manager, the scene can change to another

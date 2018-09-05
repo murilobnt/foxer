@@ -1,4 +1,4 @@
-// File: simple_menu_scene.hpp
+// File: eb_controlable_entity.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,45 +23,39 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef GS_SIMPLE_MENU_SCENE_HPP
-#define GS_SIMPLE_MENU_SCENE_HPP
+#ifndef GS_EB_CONTROLABLE_ENTITY_HPP
+#define GS_EB_CONTROLABLE_ENTITY_HPP
 
 #include <SFML/Graphics.hpp>
-#include <vector>
-#include <string>
 
-#include "gs2d_engine/ui_components/ui_button.hpp"
-#include "gs2d_engine/abstract/scene.hpp"
+// Represents an event based controlable entity. The entity will have to respond
+// to when a key of the keyboard is pressed or released, and the
+// method control_entity will be responsible for doing so.
+// e.g.:
+//     class Car : public EBControlableEntity {
+//         void control_entity(sf::Keyboard::Key key, bool release){
+//             switch(key){
+//             case sf::Keyboard::Space:
+//                 this->accelerate();
+//                 break;
+//             case sf::Keyboard::LShift:
+//                 this->brake();
+//                 break;
+//             }
+//         }
+//     }
 
 namespace gs {
 
-class SimpleMenuScene : public Scene {
-
-private:
-    sf::Texture background_texture;
-    sf::Sprite background;
-    std::vector<sf::Text> ui_text_vec;
-
-protected:
-	std::vector<UIButton> ui_button_vec;
-    std::vector<UIButton>::iterator ui_button_vec_it;
+class EBControlableEntity {
 
 public:
-    SimpleMenuScene(std::string background_texture_path,
-                    int w, int h);
+    // Defines how the entity will respond to the given key when it is
+    // either pressed or released.
+    // The bool pressed is true if the key is pressed and false if
+    // the key is released.
+    virtual void control_entity(sf::Keyboard::Key key, bool pressed) = 0;
 
-	void start();
-    void update();
-    void handle_event(sf::Event &event);
-
-	void draw_entities();
-    void add_button(UIButton& button);
-    void add_text(sf::Text& text);
-
-    virtual void delayed_start() = 0;
-    virtual void delayed_handle_event(sf::Event &event) = 0;
-    virtual void delayed_update();
-    virtual void delayed_draw();
 };
 
 }

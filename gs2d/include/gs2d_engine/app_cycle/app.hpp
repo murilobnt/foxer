@@ -1,4 +1,4 @@
-// File: game.hpp
+// File: app.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef GS_GAME_HPP
-#define GS_GAME_HPP
+#ifndef GS_APP_HPP
+#define GS_APP_HPP
 
 // # External
 #include <SFML/Audio.hpp>
@@ -32,38 +32,38 @@
 #include <string>
 
 // # Internal
-#include "gs2d_engine/concrete/clock_handler.hpp"
-#include "gs2d_engine/concrete/time_handler.hpp"
-#include "gs2d_engine/concrete/scene_manager.hpp"
-#include "gs2d_engine/abstract/scene.hpp"
+#include "gs2d_engine/time/clock_handler.hpp"
+#include "gs2d_engine/time/time_handler.hpp"
+#include "gs2d_engine/app_cycle/scene_proxy.hpp"
+#include "gs2d_engine/scene/scene.hpp"
 
-// The entity that maintains the game cycle. It is responsable for
+// The entity that maintains the application cycle. It is responsable for
 // delegating actions for its scene managers, which repasses it
-// to its current scene. It also keeps the game to the framerate.
+// to its current scene. It also keeps the application to the framerate.
 
 namespace gs {
 
-class Game {
+class App {
 
 private:
     // The window of the application.
     sf::RenderWindow *app_window;
 
-    // The title of the game window.
-    std::string game_title;
+    // The title of the application window.
+    std::string app_title;
 
-    // The width and the height of the game window.
-    int game_width;
-    int game_height;
+    // The width and the height of the application window.
+    int app_width;
+    int app_height;
 
-    // The clock of the game.
+    // The clock of the application.
     ClockHandler clock_handler;
 
-    // The timehandler to define the framerate of the game.
-    TimeHandler game_frequency;
+    // The timehandler to define the framerate of the application.
+    TimeHandler app_frequency;
 
     // The scene manager to delegate actions for the scene.
-    SceneManager scene_manager;
+    SceneProxy scene_proxy;
 
     // This will handle the actions inside the framerate.
     void handle_time_actions();
@@ -77,22 +77,22 @@ private:
     void clear_and_draw();
 
 public:
-    Game();
-    // Constructor. Requires the width and height of the game window and its
+    App();
+    // Constructor. Requires the width and height of the application window and its
     // title too.
-    Game(int game_width, int game_height, std::string game_title, float framerate = 60.f);
+    App(int app_width, int app_height, std::string app_title, float framerate = 60.f);
 
     // Destructor.
-    ~Game();
+    ~App();
 
-    // Start the game. This begins the game cycle, verifying if the
+    // Start the application. This begins the application cycle, verifying if the
     // window is still open to do the operations. It requires the first
     // scene to be played and the bool to use vsync.
-    void game_start(Scene* first_scene, bool vsync = true);
+    void app_start(Scene* first_scene, bool vsync = true);
 
-    // Getters for the game width and height.
-    int get_game_width() const;
-    int get_game_height() const;
+    // Getters for the application width and height.
+    int get_app_width() const;
+    int get_app_height() const;
 };
 
 }

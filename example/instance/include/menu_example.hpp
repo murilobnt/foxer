@@ -26,7 +26,7 @@
 #ifndef MENU_EXAMPLE_HPP
 #define MENU_EXAMPLE_HPP
 
-#include "gs2d_engine/abstract/default_scenes/simple_menu_scene.hpp"
+#include "gs2d_engine/other/geared_up/simple_menu_scene.hpp"
 #include "test_scene.hpp"
 
 class MenuExample : public gs::SimpleMenuScene {

@@ -1,4 +1,4 @@
-#include "gs2d_engine/abstract/scene.hpp"
+#include "gs2d_engine/scene/scene.hpp"
 
 namespace gs {
 
@@ -23,14 +23,14 @@ void Scene::on_exit(){
 }
 
 void Scene::change_scene(Scene *next_scene) {
-        next_scene->set_scene_manager(scene_manager);
+        next_scene->set_scene_proxy(scene_proxy);
         next_scene->set_app_window(app_window);
-        scene_manager->change_scene(next_scene);
+        scene_proxy->change_scene(next_scene);
         delete this;
 }
 
-void Scene::set_scene_manager(SceneManager *scene_manager) {
-        this->scene_manager = scene_manager;
+void Scene::set_scene_proxy(SceneProxy *scene_proxy) {
+        this->scene_proxy = scene_proxy;
 }
 
 void Scene::set_app_window(sf::RenderWindow *app_window){

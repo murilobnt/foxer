@@ -1,4 +1,4 @@
-// File: eb_controlable_entity.hpp
+// File: clock_handler.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,36 +23,38 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef GS_EB_CONTROLABLE_ENTITY_HPP
-#define GS_EB_CONTROLABLE_ENTITY_HPP
+#ifndef GS_CLOCK_HANDLER_HPP
+#define GS_CLOCK_HANDLER_HPP
 
-// Represents an event based controlable entity. The entity will have to respond
-// to when a key of the keyboard is pressed or released, and the
-// method control_entity will be responsible for doing so.
-// e.g.:
-//     class Car : public EBControlableEntity {
-//         void control_entity(sf::Keyboard::Key key, bool release){
-//             switch(key){
-//             case sf::Keyboard::Space:
-//                 this->accelerate();
-//                 break;
-//             case sf::Keyboard::LShift:
-//                 this->brake();
-//                 break;
-//             }
-//         }
-//     }
+#include "gs2d_engine/time/time_handler.hpp"
+
+// Handles the clock of the game. It serves to make the game only
+// have a single clock, which every entity can use to syncronize their
+// time handlers.
 
 namespace gs {
 
-class EBControlableEntity {
+class ClockHandler {
+
+private:
+    // The SFML clock.
+    sf::Clock clock;
+
+    // The elapsed time of the clock.
+    sf::Time elapsed_time;
 
 public:
-    // Defines how the entity will respond to the given key when it is
-    // either pressed or released.
-    // The bool pressed is true if the key is pressed and false if
-    // the key is released.
-    virtual void control_entity(sf::Keyboard::Key key, bool pressed) = 0;
+    // Constructor.
+    ClockHandler();
+
+    // Restart the clock and register the elapsed time.
+    void restart_clock();
+
+    // Restart the given time handler to the clock's elapsed time.
+    void restart_time_handler(TimeHandler *time_handler);
+
+    // Getters.
+    sf::Time get_elapsed_time() const;
 
 };
 

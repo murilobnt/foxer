@@ -1,4 +1,4 @@
-// File: scene_component.hpp
+// File: ui_button.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,12 +23,37 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef GS_SCENE_COMPONENT_HPP
-#define GS_SCENE_COMPONENT_HPP
+#ifndef GS_UI_BUTTON_HPP
+#define GS_UI_BUTTON_HPP
 
-#include "gs2d_engine/abstract/animated_entity.hpp"
-#include "gs2d_engine/abstract/eb_controlable_entity.hpp"
-#include "gs2d_engine/abstract/ib_controlable_entity.hpp"
-#include "gs2d_engine/components/sprited_entity.hpp"
+#include <SFML/Graphics.hpp>
+#include <string>
+
+#include "gs2d_engine/scene/components/graphic/sprited_entity.hpp"
+
+namespace gs {
+
+class UIButton : public SpritedEntity {
+
+private:
+    int id;
+    bool focused;
+    sf::Text button_text;
+
+public:
+    UIButton(int id, float x, float y,
+             sf::Texture const& texture,
+             sf::Vector2i sprite_pos_at_tex,
+             sf::Vector2i sprite_dimensions,
+             sf::Font& font, std::string text_content);
+    UIButton();
+    void set_focused(bool focused);
+    bool is_focused();
+    sf::Text& get_button_text();
+    int get_id();
+    void init_text(sf::Font& font, std::string text_content);
+};
+
+}
 
 #endif

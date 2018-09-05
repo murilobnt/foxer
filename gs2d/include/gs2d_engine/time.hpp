@@ -26,7 +26,7 @@
 #ifndef GS_TIME_HPP
 #define GS_TIME_HPP
 
-#include "gs2d_engine/concrete/time_handler.hpp"
-#include "gs2d_engine/concrete/clock_handler.hpp"
+#include "gs2d_engine/time/time_handler.hpp"
+#include "gs2d_engine/time/clock_handler.hpp"
 
 #endif

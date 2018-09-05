@@ -27,11 +27,9 @@
 #define GS_SHORTCUT_SCENE_HPP
 
 #include "gs2d_engine/time.hpp"
-#include "gs2d_engine/scene_component.hpp"
-#include "gs2d_engine/abstract/scene.hpp"
-#include "gs2d_engine/abstract/mouse_control.hpp"
-#include "gs2d_engine/assist/tilemap.hpp"
-#include "gs2d_engine/concrete/texture_loader.hpp"
-#include "gs2d_engine/components/camera.hpp"
+#include "gs2d_engine/scene_components.hpp"
+#include "gs2d_engine/scene/scene.hpp"
+#include "gs2d_engine/other/helpers/texture_loader.hpp"
+#include "gs2d_engine/scene/components/camera/camera.hpp"
 
 #endif

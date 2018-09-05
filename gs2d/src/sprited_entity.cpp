@@ -1,4 +1,4 @@
-#include "gs2d_engine/components/sprited_entity.hpp"
+#include "gs2d_engine/scene/components/graphic/sprited_entity.hpp"
 
 namespace gs {
 

@@ -29,7 +29,7 @@
 #include <iostream>
 
 #include "gs2d_engine/scene.hpp"
-#include "gs2d_engine/assist/tilemap.hpp"
+#include "gs2d_engine/other/helpers/tilemap.hpp"
 
 #include "character.hpp"
 #include "second_scene.hpp"

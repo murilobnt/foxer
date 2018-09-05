@@ -26,6 +26,8 @@
 #ifndef GS_IB_CONTROLABLE_ENTITY_HPP
 #define GS_IB_CONTROLABLE_ENTITY_HPP
 
+#include <SFML/Graphics.hpp>
+
 // Represents an input based controlable entity. The entity will have to respond
 // to when a key of the keyboard is pressed or not, and the
 // method control_entity will be responsible for doing so.

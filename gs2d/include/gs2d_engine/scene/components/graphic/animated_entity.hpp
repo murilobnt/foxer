@@ -26,8 +26,8 @@
 #ifndef GS_ANIMATED_ENTITY_HPP
 #define GS_ANIMATED_ENTITY_HPP
 
-#include "gs2d_engine/components/sprited_entity.hpp"
-#include "gs2d_engine/concrete/time_handler.hpp"
+#include "gs2d_engine/scene/components/graphic/sprited_entity.hpp"
+#include "gs2d_engine/time/time_handler.hpp"
 
 // An animated entity can be used by entities that have
 // a sprite and it requires an animation. In this class,

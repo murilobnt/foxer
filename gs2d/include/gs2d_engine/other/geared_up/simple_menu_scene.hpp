@@ -1,4 +1,4 @@
-// File: tile_grid.hpp
+// File: simple_menu_scene.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,43 +23,45 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef GS_TILE_GRID_HPP
-#define GS_TILE_GRID_HPP
+#ifndef GS_SIMPLE_MENU_SCENE_HPP
+#define GS_SIMPLE_MENU_SCENE_HPP
 
-// # External
+#include <SFML/Graphics.hpp>
 #include <vector>
-#include <cmath>
+#include <string>
 
-// # Internal
-#include "gs2d_engine/assist/tile.hpp"
-#include "gs2d_engine/assist/generic_grid.hpp"
-
-struct Unity {
-
-public:
-    std::vector<gs::Tile> tiles;
-
-};
+#include "gs2d_engine/other/geared_up/ui_button.hpp"
+#include "gs2d_engine/scene/scene.hpp"
 
 namespace gs {
 
-class TileGrid : public GenericGrid {
+class SimpleMenuScene : public Scene {
 
 private:
-    std::vector<Unity> unities;
-    sf::Vector2i checkBoundaries(sf::Vector2i before) const;
+    sf::Texture background_texture;
+    sf::Sprite background;
+    std::vector<sf::Text> ui_text_vec;
+
+protected:
+	std::vector<UIButton> ui_button_vec;
+    std::vector<UIButton>::iterator ui_button_vec_it;
 
 public:
-    TileGrid();
+    SimpleMenuScene(std::string background_texture_path,
+                    int w, int h);
 
-    TileGrid(int w, int h, int unity_size);
+	void start();
+    void update();
+    void handle_event(sf::Event &event);
 
-    Unity* getUnity(int x, int y);
+	void draw_entities();
+    void add_button(UIButton& button);
+    void add_text(sf::Text& text);
 
-    void addTile(Tile tile);
-
-    std::vector<Unity> getUnitiesOnPosition(sf::Vector2f sprite_upper_left) const;
-
+    virtual void delayed_start() = 0;
+    virtual void delayed_handle_event(sf::Event &event) = 0;
+    virtual void delayed_update();
+    virtual void delayed_draw();
 };
 
 }

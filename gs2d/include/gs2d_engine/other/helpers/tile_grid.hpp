@@ -1,4 +1,4 @@
-// File: mouse_control.hpp
+// File: tile_grid.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,30 +23,42 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef GS_MOUSE_CONTROL_HPP
-#define GS_MOUSE_CONTROL_HPP
+#ifndef GS_TILE_GRID_HPP
+#define GS_TILE_GRID_HPP
 
-#include <SFML/Graphics.hpp>
+// # External
+#include <vector>
+#include <cmath>
 
-#include "gs2d_engine/components/sprited_entity.hpp"
+// # Internal
+#include "gs2d_engine/other/helpers/tile.hpp"
+#include "gs2d_engine/other/helpers/generic_grid.hpp"
 
-// Represents an entity to have mouse controls. In this case,
-// it is recommended that the entity to have mouse control
-// have the information of the screen, sf::RenderWindow in
-// particular to SFML, so it can define what will happen
-// when the mouse clicks some point.
+struct Unity {
+
+public:
+    std::vector<gs::Tile> tiles;
+
+};
 
 namespace gs {
 
-class MouseControl {
+class TileGrid : public GenericGrid {
+
+private:
+    std::vector<Unity> unities;
+    sf::Vector2i checkBoundaries(sf::Vector2i before) const;
 
 public:
-    // Defines the control for an entity by using the mouse.
-    // It needs the event, the sprited entity to be manipulated
-    // and the position of the mouse.
-    virtual void control_entity_by_mouse(sf::Event &event,
-                                    SpritedEntity &sprited_entity,
-                                    sf::Vector2f mouse_position) = 0;
+    TileGrid();
+
+    TileGrid(int w, int h, int unity_size);
+
+    Unity* getUnity(int x, int y);
+
+    void addTile(Tile tile);
+
+    std::vector<Unity> getUnitiesOnPosition(sf::Vector2f sprite_upper_left) const;
 
 };
 

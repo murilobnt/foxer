@@ -1,4 +1,4 @@
-#include "gs2d_engine/ui_components/ui_button.hpp"
+#include "gs2d_engine/other/geared_up/ui_button.hpp"
 
 namespace gs {
 

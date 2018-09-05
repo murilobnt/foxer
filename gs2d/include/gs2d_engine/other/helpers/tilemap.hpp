@@ -29,7 +29,8 @@
 // # External
 #include <SFML/Graphics.hpp>
 
-#include "gs2d_engine/assist/tile_grid.hpp"
+#include "gs2d_engine/other/helpers/texture_loader.hpp"
+#include "gs2d_engine/other/helpers/tile_grid.hpp"
 
 namespace gs {
 

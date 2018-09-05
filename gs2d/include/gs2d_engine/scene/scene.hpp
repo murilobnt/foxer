@@ -28,10 +28,10 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "gs2d_engine/concrete/clock_handler.hpp"
-#include "gs2d_engine/concrete/scene_manager.hpp"
-#include "gs2d_engine/concrete/texture_loader.hpp"
-#include "gs2d_engine/concrete/time_handler.hpp"
+#include "gs2d_engine/time/clock_handler.hpp"
+#include "gs2d_engine/app_cycle/scene_proxy.hpp"
+#include "gs2d_engine/other/helpers/texture_loader.hpp"
+#include "gs2d_engine/time/time_handler.hpp"
 
 // Scenes serves as the mold for any scene, e.g. the main menu
 // and the pause screen. It contains methods for loading resources,
@@ -50,7 +50,7 @@ private:
     // The reference to the scene manager of the game. It is important for
     // the coder can change the current scene for another one inside the
     // scene.
-    SceneManager *scene_manager;
+    SceneProxy *scene_proxy;
 
 protected:
     // The time handlers of the scene.
@@ -97,7 +97,7 @@ public:
     void reset_time_handlers(ClockHandler &clock_handler);
 
     // Will set a new scene manager to the scene.
-    void set_scene_manager(SceneManager *scene_manager);
+    void set_scene_proxy(SceneProxy *scene_proxy);
 
     // Setter of app_window.
     void set_app_window(sf::RenderWindow *app_window);
