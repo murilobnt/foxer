@@ -14,7 +14,7 @@ void ClockHandler::restart_time_handler(TimeHandler *time_handler) {
 }
 
 sf::Time ClockHandler::get_elapsed_time() const {
-    return elapsed_time;
+        return elapsed_time;
 }
 
 }

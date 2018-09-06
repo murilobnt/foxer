@@ -1,4 +1,4 @@
-// File: test_scene.hpp
+// File: tile_csv_loader.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,43 +23,22 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef TEST_SCENE_HPP
-#define TEST_SCENE_HPP
+#ifndef GS_TILED_CSV_LOADER_HPP
+#define GS_TILED_CSV_LOADER_HPP
 
+#include <fstream>
+#include <sstream>
 #include <iostream>
+#include <vector>
+#include <string>
 
-#include "gs2d_engine/scene.hpp"
-#include "gs2d_engine/other/helpers/tilemap.hpp"
-#include "gs2d_engine/other/helpers/tiled_csv_loader.hpp"
+namespace gs{
 
-#include "character.hpp"
-#include "second_scene.hpp"
-
-class MenuExample;
-
-class TestScene : public gs::Scene {
-
-private:
-    gs::Camera camera;
-    gs::TileMap test_tm;
-
-    sf::Texture char_texture;
-
-    Character character;
-
-    void timed_events();
-
+class TiledCSVLoader {
 public:
-    ~TestScene();
-
-    void start();
-    void update();
-
-    void handle_event(sf::Event &event);
-    void draw_entities();
-
-    void on_exit();
-
+    static void load_tilemap_array_from_file(std::string csv_file, std::vector<int>* tilemap, int &width, int &height);
 };
+
+}
 
 #endif

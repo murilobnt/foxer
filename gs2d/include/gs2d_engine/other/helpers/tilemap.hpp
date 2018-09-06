@@ -28,8 +28,11 @@
 
 // # External
 #include <SFML/Graphics.hpp>
+#include <vector>
+#include <string>
 
 #include "gs2d_engine/other/helpers/texture_loader.hpp"
+#include "gs2d_engine/other/helpers/tiled_csv_loader.hpp"
 #include "gs2d_engine/other/helpers/tile_grid.hpp"
 
 namespace gs {
@@ -71,7 +74,7 @@ public:
     * @param selected the selected tiles to be collided
     * @param lenght the lenght of selected array
     */
-    bool load(const std::string& tileset, sf::Vector2u tile_size, const int* tiles, unsigned int width, unsigned int height);
+    bool load(const std::string tileset, const std::string csv_file, sf::Vector2u tile_size);
 
     /**
     * Get the size of the level.

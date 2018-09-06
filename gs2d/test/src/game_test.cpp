@@ -65,7 +65,7 @@ virtual ~AppTest(){
 
 virtual void SetUp(){
         my_scene = new MyScene();
-        game = new gs::App(200, 200, std::string("FFS"));
+        game = new gs::App(200, 200, "FFS");
 }
 
 virtual void TearDown(){

@@ -8,17 +8,13 @@ TestScene::~TestScene(){
 void TestScene::start() {
         camera = gs::Camera(sf::Vector2f(800, 600));
 
-        const int level[] = {-1, -1, -1, -1, -1,
-                             0, 1, 0, 1, 0,
-                             -1, 2, 1, -1, 0,
-                             1, 2, 1, 0, 2};
-
-        test_tm.load("assets/test_tileset.png", sf::Vector2u(40, 40), level, 5, 4);
+        test_tm.load("assets/images/test_tileset.png", "assets/levels/level00.csv",
+                     sf::Vector2u(40, 40));
 
         time_handlers.push_back(&character.get_animation_time_handler());
 
         gs::TextureLoader::set_texture_from_file(char_texture,
-                                             std::string("assets/link_edit.png"),
+                                             "assets/images/link_edit.png",
                                              1200, 1040);
         character = Character(char_texture,
                               sf::Vector2i(0, 0),

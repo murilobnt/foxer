@@ -17,11 +17,11 @@ AnimatedEntity::AnimatedEntity() {
 }
 
 sf::Vector2i AnimatedEntity::get_animation_x() const {
-    return animation_x;
+        return animation_x;
 }
 
 sf::Vector2i AnimatedEntity::get_animation_y() const {
-    return animation_y;
+        return animation_y;
 }
 
 TimeHandler &AnimatedEntity::get_animation_time_handler() {
@@ -36,9 +36,9 @@ void AnimatedEntity::apply_animation(int row) {
                 animation_loop_state = 0;
 
         configure_sprite_rect(animation_x.x +
-                            animation_loop_state * sprite_dimensions.x,
-                            animation_y.x +
-                            row * sprite_dimensions.y);
+                              animation_loop_state * sprite_dimensions.x,
+                              animation_y.x +
+                              row * sprite_dimensions.y);
 
         ++animation_loop_state;
 }

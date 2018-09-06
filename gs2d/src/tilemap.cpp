@@ -5,8 +5,16 @@ namespace gs {
 TileMap::TileMap() {
 }
 
-bool TileMap::load(const std::string &tileset, sf::Vector2u tile_size,
-                   const int *tiles, unsigned int width, unsigned int height) {
+bool TileMap::load(const std::string tileset, const std::string csv_file,
+                   sf::Vector2u tile_size) {
+
+        std::vector<int> tiles;
+        int width;
+        int height;
+
+        gs::TiledCSVLoader::load_tilemap_array_from_file(csv_file, &tiles,
+                                                         width, height);
+
         level_width = width * tile_size.x;
         level_height = height * tile_size.y;
 

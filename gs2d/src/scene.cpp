@@ -13,9 +13,9 @@ void Scene::reset_time_handlers(ClockHandler &clock_handler){
 }
 
 void Scene::handle_event(sf::Event &event){
-    if (event.type == sf::Event::Closed) {
-            app_window->close();
-    }
+        if (event.type == sf::Event::Closed) {
+                app_window->close();
+        }
 }
 
 void Scene::on_exit(){
@@ -34,7 +34,7 @@ void Scene::set_scene_proxy(SceneProxy *scene_proxy) {
 }
 
 void Scene::set_app_window(sf::RenderWindow *app_window){
-    this->app_window = app_window;
+        this->app_window = app_window;
 }
 
 }

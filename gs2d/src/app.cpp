@@ -2,19 +2,20 @@
 
 namespace gs {
 
-App::App() {}
+App::App() {
+}
 
 App::App(int app_width, int app_height,
-           std::string app_title, float framerate)
+         std::string app_title, float framerate)
         : app_frequency(sf::seconds(1.f / framerate)),
-          app_title(app_title),
-          app_width(app_width),
-          app_height(app_height){
+        app_title(app_title),
+        app_width(app_width),
+        app_height(app_height){
 
-          }
+}
 
 App::~App(){
-    delete app_window;
+        delete app_window;
 }
 
 void App::app_start(Scene *first_scene, bool vsync) {

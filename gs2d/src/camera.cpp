@@ -37,7 +37,7 @@ void Camera::center_at_sprite(const sf::Sprite& sprite){
 }
 
 void Camera::center_at_position(sf::Vector2f position){
-    view.setCenter(position);
+        view.setCenter(position);
 }
 
 sf::View Camera::get_view() const {
