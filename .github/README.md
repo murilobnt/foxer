@@ -9,8 +9,10 @@ Game engine to create 2D games in C++ with SFML
 </p>
 
 <p align=center>
+<a href="https://travis-ci.org/murilobnt/gs2d_engine">
+<img src="https://travis-ci.org/murilobnt/gs2d_engine.svg?branch=master" alt="Build Status"/></a>
 <a href="https://www.codacy.com/app/murilobnt/gs2d_engine?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=murilobnt/gs2d_engine&amp;utm_campaign=Badge_Grade">
-<img src="https://api.codacy.com/project/badge/Grade/47bdb57771bf4c75bff39618e4935b72" alt="codacy"/></a>
+<img src="https://api.codacy.com/project/badge/Grade/47bdb57771bf4c75bff39618e4935b72" alt="Codacy Badge"/></a>
 <a href="https://github.com/murilobnt/gs2d_engine/blob/master/LICENSE">
 <img src="https://img.shields.io/:license-MIT-blue.svg" alt="license"/></a>
 <a href="https://github.com/murilobnt/gs2d_engine/graphs/contributors">
