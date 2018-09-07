@@ -2,6 +2,10 @@
 
 namespace gs {
 
+Scene::Scene() {
+
+}
+
 Scene::~Scene() {
 }
 

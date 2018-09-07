@@ -1,6 +1,7 @@
 /*
  * File:   collision.cpp
- * Author: Nick (original version), ahnonay (SFML2 compatibility)
+ * Author: Nick (original version), ahnonay (SFML2 compatibility),
+ * murilobnt (optimization)
  */
 #include <SFML/Graphics.hpp>
 #include <map>
@@ -13,7 +14,7 @@ namespace Collision
 	public:
 		~BitmaskManager() {
 			std::map<const sf::Texture*, sf::Uint8*>::const_iterator end = Bitmasks.end();
-			for (std::map<const sf::Texture*, sf::Uint8*>::const_iterator iter = Bitmasks.begin(); iter!=end; iter++)
+			for (std::map<const sf::Texture*, sf::Uint8*>::const_iterator iter = Bitmasks.begin(); iter!=end; ++iter)
 				delete [] iter->second;
 		}
 
@@ -41,9 +42,9 @@ namespace Collision
 		sf::Uint8* CreateMask (const sf::Texture* tex, const sf::Image& img) {
 			sf::Uint8* mask = new sf::Uint8[tex->getSize().y*tex->getSize().x];
 
-			for (unsigned int y = 0; y<tex->getSize().y; y++)
+			for (unsigned int y = 0; y<tex->getSize().y; ++y)
 			{
-				for (unsigned int x = 0; x<tex->getSize().x; x++)
+				for (unsigned int x = 0; x<tex->getSize().x; ++x)
 					mask[x+y*tex->getSize().x] = img.getPixel(x,y).a;
 			}
 
@@ -67,8 +68,8 @@ namespace Collision
 			sf::Uint8* mask2 = Bitmasks.GetMask(Object2.getTexture());
 
 			// Loop through our pixels
-			for (int i = Intersection.left; i < Intersection.left+Intersection.width; i++) {
-				for (int j = Intersection.top; j < Intersection.top+Intersection.height; j++) {
+			for (int i = Intersection.left; i < Intersection.left+Intersection.width; ++i) {
+				for (int j = Intersection.top; j < Intersection.top+Intersection.height; ++j) {
 
 					sf::Vector2f o1v = Object1.getInverseTransform().transformPoint(i, j);
 					sf::Vector2f o2v = Object2.getInverseTransform().transformPoint(i, j);
@@ -128,7 +129,7 @@ namespace Collision
 	class OrientedBoundingBox // Used in the BoundingBoxTest
 	{
 	public:
-		OrientedBoundingBox (const sf::Sprite& Object) // Calculate the four points of the OBB from a transformed (scaled, rotated...) sprite
+		explicit OrientedBoundingBox (const sf::Sprite& Object) // Calculate the four points of the OBB from a transformed (scaled, rotated...) sprite
 		{
 			sf::Transform trans = Object.getTransform();
 			sf::IntRect local = Object.getTextureRect();
@@ -144,7 +145,7 @@ namespace Collision
 		{
 			Min = (Points[0].x*Axis.x+Points[0].y*Axis.y);
 			Max = Min;
-			for (int j = 1; j<4; j++)
+			for (int j = 1; j<4; ++j)
 			{
 				float Projection = (Points[j].x*Axis.x+Points[j].y*Axis.y);
 
@@ -172,7 +173,7 @@ namespace Collision
 			OBB2.Points[0].y-OBB2.Points[1].y)
 		};
 
-		for (int i = 0; i<4; i++) // For each axis...
+		for (int i = 0; i<4; ++i) // For each axis...
 		{
 			float MinOBB1, MaxOBB1, MinOBB2, MaxOBB2;
 

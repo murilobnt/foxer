@@ -1,6 +1,7 @@
-/* 
+/*
  * File:   collision.h
- * Authors: Nick Koirala (original version), ahnonay (SFML2 compatibility)
+ * Authors: Nick Koirala (original version), ahnonay (SFML2 compatibility),
+ * murilobnt (optimization)
  *
  * Collision Detection and handling class
  * For SFML2.

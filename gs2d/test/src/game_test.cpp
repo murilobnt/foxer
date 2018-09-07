@@ -38,7 +38,7 @@ class NextScene : public gs::Scene {
 public:
     MyScene *my_scene;
 
-NextScene(MyScene *my_scene) {
+explicit NextScene(MyScene *my_scene) {
     this->my_scene = my_scene;
 }
 

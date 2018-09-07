@@ -5,7 +5,7 @@ namespace gs {
 TileMap::TileMap() {
 }
 
-bool TileMap::load(const std::string tileset, const std::string csv_file,
+bool TileMap::load(const std::string &tileset, const std::string csv_file,
                    sf::Vector2u tile_size) {
 
         std::vector<int> tiles;

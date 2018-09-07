@@ -41,7 +41,7 @@ public:
     Camera(sf::Vector2f const camera_center_position,
            sf::Vector2f const camera_dimensions, float const zoom);
 
-    Camera(sf::Vector2f const camera_dimensions);
+    explicit Camera(sf::Vector2f const camera_dimensions);
     Camera(sf::Vector2f const camera_dimensions, float const zoom);
 
     Camera();

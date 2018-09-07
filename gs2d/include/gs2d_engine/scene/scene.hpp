@@ -60,6 +60,8 @@ protected:
     sf::RenderWindow *app_window;
 
 public:
+    Scene();
+
     // Virtual destructor. This means allocated memory with the new
     // operator can be freed on the child scene.
     virtual ~Scene();

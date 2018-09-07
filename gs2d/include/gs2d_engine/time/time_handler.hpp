@@ -47,7 +47,7 @@ public:
     TimeHandler();
 
     // Constructor. Sets the update rate.
-    TimeHandler(sf::Time update_rate);
+    explicit TimeHandler(sf::Time update_rate);
 
     // Restart the time handler with the elapsed_time. The elapsed time is
     // known by the ClockHandler, and it is recommended that the time handler
