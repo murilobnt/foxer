@@ -3,8 +3,7 @@ compiler: g++
 sudo: true
 
 before_install:
-   - sudo apt-add-repository ppa:sonkun/sfml-development --yes
-   - sudo apt update -qq
+   - sudo apt update
 
 install:
    - sudo apt install libsfml-dev
