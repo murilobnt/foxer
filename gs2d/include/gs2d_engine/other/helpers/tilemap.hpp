@@ -74,7 +74,7 @@ public:
     * @param selected the selected tiles to be collided
     * @param lenght the lenght of selected array
     */
-    bool load(const std::string &tileset, const std::string csv_file, sf::Vector2u tile_size);
+    bool load(const std::string &tileset, const std::string &csv_file, sf::Vector2u tile_size);
 
     /**
     * Get the size of the level.
