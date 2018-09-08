@@ -17,7 +17,7 @@ STD = c++11
 FLAGS = -c
 
 ## Headers' inclusion
-INCLUDE = -I ./gs2d/include
+INCLUDE = -I ../gs2d/include
 
 ## The target's name
 TARGET = gs2d
@@ -26,16 +26,16 @@ TARGET = gs2d
 SFML = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
 ## Binaries directory
-BDIR = ./gs2d/bin
+BDIR = ../gs2d/bin
 
 ## Library directory
-LDIR = ./gs2d/lib
+LDIR = ../gs2d/lib
 
 ## Source files directory
-SRC = ./gs2d/src
+SRC = ../gs2d/src
 
 ## Code coverage dir
-CDIR = ./coverage
+CDIR = ../coverage
 
 CBDIR = $(CDIR)/bin
 
@@ -66,92 +66,3 @@ $(BDIR)/%.o: $(SRC)/%.cpp
 ## For entry "clean" (make clean), delete the objects and the executable.
 clean :
 	$(CLEANENGINE)
-
-# SECTION: COVERAGE OBJECTS ----------------------------------------------------
-
-CTARGET = gs2d_coverage
-
-GCNO = $(addprefix $(CBDIR)/,$(notdir $(CPPS:.cpp=.gcno)))
-COBJS = $(addprefix $(CBDIR)/,$(notdir $(CPPS:.cpp=.o)))
-
-CLDIR = $(CDIR)/lib
-
-coverage : $(CTARGET)
-
-$(CTARGET) : $(COBJS)
-	ar rs $(CLDIR)/$(CTARGET).a ./$^
-
-$(CBDIR)/%.o: $(SRC)/%.cpp
-	$(CC) $(FLAGS) --coverage $(INCLUDE) ./$< -o ./$@
-
-cleancoverage :
-		$(CLEANCOVERAGE)
-
-# SECTION: TESTS VARIABLES -----------------------------------------------------
-
-## Important: Change this to the location of Google Test on your PC.
-GTDIR = ../googletest
-
-## Google Test include
-GTINCLUDE = -I $(GTDIR)/googletest/include
-
-## Path to Google Test library
-GTLIB = $(GTDIR)/libgtest.a
-
-## Tests directory
-TDIR = ./gs2d/test
-
-## Test source files directory
-TSRC = $(TDIR)/src
-
-## Test binaries directory
-TBDIR = $(BDIR)/test
-
-## The test target file name
-TTARGET = gs2d_tests
-
-## Test source codes
-TC = $(wildcard $(TSRC)/*.cpp)
-
-## Generated test objects
-TB = $(addprefix $(TBDIR)/, $(notdir $(TC:.cpp=.o)))
-
-# SECTION: TESTS COMPILING -----------------------------------------------------
-
-## For all entries, the dependency is the test target file.
-tests : $(TTARGET)
-
-## To get the test target file, the dependency is the binaries.
-$(TTARGET) : $(TB)
-	$(CC) -pthread --coverage ./$^ $(GTLIB) $(CLDIR)/$(CTARGET).a $(SFML) -o $(TBDIR)/$(TTARGET)
-
-## To get the binaries, the dependency is the source code (and we have them).
-$(TBDIR)/%.o : $(TSRC)/%.cpp
-	$(CC) $(FLAGS) $(INCLUDE) $(GTINCLUDE) ./$< -o ./$@
-
-## I guess you know what this does xD (clean tests generated files).
-cleantests :
-	$(CLEANTESTS)
-
-# SECTION: CODE COVERAGE VARIABLES ---------------------------------------------
-
-RTARGET = $(CDIR)/report
-
-LCOV = $(CDIR)/lcov.info
-
-creport : $(RTARGET)
-
-$(RTARGET) : $(LCOV)
-	genhtml -o ./$@ ./$<
-
-$(LCOV) :
-	lcov -t "gs2d_coverage_report" -o $(CDIR)/lcov.info -c -d $(CBDIR)/.
-
-cleancreport :
-	$(CLEANCOVREPORT)
-
-cleaneverything :
-		$(CLEANENGINE)
-		$(CLEANCOVERAGE)
-		$(CLEANTESTS)
-		$(CLEANCOVREPORT)
