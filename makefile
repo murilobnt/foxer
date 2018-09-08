@@ -10,6 +10,9 @@ CLEANCOVREPORT = $(RM) -r $(LCOV) $(RTARGET)
 ## The compiler
 CC = g++
 
+## Std library
+STD = c++11
+
 ## Additional flags
 FLAGS = -c
 
@@ -58,7 +61,7 @@ $(TARGET) : $(OBJS)
 
 ## To satisfy the objects dependency above, we need the source code files.
 $(BDIR)/%.o: $(SRC)/%.cpp
-	$(CC) $(FLAGS) $(INCLUDE) ./$< -o ./$@
+	$(CC) $(FLAGS) -std=$(STD) $(INCLUDE) ./$< -o ./$@
 
 ## For entry "clean" (make clean), delete the objects and the executable.
 clean :
