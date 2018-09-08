@@ -3,10 +3,10 @@ compiler: g++
 sudo: true
 
 before_install:
-   - sudo update-alternatives --remove-all g++
    - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
    - sudo apt update -q
-   - sudo apt install g++
+   - sudo apt install g++-7
+   - export CXX=g++-7
 
 install:
    - sudo apt install libsfml-dev
