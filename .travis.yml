@@ -4,6 +4,7 @@ sudo: true
 
 before_install:
    - sudo apt update
+   - sudo apt install g++-7
 
 install:
    - sudo apt install libsfml-dev
