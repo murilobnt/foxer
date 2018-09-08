@@ -3,8 +3,6 @@ compiler: g++
 sudo: true
 
 before_install:
-   - cd .travis
-   - chmod +x build.sh
    - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
    - sudo apt update -q
    - sudo apt install g++-7
@@ -13,4 +11,6 @@ install:
    - sudo apt install libsfml-dev
 
 script:
+   - cd .travis
+   - chmod +x build.sh
    - ./build.sh
