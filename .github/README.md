@@ -47,13 +47,13 @@ This tool will help you focus on the game. All you have to do is to create your 
 
 ### Essential (Engine related)
 
--   [GCC](http://gcc.gnu.org).
+-   [GCC](http://gcc.gnu.org) (4.9 or later).
 -   [SFML](https://www.sfml-dev.org).
 
 ### Optional (Tests related)
 
--   [Google Test](https://github.com/google/googletest)
--   [LCOV](http://ltp.sourceforge.net/coverage/lcov.php)
+-   [Google Test](https://github.com/google/googletest).
+-   [LCOV](http://ltp.sourceforge.net/coverage/lcov.php).
 
 ## Installation
 
