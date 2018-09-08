@@ -1,36 +1,31 @@
-#include "gs2d_engine/other/helpers/tilemap.hpp"
+#include "gs2d_engine/game/level/tilemap.hpp"
 
 namespace gs {
 
 TileMap::TileMap() {
 }
 
-bool TileMap::load(const std::string &tileset, const std::string &csv_file,
-                   sf::Vector2u tile_size) {
+TileMap::TileMap(const std::string& tileset, const sf::Vector2u &tile_size, const sf::Vector2u &level_size, const std::vector<int> &tiles) {
+    load(tileset, tile_size, level_size, tiles);
+}
 
-        std::vector<int> tiles;
-        int width;
-        int height;
 
-        gs::TiledCSVLoader::load_tilemap_array_from_file(csv_file, &tiles,
-                                                         width, height);
-
-        level_width = width * tile_size.x;
-        level_height = height * tile_size.y;
-
+bool TileMap::load(const std::string& tileset, const sf::Vector2u &tile_size, const sf::Vector2u &level_size, const std::vector<int> &tiles) {
         // load the tileset texture
         if (!m_tileset.loadFromFile(tileset))
                 return false;
 
         // resize the vertex array to fit the level size
         m_vertices.setPrimitiveType(sf::Quads);
-        m_vertices.resize(width * height * 4);
+        m_vertices.resize(level_size.x * level_size.y * 4);
 
         // populate the vertex array, with one quad per tile
-        for (unsigned int i = 0; i < width; ++i)
-                for (unsigned int j = 0; j < height; ++j) {
+        for (unsigned int i = 0; i < level_size.x; ++i)
+                for (unsigned int j = 0; j < level_size.y; ++j) {
                         // get the current tile number
-                        int tile_number = tiles[i + j * width];
+                        int tile_number = tiles[i + j * level_size.x];
+
+                        --tile_number;
 
                         // find its position in the tileset texture
                         int tu = tile_number % (m_tileset.getSize().x / tile_size.x);
@@ -38,7 +33,7 @@ bool TileMap::load(const std::string &tileset, const std::string &csv_file,
 
                         if (tu != -1) {
                                 // get a pointer to the current tile's quad
-                                sf::Vertex *quad = &m_vertices[(i + j * width) * 4];
+                                sf::Vertex *quad = &m_vertices[(i + j * level_size.x) * 4];
 
                                 // define its 4 corners
                                 quad[0].position = sf::Vector2f(i * tile_size.x, j * tile_size.y);
@@ -73,10 +68,6 @@ void TileMap::draw(sf::RenderTarget &target, sf::RenderStates states) const {
 
         // draw the vertex array
         target.draw(m_vertices, states);
-}
-
-sf::Vector2u TileMap::get_level_size() const {
-        return sf::Vector2u(level_width, level_height);
 }
 
 }

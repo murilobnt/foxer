@@ -29,11 +29,7 @@
 // # External
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include <string>
-
-#include "gs2d_engine/other/helpers/texture_loader.hpp"
-#include "gs2d_engine/other/helpers/tiled_csv_loader.hpp"
-#include "gs2d_engine/other/helpers/tile_grid.hpp"
+#include <iostream>
 
 namespace gs {
 
@@ -53,16 +49,10 @@ private:
     // The texture of the tiles
     sf::Texture m_tileset;
 
-    // The width of the level
-    unsigned int level_width;
-
-    // The height of the level
-    unsigned int level_height;
-
-    TileGrid tile_grid;
-
 public:
     TileMap();
+
+    TileMap(const std::string& tileset, const sf::Vector2u &tile_size, const sf::Vector2u &level_size, const std::vector<int> &tiles);
 
     /**
     * Load the tileset.
@@ -74,13 +64,7 @@ public:
     * @param selected the selected tiles to be collided
     * @param lenght the lenght of selected array
     */
-    bool load(const std::string &tileset, const std::string &csv_file, sf::Vector2u tile_size);
-
-    /**
-    * Get the size of the level.
-    * @return the size of the level
-    */
-    sf::Vector2u get_level_size() const;
+    bool load(const std::string& tileset, const sf::Vector2u &tile_size, const sf::Vector2u &level_size, const std::vector<int> &tiles);
 
 };
 

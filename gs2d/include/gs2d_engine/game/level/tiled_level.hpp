@@ -1,4 +1,4 @@
-// File: test_scene.hpp
+// File: tiled_level.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,48 +23,38 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef TEST_SCENE_HPP
-#define TEST_SCENE_HPP
+#ifndef GS_TILED_LEVEL_HPP
+#define GS_TILED_LEVEL_HPP
 
-#include <iostream>
+#include <string>
+#include <SFML/Graphics.hpp>
+#include <fstream>
 #include <vector>
-
-#include "gs2d_engine/scene.hpp"
-#include "gs2d_engine/game/level/tilemap.hpp"
-#include "gs2d_engine/other/helpers/tiled_csv_loader.hpp"
-#include "gs2d_engine/game/level/tiled_level.hpp"
+#include <map>
+#include "external/json.hpp"
 #include "gs2d_engine/game/level/tiled_json_container.hpp"
+#include "gs2d_engine/game/level/tilemap.hpp"
 
-#include "character.hpp"
-#include "second_scene.hpp"
+namespace gs {
 
-class MenuExample;
-
-class TestScene : public gs::Scene {
-
+class TiledLevel {
 private:
-    gs::Camera camera;
-    gs::TiledLevel tiled_level;
+    sf::Vector2u tile_size;
+    sf::Vector2u level_size;
 
-    sf::Texture char_texture;
-
-    std::vector<gs::TileMap> *tile_layers;
-
-    Character character;
-
-    void timed_events();
+    std::vector<TileMap> tile_layers;
+    TiledJsonTileLayer collision_layer;
+    std::map<std::string, TiledJsonObj> events;
 
 public:
-    ~TestScene();
+    TiledLevel();
+    TiledLevel(const std::string& tileset, const std::string &json_tiled_file);
 
-    void start();
-    void update();
-
-    void handle_event(sf::Event &event);
-    void draw_entities();
-
-    void on_exit();
-
+    void load(const std::string& tileset, const std::string &json_tiled_file);
+    std::vector<TileMap> *get_tile_layers();
+    TiledJsonObj get_event(const std::string &event_id) const;
 };
+
+}
 
 #endif

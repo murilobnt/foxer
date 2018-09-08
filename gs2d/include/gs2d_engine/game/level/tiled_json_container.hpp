@@ -1,4 +1,4 @@
-// File: test_scene.hpp
+// File: tiled_json_container.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,48 +23,36 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef TEST_SCENE_HPP
-#define TEST_SCENE_HPP
+#ifndef GS_TILED_JSON_CONTAINER_HPP
+#define GS_TILED_JSON_CONTAINER_HPP
 
-#include <iostream>
 #include <vector>
+#include <string>
 
-#include "gs2d_engine/scene.hpp"
-#include "gs2d_engine/game/level/tilemap.hpp"
-#include "gs2d_engine/other/helpers/tiled_csv_loader.hpp"
-#include "gs2d_engine/game/level/tiled_level.hpp"
-#include "gs2d_engine/game/level/tiled_json_container.hpp"
+#include "external/json.hpp"
 
-#include "character.hpp"
-#include "second_scene.hpp"
+using json = nlohmann::json;
 
-class MenuExample;
+namespace gs {
 
-class TestScene : public gs::Scene {
+struct TiledJsonTileLayer {
+    std::vector<int> data;
 
-private:
-    gs::Camera camera;
-    gs::TiledLevel tiled_level;
-
-    sf::Texture char_texture;
-
-    std::vector<gs::TileMap> *tile_layers;
-
-    Character character;
-
-    void timed_events();
-
-public:
-    ~TestScene();
-
-    void start();
-    void update();
-
-    void handle_event(sf::Event &event);
-    void draw_entities();
-
-    void on_exit();
-
+    TiledJsonTileLayer();
+    explicit TiledJsonTileLayer(json json_obj);
 };
+
+struct TiledJsonObj {
+    std::string id;
+    float x;
+    float y;
+    float width;
+    float height;
+
+    TiledJsonObj();
+    TiledJsonObj(json json_obj, int tile_height);
+};
+
+}
 
 #endif

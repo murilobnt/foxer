@@ -8,8 +8,8 @@ TestScene::~TestScene(){
 void TestScene::start() {
         camera = gs::Camera(sf::Vector2f(800, 600));
 
-        test_tm.load("assets/images/test_tileset.png", "assets/levels/level00.csv",
-                     sf::Vector2u(40, 40));
+        tiled_level.load("assets/images/test_tileset.png", "assets/levels/level01.json");
+        tile_layers = tiled_level.get_tile_layers();
 
         time_handlers.push_back(&character.get_animation_time_handler());
 
@@ -23,7 +23,8 @@ void TestScene::start() {
                               sf::Vector2i(520, 910), 20);
         character.set_sprite_scale(0.4, 0.4);
 
-        character.set_sprite_position(sf::Vector2f(0, 20));
+        gs::TiledJsonObj player_start_pos = tiled_level.get_event("player_start_pos");
+        character.set_sprite_position(sf::Vector2f(player_start_pos.x, player_start_pos.y));
 }
 
 void TestScene::update() {
@@ -52,7 +53,9 @@ void TestScene::handle_event(sf::Event &event) {
 }
 
 void TestScene::draw_entities() {
-        app_window->draw(test_tm);
+        for(int i = 0; i < tile_layers->size(); ++i) {
+            app_window->draw(tile_layers->at(i));
+        }
         app_window->draw(character.get_sprite());
 }
 
