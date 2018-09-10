@@ -72,19 +72,19 @@ void Character::control_entity() {
         }
 
         if(moving_left)
-                movement.x = -2;
+                movement.x = -200;
         if(moving_down)
-                movement.y = 2;
+                movement.y = 200;
         if(moving_right)
-                movement.x = 2;
+                movement.x = 200;
         if(moving_up)
-                movement.y = -2;
+                movement.y = -200;
 }
 
-void Character::move_character() {
-        move_sprite(movement);
-        movement.x = 0;
-        movement.y = 0;
+void Character::move(float delta_time){
+    move_sprite(movement * delta_time);
+    movement.x = 0;
+    movement.y = 0;
 }
 
 void Character::animate() {

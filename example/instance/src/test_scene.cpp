@@ -30,9 +30,11 @@ void TestScene::start() {
 void TestScene::update() {
         camera.center_at_sprite(character.get_sprite());
         app_window->setView(camera.get_view());
+
         timed_events();
+
         character.control_entity();
-        character.move_character();
+        move_entity(character);
 }
 
 void TestScene::handle_event(sf::Event &event) {

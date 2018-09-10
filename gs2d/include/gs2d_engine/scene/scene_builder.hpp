@@ -1,4 +1,4 @@
-// File: character.hpp
+// File: scene_builder.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,40 +23,25 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef GS_SCENE_BUILDER_HPP
+#define GS_SCENE_BUILDER_HPP
 
 #include <SFML/Graphics.hpp>
-#include <iostream>
+#include "gs2d_engine/time/clock_handler.hpp"
+#include "gs2d_engine/app_cycle/scene_proxy.hpp"
 
-#include "gs2d_engine/scene_components.hpp"
-#include "gs2d_engine/time.hpp"
-#include "facing_position.hpp"
+namespace gs {
 
-class Character : public gs::AnimatedEntity,
-                  public gs::IBControlableEntity,
-                  public gs::MovableObject {
+class Scene;
 
-private:
-    gs::TimeHandler animation_time_handler;
-
-    bool moving_up;
-    bool moving_down;
-    bool moving_left;
-    bool moving_right;
-
-    FacingPosition current_facing_pos;
-    FacingPosition last_facing_pos;
-
+class SceneBuilder {
 public:
-    Character(sf::Texture const &texture, sf::Vector2i sprite_pos_at_tex,
-              sf::Vector2i sprite_dimensions, sf::Vector2i animation_x,
-              sf::Vector2i animation_y, int animation_framerate);
-    Character();
-    void control_entity();
-    void move(float delta_time);
-    void animate();
-
+    static void build_scene(Scene *scene,
+                            SceneProxy *scene_proxy,
+                            sf::RenderWindow *app_window,
+                            ClockHandler *app_clock);
 };
+
+}
 
 #endif

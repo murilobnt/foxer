@@ -1,4 +1,4 @@
-// File: character.hpp
+// File: movable_object.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,40 +23,21 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef GS_MOVABLE_OBJECT_HPP
+#define GS_MOVABLE_OBJECT_HPP
 
 #include <SFML/Graphics.hpp>
-#include <iostream>
 
-#include "gs2d_engine/scene_components.hpp"
-#include "gs2d_engine/time.hpp"
-#include "facing_position.hpp"
+namespace gs {
 
-class Character : public gs::AnimatedEntity,
-                  public gs::IBControlableEntity,
-                  public gs::MovableObject {
-
-private:
-    gs::TimeHandler animation_time_handler;
-
-    bool moving_up;
-    bool moving_down;
-    bool moving_left;
-    bool moving_right;
-
-    FacingPosition current_facing_pos;
-    FacingPosition last_facing_pos;
+class MovableObject {
+protected:
+    sf::Vector2f movement;
 
 public:
-    Character(sf::Texture const &texture, sf::Vector2i sprite_pos_at_tex,
-              sf::Vector2i sprite_dimensions, sf::Vector2i animation_x,
-              sf::Vector2i animation_y, int animation_framerate);
-    Character();
-    void control_entity();
-    void move(float delta_time);
-    void animate();
-
+    virtual void move(float delta_time) = 0;
 };
+
+}
 
 #endif

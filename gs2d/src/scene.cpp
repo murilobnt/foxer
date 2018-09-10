@@ -27,8 +27,11 @@ void Scene::on_exit(){
 }
 
 void Scene::change_scene(Scene *next_scene) {
-        next_scene->set_scene_proxy(scene_proxy);
-        next_scene->set_app_window(app_window);
+        SceneBuilder::build_scene(next_scene,
+                                  scene_proxy,
+                                  app_window,
+                                  app_clock);
+
         scene_proxy->change_scene(next_scene);
         delete this;
 }
@@ -39,6 +42,18 @@ void Scene::set_scene_proxy(SceneProxy *scene_proxy) {
 
 void Scene::set_app_window(sf::RenderWindow *app_window){
         this->app_window = app_window;
+}
+
+void Scene::set_app_clock(ClockHandler *app_clock){
+    this->app_clock = app_clock;
+}
+
+void Scene::move_entity(MovableObject &movable_object){
+    movable_object.move(app_clock->get_elapsed_time().asSeconds());
+}
+
+float Scene::get_delta_time() const {
+    return app_clock->get_elapsed_time().asSeconds();
 }
 
 }

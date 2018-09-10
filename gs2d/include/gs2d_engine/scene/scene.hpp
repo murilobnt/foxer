@@ -30,8 +30,11 @@
 
 #include "gs2d_engine/time/clock_handler.hpp"
 #include "gs2d_engine/app_cycle/scene_proxy.hpp"
+#include "gs2d_engine/scene/scene_builder.hpp"
 #include "gs2d_engine/other/helpers/texture_loader.hpp"
-#include "gs2d_engine/time/time_handler.hpp"
+#include "gs2d_engine/scene/components/graphic/sprited_entity.hpp"
+#include "gs2d_engine/time.hpp"
+#include "gs2d_engine/scene/components/object/movable_object.hpp"
 
 // Scenes serves as the mold for any scene, e.g. the main menu
 // and the pause screen. It contains methods for loading resources,
@@ -51,6 +54,9 @@ private:
     // the coder can change the current scene for another one inside the
     // scene.
     SceneProxy *scene_proxy;
+
+    // The reference to the clock of the game.
+    ClockHandler *app_clock;
 
 protected:
     // The time handlers of the scene.
@@ -103,6 +109,12 @@ public:
 
     // Setter of app_window.
     void set_app_window(sf::RenderWindow *app_window);
+
+    void set_app_clock(ClockHandler *app_clock);
+
+    void move_entity(MovableObject& movable_object);
+
+    float get_delta_time() const;
 
 };
 
