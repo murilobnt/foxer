@@ -11,10 +11,10 @@ CLEANCOVREPORT = $(RM) -r $(LCOV) $(RTARGET)
 CC = g++-7
 
 ## Std library
-STD = c++11
+STD = -std=c++17
 
-## Additional flags
-FLAGS = -c
+## Object flag
+OBJ-FLAG = -c
 
 ## Headers' inclusion
 INCLUDE = -I ../gs2d/include
@@ -61,7 +61,7 @@ $(TARGET) : $(OBJS)
 
 ## To satisfy the objects dependency above, we need the source code files.
 $(BDIR)/%.o: $(SRC)/%.cpp
-	$(CC) $(FLAGS) -std=$(STD) $(INCLUDE) ./$< -o ./$@
+	$(CC) $(OBJ-FLAG) $(STD) $(INCLUDE) ./$< -o ./$@
 
 ## For entry "clean" (make clean), delete the objects and the executable.
 clean :

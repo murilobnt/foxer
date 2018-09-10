@@ -11,10 +11,10 @@ CLEANCOVREPORT = $(RM) -r $(LCOV) $(RTARGET)
 CC = g++
 
 ## Std library
-STD = c++11
+STD = -std=c++17
 
-## Additional flags
-FLAGS = -c
+## Object flag
+OBJ-FLAG = -c
 
 ## Headers' inclusion
 INCLUDE = -I ./gs2d/include
@@ -61,7 +61,7 @@ $(TARGET) : $(OBJS)
 
 ## To satisfy the objects dependency above, we need the source code files.
 $(BDIR)/%.o: $(SRC)/%.cpp
-	$(CC) $(FLAGS) -std=$(STD) $(INCLUDE) ./$< -o ./$@
+	$(CC) $(OBJ-FLAG) $(STD) $(INCLUDE) ./$< -o ./$@
 
 ## For entry "clean" (make clean), delete the objects and the executable.
 clean :
@@ -82,7 +82,7 @@ $(CTARGET) : $(COBJS)
 	ar rs $(CLDIR)/$(CTARGET).a ./$^
 
 $(CBDIR)/%.o: $(SRC)/%.cpp
-	$(CC) $(FLAGS) --coverage $(INCLUDE) ./$< -o ./$@
+	$(CC) $(OBJ-FLAG) $(STD) --coverage $(INCLUDE) ./$< -o ./$@
 
 cleancoverage :
 		$(CLEANCOVERAGE)
@@ -123,11 +123,11 @@ tests : $(TTARGET)
 
 ## To get the test target file, the dependency is the binaries.
 $(TTARGET) : $(TB)
-	$(CC) -pthread --coverage ./$^ $(GTLIB) $(CLDIR)/$(CTARGET).a $(SFML) -o $(TBDIR)/$(TTARGET)
+	$(CC) $(STD) -pthread --coverage ./$^ $(GTLIB) $(CLDIR)/$(CTARGET).a $(SFML) -o $(TBDIR)/$(TTARGET)
 
 ## To get the binaries, the dependency is the source code (and we have them).
 $(TBDIR)/%.o : $(TSRC)/%.cpp
-	$(CC) $(FLAGS) $(INCLUDE) $(GTINCLUDE) ./$< -o ./$@
+	$(CC) $(STD) $(OBJ-FLAG) $(INCLUDE) $(GTINCLUDE) ./$< -o ./$@
 
 ## I guess you know what this does xD (clean tests generated files).
 cleantests :

@@ -5,8 +5,8 @@
 CC = g++
 RM = rm -f
 
-FLAGS =
-STD = c++11
+FLAGS = -c
+STD = -std=c++14
 TARGET = example
 
 GS2DDIR = ../../gs2d
@@ -28,10 +28,10 @@ GS2DOBJS = $(wildcard $(GS2DODIR)/*.o)
 all : $(TARGET)
 
 $(TARGET) : $(OBJS) $(GS2DLIB)
-	$(CC) $(FLAGS) -std=$(STD) ./$^ $(SFML) -o $(ODIR)/$@
+	$(CC) $(STD) ./$^ $(SFML) -o $(ODIR)/$@
 
 $(ODIR)/%.o: $(SRC)/%.cpp
-	$(CC) $(FLAGS) -std=$(STD) -c $(GS2DINCLUDE) $(INCLUDE) ./$< -o ./$@
+	$(CC) $(FLAGS) $(STD) $(GS2DINCLUDE) $(INCLUDE) ./$< -o ./$@
 
 clean :
 	$(RM) $(ODIR)/*.o $(ODIR)/$(TARGET)

@@ -47,7 +47,7 @@ This tool will help you focus on the game. All you have to do is to create your 
 
 ### Essential (Engine related)
 
--   [GCC](http://gcc.gnu.org) (4.9 or later).
+-   [GCC](http://gcc.gnu.org) (7 or later).
 -   [SFML](https://www.sfml-dev.org).
 
 ### Optional (Tests related)
