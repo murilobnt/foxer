@@ -112,8 +112,6 @@ public:
 
     void set_app_clock(ClockHandler *app_clock);
 
-    void move_entity(MovableObject& movable_object);
-
     float get_delta_time() const;
 
 };

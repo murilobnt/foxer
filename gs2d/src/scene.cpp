@@ -48,10 +48,6 @@ void Scene::set_app_clock(ClockHandler *app_clock){
     this->app_clock = app_clock;
 }
 
-void Scene::move_entity(MovableObject &movable_object){
-    movable_object.move(app_clock->get_elapsed_time().asSeconds());
-}
-
 float Scene::get_delta_time() const {
     return app_clock->get_elapsed_time().asSeconds();
 }

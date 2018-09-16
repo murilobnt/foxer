@@ -2,7 +2,7 @@
 
 namespace gs {
 
-sf::Vector2i TileGrid::checkBoundaries(sf::Vector2i before) const {
+void TileGrid::check_boundaries(sf::Vector2i &before) {
         if (before.x < 0)
                 before.x = 0;
 
@@ -14,69 +14,68 @@ sf::Vector2i TileGrid::checkBoundaries(sf::Vector2i before) const {
 
         if (before.y > y_cells)
                 before.y = y_cells;
-
-        return before;
 }
 
 TileGrid::TileGrid() {
 }
 
-TileGrid::TileGrid(int w, int h, int unity_size)
-        : GenericGrid::GenericGrid(w, h, unity_size) {
+TileGrid::TileGrid(sf::Vector2u tile_size, sf::Vector2u level_size, int unity_size)
+        : GenericGrid::GenericGrid(level_size.x, level_size.y, unity_size) {
+        this->tile_size = tile_size;
         unities.resize(x_cells * y_cells);
 }
 
-Unity *TileGrid::getUnity(int x, int y) {
+Unity *TileGrid::get_unity(int x, int y) {
         return &unities[x + y * x_cells];
 }
 
-void TileGrid::addTile(Tile tile) {
+void TileGrid::add_tile(Tile tile) {
         int tileX = tile.get_position_x();
         int tileY = tile.get_position_y();
 
         sf::Vector2i ul =
                 sf::Vector2i((int)tileX / unity_size, (int)tileY / unity_size);
         sf::Vector2i ll =
-                sf::Vector2i((int)tileX / unity_size, (int)(tileY + 32) / unity_size);
+                sf::Vector2i((int)tileX / unity_size, (int)(tileY + tile_size.y) / unity_size);
         sf::Vector2i ur =
-                sf::Vector2i((int)(tileX + 32) / unity_size, (int)tileY / unity_size);
-        sf::Vector2i lr = sf::Vector2i((int)(tileX + 32) / unity_size,
-                                       (int)(tileY + 32) / unity_size);
+                sf::Vector2i((int)(tileX + tile_size.x) / unity_size, (int)tileY / unity_size);
+        sf::Vector2i lr = sf::Vector2i((int)(tileX + tile_size.x) / unity_size,
+                                       (int)(tileY + tile_size.y) / unity_size);
 
-        Unity *unity_ul = getUnity(ul.x, ul.y);
-        Unity *unity_ll = getUnity(ll.x, ll.y);
-        Unity *unity_ur = getUnity(ur.x, ur.y);
-        Unity *unity_lr = getUnity(lr.x, lr.y);
+        Unity *unity_ul = get_unity(ul.x, ul.y);
+        Unity *unity_ll = get_unity(ll.x, ll.y);
+        Unity *unity_ur = get_unity(ur.x, ur.y);
+        Unity *unity_lr = get_unity(lr.x, lr.y);
 
         unity_ul->tiles.push_back(tile);
 
         if (unity_ll != unity_ul)
-                unity_ll->tiles.push_back(tile);
+            unity_ll->tiles.push_back(tile);
 
         if (unity_ur != unity_ll && unity_ur != unity_ul)
-                unity_ur->tiles.push_back(tile);
+            unity_ur->tiles.push_back(tile);
 
         if (unity_lr != unity_ur && unity_lr != unity_ll && unity_lr != unity_ul)
-                unity_lr->tiles.push_back(tile);
+            unity_lr->tiles.push_back(tile);
 }
 
 std::vector<Unity>
-TileGrid::getUnitiesOnPosition(sf::Vector2f sprite_upper_left) const {
+TileGrid::get_unities_in_position(const sf::Vector2f &sprite_upper_left) {
         std::vector<Unity> adjacent;
 
         sf::Vector2i ul = sf::Vector2i((int)sprite_upper_left.x / unity_size,
                                        (int)sprite_upper_left.y / unity_size);
         sf::Vector2i ll = sf::Vector2i((int)sprite_upper_left.x / unity_size,
-                                       (int)(sprite_upper_left.y + 32) / unity_size);
-        sf::Vector2i ur = sf::Vector2i((int)(sprite_upper_left.x + 32) / unity_size,
+                                       (int)(sprite_upper_left.y + tile_size.y) / unity_size);
+        sf::Vector2i ur = sf::Vector2i((int)(sprite_upper_left.x + tile_size.x) / unity_size,
                                        (int)sprite_upper_left.y / unity_size);
-        sf::Vector2i lr = sf::Vector2i((int)(sprite_upper_left.x + 32) / unity_size,
-                                       (int)(sprite_upper_left.y + 32) / unity_size);
+        sf::Vector2i lr = sf::Vector2i((int)(sprite_upper_left.x + tile_size.x) / unity_size,
+                                       (int)(sprite_upper_left.y + tile_size.y) / unity_size);
 
-        ul = checkBoundaries(ul);
-        ll = checkBoundaries(ll);
-        ur = checkBoundaries(ur);
-        lr = checkBoundaries(lr);
+        check_boundaries(ul);
+        check_boundaries(ll);
+        check_boundaries(ur);
+        check_boundaries(lr);
 
         int upper_left = ul.x + ul.y * x_cells;
         int lower_left = ll.x + ll.y * x_cells;

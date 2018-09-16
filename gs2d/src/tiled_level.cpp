@@ -21,9 +21,10 @@ void TiledLevel::load(const std::string& tileset, const std::string &json_tiled_
 
     for(json::iterator it = layers.begin(); it != layers.end(); ++it){
         if((*it)["type"] == "tilelayer"){
-             if(!(*it)["properties"].is_null() && (*it)["properties"]["collision"])
-                 collision_layer = TiledJsonTileLayer(*it);
-             else{
+             if(!(*it)["properties"].is_null() && (*it)["properties"]["collision"]){
+                 TiledJsonTileLayer collision_layer(*it);
+                 collision_map.load(collision_layer.data, tile_size, level_size);
+             } else {
                  TiledJsonTileLayer tile_layer(*it);
                  tile_layers.push_back(TileMap(tileset, tile_size, level_size, tile_layer.data));
              }
@@ -40,8 +41,12 @@ TiledJsonObj TiledLevel::get_event(const std::string &event_id) const {
     return events.find(event_id)->second;
 }
 
-std::vector<TileMap> *TiledLevel::get_tile_layers() {
-    return &tile_layers;
+std::vector<TileMap> TiledLevel::get_tile_layers() const {
+    return tile_layers;
+}
+
+CollisionMap TiledLevel::get_collision_map() const {
+    return collision_map;
 }
 
 }

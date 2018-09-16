@@ -92,6 +92,8 @@ public:
     sf::FloatRect get_sprite_global_bounds() const;
     sf::FloatRect get_sprite_local_bounds() const;
 
+    sf::RectangleShape get_rectangle_shape() const;
+
 };
 
 }

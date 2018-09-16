@@ -10,6 +10,7 @@ void TestScene::start() {
 
         tiled_level.load("assets/images/test_tileset.png", "assets/levels/level01.json");
         tile_layers = tiled_level.get_tile_layers();
+        collision_map = tiled_level.get_collision_map();
 
         time_handlers.push_back(&character.get_animation_time_handler());
 
@@ -33,8 +34,11 @@ void TestScene::update() {
 
         timed_events();
 
-        character.control_entity();
-        move_entity(character);
+        character.control_entity(get_delta_time());
+        collision_map.verify_collision(character);
+        character.move();
+        character.nullfy_movement();
+
 }
 
 void TestScene::handle_event(sf::Event &event) {
@@ -55,8 +59,8 @@ void TestScene::handle_event(sf::Event &event) {
 }
 
 void TestScene::draw_entities() {
-        for(int i = 0; i < tile_layers->size(); ++i) {
-            app_window->draw(tile_layers->at(i));
+        for(int i = 0; i < tile_layers.size(); ++i) {
+            app_window->draw(tile_layers.at(i));
         }
         app_window->draw(character.get_sprite());
 }

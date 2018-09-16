@@ -31,9 +31,11 @@
 #include <fstream>
 #include <vector>
 #include <map>
+
 #include "external/json.hpp"
 #include "gs2d_engine/game/level/tiled_json_container.hpp"
 #include "gs2d_engine/game/level/tilemap.hpp"
+#include "gs2d_engine/game/level/collision_map.hpp"
 
 namespace gs {
 
@@ -43,7 +45,7 @@ private:
     sf::Vector2u level_size;
 
     std::vector<TileMap> tile_layers;
-    TiledJsonTileLayer collision_layer;
+    CollisionMap collision_map;
     std::map<std::string, TiledJsonObj> events;
 
 public:
@@ -51,7 +53,8 @@ public:
     TiledLevel(const std::string& tileset, const std::string &json_tiled_file);
 
     void load(const std::string& tileset, const std::string &json_tiled_file);
-    std::vector<TileMap> *get_tile_layers();
+    std::vector<TileMap> get_tile_layers() const;
+    CollisionMap get_collision_map() const;
     TiledJsonObj get_event(const std::string &event_id) const;
 };
 

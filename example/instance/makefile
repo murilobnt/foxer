@@ -6,7 +6,7 @@ CC = g++
 RM = rm -f
 
 FLAGS = -c
-STD = -std=c++14
+STD = -std=c++17
 TARGET = example
 
 GS2DDIR = ../../gs2d

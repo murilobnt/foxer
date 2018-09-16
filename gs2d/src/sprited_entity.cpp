@@ -63,4 +63,11 @@ sf::FloatRect SpritedEntity::get_sprite_local_bounds() const {
         return sprite.getLocalBounds();
 }
 
+sf::RectangleShape SpritedEntity::get_rectangle_shape() const {
+        sf::FloatRect gb = sprite.getGlobalBounds();
+        sf::RectangleShape to_return(sf::Vector2f(gb.width, gb.height));
+        to_return.setPosition(sprite.getPosition());
+        return to_return;
+}
+
 }

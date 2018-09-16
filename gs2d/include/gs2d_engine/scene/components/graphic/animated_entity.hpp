@@ -41,7 +41,7 @@
 
 namespace gs {
 
-class AnimatedEntity : public SpritedEntity {
+class AnimatedEntity {
 private:
   // The X position of the first frame of the animated sprite.
   // e.g. if the first frame is located in the left corner of the image,
@@ -95,9 +95,8 @@ public:
   // frame of the animation, in the Y axis, and then the
   // framerate of the animation.
   // The anchor of the sprite is the upper left corner.
-  AnimatedEntity(sf::Texture const &texture, sf::Vector2i sprite_idle_at_tex,
-                 sf::Vector2i sprite_dimensions, sf::Vector2i animation_x,
-                 sf::Vector2i animation_y, float animation_framerate);
+  AnimatedEntity(sf::Vector2i animation_x, sf::Vector2i animation_y,
+                 float animation_framerate);
 
   // Empty constructor. This is important so the user of the
   // animated sprite can choose to initialize it later (but it's
@@ -116,7 +115,7 @@ public:
   // Applies the animation of the row. This means it will iterate through
   // the first frame until the last frame, and go back to the first frame
   // again in a loop.
-  virtual void apply_animation(int row);
+  virtual void apply_animation_by_row(SpritedEntity *sprited_entity, int row);
 
   // Defines what will trigger the animation and which/how the
   // animation will happen.

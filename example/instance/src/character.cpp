@@ -3,88 +3,92 @@
 Character::Character(sf::Texture const &texture, sf::Vector2i sprite_pos_at_tex,
                      sf::Vector2i sprite_dimensions, sf::Vector2i animation_x,
                      sf::Vector2i animation_y, int animation_framerate)
-        : gs::AnimatedEntity(
-                texture, sprite_pos_at_tex, sprite_dimensions,
-                animation_x, animation_y, animation_framerate) {
+        : gs::GameObject(texture, sprite_pos_at_tex, sprite_dimensions),
+        gs::AnimatedEntity(animation_x, animation_y, animation_framerate)
+        {
         movement = sf::Vector2f(0, 0);
         last_facing_pos = DOWN;
-        current_facing_pos = FREE;
-        moving_up = false;
-        moving_down = false;
-        moving_left = false;
-        moving_right = false;
 }
 
-Character::Character() : gs::AnimatedEntity() {
+Character::Character() {
 }
 
-void Character::control_entity() {
+void Character::control_entity(float delta_time) {
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
                 moving_left = true;
-                if(current_facing_pos == FREE)
-                        current_facing_pos = LEFT;
+                if(facing_position == FREE)
+                        facing_position = LEFT;
         }
         else {
                 moving_left = false;
-                if(current_facing_pos == LEFT) {
-                        last_facing_pos = current_facing_pos;
-                        current_facing_pos = FREE;
+                if(facing_position == LEFT) {
+                        last_facing_pos = facing_position;
+                        facing_position = FREE;
                 }
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
                 moving_down = true;
-                if(current_facing_pos == FREE)
-                        current_facing_pos = DOWN;
+                if(facing_position == FREE)
+                        facing_position = DOWN;
         }
         else {
                 moving_down = false;
-                if(current_facing_pos == DOWN) {
-                        last_facing_pos = current_facing_pos;
-                        current_facing_pos = FREE;
+                if(facing_position == DOWN) {
+                        last_facing_pos = facing_position;
+                        facing_position = FREE;
                 }
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
                 moving_right = true;
-                if(current_facing_pos == FREE)
-                        current_facing_pos = RIGHT;
+                if(facing_position == FREE)
+                        facing_position = RIGHT;
         }
         else {
                 moving_right = false;
-                if(current_facing_pos == RIGHT) {
-                        last_facing_pos = current_facing_pos;
-                        current_facing_pos = FREE;
+                if(facing_position == RIGHT) {
+                        last_facing_pos = facing_position;
+                        facing_position = FREE;
                 }
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
                 moving_up = true;
-                if(current_facing_pos == FREE)
-                        current_facing_pos = UP;
+                if(facing_position == FREE)
+                        facing_position = UP;
         }
         else {
                 moving_up = false;
-                if(current_facing_pos == UP) {
-                        last_facing_pos = current_facing_pos;
-                        current_facing_pos = FREE;
+                if(facing_position == UP) {
+                        last_facing_pos = facing_position;
+                        facing_position = FREE;
                 }
         }
 
-        if(moving_left)
-                movement.x = -200;
-        if(moving_down)
-                movement.y = 200;
-        if(moving_right)
-                movement.x = 200;
-        if(moving_up)
-                movement.y = -200;
+        if(moving_left){            
+            movement.x = -200 * delta_time;
+        }
+
+        if(moving_down){
+            movement.y = 200 * delta_time;
+        }
+
+        if(moving_right){
+            movement.x = 200 * delta_time;
+        }
+
+        if(moving_up){
+            movement.y = -200 * delta_time;
+        }
 }
 
 void Character::move(float delta_time){
     move_sprite(movement * delta_time);
-    movement.x = 0;
-    movement.y = 0;
+}
+
+void Character::move(){
+    move_sprite(movement);
 }
 
 void Character::animate() {
@@ -105,18 +109,18 @@ void Character::animate() {
                 }
         }
 
-        switch (current_facing_pos) {
+        switch (facing_position) {
         case LEFT:
-                apply_animation(1);
+                apply_animation_by_row(this, 1);
                 break;
         case RIGHT:
-                apply_animation(3);
+                apply_animation_by_row(this, 3);
                 break;
         case DOWN:
-                apply_animation(0);
+                apply_animation_by_row(this, 0);
                 break;
         case UP:
-                apply_animation(2);
+                apply_animation_by_row(this, 2);
                 break;
         }
 }

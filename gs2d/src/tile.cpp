@@ -2,11 +2,11 @@
 
 namespace gs {
 
-Tile::Tile(sf::Vector2f tile_position, float tile_width, float tile_height){
+Tile::Tile(const sf::Vector2f &tile_position, const sf::Vector2u &tile_size){
         this->tile_position = tile_position;
 
         tile_rect = sf::FloatRect(tile_position,
-                                  sf::Vector2f(tile_width, tile_height));
+                                  sf::Vector2f(tile_size.x, tile_size.y));
 }
 
 sf::Vector2f Tile::get_position() const {

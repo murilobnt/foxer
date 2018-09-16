@@ -34,6 +34,7 @@
 #include "gs2d_engine/other/helpers/tiled_csv_loader.hpp"
 #include "gs2d_engine/game/level/tiled_level.hpp"
 #include "gs2d_engine/game/level/tiled_json_container.hpp"
+#include "gs2d_engine/game/level/collision_map.hpp"
 
 #include "character.hpp"
 #include "second_scene.hpp"
@@ -48,7 +49,8 @@ private:
 
     sf::Texture char_texture;
 
-    std::vector<gs::TileMap> *tile_layers;
+    std::vector<gs::TileMap> tile_layers;
+    gs::CollisionMap collision_map;
 
     Character character;
 

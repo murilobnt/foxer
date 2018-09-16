@@ -45,7 +45,7 @@ class IBControlableEntity{
 
 public:
     // Defines how the entity will respond to any input.
-    virtual void control_entity() = 0;
+    virtual void control_entity(float delta_time) = 0;
 
 };
 

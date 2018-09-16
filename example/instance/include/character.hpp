@@ -31,21 +31,16 @@
 
 #include "gs2d_engine/scene_components.hpp"
 #include "gs2d_engine/time.hpp"
-#include "facing_position.hpp"
+#include "gs2d_engine/other/helpers/facing_position.hpp"
 
-class Character : public gs::AnimatedEntity,
-                  public gs::IBControlableEntity,
-                  public gs::MovableObject {
+class Character : public gs::GameObject,
+                  public gs::AnimatedEntity,
+                  public gs::IBControlableEntity
+                  {
 
 private:
     gs::TimeHandler animation_time_handler;
 
-    bool moving_up;
-    bool moving_down;
-    bool moving_left;
-    bool moving_right;
-
-    FacingPosition current_facing_pos;
     FacingPosition last_facing_pos;
 
 public:
@@ -53,7 +48,8 @@ public:
               sf::Vector2i sprite_dimensions, sf::Vector2i animation_x,
               sf::Vector2i animation_y, int animation_framerate);
     Character();
-    void control_entity();
+    void control_entity(float delta_time);
+    void move();
     void move(float delta_time);
     void animate();
 

@@ -44,7 +44,7 @@ public:
     * Constructor.
     * @param tile_position the position of the tile
     */
-    Tile(sf::Vector2f tile_position, float tile_width, float tile_height);
+    Tile(const sf::Vector2f &tile_position, const sf::Vector2u &tile_size);
 
     /**
     * Get the position of the tile.

@@ -31,5 +31,6 @@
 #include "gs2d_engine/scene/components/control/ib_controlable_entity.hpp"
 #include "gs2d_engine/scene/components/object/movable_object.hpp"
 #include "gs2d_engine/scene/components/graphic/sprited_entity.hpp"
+#include "gs2d_engine/scene/components/object/game_object.hpp"
 
 #endif

@@ -29,6 +29,8 @@
 // # External
 #include <vector>
 #include <cmath>
+#include <iostream>
+#include <SFML/Graphics.hpp>
 
 // # Internal
 #include "gs2d_engine/other/helpers/tile.hpp"
@@ -47,18 +49,19 @@ class TileGrid : public GenericGrid {
 
 private:
     std::vector<Unity> unities;
-    sf::Vector2i checkBoundaries(sf::Vector2i before) const;
+    void check_boundaries(sf::Vector2i &before);
+    sf::Vector2u tile_size;
 
 public:
     TileGrid();
 
-    TileGrid(int w, int h, int unity_size);
+    TileGrid(sf::Vector2u tile_size, sf::Vector2u level_size, int unity_size);
 
-    Unity* getUnity(int x, int y);
+    Unity* get_unity(int x, int y);
 
-    void addTile(Tile tile);
+    void add_tile(Tile tile);
 
-    std::vector<Unity> getUnitiesOnPosition(sf::Vector2f sprite_upper_left) const;
+    std::vector<Unity> get_unities_in_position(const sf::Vector2f &sprite_upper_left);
 
 };
 
