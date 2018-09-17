@@ -15,14 +15,14 @@ void TestScene::start() {
         time_handlers.push_back(&character.get_animation_time_handler());
 
         gs::TextureLoader::set_texture_from_file(char_texture,
-                                             "assets/images/link_edit.png",
-                                             1200, 1040);
+                                             "assets/images/link_edit4040.png",
+                                             400, 320);
         character = Character(char_texture,
                               sf::Vector2i(0, 0),
-                              sf::Vector2i(120, 130),
-                              sf::Vector2i(0, 1200),
-                              sf::Vector2i(520, 910), 20);
-        character.set_sprite_scale(0.4, 0.4);
+                              sf::Vector2i(40, 40),
+                              sf::Vector2i(0, 400),
+                              sf::Vector2i(160, 280), 20);
+        //character.set_sprite_scale(0.4, 0.4);
 
         gs::TiledJsonObj player_start_pos = tiled_level.get_event("player_start_pos");
         character.set_sprite_position(sf::Vector2f(player_start_pos.x, player_start_pos.y));

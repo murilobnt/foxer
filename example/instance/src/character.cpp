@@ -66,7 +66,7 @@ void Character::control_entity(float delta_time) {
                 }
         }
 
-        if(moving_left){            
+        if(moving_left){
             movement.x = -200 * delta_time;
         }
 
@@ -95,16 +95,16 @@ void Character::animate() {
         if (movement.x == 0.f && movement.y == 0.f) {
                 switch (last_facing_pos) {
                 case UP:
-                        configure_sprite_rect(0, 260);
+                        configure_sprite_rect(0, 80);
                         break;
                 case DOWN:
                         configure_sprite_rect(0, 0);
                         break;
                 case LEFT:
-                        configure_sprite_rect(0, 130);
+                        configure_sprite_rect(0, 40);
                         break;
                 case RIGHT:
-                        configure_sprite_rect(0, 390);
+                        configure_sprite_rect(0, 120);
                         break;
                 }
         }

@@ -46,7 +46,7 @@ void CollisionMap::verify_collision(GameObject &game_object){
     if(!loaded)
         return;
 
-    sf::Vector2f movement = game_object.get_movement();    
+    sf::Vector2f movement = game_object.get_movement();
     sf::FloatRect gb = game_object.get_sprite_global_bounds();
 
     gb.left += movement.x;

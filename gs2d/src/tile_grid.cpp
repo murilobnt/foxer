@@ -63,47 +63,97 @@ std::vector<Unity>
 TileGrid::get_unities_in_position(const sf::Vector2f &sprite_upper_left) {
         std::vector<Unity> adjacent;
 
-        sf::Vector2i ul = sf::Vector2i((int)sprite_upper_left.x / unity_size,
+        sf::Vector2i center = sf::Vector2i((int)sprite_upper_left.x / unity_size,
                                        (int)sprite_upper_left.y / unity_size);
-        sf::Vector2i ll = sf::Vector2i((int)sprite_upper_left.x / unity_size,
-                                       (int)(sprite_upper_left.y + tile_size.y) / unity_size);
-        sf::Vector2i ur = sf::Vector2i((int)(sprite_upper_left.x + tile_size.x) / unity_size,
+        sf::Vector2i up = sf::Vector2i((int)sprite_upper_left.x / unity_size,
+                                       (int)(sprite_upper_left.y - tile_size.y) / unity_size);
+        sf::Vector2i down = sf::Vector2i((int)sprite_upper_left.x / unity_size,
+                                       (int)(sprite_upper_left.y + tile_size.y * 2) / unity_size);
+        sf::Vector2i right = sf::Vector2i((int)(sprite_upper_left.x + tile_size.x * 2) / unity_size,
                                        (int)sprite_upper_left.y / unity_size);
-        sf::Vector2i lr = sf::Vector2i((int)(sprite_upper_left.x + tile_size.x) / unity_size,
-                                       (int)(sprite_upper_left.y + tile_size.y) / unity_size);
+        sf::Vector2i left = sf::Vector2i((int)(sprite_upper_left.x - tile_size.x) / unity_size,
+                                       (int)(sprite_upper_left.y) / unity_size);
 
-        check_boundaries(ul);
-        check_boundaries(ll);
-        check_boundaries(ur);
-        check_boundaries(lr);
+       sf::Vector2i up_left = sf::Vector2i((int)(sprite_upper_left.x - tile_size.x) / unity_size,
+                                      (int)(sprite_upper_left.y - tile_size.y) / unity_size);
+       sf::Vector2i up_right = sf::Vector2i((int)(sprite_upper_left.x + tile_size.x * 2) / unity_size,
+                                      (int)(sprite_upper_left.y - tile_size.y) / unity_size);
+       sf::Vector2i down_left = sf::Vector2i((int)(sprite_upper_left.x - tile_size.x) / unity_size,
+                                      (int)(sprite_upper_left.y + tile_size.y * 2) / unity_size);
+       sf::Vector2i down_right = sf::Vector2i((int)(sprite_upper_left.x + tile_size.x * 2) / unity_size,
+                                      (int)(sprite_upper_left.y + tile_size.y * 2) / unity_size);
 
-        int upper_left = ul.x + ul.y * x_cells;
-        int lower_left = ll.x + ll.y * x_cells;
-        int upper_right = ur.x + ur.y * x_cells;
-        int lower_right = lr.x + lr.y * x_cells;
+        check_boundaries(center);
+        check_boundaries(up);
+        check_boundaries(down);
+        check_boundaries(right);
+        check_boundaries(left);
+        check_boundaries(up_left);
+        check_boundaries(up_right);
+        check_boundaries(down_left);
+        check_boundaries(down_right);
 
-        adjacent.push_back(upper_left >= (x_cells * y_cells)
+        int at_center = center.x + center.y * x_cells;
+        int above = up.x + up.y * x_cells;
+        int below = down.x + down.y * x_cells;
+        int at_right = right.x + right.y * x_cells;
+        int at_left = left.x + left.y * x_cells;
+        int ul = up_left.x + up_left.y * x_cells;
+        int ur = up_right.x + up_right.y * x_cells;
+        int dl = down_left.x + down_left.y * x_cells;
+        int dr = down_right.x + down_right.y * x_cells;
+
+        adjacent.push_back(at_center >= (x_cells * y_cells)
                            ? unities[x_cells * y_cells - 1]
-                           : unities[upper_left]);
+                           : unities[at_center]);
 
-        if (lower_left != upper_left) {
-                adjacent.push_back(lower_left >= (x_cells * y_cells)
+        if(above != at_center)
+        adjacent.push_back(above >= (x_cells * y_cells)
+                           ? unities[x_cells * y_cells - 1]
+                           : unities[above]);
+
+        if (below != above && below != at_center) {
+                adjacent.push_back(below >= (x_cells * y_cells)
                                    ? unities[x_cells * y_cells - 1]
-                                   : unities[lower_left]);
+                                   : unities[below]);
         }
 
-        if (upper_right != lower_left && upper_right != upper_left) {
-                adjacent.push_back(upper_right >= (x_cells * y_cells)
+        if (at_right != below && at_right != above && at_right != at_center) {
+                adjacent.push_back(at_right >= (x_cells * y_cells)
                                    ? unities[x_cells * y_cells - 1]
-                                   : unities[upper_right]);
+                                   : unities[at_right]);
         }
 
-        if (lower_right != upper_right && lower_right != lower_left &&
-            lower_right != upper_left) {
-                adjacent.push_back(lower_right >= (x_cells * y_cells)
+        if (at_left != at_right && at_left != below &&
+            at_left != above && at_left != at_center) {
+                adjacent.push_back(at_left >= (x_cells * y_cells)
                                    ? unities[x_cells * y_cells - 1]
-                                   : unities[lower_right]);
+                                   : unities[at_left]);
         }
+
+        if(ul != at_left && ul != at_right && ul != below &&
+            ul != above && ul != at_center)
+            adjacent.push_back(at_left >= (x_cells * y_cells)
+                               ? unities[x_cells * y_cells - 1]
+                               : unities[ul]);
+
+       if(ur != ul && ur != at_left && ur != at_right && ur != below &&
+           ur != above && ur != at_center)
+           adjacent.push_back(at_left >= (x_cells * y_cells)
+                              ? unities[x_cells * y_cells - 1]
+                              : unities[ur]);
+
+        if(dl != ur && dl != ul && dl != at_left && dl != at_right && dl != below &&
+            dl != above && dl != at_center)
+            adjacent.push_back(at_left >= (x_cells * y_cells)
+                               ? unities[x_cells * y_cells - 1]
+                               : unities[dl]);
+
+        if(dr != dl && dr != ur && dr != ul && dr != at_left && dr != at_right && dr != below &&
+            dr != above && dr != at_center)
+            adjacent.push_back(at_left >= (x_cells * y_cells)
+                               ? unities[x_cells * y_cells - 1]
+                               : unities[dr]);
 
         return adjacent;
 }

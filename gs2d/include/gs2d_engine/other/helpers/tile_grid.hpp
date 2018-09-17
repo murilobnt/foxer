@@ -30,6 +30,7 @@
 #include <vector>
 #include <cmath>
 #include <iostream>
+#include <map>
 #include <SFML/Graphics.hpp>
 
 // # Internal
