@@ -30,7 +30,7 @@
 #include <vector>
 #include <cmath>
 #include <iostream>
-#include <map>
+#include <set>
 #include <SFML/Graphics.hpp>
 
 // # Internal
@@ -52,6 +52,8 @@ private:
     std::vector<Unity> unities;
     void check_boundaries(sf::Vector2i &before);
     sf::Vector2u tile_size;
+    void add_unity(std::vector<Unity> &adjacent, std::set<int> &added, int index);
+    sf::Vector2i transform_to_grid_coordinate(const sf::Vector2f &spl, int modifier_x = 0, int modifier_y = 0);
 
 public:
     TileGrid();
@@ -62,7 +64,7 @@ public:
 
     void add_tile(Tile tile);
 
-    std::vector<Unity> get_unities_in_position(const sf::Vector2f &sprite_upper_left);
+    std::vector<Unity> get_unities_in_position(const sf::Vector2f &sprite_upper_left, const sf::FloatRect &gb);
 
 };
 

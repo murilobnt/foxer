@@ -31,15 +31,21 @@ void CollisionMap::handle_collision(GameObject &game_object, sf::FloatRect& tile
     sf::Vector2f movement = game_object.get_movement();
 
     copy.top += movement.y;
-    if(tile_rect.intersects(copy))
+    if(tile_rect.intersects(copy)){
         game_object.set_movement_y(0);
+    }
     copy = gb;
 
     copy.left += movement.x;
-    if(tile_rect.intersects(copy))
+    if(tile_rect.intersects(copy)){
         game_object.set_movement_x(0);
+    }
     copy = gb;
 
+    // if(collision_y)
+    //     game_object.set_sprite_position(sf::Vector2f(game_object.get_sprite_position().x, tile_rect.top + ((gb.height) * (movement.y < 0 ? 1 : -1))));
+    // if(collision_x)
+    //     game_object.set_sprite_position(sf::Vector2f(tile_rect.left + ((gb.width) * (movement.x < 0 ? 1 : -1)), game_object.get_sprite_position().y));
 }
 
 void CollisionMap::verify_collision(GameObject &game_object){
@@ -52,7 +58,7 @@ void CollisionMap::verify_collision(GameObject &game_object){
     gb.left += movement.x;
     gb.top += movement.y;
 
-    std::vector<Unity> unities = tile_grid.get_unities_in_position(game_object.get_sprite_position());
+    std::vector<Unity> unities = tile_grid.get_unities_in_position(game_object.get_sprite_position(), gb);
 
     for(std::vector<Unity>::iterator it = unities.begin(); it != unities.end(); ++it) {
     Unity unity = *it;
