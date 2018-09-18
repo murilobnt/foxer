@@ -23,6 +23,10 @@ void TestScene::start() {
                               sf::Vector2i(0, 400),
                               sf::Vector2i(160, 280), 20);
         //character.set_sprite_scale(0.4, 0.4);
+        character.collision_offset_up = 16;
+        character.collision_offset_down = 38;
+        character.collision_offset_left = 9;
+        character.collision_offset_right = 9;
 
         gs::TiledJsonObj player_start_pos = tiled_level.get_event("player_start_pos");
         character.set_sprite_position(sf::Vector2f(player_start_pos.x, player_start_pos.y));

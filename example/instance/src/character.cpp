@@ -81,6 +81,11 @@ void Character::control_entity(float delta_time) {
         if(moving_up){
             movement.y = -200 * delta_time;
         }
+
+        if(abs(movement.x) > get_sprite_global_bounds().width / 2)
+            movement.x = get_sprite_global_bounds().width / 2 * (movement.x < 0 ? -1 : 1);
+        if(abs(movement.y) > get_sprite_global_bounds().height / 2)
+            movement.y = get_sprite_global_bounds().height / 2 * (movement.y < 0 ? -1 : 1);
 }
 
 void Character::move(float delta_time){
