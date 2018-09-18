@@ -15,8 +15,7 @@ class CollisionMap {
 private:
     bool loaded;
     TileGrid tile_grid;
-    void handle_collision(GameObject &game_object,
-                          sf::FloatRect &tile_rect);
+    void handle_collision(GameObject &game_object, const sf::FloatRect &gb, const sf::FloatRect &tile_rect, const sf::Vector2f &movement);
 
 public:
     CollisionMap();

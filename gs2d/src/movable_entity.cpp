@@ -2,19 +2,18 @@
 
 namespace gs {
 
-MovableObject::MovableObject() : can_move_up(true),
-                                 can_move_down(true),
-                                 can_move_left(true),
-                                 can_move_right(true){
+MovableObject::MovableObject() : moving_up(false),
+                                 moving_down(false),
+                                 moving_left(false),
+                                 moving_right(false),
+                                 collision_offset_up(0),
+                                 collision_offset_down(0),
+                                 collision_offset_left(0),
+                                 collision_offset_right(0) {
     facing_position = DOWN;
-    moving_up = false;
-    moving_down = false;
-    moving_left = false;
-    moving_right = false;
 }
 
 void MovableObject::nullfy_movement(){
-    last_movement = movement;
     movement = sf::Vector2f(0, 0);
 }
 

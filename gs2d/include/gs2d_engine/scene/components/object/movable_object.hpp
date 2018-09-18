@@ -33,18 +33,17 @@ namespace gs {
 
 class MovableObject {
 public:
-    bool can_move_up;
-    bool can_move_down;
-    bool can_move_left;
-    bool can_move_right;
-
     bool moving_up;
     bool moving_down;
     bool moving_left;
     bool moving_right;
 
+    float collision_offset_left;
+    float collision_offset_right;
+    float collision_offset_up;
+    float collision_offset_down;
+
     FacingPosition facing_position;
-    sf::Vector2f last_movement;
 
 protected:
     sf::Vector2f movement;
