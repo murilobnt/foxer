@@ -30,22 +30,42 @@ void CollisionMap::handle_collision(GameObject &game_object, sf::FloatRect& tile
     sf::FloatRect copy = gb;
     sf::Vector2f movement = game_object.get_movement();
 
+    bool col_y = false;
+    bool col_x = false;
+
+    copy.height -= 1;
+    copy.width -= 1;
+    copy.left += 0.5;
+    copy.top += 0.5;
     copy.top += movement.y;
     if(tile_rect.intersects(copy)){
         game_object.set_movement_y(0);
+        col_y = true;
     }
     copy = gb;
 
+    copy.height -= 1;
+    copy.width -= 1;
+    copy.left += 0.5;
+    copy.top += 0.5;
     copy.left += movement.x;
     if(tile_rect.intersects(copy)){
         game_object.set_movement_x(0);
+        col_x = true;
     }
     copy = gb;
 
-    // if(collision_y)
-    //     game_object.set_sprite_position(sf::Vector2f(game_object.get_sprite_position().x, tile_rect.top + ((gb.height) * (movement.y < 0 ? 1 : -1))));
-    // if(collision_x)
-    //     game_object.set_sprite_position(sf::Vector2f(tile_rect.left + ((gb.width) * (movement.x < 0 ? 1 : -1)), game_object.get_sprite_position().y));
+    if(col_x || col_y){
+        float x = game_object.get_sprite_position().x;
+        float y = game_object.get_sprite_position().y;
+
+        if(col_y && !tile_rect.intersects(gb))
+            y = tile_rect.top + ((gb.height) * (movement.y < 0 ? 1 : -1));
+        if(col_x && !tile_rect.intersects(gb))
+            x = tile_rect.left + ((gb.width) * (movement.x < 0 ? 1 : -1));
+        game_object.set_sprite_position(x, y);
+    }
+
 }
 
 void CollisionMap::verify_collision(GameObject &game_object){
