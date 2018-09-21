@@ -10,15 +10,15 @@ namespace gs {
 
 class GameObject : public SpritedEntity, public MovableObject {
 public:
-    GameObject(sf::Texture const &texture, sf::Vector2i sprite_pos_at_tex,
-                  sf::Vector2i sprite_dimensions);
+  GameObject(sf::Texture const &texture, sf::Vector2i sprite_pos_at_tex,
+             sf::Vector2i sprite_dimensions);
 
-    GameObject();
+  GameObject();
 
-    virtual void move(float delta_time) = 0;
-    virtual void move() = 0;
+  virtual void move(float delta_time) = 0;
+  virtual void move() = 0;
 };
 
-}
+} // namespace gs
 
 #endif

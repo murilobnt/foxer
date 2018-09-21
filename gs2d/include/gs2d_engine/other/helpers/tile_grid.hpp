@@ -12,8 +12,8 @@
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -27,21 +27,20 @@
 #define GS_TILE_GRID_HPP
 
 // # External
-#include <vector>
+#include <SFML/Graphics.hpp>
 #include <cmath>
 #include <iostream>
 #include <set>
-#include <SFML/Graphics.hpp>
+#include <vector>
 
 // # Internal
-#include "gs2d_engine/other/helpers/tile.hpp"
 #include "gs2d_engine/other/helpers/generic_grid.hpp"
+#include "gs2d_engine/other/helpers/tile.hpp"
 
 struct Unity {
 
 public:
-    std::vector<gs::Tile> tiles;
-
+  std::vector<gs::Tile> tiles;
 };
 
 namespace gs {
@@ -49,25 +48,28 @@ namespace gs {
 class TileGrid : public GenericGrid {
 
 private:
-    std::vector<Unity> unities;
-    void check_boundaries(sf::Vector2i &before);
-    sf::Vector2u tile_size;
-    void add_unity(std::vector<Unity> &adjacent, std::set<int> &added, int index);
-    sf::Vector2i transform_to_grid_coordinate(const sf::Vector2f &spl, int modifier_x = 0, int modifier_y = 0);
+  std::vector<Unity> unities;
+  void check_boundaries(sf::Vector2i &before);
+  sf::Vector2u tile_size;
+  void add_unity(std::vector<Unity> &adjacent, std::set<int> &added, int index);
+  sf::Vector2i transform_to_grid_coordinate(const sf::Vector2f &spl,
+                                            int modifier_x = 0,
+                                            int modifier_y = 0);
 
 public:
-    TileGrid();
+  TileGrid();
 
-    TileGrid(sf::Vector2u tile_size, sf::Vector2u level_size, int unity_size);
+  TileGrid(sf::Vector2u tile_size, sf::Vector2u level_size, int unity_size);
 
-    Unity* get_unity(int x, int y);
+  Unity *get_unity(int x, int y);
 
-    void add_tile(Tile tile);
+  void add_tile(Tile tile);
 
-    std::vector<Unity> get_unities_in_position(const sf::Vector2f &sprite_upper_left, const sf::FloatRect &gb);
-
+  std::vector<Unity>
+  get_unities_in_position(const sf::Vector2f &sprite_upper_left,
+                          const sf::FloatRect &gb);
 };
 
-}
+} // namespace gs
 
 #endif

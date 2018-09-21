@@ -12,8 +12,8 @@
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -26,10 +26,10 @@
 #ifndef GS_SHORTCUT_SCENE_HPP
 #define GS_SHORTCUT_SCENE_HPP
 
-#include "gs2d_engine/time.hpp"
-#include "gs2d_engine/scene_components.hpp"
-#include "gs2d_engine/scene/scene.hpp"
 #include "gs2d_engine/other/helpers/texture_loader.hpp"
 #include "gs2d_engine/scene/components/camera/camera.hpp"
+#include "gs2d_engine/scene/scene.hpp"
+#include "gs2d_engine/scene_components.hpp"
+#include "gs2d_engine/time.hpp"
 
 #endif

@@ -12,8 +12,8 @@
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -26,11 +26,11 @@
 #ifndef GS_SCENE_COMPONENTS_HPP
 #define GS_SCENE_COMPONENTS_HPP
 
-#include "gs2d_engine/scene/components/graphic/animated_entity.hpp"
 #include "gs2d_engine/scene/components/control/eb_controlable_entity.hpp"
 #include "gs2d_engine/scene/components/control/ib_controlable_entity.hpp"
-#include "gs2d_engine/scene/components/object/movable_object.hpp"
+#include "gs2d_engine/scene/components/graphic/animated_entity.hpp"
 #include "gs2d_engine/scene/components/graphic/sprited_entity.hpp"
 #include "gs2d_engine/scene/components/object/game_object.hpp"
+#include "gs2d_engine/scene/components/object/movable_object.hpp"
 
 #endif

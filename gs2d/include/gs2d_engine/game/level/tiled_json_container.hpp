@@ -12,8 +12,8 @@
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -26,8 +26,8 @@
 #ifndef GS_TILED_JSON_CONTAINER_HPP
 #define GS_TILED_JSON_CONTAINER_HPP
 
-#include <vector>
 #include <string>
+#include <vector>
 
 #include "external/json.hpp"
 
@@ -36,23 +36,23 @@ using json = nlohmann::json;
 namespace gs {
 
 struct TiledJsonTileLayer {
-    std::vector<int> data;
+  std::vector<int> data;
 
-    TiledJsonTileLayer();
-    explicit TiledJsonTileLayer(json json_obj);
+  TiledJsonTileLayer();
+  explicit TiledJsonTileLayer(json json_obj);
 };
 
 struct TiledJsonObj {
-    std::string id;
-    float x;
-    float y;
-    float width;
-    float height;
+  std::string id;
+  float x;
+  float y;
+  float width;
+  float height;
 
-    TiledJsonObj();
-    TiledJsonObj(json json_obj, int tile_height);
+  TiledJsonObj();
+  TiledJsonObj(json json_obj, int tile_height);
 };
 
-}
+} // namespace gs
 
 #endif

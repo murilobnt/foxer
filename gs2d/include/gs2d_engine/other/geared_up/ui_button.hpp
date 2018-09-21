@@ -12,8 +12,8 @@
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -36,24 +36,22 @@ namespace gs {
 class UIButton : public SpritedEntity {
 
 private:
-    int id;
-    bool focused;
-    sf::Text button_text;
+  int id;
+  bool focused;
+  sf::Text button_text;
 
 public:
-    UIButton(int id, float x, float y,
-             sf::Texture const& texture,
-             sf::Vector2i sprite_pos_at_tex,
-             sf::Vector2i sprite_dimensions,
-             sf::Font& font, std::string text_content);
-    UIButton();
-    void set_focused(bool focused);
-    bool is_focused();
-    sf::Text& get_button_text();
-    int get_id();
-    void init_text(sf::Font& font, std::string text_content);
+  UIButton(int id, float x, float y, sf::Texture const &texture,
+           sf::Vector2i sprite_pos_at_tex, sf::Vector2i sprite_dimensions,
+           sf::Font &font, std::string text_content);
+  UIButton();
+  void set_focused(bool focused);
+  bool is_focused();
+  sf::Text &get_button_text();
+  int get_id();
+  void init_text(sf::Font &font, std::string text_content);
 };
 
-}
+} // namespace gs
 
 #endif

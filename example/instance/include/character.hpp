@@ -12,8 +12,8 @@
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -29,30 +29,29 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
+#include "gs2d_engine/other/helpers/facing_position.hpp"
 #include "gs2d_engine/scene_components.hpp"
 #include "gs2d_engine/time.hpp"
-#include "gs2d_engine/other/helpers/facing_position.hpp"
 
 class Character : public gs::GameObject,
                   public gs::AnimatedEntity,
-                  public gs::IBControlableEntity
-                  {
+                  public gs::IBControlableEntity {
 
 private:
-    gs::TimeHandler animation_time_handler;
+  gs::TimeHandler animation_time_handler;
 
-    FacingPosition last_facing_pos;
+  FacingPosition facing_position;
+  FacingPosition last_facing_pos;
 
 public:
-    Character(sf::Texture const &texture, sf::Vector2i sprite_pos_at_tex,
-              sf::Vector2i sprite_dimensions, sf::Vector2i animation_x,
-              sf::Vector2i animation_y, int animation_framerate);
-    Character();
-    void control_entity(float delta_time);
-    void move();
-    void move(float delta_time);
-    void animate();
-
+  Character(sf::Texture const &texture, sf::Vector2i sprite_pos_at_tex,
+            sf::Vector2i sprite_dimensions, sf::Vector2i animation_x,
+            sf::Vector2i animation_y, int animation_framerate);
+  Character();
+  void control_entity(float delta_time);
+  void move();
+  void move(float delta_time);
+  void animate();
 };
 
 #endif

@@ -12,8 +12,8 @@
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -27,18 +27,20 @@
 #define GS_TILED_CSV_LOADER_HPP
 
 #include <fstream>
-#include <sstream>
 #include <iostream>
-#include <vector>
+#include <sstream>
 #include <string>
+#include <vector>
 
-namespace gs{
+namespace gs {
 
 class TiledCSVLoader {
 public:
-    static void load_tilemap_array_from_file(std::string csv_file, std::vector<int>* tilemap, int &width, int &height);
+  static void load_tilemap_array_from_file(std::string csv_file,
+                                           std::vector<int> *tilemap,
+                                           int &width, int &height);
 };
 
-}
+} // namespace gs
 
 #endif

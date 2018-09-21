@@ -12,8 +12,8 @@
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -27,41 +27,38 @@
 #define GS_MOVABLE_OBJECT_HPP
 
 #include <SFML/Graphics.hpp>
-#include "gs2d_engine/other/helpers/facing_position.hpp"
 
 namespace gs {
 
 class MovableObject {
 public:
-    bool moving_up;
-    bool moving_down;
-    bool moving_left;
-    bool moving_right;
+  bool moving_up;
+  bool moving_down;
+  bool moving_left;
+  bool moving_right;
 
-    float collision_offset_left;
-    float collision_offset_right;
-    float collision_offset_up;
-    float collision_offset_down;
-
-    FacingPosition facing_position;
+  float collision_offset_left;
+  float collision_offset_right;
+  float collision_offset_up;
+  float collision_offset_down;
 
 protected:
-    sf::Vector2f movement;
+  sf::Vector2f movement;
 
 public:
-    MovableObject();
+  MovableObject();
 
-    sf::Vector2f get_movement() const;
-    void nullfy_movement();
+  sf::Vector2f get_movement() const;
+  void nullfy_movement();
 
-    void set_movement_x(float x);
-    void set_movement_y(float y);
-    void set_movement(sf::Vector2f movement);
+  void set_movement_x(float x);
+  void set_movement_y(float y);
+  void set_movement(sf::Vector2f movement);
 
-    virtual void move(float delta_time) = 0;
-    virtual void move() = 0;
+  virtual void move(float delta_time) = 0;
+  virtual void move() = 0;
 };
 
-}
+} // namespace gs
 
 #endif

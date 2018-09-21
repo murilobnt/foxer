@@ -12,16 +12,16 @@
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT Nget_app_heightOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+// IMPLIED, INCLUDING BUT Nget_app_heightOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+// EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES
+// OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+// ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+// DEALINGS IN THE SOFTWARE.
 
 #ifndef GS_SCENE_PROXY_HPP
 #define GS_SCENE_PROXY_HPP
@@ -46,56 +46,55 @@ class Scene;
 class SceneProxy {
 
 private:
-	// The current scene. This will be the scene to be used on the
-	// methods of this class.
-	Scene* scene;
+  // The current scene. This will be the scene to be used on the
+  // methods of this class.
+  Scene *scene;
 
-	// A pointer to the last scene. If it is the will of the coder
-	// to create a return to the last scene (such as a pause menu to
-	// return to the game), the information of the last scene can
-	// be stored here.
-	Scene* last_scene;
+  // A pointer to the last scene. If it is the will of the coder
+  // to create a return to the last scene (such as a pause menu to
+  // return to the game), the information of the last scene can
+  // be stored here.
+  Scene *last_scene;
 
 public:
-	// Constructor.
-	SceneProxy();
+  // Constructor.
+  SceneProxy();
 
-	// Destructor.
-	~SceneProxy();
+  // Destructor.
+  ~SceneProxy();
 
-	// Change the scene to a new scene. Since the scene has a
-	// pointer to the scene manager, the scene can change to another
-	// one inside itself by calling this method.
-	void change_scene(Scene* next_scene);
+  // Change the scene to a new scene. Since the scene has a
+  // pointer to the scene manager, the scene can change to another
+  // one inside itself by calling this method.
+  void change_scene(Scene *next_scene);
 
-	// Change the scene to a new scene and store the last scene,
-	// so it can be returned to the last one in the future.
-	void change_to_runtime_scene(Scene* next_scene);
+  // Change the scene to a new scene and store the last scene,
+  // so it can be returned to the last one in the future.
+  void change_to_runtime_scene(Scene *next_scene);
 
-	// Delete the last scene.
-	void remove_last_scene();
+  // Delete the last scene.
+  void remove_last_scene();
 
-	// The following methods will repass the call for the current scene.
-	void start();
-	void update();
-	void handle_event(sf::Event &event);
-	void draw_entities();
-	void reset_time_handlers(ClockHandler& clock_handler);
+  // The following methods will repass the call for the current scene.
+  void start();
+  void update();
+  void handle_event(sf::Event &event);
+  void draw_entities();
+  void reset_time_handlers(ClockHandler &clock_handler);
 
-	// Setter for the scene. CAUTION: If you are changing from inside
-	// a scene, it is recommended that you use change_scene, from
-	// Scene, instead. Calling this method does not free the
-	// pointer of the last scene, making it garbage in the execution.
-	void set_scene(Scene* scene);
+  // Setter for the scene. CAUTION: If you are changing from inside
+  // a scene, it is recommended that you use change_scene, from
+  // Scene, instead. Calling this method does not free the
+  // pointer of the last scene, making it garbage in the execution.
+  void set_scene(Scene *scene);
 
-	// Setter for the last scene.
-	void set_last_scene();
+  // Setter for the last scene.
+  void set_last_scene();
 
-	// Getter for the scene.
-	Scene* get_scene() const;
-
+  // Getter for the scene.
+  Scene *get_scene() const;
 };
 
-}
+} // namespace gs
 
 #endif

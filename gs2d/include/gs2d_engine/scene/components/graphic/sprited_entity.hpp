@@ -12,8 +12,8 @@
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -38,64 +38,63 @@ namespace gs {
 class SpritedEntity {
 
 private:
-    // The sprite of the entity.
-    sf::Sprite sprite;
+  // The sprite of the entity.
+  sf::Sprite sprite;
 
-    // The dimensions of the entity. This is a two-dimensional
-    // vector of int which contains, respectively, the width and
-    // the height of the sprite.
-    sf::Vector2i sprite_dimensions;
+  // The dimensions of the entity. This is a two-dimensional
+  // vector of int which contains, respectively, the width and
+  // the height of the sprite.
+  sf::Vector2i sprite_dimensions;
 
 public:
-    // Constructor. It takes the texture, the X and Y positions,
-    // and the width and height of this sprite.
-    SpritedEntity(sf::Texture const &texture, sf::Vector2i sprite_pos_at_tex,
-                  sf::Vector2i sprite_dimensions);
+  // Constructor. It takes the texture, the X and Y positions,
+  // and the width and height of this sprite.
+  SpritedEntity(sf::Texture const &texture, sf::Vector2i sprite_pos_at_tex,
+                sf::Vector2i sprite_dimensions);
 
-    // Empty constructor. This is important so the user of the
-    // animated sprite can choose to initialize it later (but it's
-    // important to not forget to do so).
-    SpritedEntity();
+  // Empty constructor. This is important so the user of the
+  // animated sprite can choose to initialize it later (but it's
+  // important to not forget to do so).
+  SpritedEntity();
 
-    // Configure the rect of the sprite, so it can turn into another
-    // one in its texture. This method also requires the width and
-    // height of the new sprite, in case of different dimensions.
-    void configure_sprite_rect(int x, int y, int w, int h);
+  // Configure the rect of the sprite, so it can turn into another
+  // one in its texture. This method also requires the width and
+  // height of the new sprite, in case of different dimensions.
+  void configure_sprite_rect(int x, int y, int w, int h);
 
-    // Configure the rect of the sprite, so it can turn into another
-    // one in its texture. This method uses the current width and
-    // height of the sprite to load the next one. Useful with animation
-    // and standardized dimensions.
-    void configure_sprite_rect(int x, int y);
+  // Configure the rect of the sprite, so it can turn into another
+  // one in its texture. This method uses the current width and
+  // height of the sprite to load the next one. Useful with animation
+  // and standardized dimensions.
+  void configure_sprite_rect(int x, int y);
 
-    // Set the position of the sprite to the position of the
-    // given two-dimensional float vector.
-    void set_sprite_position(sf::Vector2f position);
+  // Set the position of the sprite to the position of the
+  // given two-dimensional float vector.
+  void set_sprite_position(sf::Vector2f position);
 
-    // Set the position of the sprite to the position of the
-    // given X and Y coordinates.
-    void set_sprite_position(float x, float y);
+  // Set the position of the sprite to the position of the
+  // given X and Y coordinates.
+  void set_sprite_position(float x, float y);
 
-    // Scale the sprite in the X and Y axis.
-    void set_sprite_scale(float x, float y);
+  // Scale the sprite in the X and Y axis.
+  void set_sprite_scale(float x, float y);
 
-    // Move the sprite. This method adds the current position
-    // of the sprite to the given two-dimensional vector.
-    void move_sprite(sf::Vector2f movement);
+  // Move the sprite. This method adds the current position
+  // of the sprite to the given two-dimensional vector.
+  void move_sprite(sf::Vector2f movement);
 
-    // Set the color of the sprite to the given color.
-    void set_sprite_color(sf::Color color);
+  // Set the color of the sprite to the given color.
+  void set_sprite_color(sf::Color color);
 
-    sf::Sprite get_sprite() const;
-    sf::Vector2f get_sprite_position() const;
-    sf::Vector2i get_sprite_dimensions() const;
-    sf::FloatRect get_sprite_global_bounds() const;
-    sf::FloatRect get_sprite_local_bounds() const;
+  sf::Sprite get_sprite() const;
+  sf::Vector2f get_sprite_position() const;
+  sf::Vector2i get_sprite_dimensions() const;
+  sf::FloatRect get_sprite_global_bounds() const;
+  sf::FloatRect get_sprite_local_bounds() const;
 
-    sf::RectangleShape get_rectangle_shape() const;
-
+  sf::RectangleShape get_rectangle_shape() const;
 };
 
-}
+} // namespace gs
 
 #endif

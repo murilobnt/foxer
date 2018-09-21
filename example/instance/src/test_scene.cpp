@@ -22,7 +22,7 @@ void TestScene::start() {
                               sf::Vector2i(40, 40),
                               sf::Vector2i(0, 400),
                               sf::Vector2i(160, 280), 20);
-        //character.set_sprite_scale(0.4, 0.4);
+        
         character.collision_offset_up = 16;
         character.collision_offset_down = 38;
         character.collision_offset_left = 9;

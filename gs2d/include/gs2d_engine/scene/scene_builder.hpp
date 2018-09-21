@@ -12,8 +12,8 @@
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -26,9 +26,9 @@
 #ifndef GS_SCENE_BUILDER_HPP
 #define GS_SCENE_BUILDER_HPP
 
-#include <SFML/Graphics.hpp>
-#include "gs2d_engine/time/clock_handler.hpp"
 #include "gs2d_engine/app_cycle/scene_proxy.hpp"
+#include "gs2d_engine/time/clock_handler.hpp"
+#include <SFML/Graphics.hpp>
 
 namespace gs {
 
@@ -36,12 +36,11 @@ class Scene;
 
 class SceneBuilder {
 public:
-    static void build_scene(Scene *scene,
-                            SceneProxy *scene_proxy,
-                            sf::RenderWindow *app_window,
-                            ClockHandler *app_clock);
+  static void build_scene(Scene *scene, SceneProxy *scene_proxy,
+                          sf::RenderWindow *app_window,
+                          ClockHandler *app_clock);
 };
 
-}
+} // namespace gs
 
 #endif

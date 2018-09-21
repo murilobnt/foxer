@@ -12,8 +12,8 @@
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -30,22 +30,21 @@
 
 namespace gs {
 
-class GenericGrid{
+class GenericGrid {
 
 protected:
-    int w;
-    int h;
-    int unity_size;
+  int w;
+  int h;
+  int unity_size;
 
-    int x_cells;
-    int y_cells;
+  int x_cells;
+  int y_cells;
 
 public:
-    GenericGrid();
-    GenericGrid(int w, int h, int unity_size);
-
+  GenericGrid();
+  GenericGrid(int w, int h, int unity_size);
 };
 
-}
+} // namespace gs
 
 #endif

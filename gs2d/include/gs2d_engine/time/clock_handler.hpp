@@ -12,8 +12,8 @@
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -37,27 +37,26 @@ namespace gs {
 class ClockHandler {
 
 private:
-    // The SFML clock.
-    sf::Clock clock;
+  // The SFML clock.
+  sf::Clock clock;
 
-    // The elapsed time of the clock.
-    sf::Time elapsed_time;
+  // The elapsed time of the clock.
+  sf::Time elapsed_time;
 
 public:
-    // Constructor.
-    ClockHandler();
+  // Constructor.
+  ClockHandler();
 
-    // Restart the clock and register the elapsed time.
-    void restart_clock();
+  // Restart the clock and register the elapsed time.
+  void restart_clock();
 
-    // Restart the given time handler to the clock's elapsed time.
-    void restart_time_handler(TimeHandler *time_handler);
+  // Restart the given time handler to the clock's elapsed time.
+  void restart_time_handler(TimeHandler *time_handler);
 
-    // Getters.
-    sf::Time get_elapsed_time() const;
-
+  // Getters.
+  sf::Time get_elapsed_time() const;
 };
 
-}
+} // namespace gs
 
 #endif

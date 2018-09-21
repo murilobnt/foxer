@@ -12,8 +12,8 @@
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -26,38 +26,38 @@
 #ifndef GS_TILED_LEVEL_HPP
 #define GS_TILED_LEVEL_HPP
 
-#include <string>
 #include <SFML/Graphics.hpp>
 #include <fstream>
-#include <vector>
 #include <map>
+#include <string>
+#include <vector>
 
 #include "external/json.hpp"
+#include "gs2d_engine/game/level/collision_map.hpp"
 #include "gs2d_engine/game/level/tiled_json_container.hpp"
 #include "gs2d_engine/game/level/tilemap.hpp"
-#include "gs2d_engine/game/level/collision_map.hpp"
 
 namespace gs {
 
 class TiledLevel {
 private:
-    sf::Vector2u tile_size;
-    sf::Vector2u level_size;
+  sf::Vector2u tile_size;
+  sf::Vector2u level_size;
 
-    std::vector<TileMap> tile_layers;
-    CollisionMap collision_map;
-    std::map<std::string, TiledJsonObj> events;
+  std::vector<TileMap> tile_layers;
+  CollisionMap collision_map;
+  std::map<std::string, TiledJsonObj> events;
 
 public:
-    TiledLevel();
-    TiledLevel(const std::string& tileset, const std::string &json_tiled_file);
+  TiledLevel();
+  TiledLevel(const std::string &tileset, const std::string &json_tiled_file);
 
-    void load(const std::string& tileset, const std::string &json_tiled_file);
-    std::vector<TileMap> get_tile_layers() const;
-    CollisionMap get_collision_map() const;
-    TiledJsonObj get_event(const std::string &event_id) const;
+  void load(const std::string &tileset, const std::string &json_tiled_file);
+  std::vector<TileMap> get_tile_layers() const;
+  CollisionMap get_collision_map() const;
+  TiledJsonObj get_event(const std::string &event_id) const;
 };
 
-}
+} // namespace gs
 
 #endif
