@@ -38,8 +38,6 @@ class Character : public gs::GameObject,
                   public gs::IBControlableEntity {
 
 private:
-  gs::TimeHandler animation_time_handler;
-
   FacingPosition facing_position;
   FacingPosition last_facing_pos;
 
