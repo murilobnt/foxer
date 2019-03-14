@@ -42,7 +42,7 @@ Go to the *sample* directory of this project. And run:
 make
 ```
 
-Now, if you followed the [Step 2.1: Exporting the library location](https://github.com/murilobnt/gs2d_engine#step-2.1:-exporting-the-library-location),
+Now, if you followed the [Step 2.1: Exporting the library location](https://github.com/murilobnt/gs2d_engine/blob/master/markdown/installation.md#step-21-exporting-the-library-location),
 the following command should be successfully executed.
 
 ```
