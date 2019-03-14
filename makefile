@@ -67,8 +67,8 @@ clean :
 	$(CLEANENGINE)
 
 install : $(TARGET)
-	cp gs2d/lib/libgs2d.so /usr/local/lib
-	cp -r gs2d/include/gs2d /usr/local/include
+	cp gs2d/lib/libgs2d.so /usr/local/lib && chmod 755 /usr/local/lib/libgs2d.so
+	cp -r gs2d/include/gs2d /usr/local/include && chmod -R 755 /usr/local/include/gs2d
 
 uninstall :
 	rm /usr/local/lib/libgs2d.so
