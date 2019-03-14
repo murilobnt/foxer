@@ -1,4 +1,4 @@
-#include "gs2d_engine/game/level/tiled_level.hpp"
+#include "gs2d/game/level/tiled_level.hpp"
 
 namespace gs {
 

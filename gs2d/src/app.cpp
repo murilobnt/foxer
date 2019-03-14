@@ -1,4 +1,4 @@
-#include "gs2d_engine/app_cycle/app.hpp"
+#include "gs2d/app_cycle/app.hpp"
 
 namespace gs {
 

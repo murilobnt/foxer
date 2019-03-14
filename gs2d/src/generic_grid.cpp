@@ -1,4 +1,4 @@
-#include "gs2d_engine/other/helpers/generic_grid.hpp"
+#include "gs2d/other/helpers/generic_grid.hpp"
 
 namespace gs {
 

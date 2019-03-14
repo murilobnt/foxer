@@ -1,4 +1,4 @@
-#include "gs2d_engine/other/geared_up/simple_menu_scene.hpp"
+#include "gs2d/other/geared_up/simple_menu_scene.hpp"
 
 namespace gs {
 

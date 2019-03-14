@@ -2,8 +2,8 @@
 
 #include <SFML/Graphics.hpp>
 #include <string>
-#include "gs2d_engine/core.hpp"
-#include "gs2d_engine/scene.hpp"
+#include "gs2d/core.hpp"
+#include "gs2d/scene.hpp"
 
 class MyScene : public gs::Scene {
 

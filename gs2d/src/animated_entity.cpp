@@ -1,4 +1,4 @@
-#include "gs2d_engine/scene/components/graphic/animated_entity.hpp"
+#include "gs2d/scene/components/graphic/animated_entity.hpp"
 
 namespace gs {
 

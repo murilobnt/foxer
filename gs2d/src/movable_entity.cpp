@@ -1,4 +1,4 @@
-#include "gs2d_engine/scene/components/object/movable_object.hpp"
+#include "gs2d/scene/components/object/movable_object.hpp"
 
 namespace gs {
 

@@ -5,7 +5,7 @@
  */
 #include <SFML/Graphics.hpp>
 #include <map>
-#include "external/collision.h"
+#include "gs2d/external/collision.h"
 
 namespace Collision
 {

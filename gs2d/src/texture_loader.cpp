@@ -1,4 +1,4 @@
-#include "gs2d_engine/other/helpers/texture_loader.hpp"
+#include "gs2d/other/helpers/texture_loader.hpp"
 
 namespace gs {
 

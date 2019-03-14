@@ -1,4 +1,4 @@
-#include "gs2d_engine/scene/components/camera/camera.hpp"
+#include "gs2d/scene/components/camera/camera.hpp"
 
 namespace gs {
 

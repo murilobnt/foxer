@@ -1,4 +1,4 @@
-#include "gs2d_engine/scene/scene.hpp"
+#include "gs2d/scene/scene.hpp"
 
 namespace gs {
 

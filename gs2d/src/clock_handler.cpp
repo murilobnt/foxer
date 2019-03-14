@@ -1,4 +1,4 @@
-#include "gs2d_engine/time/clock_handler.hpp"
+#include "gs2d/time/clock_handler.hpp"
 
 namespace gs {
 

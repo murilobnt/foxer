@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 
 #include <SFML/Graphics.hpp>
-#include "gs2d_engine/time.hpp"
+#include "gs2d/time.hpp"
 
 class TimeTest : public ::testing::Test {
 protected:

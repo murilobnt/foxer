@@ -1,4 +1,4 @@
-#include "gs2d_engine/game/level/collision_map.hpp"
+#include "gs2d/game/level/collision_map.hpp"
 
 namespace gs {
 

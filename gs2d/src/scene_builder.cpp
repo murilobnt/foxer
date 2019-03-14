@@ -1,5 +1,5 @@
-#include "gs2d_engine/scene/scene.hpp"
-#include "gs2d_engine/scene/scene_builder.hpp"
+#include "gs2d/scene/scene.hpp"
+#include "gs2d/scene/scene_builder.hpp"
 
 namespace gs {
 

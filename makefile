@@ -1,9 +1,6 @@
 # SECTION: CLEAN COMMANDS ------------------------------------------------------
 
-CLEANENGINE = $(RM) $(BDIR)/*.o $(LDIR)/$(TARGET).a
-CLEANCOVERAGE = $(RM) $(CBDIR)/*.o $(CBDIR)/*.gcno $(CBDIR)/*.gcda $(CLDIR)/$(CTARGET).a
-CLEANTESTS = $(RM) $(TBDIR)/*.o $(TBDIR)/$(TTARGET)
-CLEANCOVREPORT = $(RM) -r $(LCOV) $(RTARGET)
+CLEANENGINE = $(RM) $(BDIR)/*.o $(LDIR)/$(TARGET)
 
 # SECTION: LIBRARY VARIABLES ---------------------------------------------------
 
@@ -20,7 +17,7 @@ OBJ-FLAG = -c
 INCLUDE = -I ./gs2d/include
 
 ## The target's name
-TARGET = gs2d
+TARGET = libgs2d.so
 
 ## SFML
 SFML = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
@@ -55,103 +52,24 @@ OBJS = $(addprefix $(BDIR)/,$(notdir $(CPPS:.cpp=.o)))
 ## For all entries, the dependency is the target file: The library.
 all : $(TARGET)
 
+$(TARGET) : $(LDIR)/$(TARGET)
+
 ## To satisfy the dependency above, we need the objects.
-$(TARGET) : $(OBJS)
-	ar rs $(LDIR)/$(TARGET).a ./$^
+$(LDIR)/$(TARGET) : $(OBJS)
+	$(CC) -shared ./$^ -o $(LDIR)/$(TARGET)
 
 ## To satisfy the objects dependency above, we need the source code files.
 $(BDIR)/%.o: $(SRC)/%.cpp
-	$(CC) $(OBJ-FLAG) $(STD) $(INCLUDE) ./$< -o ./$@
+	$(CC) -fPIC $(OBJ-FLAG) $(STD) $(INCLUDE) ./$< -o ./$@
 
 ## For entry "clean" (make clean), delete the objects and the executable.
 clean :
 	$(CLEANENGINE)
 
-# SECTION: COVERAGE OBJECTS ----------------------------------------------------
+install : $(TARGET)
+	cp gs2d/lib/libgs2d.so /usr/local/lib
+	cp -r gs2d/include/gs2d /usr/local/include
 
-CTARGET = gs2d_coverage
-
-GCNO = $(addprefix $(CBDIR)/,$(notdir $(CPPS:.cpp=.gcno)))
-COBJS = $(addprefix $(CBDIR)/,$(notdir $(CPPS:.cpp=.o)))
-
-CLDIR = $(CDIR)/lib
-
-coverage : $(CTARGET)
-
-$(CTARGET) : $(COBJS)
-	ar rs $(CLDIR)/$(CTARGET).a ./$^
-
-$(CBDIR)/%.o: $(SRC)/%.cpp
-	$(CC) $(OBJ-FLAG) $(STD) --coverage $(INCLUDE) ./$< -o ./$@
-
-cleancoverage :
-		$(CLEANCOVERAGE)
-
-# SECTION: TESTS VARIABLES -----------------------------------------------------
-
-## Important: Change this to the location of Google Test on your PC.
-GTDIR = ../googletest
-
-## Google Test include
-GTINCLUDE = -I $(GTDIR)/googletest/include
-
-## Path to Google Test library
-GTLIB = $(GTDIR)/libgtest.a
-
-## Tests directory
-TDIR = ./gs2d/test
-
-## Test source files directory
-TSRC = $(TDIR)/src
-
-## Test binaries directory
-TBDIR = $(BDIR)/test
-
-## The test target file name
-TTARGET = gs2d_tests
-
-## Test source codes
-TC = $(wildcard $(TSRC)/*.cpp)
-
-## Generated test objects
-TB = $(addprefix $(TBDIR)/, $(notdir $(TC:.cpp=.o)))
-
-# SECTION: TESTS COMPILING -----------------------------------------------------
-
-## For all entries, the dependency is the test target file.
-tests : $(TTARGET)
-
-## To get the test target file, the dependency is the binaries.
-$(TTARGET) : $(TB)
-	$(CC) $(STD) -pthread --coverage ./$^ $(GTLIB) $(CLDIR)/$(CTARGET).a $(SFML) -o $(TBDIR)/$(TTARGET)
-
-## To get the binaries, the dependency is the source code (and we have them).
-$(TBDIR)/%.o : $(TSRC)/%.cpp
-	$(CC) $(STD) $(OBJ-FLAG) $(INCLUDE) $(GTINCLUDE) ./$< -o ./$@
-
-## I guess you know what this does xD (clean tests generated files).
-cleantests :
-	$(CLEANTESTS)
-
-# SECTION: CODE COVERAGE VARIABLES ---------------------------------------------
-
-RTARGET = $(CDIR)/report
-
-LCOV = $(CDIR)/lcov.info
-
-creport : $(RTARGET)
-
-$(RTARGET) : $(LCOV)
-	genhtml -o ./$@ ./$<
-
-$(LCOV) :
-	lcov -t "gs2d_coverage_report" -o $(CDIR)/lcov.info -c -d $(CBDIR)/.
-
-cleancreport :
-	$(CLEANCOVREPORT)
-
-cleaneverything :
-		$(CLEANENGINE)
-		$(CLEANCOVERAGE)
-		$(CLEANTESTS)
-		$(CLEANCOVREPORT)
+uninstall :
+	rm /usr/local/lib/libgs2d.so
+	rm -r /usr/local/include/gs2d
