@@ -5,7 +5,7 @@ namespace gs {
 AnimatedEntity::AnimatedEntity(sf::Vector2i animation_x,
                                sf::Vector2i animation_y,
                                float animation_framerate)
-    : animation_time_handler(sf::seconds(1.f / animation_framerate)) {
+    : TimedEntity(sf::seconds(1.f / animation_framerate)) {
   this->animation_x = animation_x;
   this->animation_y = animation_y;
 
@@ -17,10 +17,6 @@ AnimatedEntity::AnimatedEntity() {}
 sf::Vector2i AnimatedEntity::get_animation_x() const { return animation_x; }
 
 sf::Vector2i AnimatedEntity::get_animation_y() const { return animation_y; }
-
-TimeHandler &AnimatedEntity::get_animation_time_handler() {
-  return animation_time_handler;
-}
 
 void AnimatedEntity::apply_animation_by_row(SpritedEntity *sprited_entity,
                                             int row) {
@@ -35,5 +31,7 @@ void AnimatedEntity::apply_animation_by_row(SpritedEntity *sprited_entity,
 
   ++animation_loop_state;
 }
+
+void AnimatedEntity::on_update_time() { animate(); }
 
 } // namespace gs

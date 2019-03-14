@@ -1,9 +1,9 @@
-// File: texture_loader.hpp
+// File: timed_entity.hpp
 // Author: Murilo Bento
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,35 +23,23 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef GS_TEXTURE_LOADER_HPP
-#define GS_TEXTURE_LOADER_HPP
+#ifndef TIMED_ENTITY_HPP
+#define TIMED_ENTITY_HPP
 
-// # External
-#include <SFML/Graphics.hpp>
-#include <string>
-
-#include "gs2d/external/collision.h"
-
-// Texture loader is a tool to ease the loading of textures.
+#include "gs2d/time/time_handler.hpp"
 
 namespace gs {
 
-class TextureLoader {
-
+class TimedEntity {
 private:
-  // Load the given texture by the path to its corresponding image.
-  static void load_texture(sf::Texture &texture, std::string path);
+  gs::TimeHandler time_handler;
 
 public:
-  // Set the given texture with the image from the given path, with
-  // the given width and height, also defining if the texture is repeated
-  // or if has bitmask.
-  static void set_texture_from_file(sf::Texture &texture_to_be_loaded,
-                                    std::string path, bool is_repeated = false,
-                                    bool has_bitmask = false);
-
-  // Create the given texture with the given width and height.
-  static void create_texture(sf::Texture &texture, int w, int h);
+  TimedEntity();
+  TimedEntity(sf::Time update_rate);
+  TimeHandler *get_time_handler();
+  void time_trigger();
+  virtual void on_update_time() = 0;
 };
 
 } // namespace gs

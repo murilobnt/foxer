@@ -27,7 +27,7 @@
 #define GS_ANIMATED_ENTITY_HPP
 
 #include "gs2d/scene/components/graphic/sprited_entity.hpp"
-#include "gs2d/time/time_handler.hpp"
+#include "gs2d/time/timed_entity.hpp"
 
 // An animated entity can be used by entities that have
 // a sprite and it requires an animation. In this class,
@@ -41,7 +41,7 @@
 
 namespace gs {
 
-class AnimatedEntity {
+class AnimatedEntity : public TimedEntity {
 private:
   // The X position of the first frame of the animated sprite.
   // e.g. if the first frame is located in the left corner of the image,
@@ -76,11 +76,6 @@ private:
 
   sf::Vector2i animation_y;
 
-  // A time handler to define the animation framerate. It is important
-  // to reset this time handler in the scene of this sprite, so
-  // it can be syncronized with the game's clock.
-  TimeHandler animation_time_handler;
-
   // The integer to iterate through the animation frames. It is initialized
   // by zero (the first frame) and it is incremented when a frame is already
   // set to the sprite. When it reaches the final sprite, it is reseted to
@@ -109,9 +104,6 @@ public:
   // Getter for animation_y.
   sf::Vector2i get_animation_y() const;
 
-  // Getter for the time handler of the animation.
-  TimeHandler &get_animation_time_handler();
-
   // Applies the animation of the row. This means it will iterate through
   // the first frame until the last frame, and go back to the first frame
   // again in a loop.
@@ -120,6 +112,8 @@ public:
   // Defines what will trigger the animation and which/how the
   // animation will happen.
   virtual void animate() = 0;
+
+  void on_update_time();
 };
 
 } // namespace gs

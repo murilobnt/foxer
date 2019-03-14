@@ -4,9 +4,8 @@ namespace gs {
 
 App::App() {}
 
-App::App(int app_width, int app_height, std::string app_title, float framerate)
-    : app_frequency(sf::seconds(1.f / framerate)), app_title(app_title),
-      app_width(app_width), app_height(app_height) {}
+App::App(int app_width, int app_height, std::string app_title)
+    : app_title(app_title), app_width(app_width), app_height(app_height) {}
 
 App::~App() { delete app_window; }
 
@@ -22,19 +21,13 @@ void App::app_start(Scene *first_scene, bool vsync) {
   scene_proxy.set_scene(first_scene);
 
   while (app_window->isOpen()) {
-    handle_time_actions();
+    process_events();
+    scene_proxy.update();
     clear_and_draw();
 
     clock_handler.restart_clock();
     clock_handler.restart_time_handler(&app_frequency);
     scene_proxy.reset_time_handlers(clock_handler);
-  }
-}
-
-void App::handle_time_actions() {
-  if (app_frequency.time_to_update()) {
-    process_events();
-    scene_proxy.update();
   }
 }
 

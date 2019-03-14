@@ -34,7 +34,6 @@
 #include "gs2d/scene/components/object/movable_object.hpp"
 #include "gs2d/scene/scene_builder.hpp"
 #include "gs2d/time.hpp"
-#include "gs2d/time/clock_handler.hpp"
 
 // Scenes serves as the mold for any scene, e.g. the main menu
 // and the pause screen. It contains methods for loading resources,

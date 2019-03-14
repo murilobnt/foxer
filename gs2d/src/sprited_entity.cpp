@@ -3,8 +3,8 @@
 namespace gs {
 
 SpritedEntity::SpritedEntity(sf::Texture const &texture,
-                             sf::Vector2i sprite_pos_at_tex,
-                             sf::Vector2i sprite_dimensions)
+                             sf::Vector2i sprite_dimensions,
+                             sf::Vector2i sprite_pos_at_tex)
     : sprite_dimensions(sprite_dimensions) {
   sprite.setTexture(texture);
   configure_sprite_rect(sprite_pos_at_tex.x, sprite_pos_at_tex.y);

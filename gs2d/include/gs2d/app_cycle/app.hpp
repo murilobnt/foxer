@@ -65,9 +65,6 @@ private:
   // The scene proxy to delegate actions for the scene.
   SceneProxy scene_proxy;
 
-  // This will handle the actions inside the framerate.
-  void handle_time_actions();
-
   // This will process the events.
   void process_events();
 
@@ -80,8 +77,7 @@ public:
   App();
   // Constructor. Requires the width and height of the application window and
   // its title too.
-  App(int app_width, int app_height, std::string app_title,
-      float framerate = 60.f);
+  App(int app_width, int app_height, std::string app_title);
 
   // Destructor.
   ~App();

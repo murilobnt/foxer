@@ -3,9 +3,9 @@
 namespace gs {
 
 GameObject::GameObject(sf::Texture const &texture,
-                       sf::Vector2i sprite_pos_at_tex,
-                       sf::Vector2i sprite_dimensions)
-    : SpritedEntity(texture, sprite_pos_at_tex, sprite_dimensions) {}
+                       sf::Vector2i sprite_dimensions,
+                       sf::Vector2i sprite_pos_at_tex)
+    : SpritedEntity(texture, sprite_dimensions, sprite_pos_at_tex) {}
 
 GameObject::GameObject() {}
 

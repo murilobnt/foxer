@@ -10,8 +10,8 @@ namespace gs {
 
 class GameObject : public SpritedEntity, public MovableObject {
 public:
-  GameObject(sf::Texture const &texture, sf::Vector2i sprite_pos_at_tex,
-             sf::Vector2i sprite_dimensions);
+  GameObject(sf::Texture const &texture, sf::Vector2i sprite_dimensions,
+             sf::Vector2i sprite_pos_at_tex = sf::Vector2i(0, 0));
 
   GameObject();
 
