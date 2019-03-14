@@ -1,6 +1,6 @@
 <p align=center>
 
-<img src="../markdown/assets/readme/gs2d_logo.png" width=300/>
+<img src="assets/readme/gs2d_logo.png" width=300/>
 
 </p>
 
@@ -38,7 +38,7 @@ own scenes and to set up the main method.
 
 ## Installation
 
-Read [this file](https://github.com/murilobnt/gs2d_engine/blob/master/markdown/installation.md).
+Read [this file](https://github.com/murilobnt/gs2d_engine/blob/master/.github/installation.md).
 
 ## Tutorials and documentation
 
