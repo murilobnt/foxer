@@ -40,7 +40,9 @@ own scenes and to set up the main method.
 
 Read [this file](https://github.com/murilobnt/gs2d_engine/blob/master/.github/installation.md).
 
-## Tutorials and documentation
+## Insight
+
+[This file](https://github.com/murilobnt/gs2d_engine/blob/master/.github/comparison.md) compares implementations of C++/SFML applications with C++/SFML/GS2D applications.
 
 Tutorials and documentation are available at the
 [wiki](https://github.com/murilobnt/gs2d_engine/wiki).
