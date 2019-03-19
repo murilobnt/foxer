@@ -16,7 +16,8 @@ void App::app_start(Scene *first_scene, bool vsync) {
       new sf::RenderWindow(sf::VideoMode(app_width, app_height), app_title);
   app_window->setVerticalSyncEnabled(vsync);
 
-  SceneBuilder::build_scene(first_scene, &scene_proxy, app_window, dt);
+  SceneBuilder::build_scene(first_scene, &scene_proxy, app_window, dt,
+                            &clock_handler);
 
   scene_proxy.set_scene(first_scene);
 

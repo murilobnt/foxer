@@ -56,6 +56,8 @@ private:
 
   float dt;
 
+  ClockHandler *app_clock;
+
 protected:
   // The time handlers of the scene.
   std::vector<TimeHandler *> time_handlers;
@@ -111,6 +113,10 @@ public:
   void set_app_dt(float dt);
 
   float get_delta_time() const;
+
+  void set_app_clock(ClockHandler *app_clock);
+
+  float get_frame_delta_time() const;
 };
 
 } // namespace gs
