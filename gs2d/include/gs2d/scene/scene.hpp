@@ -54,8 +54,7 @@ private:
   // scene.
   SceneProxy *scene_proxy;
 
-  // The reference to the clock of the game.
-  ClockHandler *app_clock;
+  float dt;
 
 protected:
   // The time handlers of the scene.
@@ -109,7 +108,7 @@ public:
   // Setter of app_window.
   void set_app_window(sf::RenderWindow *app_window);
 
-  void set_app_clock(ClockHandler *app_clock);
+  void set_app_dt(float dt);
 
   float get_delta_time() const;
 };

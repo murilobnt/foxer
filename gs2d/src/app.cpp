@@ -4,8 +4,9 @@ namespace gs {
 
 App::App() {}
 
-App::App(int app_width, int app_height, std::string app_title)
-    : app_title(app_title), app_width(app_width), app_height(app_height) {}
+App::App(int app_width, int app_height, std::string app_title, float framerate)
+    : app_frequency(sf::seconds(1.f / framerate)), app_title(app_title),
+      app_width(app_width), app_height(app_height), dt(1.f / framerate) {}
 
 App::~App() { delete app_window; }
 
@@ -15,14 +16,14 @@ void App::app_start(Scene *first_scene, bool vsync) {
       new sf::RenderWindow(sf::VideoMode(app_width, app_height), app_title);
   app_window->setVerticalSyncEnabled(vsync);
 
-  SceneBuilder::build_scene(first_scene, &scene_proxy, app_window,
-                            &clock_handler);
+  SceneBuilder::build_scene(first_scene, &scene_proxy, app_window, dt);
 
   scene_proxy.set_scene(first_scene);
 
   while (app_window->isOpen()) {
     process_events();
-    scene_proxy.update();
+    while (app_frequency.time_to_update())
+      scene_proxy.update();
     clear_and_draw();
 
     clock_handler.restart_clock();

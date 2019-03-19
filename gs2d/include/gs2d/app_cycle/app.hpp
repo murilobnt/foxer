@@ -56,6 +56,8 @@ private:
   int app_width;
   int app_height;
 
+  float dt;
+
   // The clock of the application.
   ClockHandler clock_handler;
 
@@ -77,7 +79,8 @@ public:
   App();
   // Constructor. Requires the width and height of the application window and
   // its title too.
-  App(int app_width, int app_height, std::string app_title);
+  App(int app_width, int app_height, std::string app_title,
+      float framerate = 60.f);
 
   // Destructor.
   ~App();
