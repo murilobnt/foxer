@@ -88,7 +88,7 @@ public:
   // Start the application. This begins the application cycle, verifying if the
   // window is still open to do the operations. It requires the first
   // scene to be played and the bool to use vsync.
-  void app_start(Scene *first_scene, bool vsync = true);
+  void app_start(Scene *first_scene, bool vsync = false);
 
   // Getters for the application width and height.
   int get_app_width() const;
