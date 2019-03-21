@@ -6,7 +6,8 @@ App::App() {}
 
 App::App(int app_width, int app_height, std::string app_title, float framerate)
     : app_frequency(sf::seconds(1.f / framerate)), app_title(app_title),
-      app_width(app_width), app_height(app_height), dt(1.f / framerate) {}
+      app_width(app_width), app_height(app_height), framerate(framerate),
+      dt(1.f / framerate) {}
 
 App::~App() { delete app_window; }
 
@@ -15,6 +16,7 @@ void App::app_start(Scene *first_scene, bool vsync) {
   app_window =
       new sf::RenderWindow(sf::VideoMode(app_width, app_height), app_title);
   app_window->setVerticalSyncEnabled(vsync);
+  app_window->setFramerateLimit(framerate);
 
   SceneBuilder::build_scene(first_scene, &scene_proxy, app_window, dt,
                             &clock_handler);

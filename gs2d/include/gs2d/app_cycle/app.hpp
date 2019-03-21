@@ -56,7 +56,9 @@ private:
   int app_width;
   int app_height;
 
+  float framerate;
   float dt;
+  bool draw;
 
   // The clock of the application.
   ClockHandler clock_handler;
