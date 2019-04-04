@@ -39,7 +39,7 @@
 
 namespace gs {
 
-class TiledLevel {
+class TiledLevel : public sf::Drawable {
 private:
   sf::Vector2u tile_size;
   sf::Vector2u level_size;
@@ -47,6 +47,8 @@ private:
   std::vector<TileMap> tile_layers;
   CollisionMap collision_map;
   std::map<std::string, TiledJsonObj> events;
+
+  virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
 public:
   TiledLevel();

@@ -51,4 +51,9 @@ std::vector<TileMap> TiledLevel::get_tile_layers() const { return tile_layers; }
 
 CollisionMap TiledLevel::get_collision_map() const { return collision_map; }
 
+void TiledLevel::draw(sf::RenderTarget &target, sf::RenderStates states) const {
+  for (int i = 0; i < tile_layers.size(); ++i)
+    target.draw(tile_layers.at(i), states);
+}
+
 } // namespace gs
