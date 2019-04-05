@@ -3,12 +3,13 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "gs2d/game/level/tiled_level.hpp"
 #include "gs2d/scene.hpp"
 
 class MyScene : public gs::Scene {
 
 private:
-  sf::CircleShape circle;
+  gs::TiledLevel m_level;
 
 public:
   void start();

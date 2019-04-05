@@ -29,6 +29,7 @@
 #include <SFML/Graphics.hpp>
 #include <fstream>
 #include <map>
+#include <queue>
 #include <string>
 #include <vector>
 
@@ -52,9 +53,11 @@ private:
 
 public:
   TiledLevel();
-  TiledLevel(const std::string &tileset, const std::string &json_tiled_file);
+  TiledLevel(const std::vector<std::string> &tilesets,
+             const std::string &json_tiled_file);
 
-  void load(const std::string &tileset, const std::string &json_tiled_file);
+  void load(const std::vector<std::string> &tilesets,
+            const std::string &json_tiled_file);
   std::vector<TileMap> get_tile_layers() const;
   CollisionMap get_collision_map() const;
   TiledJsonObj get_event(const std::string &event_id) const;

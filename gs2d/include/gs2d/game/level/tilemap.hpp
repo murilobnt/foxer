@@ -29,6 +29,7 @@
 // # External
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <utility>
 #include <vector>
 
 namespace gs {
@@ -44,16 +45,17 @@ private:
   virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
   // The vertices of the tiles
-  sf::VertexArray m_vertices;
+  // sf::VertexArray m_vertices;
 
   // The texture of the tiles
-  sf::Texture m_tileset;
+  std::vector<std::pair<sf::Texture, sf::VertexArray>> m_data;
 
 public:
   TileMap();
 
-  TileMap(const std::string &tileset, const sf::Vector2u &tile_size,
-          const sf::Vector2u &level_size, const std::vector<int> &tiles);
+  TileMap(const std::vector<std::string> &tilesets,
+          const sf::Vector2u &tile_size, const sf::Vector2u &level_size,
+          const std::vector<int> &tiles);
 
   /**
    * Load the tileset.
@@ -65,8 +67,9 @@ public:
    * @param selected the selected tiles to be collided
    * @param lenght the lenght of selected array
    */
-  bool load(const std::string &tileset, const sf::Vector2u &tile_size,
-            const sf::Vector2u &level_size, const std::vector<int> &tiles);
+  bool load(const std::vector<std::string> &tilesets,
+            const sf::Vector2u &tile_size, const sf::Vector2u &level_size,
+            const std::vector<int> &tiles);
 };
 
 } // namespace gs

@@ -4,12 +4,12 @@ namespace gs {
 
 TiledLevel::TiledLevel() {}
 
-TiledLevel::TiledLevel(const std::string &tileset,
+TiledLevel::TiledLevel(const std::vector<std::string> &tilesets,
                        const std::string &json_tiled_file) {
-  load(tileset, json_tiled_file);
+  load(tilesets, json_tiled_file);
 }
 
-void TiledLevel::load(const std::string &tileset,
+void TiledLevel::load(const std::vector<std::string> &tilesets,
                       const std::string &json_tiled_file) {
   std::ifstream my_json;
   my_json.open(json_tiled_file);
@@ -31,7 +31,7 @@ void TiledLevel::load(const std::string &tileset,
       } else {
         TiledJsonTileLayer tile_layer(*it);
         tile_layers.push_back(
-            TileMap(tileset, tile_size, level_size, tile_layer.data));
+            TileMap(tilesets, tile_size, level_size, tile_layer.data));
       }
     } else if ((*it)["type"] == "objectgroup") {
       for (json::iterator it2 = (*it)["objects"].begin();
