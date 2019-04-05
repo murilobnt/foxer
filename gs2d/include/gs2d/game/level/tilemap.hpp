@@ -48,7 +48,9 @@ private:
   // sf::VertexArray m_vertices;
 
   // The texture of the tiles
-  std::vector<std::pair<sf::Texture, sf::VertexArray>> m_data;
+  std::vector<std::pair<sf::Texture *, sf::VertexArray *>> m_data;
+
+  sf::Sprite spr;
 
 public:
   TileMap();
