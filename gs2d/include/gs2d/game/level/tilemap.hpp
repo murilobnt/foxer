@@ -29,6 +29,7 @@
 // # External
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <memory>
 #include <utility>
 #include <vector>
 
@@ -48,9 +49,9 @@ private:
   // sf::VertexArray m_vertices;
 
   // The texture of the tiles
-  std::vector<std::pair<sf::Texture *, sf::VertexArray *>> m_data;
-
-  sf::Sprite spr;
+  std::vector<
+      std::pair<std::shared_ptr<sf::Texture>, std::shared_ptr<sf::VertexArray>>>
+      m_data;
 
 public:
   TileMap();
