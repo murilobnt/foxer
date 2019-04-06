@@ -43,7 +43,7 @@ bool TileMap::load(const std::vector<std::string> &tilesets,
         sf::Vector2u size = current.first->getSize();
         int tiles_in_tex = (size.x / tile_size.x) * (size.y / tile_size.y);
 
-        if (tile_number < acumulator + tiles_in_tex)
+        if (tile_number <= acumulator + tiles_in_tex)
           break;
 
         acumulator += tiles_in_tex;
