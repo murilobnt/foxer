@@ -10,7 +10,8 @@ Character::Character(sf::Texture const &texture, sf::Vector2f position)
 Character::Character() : gs::AnimatedEntity() {}
 
 void Character::control_entity(float delta_time) {
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) ||
+      sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
     moving_left = true;
     if (current_facing_pos == FREE)
       current_facing_pos = LEFT;
@@ -22,7 +23,8 @@ void Character::control_entity(float delta_time) {
     }
   }
 
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) ||
+      sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
     moving_down = true;
     if (current_facing_pos == FREE)
       current_facing_pos = DOWN;
@@ -34,7 +36,8 @@ void Character::control_entity(float delta_time) {
     }
   }
 
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) ||
+      sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
     moving_right = true;
     if (current_facing_pos == FREE)
       current_facing_pos = RIGHT;
@@ -46,7 +49,8 @@ void Character::control_entity(float delta_time) {
     }
   }
 
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) ||
+      sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
     moving_up = true;
     if (current_facing_pos == FREE)
       current_facing_pos = UP;

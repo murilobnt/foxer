@@ -11,10 +11,13 @@ App::App(int app_width, int app_height, std::string app_title, float framerate)
 
 App::~App() { delete app_window; }
 
-void App::app_start(Scene *first_scene, bool vsync) {
+void App::app_start(Scene *first_scene, bool vsync, bool fullscreen) {
 
   app_window =
-      new sf::RenderWindow(sf::VideoMode(app_width, app_height), app_title);
+      (fullscreen ? new sf::RenderWindow(sf::VideoMode(app_width, app_height),
+                                         app_title, sf::Style::Fullscreen)
+                  : new sf::RenderWindow(sf::VideoMode(app_width, app_height),
+                                         app_title));
   app_window->setVerticalSyncEnabled(vsync);
   app_window->setFramerateLimit(framerate);
 
