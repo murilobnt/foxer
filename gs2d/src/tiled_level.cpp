@@ -25,13 +25,18 @@ void TiledLevel::load(const std::vector<std::string> &tilesets,
 
   for (json::iterator it = layers.begin(); it != layers.end(); ++it) {
     if ((*it)["type"] == "tilelayer") {
-      if (!(*it)["properties"].is_null() && (*it)["properties"]["collision"]) {
+      if (!(*it)["properties"]["collision"].is_null() &&
+          (*it)["properties"]["collision"]) {
         TiledJsonTileLayer collision_layer(*it);
         collision_map.load(collision_layer.data, tile_size, level_size);
       } else {
-        TiledJsonTileLayer tile_layer(*it);
-        tile_layers.push_back(
-            TileMap(tilesets, tile_size, level_size, tile_layer.data));
+        TileMap tilemap(tilesets, tile_size, level_size,
+                        TiledJsonTileLayer(*it).data);
+        if (!(*it)["properties"]["overlay"].is_null() &&
+            (*it)["properties"]["overlay"])
+          overlay_layers.add_layer(tilemap);
+        else
+          lower_layers.add_layer(tilemap);
       }
     } else if ((*it)["type"] == "objectgroup") {
       for (json::iterator it2 = (*it)["objects"].begin();
@@ -47,13 +52,14 @@ TiledJsonObj TiledLevel::get_event(const std::string &event_id) const {
   return events.find(event_id)->second;
 }
 
-std::vector<TileMap> TiledLevel::get_tile_layers() const { return tile_layers; }
-
 CollisionMap TiledLevel::get_collision_map() const { return collision_map; }
 
-void TiledLevel::draw(sf::RenderTarget &target, sf::RenderStates states) const {
-  for (int i = 0; i < tile_layers.size(); ++i)
-    target.draw(tile_layers.at(i), states);
+TiledLayerContainer TiledLevel::get_lower_layers() const {
+  return lower_layers;
+}
+
+TiledLayerContainer TiledLevel::get_overlay_layers() const {
+  return overlay_layers;
 }
 
 } // namespace gs

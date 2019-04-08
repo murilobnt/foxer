@@ -1,4 +1,4 @@
-// File: tiled_level.hpp
+// File: tiled_layer_container.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,45 +23,22 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef GS_TILED_LEVEL_HPP
-#define GS_TILED_LEVEL_HPP
+#ifndef GS_TILED_LAYER_CONTAINER_HPP
+#define GS_TILED_LAYER_CONTAINER_HPP
 
-#include <SFML/Graphics.hpp>
-#include <fstream>
-#include <map>
-#include <string>
+#include <vector>
 
-#include "gs2d/external/json.hpp"
-#include "gs2d/game/level/collision_map.hpp"
-#include "gs2d/game/level/tiled_json_container.hpp"
-#include "gs2d/game/level/tiled_layer_container.hpp"
 #include "gs2d/game/level/tilemap.hpp"
 
 namespace gs {
 
-class TiledLevel {
+class TiledLayerContainer : public sf::Drawable {
 private:
-  sf::Vector2u tile_size;
-  sf::Vector2u level_size;
-
-  TiledLayerContainer lower_layers;
-  TiledLayerContainer overlay_layers;
-
-  CollisionMap collision_map;
-  std::map<std::string, TiledJsonObj> events;
+  std::vector<TileMap> tile_layers;
+  virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
 public:
-  TiledLevel();
-  TiledLevel(const std::vector<std::string> &tilesets,
-             const std::string &json_tiled_file);
-
-  void load(const std::vector<std::string> &tilesets,
-            const std::string &json_tiled_file);
-  CollisionMap get_collision_map() const;
-  TiledJsonObj get_event(const std::string &event_id) const;
-
-  TiledLayerContainer get_lower_layers() const;
-  TiledLayerContainer get_overlay_layers() const;
+  void add_layer(TileMap tilemap);
 };
 
 } // namespace gs

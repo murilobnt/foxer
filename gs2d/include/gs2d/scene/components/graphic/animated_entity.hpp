@@ -43,39 +43,6 @@ namespace gs {
 
 class AnimatedEntity : public TimedEntity {
 private:
-  // The X position of the first frame of the animated sprite.
-  // e.g. if the first frame is located in the left corner of the image,
-  // this field would have to have the value of 0.
-  // It will be used to iterate through the animation.
-  // The anchor of the sprite is the upper left corner.
-  // int animation_initial_x_position;
-
-  // The X position of the last frame of the animated sprite.
-  // e.g. if the last frame of the animation is located at the end
-  // of the image, with the image being 192x128 and the sprite
-  // size is 32x32px, this field would have to have the value of
-  // 192 - 32, which is 160.
-  // The anchor of the sprite is the upper left corner.
-  // int animation_final_x_position;
-
-  sf::Vector2i animation_x;
-
-  // The Y position of the first frame of the animated sprite.
-  // This field will be used to iterate through the rows
-  // of the animation. By rows, it is this initial position
-  // plus the height of the sprite.
-  // The anchor of the sprite is the upper left corner.
-  // int animation_initial_y_position;
-
-  // The Y position of the last frame in the Y position.
-  // This field can be used if the animmation is set on a column
-  // insted of a row, so we can loop through the animation
-  // with this information.
-  // The anchor of the sprite is the upper left corner.
-  // int animation_final_y_position;
-
-  sf::Vector2i animation_y;
-
   // The integer to iterate through the animation frames. It is initialized
   // by zero (the first frame) and it is incremented when a frame is already
   // set to the sprite. When it reaches the final sprite, it is reseted to
@@ -90,24 +57,21 @@ public:
   // frame of the animation, in the Y axis, and then the
   // framerate of the animation.
   // The anchor of the sprite is the upper left corner.
-  AnimatedEntity(sf::Vector2i animation_x, sf::Vector2i animation_y,
-                 float animation_framerate);
+  AnimatedEntity(float animation_framerate);
 
   // Empty constructor. This is important so the user of the
   // animated sprite can choose to initialize it later (but it's
   // important to not forget to do so).
   AnimatedEntity();
 
-  // Getter for animation_x.
-  sf::Vector2i get_animation_x() const;
-
-  // Getter for animation_y.
-  sf::Vector2i get_animation_y() const;
-
   // Applies the animation of the row. This means it will iterate through
   // the first frame until the last frame, and go back to the first frame
   // again in a loop.
-  virtual void apply_animation_by_row(SpritedEntity *sprited_entity, int row);
+  virtual void apply_animation_on_row(SpritedEntity *sprited_entity,
+                                      sf::Vector2i anim_x, int anim_y);
+
+  virtual void apply_animation_on_column(SpritedEntity *sprited_entity,
+                                         int anim_x, sf::Vector2i anim_y);
 
   // Defines what will trigger the animation and which/how the
   // animation will happen.
