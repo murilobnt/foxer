@@ -24,20 +24,22 @@ void TiledLevel::load(const std::vector<std::string> &tilesets,
   json layers = level["layers"];
 
   for (json::iterator it = layers.begin(); it != layers.end(); ++it) {
-    if ((*it)["type"] == "tilelayer") {
-      if (!(*it)["properties"]["collision"].is_null() &&
-          (*it)["properties"]["collision"]) {
-        TiledJsonTileLayer collision_layer(*it);
-        collision_map.load(collision_layer.data, tile_size, level_size);
-      } else {
+    if ((*it)["type"] == "group") {
+      bool overlay = !(*it)["properties"]["overlay"].is_null() &&
+                     (*it)["properties"]["overlay"];
+
+      for (json::iterator g_it = (*it)["layers"].begin();
+           g_it != (*it)["layers"].end(); ++g_it) {
         TileMap tilemap(tilesets, tile_size, level_size,
-                        TiledJsonTileLayer(*it).data);
-        if (!(*it)["properties"]["overlay"].is_null() &&
-            (*it)["properties"]["overlay"])
-          overlay_layers.add_layer(tilemap);
-        else
-          lower_layers.add_layer(tilemap);
+                        TiledJsonTileLayer(*g_it).data);
+        (overlay ? overlay_layers.add_layer(tilemap)
+                 : lower_layers.add_layer(tilemap));
       }
+    } else if ((*it)["type"] == "tilelayer" &&
+               !(*it)["properties"]["collision"].is_null() &&
+               (*it)["properties"]["collision"]) {
+      TiledJsonTileLayer collision_layer(*it);
+      collision_map.load(collision_layer.data, tile_size, level_size);
     } else if ((*it)["type"] == "objectgroup") {
       for (json::iterator it2 = (*it)["objects"].begin();
            it2 != (*it)["objects"].end(); ++it2) {
