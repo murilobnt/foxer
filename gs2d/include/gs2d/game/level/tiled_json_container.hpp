@@ -26,6 +26,7 @@
 #ifndef GS_TILED_JSON_CONTAINER_HPP
 #define GS_TILED_JSON_CONTAINER_HPP
 
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -48,6 +49,7 @@ struct TiledJsonObj {
   float y;
   float width;
   float height;
+  json properties;
 
   TiledJsonObj();
   TiledJsonObj(json json_obj, int tile_height);

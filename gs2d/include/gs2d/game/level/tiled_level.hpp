@@ -59,6 +59,7 @@ public:
             const std::string &json_tiled_file);
   CollisionMap get_collision_map() const;
   TiledJsonObj get_event(const std::string &event_id) const;
+  std::map<std::string, TiledJsonObj> get_events() const;
 
   TiledLayerContainer get_lower_layers() const;
   TiledLayerContainer get_overlay_layers() const;

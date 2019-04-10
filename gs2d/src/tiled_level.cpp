@@ -56,6 +56,10 @@ TiledJsonObj TiledLevel::get_event(const std::string &event_id) const {
 
 CollisionMap TiledLevel::get_collision_map() const { return collision_map; }
 
+std::map<std::string, TiledJsonObj> TiledLevel::get_events() const {
+  return events;
+}
+
 TiledLayerContainer TiledLevel::get_lower_layers() const {
   return lower_layers;
 }

@@ -15,6 +15,10 @@ TiledJsonObj::TiledJsonObj(json json_obj, int tile_height) {
   width = json_obj["width"].get<float>();
   height = json_obj["height"].get<float>();
   id = json_obj["name"].get<std::string>();
+
+  if (!json_obj["properties"].is_null()) {
+    properties = json_obj["properties"];
+  }
 }
 
 } // namespace gs

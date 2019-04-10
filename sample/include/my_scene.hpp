@@ -7,16 +7,15 @@
 #include "character.hpp"
 #include "gs2d/game/level/tiled_level.hpp"
 #include "gs2d/scene.hpp"
+#include "level_manager.hpp"
+#include "level_one_handler.hpp"
 
 class MyScene : public gs::Scene {
-
 private:
-  gs::TiledLevel m_level;
-  gs::CollisionMap col_map;
   sf::Texture char_texture;
-  gs::Camera camera;
   Character character;
-
+  LevelManager level_manager;
+  gs::Camera camera;
   sf::Music bgm;
 
 public:
