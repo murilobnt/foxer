@@ -4,13 +4,13 @@ void MyScene::start() {
   time_handlers.push_back(character.get_time_handler());
 
   gs::TextureLoader::set_texture_from_file(
-      char_texture, std::string("assets/chara.png"), 286, 232);
+      char_texture, std::string("assets/textures/chara.png"), 286, 232);
   character = Character(char_texture);
 
-  gs::TiledLevel first_level =
-      gs::TiledLevel(std::vector<std::string>{"assets/tileset02.png",
-                                              "assets/steampunkish-tilec.png"},
-                     "assets/level01.json");
+  gs::TiledLevel first_level = gs::TiledLevel(
+      std::vector<std::string>{"assets/textures/tileset02.png",
+                               "assets/textures/steampunkish-tilec.png"},
+      "assets/levels/level01.json");
 
   camera = gs::Camera(sf::Vector2f(1366, 768), 0.5);
 
@@ -19,7 +19,7 @@ void MyScene::start() {
                    std::shared_ptr<LevelHandler>(
                        new LevelOneHandler(first_level.get_events())));
 
-  bgm.openFromFile("assets/almost-new-by-kevin-macleod.wav");
+  bgm.openFromFile("assets/musics/almost-new-by-kevin-macleod.wav");
   bgm.play();
 }
 
