@@ -12,13 +12,8 @@ LevelOneHandler::LevelOneHandler(
 void LevelOneHandler::handle_event_collision(LevelManager *l_h,
                                              const sf::FloatRect &obj_rect) {
   if (exit.intersects(obj_rect)) {
-    gs::TiledLevel level = gs::TiledLevel(
-        std::vector<std::string>{"assets/textures/tileset02.png",
-                                 "assets/textures/Outside_B_3.png"},
-        "assets/levels/level02.json");
-    l_h->change_level(
-        level,
-        std::shared_ptr<LevelHandler>(new LevelOneHandler(level.get_events())),
-        destination_id);
+    gs::TiledLevel level("assets/levels/level02.json");
+    l_h->change_level(level, std::shared_ptr<LevelHandler>(new LevelTwoHandler),
+                      destination_id);
   }
 }

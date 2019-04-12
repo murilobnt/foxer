@@ -7,10 +7,7 @@ void MyScene::start() {
       char_texture, std::string("assets/textures/chara.png"), 286, 232);
   character = Character(char_texture);
 
-  gs::TiledLevel first_level = gs::TiledLevel(
-      std::vector<std::string>{"assets/textures/tileset02.png",
-                               "assets/textures/steampunkish-tilec.png"},
-      "assets/levels/level01.json");
+  gs::TiledLevel first_level("assets/levels/level01.json");
 
   camera = gs::Camera(sf::Vector2f(1366, 768), 0.5);
 

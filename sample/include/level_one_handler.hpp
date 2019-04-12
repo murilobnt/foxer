@@ -4,6 +4,7 @@
 #include <map>
 
 #include "level_handler.hpp"
+#include "level_two_handler.hpp"
 
 class LevelOneHandler : public LevelHandler {
 private:

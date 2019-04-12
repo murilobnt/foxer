@@ -50,13 +50,14 @@ private:
   CollisionMap collision_map;
   std::map<std::string, TiledJsonObj> events;
 
+  std::vector<std::string> get_tilesets(const std::string &sub_path,
+                                        json j_tilesets);
+
 public:
   TiledLevel();
-  TiledLevel(const std::vector<std::string> &tilesets,
-             const std::string &json_tiled_file);
+  TiledLevel(const std::string &json_tiled_file);
 
-  void load(const std::vector<std::string> &tilesets,
-            const std::string &json_tiled_file);
+  void load(const std::string &json_tiled_file);
   CollisionMap get_collision_map() const;
   TiledJsonObj get_event(const std::string &event_id) const;
   std::map<std::string, TiledJsonObj> get_events() const;
