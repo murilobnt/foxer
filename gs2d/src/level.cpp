@@ -9,4 +9,13 @@ LayerContainer Level::get_layers(int from, int to) const {
       std::vector<TileMap>(layers.begin() + from - 1, layers.begin() + to));
 }
 
+void Level::set_level_proxy(LevelProxy *level_proxy) {
+  this->level_proxy = level_proxy;
+}
+
+void Level::change_level(Level *level) {
+  level_proxy->change_level(level);
+  delete this;
+}
+
 } // namespace gs

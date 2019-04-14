@@ -28,7 +28,7 @@ $(TARGET) : $(OBJS)
 	$(CC) $(FLAGS) -std=$(LANGUAGE) ./$^ $(SFML) $(GS2D) -o $(ODIR)/$@
 
 $(ODIR)/%.o: $(SRC)/%.cpp
-	$(CC) $(FLAGS) -c $(INCLUDE) ./$< -o ./$@
+	$(CC) $(FLAGS) -c -std=$(LANGUAGE) $(INCLUDE) ./$< -o ./$@
 
 clean :
 	$(RM) $(ODIR)/*.o $(ODIR)/$(TARGET)

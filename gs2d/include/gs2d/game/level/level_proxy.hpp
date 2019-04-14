@@ -1,4 +1,4 @@
-// File: level.hpp
+// File: level_proxy.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,40 +23,23 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef GS_LEVEL_HPP
-#define GS_LEVEL_HPP
-
-#include <SFML/Graphics.hpp>
-#include <vector>
-
-#include "gs2d/game/level/collision_map.hpp"
-#include "gs2d/game/level/layer_container.hpp"
-#include "gs2d/game/level/level_proxy.hpp"
-#include "gs2d/game/level/tilemap.hpp"
+#ifndef GS_LEVEL_PROXY_HPP
+#define GS_LEVEL_PROXY_HPP
 
 namespace gs {
 
-class Level : public sf::Drawable {
-protected:
-  LevelProxy *level_proxy;
+class Level;
 
-  sf::Vector2u tile_size;
-  sf::Vector2u level_size;
-
-  std::vector<TileMap> layers;
-  CollisionMap collision_map;
-
-  TileMap get_layer(int index) const;
-  LayerContainer get_layers(int from, int to) const;
-
-  virtual void draw(sf::RenderTarget &target,
-                    sf::RenderStates states) const = 0;
+class LevelProxy : public sf::Drawable {
+private:
+  Level *current_level;
+  void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
 public:
-  virtual void load() = 0;
-  virtual void handle_events() = 0;
-  void set_level_proxy(LevelProxy *level_proxy);
-  void change_level(Level *level);
+  LevelProxy();
+  explicit LevelProxy(Level *first_level);
+  void change_level(Level *next_level);
+  void handle_events();
 };
 
 } // namespace gs

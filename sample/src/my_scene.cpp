@@ -7,7 +7,7 @@ void MyScene::start() {
       char_texture, std::string("assets/textures/chara.png"), 286, 232);
   character = Character(char_texture);
 
-  level = LevelOne("assets/levels/level01.json", &character);
+  l_proxy.change_level(new LevelOne(&character, &l_proxy));
 
   camera = gs::Camera(sf::Vector2f(1366, 768), 0.5);
 
@@ -17,11 +17,11 @@ void MyScene::start() {
 
 void MyScene::update() {
   character.control_entity(get_delta_time());
-  level.handle_events();
+  l_proxy.handle_events();
   character.time_trigger();
   character.move();
   camera.center_at_sprite(character.get_sprite());
   app_window->setView(camera.get_view());
 }
 
-void MyScene::draw_entities() { app_window->draw(level); }
+void MyScene::draw_entities() { app_window->draw(l_proxy); }

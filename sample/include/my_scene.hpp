@@ -3,10 +3,12 @@
 
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include <gs2d/game/level/level_proxy.hpp>
 #include <gs2d/scene.hpp>
 
 #include "character.hpp"
 #include "level_one.hpp"
+#include "level_two.hpp"
 
 class MyScene : public gs::Scene {
 private:
@@ -15,7 +17,7 @@ private:
   gs::Camera camera;
   sf::Music bgm;
 
-  LevelOne level;
+  gs::LevelProxy l_proxy;
 
 public:
   void start();
