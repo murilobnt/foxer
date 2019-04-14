@@ -1,4 +1,4 @@
-// File: tiled_layer_container.hpp
+// File: layer_container.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef GS_TILED_LAYER_CONTAINER_HPP
-#define GS_TILED_LAYER_CONTAINER_HPP
+#ifndef GS_LAYER_CONTAINER_HPP
+#define GS_LAYER_CONTAINER_HPP
 
 #include <vector>
 
@@ -32,13 +32,13 @@
 
 namespace gs {
 
-class TiledLayerContainer : public sf::Drawable {
+class LayerContainer : public sf::Drawable {
 private:
   std::vector<TileMap> tile_layers;
   virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
 public:
-  void add_layer(TileMap tilemap);
+  explicit LayerContainer(std::vector<TileMap> tile_layers);
 };
 
 } // namespace gs

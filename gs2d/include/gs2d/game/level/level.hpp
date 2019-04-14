@@ -1,4 +1,4 @@
-// File: tiled_level.hpp
+// File: level.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,33 +23,35 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef GS_TILED_LEVEL_HPP
-#define GS_TILED_LEVEL_HPP
+#include <SFML/Graphics.hpp>
+#include <vector>
 
-#include <fstream>
-#include <map>
-#include <string>
+#include "gs2d/game/level/collision_map.hpp"
+#include "gs2d/game/level/tilemap.hpp"
 
-#include "gs2d/external/json.hpp"
-#include "gs2d/game/level/level.hpp"
-#include "gs2d/game/level/tiled_json_container.hpp"
+#ifndef GS_LEVEL_HPP
+#define GS_LEVEL_HPP
+
+#include "gs2d/game/level/layer_container.hpp"
 
 namespace gs {
 
-class TiledLevel : public Level {
-private:
-  std::string json_tiled_file;
-  std::vector<std::string> get_tilesets(const std::string &sub_path,
-                                        json j_tilesets);
-
+class Level : public sf::Drawable {
 protected:
-  std::map<std::string, TiledJsonObj> events;
-  TiledJsonObj get_event(const std::string &event_id) const;
+  sf::Vector2u tile_size;
+  sf::Vector2u level_size;
+
+  std::vector<TileMap> layers;
+  CollisionMap collision_map;
+
+  TileMap get_layer(int index) const;
+  LayerContainer get_layers(int from, int to) const;
+
+  virtual void draw(sf::RenderTarget &target,
+                    sf::RenderStates states) const = 0;
 
 public:
-  TiledLevel();
-  explicit TiledLevel(const std::string &json_tiled_file);
-  void load();
+  virtual void load() = 0;
   virtual void handle_events() = 0;
 };
 

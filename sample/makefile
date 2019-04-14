@@ -6,7 +6,7 @@ CC = g++
 RM = rm -f
 
 FLAGS =
-LANGUAGE = c++11
+LANGUAGE = c++17
 TARGET = sample
 
 INCLUDE = -I ./include
