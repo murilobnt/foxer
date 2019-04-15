@@ -17,6 +17,8 @@ ODIR = ./bin
 SRC = ./src
 
 SFML = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+X11 = -lX11
+THREADED = -pthread
 
 CPPS = $(wildcard $(SRC)/*.cpp)
 OBJS = $(addprefix $(ODIR)/,$(notdir $(CPPS:.cpp=.o)))
@@ -25,7 +27,7 @@ GS2DOBJS = $(wildcard $(GS2DODIR)/*.o)
 all : $(TARGET)
 
 $(TARGET) : $(OBJS)
-	$(CC) $(FLAGS) -std=$(LANGUAGE) ./$^ $(SFML) $(GS2D) -o $(ODIR)/$@
+	$(CC) $(FLAGS) $(THREADED) -std=$(LANGUAGE) ./$^ $(SFML) $(GS2D) -o $(ODIR)/$@ $(X11)
 
 $(ODIR)/%.o: $(SRC)/%.cpp
 	$(CC) $(FLAGS) -c -std=$(LANGUAGE) $(INCLUDE) ./$< -o ./$@

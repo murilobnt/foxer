@@ -27,6 +27,7 @@
 #define GS_LEVEL_HPP
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include <vector>
 
 #include "gs2d/game/level/collision_map.hpp"
@@ -54,9 +55,11 @@ protected:
 
 public:
   virtual void load() = 0;
+  virtual void init() = 0;
   virtual void handle_events() = 0;
   void set_level_proxy(LevelProxy *level_proxy);
   void change_level(Level *level);
+  void change_level(std::shared_ptr<Level> level);
 };
 
 } // namespace gs

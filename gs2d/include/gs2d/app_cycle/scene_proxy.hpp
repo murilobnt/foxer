@@ -27,6 +27,7 @@
 #define GS_SCENE_PROXY_HPP
 
 #include <cstring>
+#include <memory>
 
 #include "gs2d/time/clock_handler.hpp"
 
@@ -48,20 +49,17 @@ class SceneProxy {
 private:
   // The current scene. This will be the scene to be used on the
   // methods of this class.
-  Scene *scene;
+  std::shared_ptr<Scene> scene;
 
   // A pointer to the last scene. If it is the will of the coder
   // to create a return to the last scene (such as a pause menu to
   // return to the game), the information of the last scene can
   // be stored here.
-  Scene *last_scene;
+  std::shared_ptr<Scene> last_scene;
 
 public:
   // Constructor.
   SceneProxy();
-
-  // Destructor.
-  ~SceneProxy();
 
   // Change the scene to a new scene. Since the scene has a
   // pointer to the scene manager, the scene can change to another
@@ -71,9 +69,6 @@ public:
   // Change the scene to a new scene and store the last scene,
   // so it can be returned to the last one in the future.
   void change_to_runtime_scene(Scene *next_scene);
-
-  // Delete the last scene.
-  void remove_last_scene();
 
   // The following methods will repass the call for the current scene.
   void start();

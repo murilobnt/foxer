@@ -6,6 +6,10 @@ LevelTwo::LevelTwo(gs::GameObject *character,
                    const std::string &start_position_id)
     : gs::TiledLevel("assets/levels/level02.json") {
   this->character = character;
+  this->start_position_id = start_position_id;
+}
+
+void LevelTwo::init() {
   gs::TiledJsonObj start_pos = get_event(start_position_id);
   character->set_sprite_position(start_pos.x, start_pos.y);
 }

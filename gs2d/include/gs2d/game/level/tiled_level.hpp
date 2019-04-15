@@ -48,7 +48,7 @@ protected:
 
 public:
   TiledLevel();
-  explicit TiledLevel(const std::string &json_tiled_file);
+  TiledLevel(const std::string &json_tiled_file, bool call_load = true);
   void load();
   virtual void handle_events() = 0;
 };

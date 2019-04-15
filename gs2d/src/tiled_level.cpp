@@ -4,9 +4,10 @@ namespace gs {
 
 TiledLevel::TiledLevel() {}
 
-TiledLevel::TiledLevel(const std::string &json_tiled_file) {
+TiledLevel::TiledLevel(const std::string &json_tiled_file, bool call_load) {
   this->json_tiled_file = json_tiled_file;
-  load();
+  if (call_load)
+    load();
 }
 
 std::vector<std::string> TiledLevel::get_tilesets(const std::string &sub_path,

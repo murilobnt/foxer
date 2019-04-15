@@ -6,11 +6,9 @@ namespace gs {
 
 SceneProxy::SceneProxy() {}
 
-SceneProxy::~SceneProxy() { delete scene; }
-
 void SceneProxy::change_scene(Scene *next_scene) {
   scene->on_exit();
-  scene = next_scene;
+  scene = std::shared_ptr<Scene>(next_scene);
   scene->start();
 }
 
@@ -28,18 +26,16 @@ void SceneProxy::reset_time_handlers(ClockHandler &clock_handler) {
 
 void SceneProxy::change_to_runtime_scene(Scene *next_scene) {
   last_scene = scene;
-  scene = next_scene;
+  scene = std::shared_ptr<Scene>(next_scene);
   scene->start();
 }
 
-void SceneProxy::remove_last_scene() { delete last_scene; }
-
 void SceneProxy::set_last_scene() { scene = last_scene; }
 
-Scene *SceneProxy::get_scene() const { return scene; }
+Scene *SceneProxy::get_scene() const { return scene.get(); }
 
 void SceneProxy::set_scene(Scene *scene) {
-  this->scene = scene;
+  this->scene = std::shared_ptr<Scene>(scene);
   this->scene->start();
 }
 

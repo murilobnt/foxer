@@ -26,19 +26,22 @@
 #ifndef GS_LEVEL_PROXY_HPP
 #define GS_LEVEL_PROXY_HPP
 
+#include <memory>
+
 namespace gs {
 
 class Level;
 
 class LevelProxy : public sf::Drawable {
 private:
-  Level *current_level;
+  std::shared_ptr<Level> current_level;
   void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
 public:
   LevelProxy();
   explicit LevelProxy(Level *first_level);
   void change_level(Level *next_level);
+  void change_level(std::shared_ptr<Level> next_level);
   void handle_events();
 };
 
