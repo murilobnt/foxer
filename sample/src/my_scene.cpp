@@ -10,6 +10,8 @@ void MyScene::start() {
   l_proxy.change_level(new LevelOne(&character, &l_proxy));
 
   camera = gs::Camera(sf::Vector2f(1366, 768), 0.5);
+  camera.center_at_sprite(character.get_sprite());
+  app_window->setView(camera.get_view());
 
   bgm.openFromFile("assets/musics/almost-new-by-kevin-macleod.wav");
   bgm.play();
