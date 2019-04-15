@@ -4,7 +4,7 @@ LevelTwo::LevelTwo() {}
 
 LevelTwo::LevelTwo(gs::GameObject *character,
                    const std::string &start_position_id)
-    : gs::TiledLevel("assets/levels/level02.json") {
+    : gs::TiledLevel("assets/levels/level02.json", false) {
   this->character = character;
   this->start_position_id = start_position_id;
 }
