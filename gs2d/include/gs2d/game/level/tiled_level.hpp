@@ -50,6 +50,7 @@ public:
   TiledLevel();
   TiledLevel(const std::string &json_tiled_file, bool call_load = true);
   void load();
+  virtual void init() = 0;
   virtual void handle_events() = 0;
 };
 
