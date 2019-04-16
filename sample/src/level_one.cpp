@@ -47,7 +47,7 @@ void LevelOne::control_character(const float &delta_time) {
 void LevelOne::handle_events(const float &delta_time) {
   if (transition) {
     character->time_trigger();
-    alpha = (alpha + 30 > 255 ? 255 : alpha + 30);
+    alpha = (alpha + 15 > 255 ? 255 : alpha + 15);
     fader.setFillColor(sf::Color(0, 0, 0, alpha));
     if (alpha == 255)
       change_level(loader.get_level());

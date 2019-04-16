@@ -40,7 +40,7 @@ void LevelTwo::control_character(const float &delta_time) {
 void LevelTwo::handle_events(const float &delta_time) {
   if (transition) {
     character->time_trigger();
-    alpha = (alpha - 30 < 0 ? 0 : alpha - 30);
+    alpha = (alpha - 15 < 0 ? 0 : alpha - 15);
     fader.setFillColor(sf::Color(0, 0, 0, alpha));
     if (alpha == 0)
       transition = false;
