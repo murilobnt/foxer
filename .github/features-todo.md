@@ -11,3 +11,5 @@
 | Tutorial             | 50%          | ------       | ------             | ------             |
 | Default scenes       | 30%          | 0%           | :heavy_check_mark: | :x:                |
 | Scene transitions    | 0%           | 0%           | :x:                | :x:                |
+
+[Return to readme](https://github.com/murilobnt/gs2d_engine#installation)

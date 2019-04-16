@@ -46,14 +46,9 @@ Read [this file](https://github.com/murilobnt/gs2d_engine/blob/master/.github/in
 
 ## Insight
 
-[This file](https://github.com/murilobnt/gs2d_engine/blob/master/.github/comparison.md) compares implementations of C++/SFML applications with C++/SFML/GS2D applications.
-
-Tutorials and documentation are available at the
-[wiki](https://github.com/murilobnt/gs2d_engine/wiki).
-
-## Features and TO-DOs
-
-See [this file](https://github.com/murilobnt/gs2d_engine/blob/master/.github/features-todo.md)
+- [Features and TO-DOs](https://github.com/murilobnt/gs2d_engine/blob/master/.github/features-todo.md).
+- [Code comparison](https://github.com/murilobnt/gs2d_engine/blob/master/.github/comparison.md)
+- [Wiki](https://github.com/murilobnt/gs2d_engine/wiki).
 
 ## Contributors
 
