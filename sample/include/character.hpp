@@ -12,7 +12,6 @@ class Character : public gs::IBControlableEntity,
                   public gs::AnimatedEntity {
 private:
   FacingPosition current_facing_pos;
-  FacingPosition last_facing_pos;
 
 public:
   Character(sf::Texture const &texture,

@@ -3,7 +3,6 @@
 Character::Character(sf::Texture const &texture, sf::Vector2f position)
     : GameObject(texture, sf::Vector2i(23, 33)), AnimatedEntity(10) {
   set_sprite_position(position);
-  last_facing_pos = DOWN;
   current_facing_pos = FREE;
 }
 
@@ -13,54 +12,30 @@ void Character::control_entity(float delta_time) {
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) ||
       sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
     moving_left = true;
-    if (current_facing_pos == FREE)
-      current_facing_pos = LEFT;
-  } else {
+    current_facing_pos = LEFT;
+  } else
     moving_left = false;
-    if (current_facing_pos == LEFT) {
-      last_facing_pos = current_facing_pos;
-      current_facing_pos = FREE;
-    }
-  }
 
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) ||
       sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
     moving_down = true;
-    if (current_facing_pos == FREE)
-      current_facing_pos = DOWN;
-  } else {
+    current_facing_pos = DOWN;
+  } else
     moving_down = false;
-    if (current_facing_pos == DOWN) {
-      last_facing_pos = current_facing_pos;
-      current_facing_pos = FREE;
-    }
-  }
 
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) ||
       sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
     moving_right = true;
-    if (current_facing_pos == FREE)
-      current_facing_pos = RIGHT;
-  } else {
+    current_facing_pos = RIGHT;
+  } else
     moving_right = false;
-    if (current_facing_pos == RIGHT) {
-      last_facing_pos = current_facing_pos;
-      current_facing_pos = FREE;
-    }
-  }
 
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) ||
       sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
     moving_up = true;
-    if (current_facing_pos == FREE)
-      current_facing_pos = UP;
-  } else {
+    current_facing_pos = UP;
+  } else
     moving_up = false;
-    if (current_facing_pos == UP) {
-      last_facing_pos = current_facing_pos;
-      current_facing_pos = FREE;
-    }
-  }
 
   if (moving_left)
     movement.x = -200 * delta_time;
@@ -82,7 +57,7 @@ void Character::move() {
 
 void Character::animate() {
   if (movement.x == 0.f && movement.y == 0.f) {
-    switch (last_facing_pos) {
+    switch (current_facing_pos) {
     case UP:
       configure_sprite_rect(0, 33);
       break;
@@ -96,6 +71,7 @@ void Character::animate() {
       configure_sprite_rect(0, 66);
       break;
     }
+    return;
   }
 
   switch (current_facing_pos) {

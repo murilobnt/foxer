@@ -5,22 +5,29 @@
 #include <gs2d/game/level/tiled_level.hpp>
 #include <gs2d/scene/components/object/game_object.hpp>
 
+#include "character.hpp"
 #include "level_two.hpp"
 
 class LevelOne : public gs::TiledLevel {
 private:
   void draw(sf::RenderTarget &target, sf::RenderStates states) const;
-  gs::GameObject *character;
+  Character *character;
+
+  sf::RectangleShape fader;
+  bool transition;
+  int alpha;
 
   sf::FloatRect exit;
   std::string destination_id;
   gs::ThreadedLevelLoader loader;
 
+  void control_character(const float &delta_time);
+
 public:
   LevelOne();
-  LevelOne(gs::GameObject *character, gs::LevelProxy *level_proxy);
+  LevelOne(Character *character, gs::LevelProxy *level_proxy);
   void init();
-  void handle_events();
+  void handle_events(const float &delta_time);
 };
 
 #endif

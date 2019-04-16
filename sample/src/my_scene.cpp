@@ -18,10 +18,7 @@ void MyScene::start() {
 }
 
 void MyScene::update() {
-  character.control_entity(get_delta_time());
-  l_proxy.handle_events();
-  character.time_trigger();
-  character.move();
+  l_proxy.handle_events(get_delta_time());
   camera.center_at_sprite(character.get_sprite());
   app_window->setView(camera.get_view());
 }

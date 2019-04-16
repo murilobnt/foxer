@@ -42,7 +42,7 @@ public:
   explicit LevelProxy(Level *first_level);
   void change_level(Level *next_level);
   void change_level(std::shared_ptr<Level> next_level);
-  void handle_events();
+  void handle_events(const float &delta_time);
 };
 
 } // namespace gs

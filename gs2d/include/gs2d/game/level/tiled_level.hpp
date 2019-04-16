@@ -51,7 +51,7 @@ public:
   TiledLevel(const std::string &json_tiled_file, bool call_load = true);
   void load();
   virtual void init() = 0;
-  virtual void handle_events() = 0;
+  virtual void handle_events(const float &delta_time) = 0;
 };
 
 } // namespace gs
