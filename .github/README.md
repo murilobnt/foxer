@@ -47,7 +47,7 @@ Read [this file](https://github.com/murilobnt/gs2d_engine/blob/master/.github/in
 ## Insight
 
 - [Features and TO-DOs](https://github.com/murilobnt/gs2d_engine/blob/master/.github/features-todo.md).
-- [Code comparison](https://github.com/murilobnt/gs2d_engine/blob/master/.github/comparison.md)
+- [Code comparison](https://github.com/murilobnt/gs2d_engine/blob/master/.github/comparison.md).
 - [Wiki](https://github.com/murilobnt/gs2d_engine/wiki).
 
 ## Contributors
