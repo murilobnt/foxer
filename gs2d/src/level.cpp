@@ -9,6 +9,8 @@ LayerContainer Level::get_layers(int from, int to) const {
       std::vector<TileMap>(layers.begin() + from - 1, layers.begin() + to));
 }
 
+LayerContainer Level::get_layers() const { return LayerContainer(layers); }
+
 void Level::set_level_proxy(LevelProxy *level_proxy) {
   this->level_proxy = level_proxy;
 }

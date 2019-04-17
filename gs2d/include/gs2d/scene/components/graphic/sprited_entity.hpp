@@ -35,7 +35,7 @@
 
 namespace gs {
 
-class SpritedEntity {
+class SpritedEntity : public sf::Drawable {
 
 private:
   // The sprite of the entity.
@@ -45,6 +45,8 @@ private:
   // vector of int which contains, respectively, the width and
   // the height of the sprite.
   sf::Vector2i sprite_dimensions;
+
+  void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
 public:
   // Constructor. It takes the texture, the X and Y positions,

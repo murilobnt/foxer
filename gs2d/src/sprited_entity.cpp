@@ -12,6 +12,11 @@ SpritedEntity::SpritedEntity(sf::Texture const &texture,
 
 SpritedEntity::SpritedEntity() {}
 
+void SpritedEntity::draw(sf::RenderTarget &target,
+                         sf::RenderStates states) const {
+  target.draw(sprite);
+}
+
 void SpritedEntity::configure_sprite_rect(int x, int y, int w, int h) {
   sprite.setTextureRect(sf::IntRect(x, y, w, h));
 }

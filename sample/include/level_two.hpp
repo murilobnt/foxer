@@ -2,6 +2,7 @@
 #define LEVEL_TWO_HPP
 
 #include <gs2d/game/level/tiled_level.hpp>
+#include <gs2d/other/helpers/fader.hpp>
 #include <gs2d/scene/components/object/game_object.hpp>
 
 #include "character.hpp"
@@ -12,11 +13,11 @@ private:
   Character *character;
   std::string start_position_id;
 
-  sf::RectangleShape fader;
+  gs::Fader fader;
   bool transition;
-  int alpha;
 
-  void control_character(const float &delta_time);
+  void handle_game_events(const float &delta_time);
+  void handle_fade();
 
 public:
   LevelTwo();

@@ -1,0 +1,12 @@
+{ "columns":40,
+ "image":"..\/tilesets\/gfx\/Inner.png",
+ "imageheight":400,
+ "imagewidth":640,
+ "margin":0,
+ "name":"Inner",
+ "spacing":0,
+ "tilecount":1000,
+ "tileheight":16,
+ "tilewidth":16,
+ "type":"tileset"
+}

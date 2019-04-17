@@ -1,9 +1,13 @@
 #include "character.hpp"
 
 Character::Character(sf::Texture const &texture, sf::Vector2f position)
-    : GameObject(texture, sf::Vector2i(23, 33)), AnimatedEntity(10) {
+    : GameObject(texture, sf::Vector2i(16, 23)), AnimatedEntity(10) {
   set_sprite_position(position);
-  current_facing_pos = FREE;
+  current_facing_pos = DOWN;
+  collision_offset_down = 22;
+  collision_offset_up = 3;
+  collision_offset_right = 3;
+  collision_offset_left = 3;
 }
 
 Character::Character() : gs::AnimatedEntity() {}
@@ -59,16 +63,16 @@ void Character::animate() {
   if (movement.x == 0.f && movement.y == 0.f) {
     switch (current_facing_pos) {
     case UP:
-      configure_sprite_rect(0, 33);
+      configure_sprite_rect(0, 68);
       break;
     case DOWN:
-      configure_sprite_rect(0, 0);
+      configure_sprite_rect(0, 5);
       break;
     case LEFT:
-      configure_sprite_rect(0, 99);
+      configure_sprite_rect(0, 101);
       break;
     case RIGHT:
-      configure_sprite_rect(0, 66);
+      configure_sprite_rect(0, 37);
       break;
     }
     return;
@@ -76,16 +80,16 @@ void Character::animate() {
 
   switch (current_facing_pos) {
   case LEFT:
-    apply_animation_on_row(this, sf::Vector2i(0, 46), 99);
+    apply_animation_on_row(this, sf::Vector2i(0, 48), 101);
     break;
   case RIGHT:
-    apply_animation_on_row(this, sf::Vector2i(0, 46), 66);
+    apply_animation_on_row(this, sf::Vector2i(0, 48), 37);
     break;
   case DOWN:
-    apply_animation_on_row(this, sf::Vector2i(0, 69), 0);
+    apply_animation_on_row(this, sf::Vector2i(0, 48), 5);
     break;
   case UP:
-    apply_animation_on_row(this, sf::Vector2i(0, 69), 33);
+    apply_animation_on_row(this, sf::Vector2i(0, 48), 68);
     break;
   }
 }

@@ -1,4 +1,4 @@
-// File: level.hpp
+// File: fader.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,44 +23,30 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef GS_LEVEL_HPP
-#define GS_LEVEL_HPP
+#ifndef GS_FADER_HPP
+#define GS_FADER_HPP
 
 #include <SFML/Graphics.hpp>
-#include <iostream>
-#include <vector>
-
-#include "gs2d/game/level/collision_map.hpp"
-#include "gs2d/game/level/layer_container.hpp"
-#include "gs2d/game/level/level_proxy.hpp"
-#include "gs2d/game/level/tilemap.hpp"
 
 namespace gs {
 
-class Level : public sf::Drawable {
-protected:
-  LevelProxy *level_proxy;
-
-  sf::Vector2u tile_size;
-  sf::Vector2u level_size;
-
-  std::vector<TileMap> layers;
-  CollisionMap collision_map;
-
-  TileMap get_layer(int index) const;
-  LayerContainer get_layers(int from, int to) const;
-  LayerContainer get_layers() const;
-
-  virtual void draw(sf::RenderTarget &target,
-                    sf::RenderStates states) const = 0;
+class Fader : public sf::Drawable {
+private:
+  sf::RectangleShape fader;
+  short alpha;
+  bool in_fade;
+  bool transition;
+  void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
 public:
-  virtual void load() = 0;
-  virtual void init() = 0;
-  virtual void handle_events(const float &delta_time) = 0;
-  void set_level_proxy(LevelProxy *level_proxy);
-  void change_level(Level *level);
-  void change_level(std::shared_ptr<Level> level);
+  Fader();
+  explicit Fader(sf::Vector2f size);
+  Fader(sf::Vector2f size, sf::Vector2f position);
+
+  bool fade_in(short speed);
+  bool fade_out(short speed);
+
+  bool get_in_fade() const;
 };
 
 } // namespace gs

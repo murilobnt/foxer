@@ -4,6 +4,6 @@
 
 int main() {
   XInitThreads();
-  gs::App app(1366, 768, "Sample SFML");
-  app.app_start(new MyScene());
+  gs::App app(800, 600, "GS2D Game Sample");
+  app.app_start(new MyScene(), false, false);
 }

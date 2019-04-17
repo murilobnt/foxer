@@ -3,7 +3,7 @@
 
 #include <gs2d/game/level/threaded_level_loader.hpp>
 #include <gs2d/game/level/tiled_level.hpp>
-#include <gs2d/scene/components/object/game_object.hpp>
+#include <gs2d/other/helpers/fader.hpp>
 
 #include "character.hpp"
 #include "level_two.hpp"
@@ -13,15 +13,15 @@ private:
   void draw(sf::RenderTarget &target, sf::RenderStates states) const;
   Character *character;
 
-  sf::RectangleShape fader;
-  bool transition;
-  int alpha;
-
   sf::FloatRect exit;
   std::string destination_id;
   gs::ThreadedLevelLoader loader;
 
-  void control_character(const float &delta_time);
+  gs::Fader fader;
+  bool transition;
+
+  void handle_game_events(const float &delta_time);
+  void handle_fade();
 
 public:
   LevelOne();
