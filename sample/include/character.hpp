@@ -7,9 +7,7 @@
 
 #include "facing_position.hpp"
 
-class Character : public gs::IBControlableEntity,
-                  public gs::GameObject,
-                  public gs::AnimatedEntity {
+class Character : public gs::MainObject {
 private:
   FacingPosition current_facing_pos;
 

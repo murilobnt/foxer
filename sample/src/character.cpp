@@ -1,7 +1,7 @@
 #include "character.hpp"
 
 Character::Character(sf::Texture const &texture, sf::Vector2f position)
-    : GameObject(texture, sf::Vector2i(16, 23)), AnimatedEntity(10) {
+    : gs::MainObject::MainObject(texture, 10, sf::Vector2i(16, 23)) {
   set_sprite_position(position);
   current_facing_pos = DOWN;
   collision_offset_down = 22;
@@ -10,7 +10,7 @@ Character::Character(sf::Texture const &texture, sf::Vector2f position)
   collision_offset_left = 3;
 }
 
-Character::Character() : gs::AnimatedEntity() {}
+Character::Character() {}
 
 void Character::control_entity(float delta_time) {
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) ||

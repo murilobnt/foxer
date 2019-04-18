@@ -31,6 +31,7 @@
 #include "gs2d/scene/components/graphic/animated_entity.hpp"
 #include "gs2d/scene/components/graphic/sprited_entity.hpp"
 #include "gs2d/scene/components/object/game_object.hpp"
+#include "gs2d/scene/components/object/main_object.hpp"
 #include "gs2d/scene/components/object/movable_object.hpp"
 
 #endif

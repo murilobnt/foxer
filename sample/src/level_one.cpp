@@ -2,7 +2,7 @@
 
 LevelOne::LevelOne() {}
 
-LevelOne::LevelOne(Character *character, gs::LevelProxy *level_proxy,
+LevelOne::LevelOne(gs::MainObject *character, gs::LevelProxy *level_proxy,
                    const std::string &start_position_id, bool fade_in)
     : SampleLevel::SampleLevel(character, level_proxy,
                                "assets/levels/level01.json", start_position_id,

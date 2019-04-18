@@ -1,12 +1,12 @@
 #ifndef LEVEL_TWO_HPP
 #define LEVEL_TWO_HPP
 
-#include "sample_level.hpp"
 #include <gs2d/game/level/exit_area.hpp>
+#include <gs2d/other/geared_up/sample_level.hpp>
 
 class LevelOne;
 
-class LevelTwo : public SampleLevel {
+class LevelTwo : public gs::SampleLevel {
 private:
   void draw(sf::RenderTarget &target, sf::RenderStates states) const;
   gs::ExitArea exit;
@@ -19,7 +19,7 @@ private:
 
 public:
   LevelTwo();
-  LevelTwo(Character *character, gs::LevelProxy *level_proxy,
+  LevelTwo(gs::MainObject *character, gs::LevelProxy *level_proxy,
            const std::string &start_position_id, bool fade_in = true);
 };
 

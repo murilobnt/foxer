@@ -1,11 +1,12 @@
 #ifndef SAMPLE_LEVEL_HPP
 #define SAMPLE_LEVEL_HPP
 
-#include <gs2d/game/level/threaded_level_loader.hpp>
-#include <gs2d/game/level/tiled_level.hpp>
-#include <gs2d/other/helpers/fader.hpp>
+#include "gs2d/game/level/threaded_level_loader.hpp"
+#include "gs2d/game/level/tiled_level.hpp"
+#include "gs2d/other/helpers/fader.hpp"
+#include "gs2d/scene/components/object/main_object.hpp"
 
-#include "character.hpp"
+namespace gs {
 
 class SampleLevel : public gs::TiledLevel {
 private:
@@ -15,7 +16,7 @@ private:
   void handle_fade(const gs::FadeState &fade_state);
 
 protected:
-  Character *character;
+  gs::MainObject *character;
   std::string start_position_id;
 
   gs::ThreadedLevelLoader *loader;
@@ -28,12 +29,14 @@ protected:
 
 public:
   SampleLevel();
-  SampleLevel(Character *character, gs::LevelProxy *level_proxy,
+  SampleLevel(gs::MainObject *character, gs::LevelProxy *level_proxy,
               const std::string &json_level,
               const std::string &start_position_id, bool fade_in = true);
 
   void init();
   void handle_events(const float &delta_time);
 };
+
+} // namespace gs
 
 #endif
