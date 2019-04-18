@@ -1,4 +1,4 @@
-// File: level_proxy.hpp
+// File: fade_state.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,28 +23,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef GS_LEVEL_PROXY_HPP
-#define GS_LEVEL_PROXY_HPP
-
-#include <memory>
+#ifndef GS_FADE_STATE_HPP
+#define GS_FADE_STATE_HPP
 
 namespace gs {
 
-class Level;
-
-class LevelProxy : public sf::Drawable {
-private:
-  std::shared_ptr<Level> current_level;
-  void draw(sf::RenderTarget &target, sf::RenderStates states) const;
-
-public:
-  LevelProxy();
-  explicit LevelProxy(Level *first_level);
-  void change_level(Level *next_level);
-  void change_level(std::shared_ptr<Level> next_level);
-  void init();
-  void handle_events(const float &delta_time);
-};
+enum FadeState { NOT_FADING, FADING_IN, FADING_OUT };
 
 } // namespace gs
 

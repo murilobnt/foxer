@@ -7,7 +7,8 @@ void MyScene::start() {
       char_texture, std::string("assets/textures/character.png"), 272, 256);
   character = Character(char_texture);
 
-  l_proxy.change_level(new LevelOne(&character, &l_proxy));
+  l_proxy.change_level(
+      new LevelOne(&character, &l_proxy, "player_start_pos", false));
 
   camera = gs::Camera(sf::Vector2f(800, 600), 0.5);
   camera.center_at_position(character.get_sprite_position());

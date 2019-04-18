@@ -28,14 +28,15 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "gs2d/other/geared_up/fade_state.hpp"
+
 namespace gs {
 
 class Fader : public sf::Drawable {
 private:
   sf::RectangleShape fader;
   short alpha;
-  bool in_fade;
-  bool transition;
+  FadeState fade_state;
   void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
 public:
@@ -46,7 +47,10 @@ public:
   bool fade_in(short speed);
   bool fade_out(short speed);
 
-  bool get_in_fade() const;
+  void start_fade_in();
+  void start_fade_out();
+
+  FadeState get_fade_state() const;
 };
 
 } // namespace gs

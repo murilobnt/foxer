@@ -8,44 +8,48 @@ void Fader::draw(sf::RenderTarget &target, sf::RenderStates states) const {
 
 Fader::Fader() {}
 
-Fader::Fader(sf::Vector2f size) : fader(size), in_fade(false) {
+Fader::Fader(sf::Vector2f size) : fader(size) {
+  fade_state = NOT_FADING;
   fader.setFillColor(sf::Color(0, 0, 0));
 }
 
-Fader::Fader(sf::Vector2f size, sf::Vector2f position)
-    : fader(size), in_fade(false) {
+Fader::Fader(sf::Vector2f size, sf::Vector2f position) : fader(size) {
+  fade_state = NOT_FADING;
   fader.setFillColor(sf::Color(0, 0, 0));
   fader.setPosition(position);
 }
 
 bool Fader::fade_in(short speed) {
-  if (!in_fade) {
-    in_fade = true;
-    alpha = 255;
-  }
   alpha = (alpha - speed < 0 ? 0 : alpha - speed);
   fader.setFillColor(sf::Color(0, 0, 0, alpha));
   if (alpha == 0) {
-    in_fade = false;
+    fade_state = NOT_FADING;
     return true;
   }
   return false;
 }
 
 bool Fader::fade_out(short speed) {
-  if (!in_fade) {
-    in_fade = true;
-    alpha = 0;
-  }
   alpha = (alpha + speed > 255 ? 255 : alpha + speed);
   fader.setFillColor(sf::Color(0, 0, 0, alpha));
   if (alpha == 255) {
-    in_fade = false;
     return true;
   }
   return false;
 }
 
-bool Fader::get_in_fade() const { return in_fade; }
+void Fader::start_fade_in() {
+  alpha = 255;
+  fader.setFillColor(sf::Color(0, 0, 0, alpha));
+  fade_state = FADING_IN;
+}
+
+void Fader::start_fade_out() {
+  alpha = 0;
+  fader.setFillColor(sf::Color(0, 0, 0, alpha));
+  fade_state = FADING_OUT;
+}
+
+FadeState Fader::get_fade_state() const { return fade_state; }
 
 } // namespace gs

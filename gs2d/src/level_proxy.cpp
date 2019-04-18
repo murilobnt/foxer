@@ -23,6 +23,8 @@ void LevelProxy::change_level(std::shared_ptr<Level> next_level) {
   current_level->init();
 }
 
+void LevelProxy::init() { current_level->init(); }
+
 void LevelProxy::handle_events(const float &delta_time) {
   current_level->handle_events(delta_time);
 }
