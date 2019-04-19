@@ -9,5 +9,7 @@ void TimedEntity::time_trigger() {
   if (time_handler.time_to_update())
     on_update_time();
 }
+void TimedEntity::reset_last_update() { time_handler.reset_last_update(); }
+void TimedEntity::ready_to_update() { time_handler.ready_to_update(); }
 
 } // namespace gs

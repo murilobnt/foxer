@@ -78,6 +78,8 @@ public:
   virtual void animate() = 0;
 
   void on_update_time();
+
+  void set_animation_loop_state(const int &animation_loop_state);
 };
 
 } // namespace gs

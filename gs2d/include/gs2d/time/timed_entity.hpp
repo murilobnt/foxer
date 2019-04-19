@@ -40,6 +40,8 @@ public:
   TimeHandler *get_time_handler();
   void time_trigger();
   virtual void on_update_time() = 0;
+  void reset_last_update();
+  void ready_to_update();
 };
 
 } // namespace gs

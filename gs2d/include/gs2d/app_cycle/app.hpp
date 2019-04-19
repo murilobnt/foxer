@@ -29,6 +29,7 @@
 // # External
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include <string>
 
 // # Internal
@@ -56,9 +57,8 @@ private:
   int app_width;
   int app_height;
 
-  float framerate;
+  float limit_framerate;
   float dt;
-  bool draw;
 
   // The clock of the application.
   ClockHandler clock_handler;
@@ -82,7 +82,7 @@ public:
   // Constructor. Requires the width and height of the application window and
   // its title too.
   App(int app_width, int app_height, std::string app_title,
-      float framerate = 60.f);
+      float timestep = 60.f, float limit_framerate = 0);
 
   // Destructor.
   ~App();

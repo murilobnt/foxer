@@ -35,4 +35,8 @@ void AnimatedEntity::apply_animation_on_column(SpritedEntity *sprited_entity,
 
 void AnimatedEntity::on_update_time() { animate(); }
 
+void AnimatedEntity::set_animation_loop_state(const int &animation_loop_state) {
+  this->animation_loop_state = animation_loop_state;
+}
+
 } // namespace gs

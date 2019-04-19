@@ -23,13 +23,15 @@ void TimeHandler::set_update_rate(sf::Time update_rate) {
 }
 
 bool TimeHandler::time_to_update() {
-  if (last_update > update_rate) {
+  if (last_update >= update_rate) {
     last_update -= update_rate;
     return true;
   }
 
   return false;
 }
+
+void TimeHandler::ready_to_update() { last_update = update_rate; }
 
 sf::Time TimeHandler::get_last_update() const { return last_update; }
 

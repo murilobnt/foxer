@@ -1,7 +1,7 @@
 #include "character.hpp"
 
 Character::Character(sf::Texture const &texture, sf::Vector2f position)
-    : gs::MainObject::MainObject(texture, 10, sf::Vector2i(16, 23)) {
+    : gs::MainObject::MainObject(texture, 5, sf::Vector2i(16, 23)) {
   set_sprite_position(position);
   current_facing_pos = DOWN;
   collision_offset_down = 22;
@@ -49,6 +49,14 @@ void Character::control_entity(float delta_time) {
     movement.x = 200 * delta_time;
   if (moving_up)
     movement.y = -200 * delta_time;
+
+  if ((moving_up || moving_down || moving_left || moving_right) &&
+      !do_animate) {
+    do_animate = true;
+    reset_last_update();
+    set_animation_loop_state(1);
+    ready_to_update();
+  }
 }
 
 void Character::move(float delta_time) {}
@@ -61,6 +69,7 @@ void Character::move() {
 
 void Character::animate() {
   if (movement.x == 0.f && movement.y == 0.f) {
+    do_animate = false;
     switch (current_facing_pos) {
     case UP:
       configure_sprite_rect(0, 68);

@@ -10,6 +10,7 @@
 class Character : public gs::MainObject {
 private:
   FacingPosition current_facing_pos;
+  bool do_animate;
 
 public:
   Character(sf::Texture const &texture,
