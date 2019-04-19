@@ -80,16 +80,16 @@ void Character::animate() {
 
   switch (current_facing_pos) {
   case LEFT:
-    apply_animation_on_row(this, sf::Vector2i(0, 48), 101);
+    apply_animation_on_row(this, sf::Vector2i(0, 64), 101);
     break;
   case RIGHT:
-    apply_animation_on_row(this, sf::Vector2i(0, 48), 37);
+    apply_animation_on_row(this, sf::Vector2i(0, 64), 37);
     break;
   case DOWN:
-    apply_animation_on_row(this, sf::Vector2i(0, 48), 5);
+    apply_animation_on_row(this, sf::Vector2i(0, 64), 5);
     break;
   case UP:
-    apply_animation_on_row(this, sf::Vector2i(0, 48), 68);
+    apply_animation_on_row(this, sf::Vector2i(0, 64), 68);
     break;
   }
 }
