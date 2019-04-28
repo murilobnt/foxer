@@ -37,6 +37,9 @@
 
 namespace gs {
 
+// This class represents a level. Its purpose is to prevent the coder
+// to create a scene for every existent level.
+
 class Level : public sf::Drawable {
 protected:
   LevelProxy *level_proxy;

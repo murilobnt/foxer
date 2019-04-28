@@ -30,6 +30,8 @@
 
 namespace gs {
 
+// Forward declaration of the level, as seen at SceneProxy.
+
 class Level;
 
 class LevelProxy : public sf::Drawable {

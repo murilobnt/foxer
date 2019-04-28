@@ -26,9 +26,10 @@
 #ifndef GS_SCENE_BUILDER_HPP
 #define GS_SCENE_BUILDER_HPP
 
-#include "gs2d/app_cycle/scene_proxy.hpp"
-#include "gs2d/time/clock_handler.hpp"
 #include <SFML/Graphics.hpp>
+
+#include "gs2d/scene/scene.hpp"
+#include "gs2d/time/clock_handler.hpp"
 
 namespace gs {
 
@@ -36,9 +37,9 @@ class Scene;
 
 class SceneBuilder {
 public:
-  static void build_scene(Scene *scene, SceneProxy *scene_proxy,
-                          sf::RenderWindow *app_window, float dt,
-                          ClockHandler *app_clock);
+  static void build_scene(Scene *scene, sf::RenderWindow *app_window,
+                          std::vector<std::shared_ptr<Scene>> *app_state,
+                          float dt, ClockHandler *app_clock);
 };
 
 } // namespace gs

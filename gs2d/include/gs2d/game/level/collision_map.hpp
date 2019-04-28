@@ -36,20 +36,38 @@
 
 namespace gs {
 
+// The Collision Map represents the total area of collidable entities.
+// As it is now, this class stops the movement of a Game Object on collision.
+
 class CollisionMap {
 private:
+  // Stores the boolean value of a loaded map.
   bool loaded;
+
+  // The tile grid of the collision map. This object not only stores the
+  // position of every collidable tile, it also applies spatial partitioning
+  // to get the tiles that are close to the game object.
   TileGrid tile_grid;
-  void handle_collision(GameObject &game_object, const sf::FloatRect &gb,
-                        const sf::FloatRect &tile_rect,
-                        const sf::Vector2f &movement);
+
+  // Handles the collision. This function stops the Game Object's movement
+  // if the next one will make him collide with something.
+  virtual void handle_collision(GameObject &game_object,
+                                const sf::FloatRect &gb,
+                                const sf::FloatRect &tile_rect,
+                                const sf::Vector2f &movement);
 
 public:
+  // Empty constructor.
   CollisionMap();
 
+  // Loads the collision map. It needs a vector of integers, the size of the
+  // tile and the size of the level. In the vector, 0 means no collision and
+  // any number that is not 0 means that the tile is collidable.
   void load(const std::vector<int> &collision_layer_data,
             const sf::Vector2u &tile_size, const sf::Vector2u &level_size);
 
+  // Verifies the collision of a tile to a game object. Calls handle_collision
+  // if there is a collision.
   void verify_collision(GameObject &game_object);
 };
 

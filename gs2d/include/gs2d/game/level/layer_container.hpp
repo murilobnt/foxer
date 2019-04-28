@@ -32,12 +32,18 @@
 
 namespace gs {
 
+// This class represents a container for layers of TileMaps.
+
 class LayerContainer : public sf::Drawable {
 private:
+  // The layers of tiles.
   std::vector<TileMap> tile_layers;
+
+  // The draw method.
   virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
 public:
+  // Constructor. It takes a vector of TileMaps.
   explicit LayerContainer(std::vector<TileMap> tile_layers);
 };
 

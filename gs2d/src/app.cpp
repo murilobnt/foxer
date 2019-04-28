@@ -23,20 +23,21 @@ void App::app_start(Scene *first_scene, bool vsync, bool fullscreen) {
   if (limit_framerate > 0)
     app_window->setFramerateLimit(limit_framerate);
 
-  SceneBuilder::build_scene(first_scene, &scene_proxy, app_window, dt,
+  SceneBuilder::build_scene(first_scene, app_window, &app_state, dt,
                             &clock_handler);
-
-  scene_proxy.set_scene(first_scene);
+  std::shared_ptr<Scene> first_scene_ptr(first_scene);
+  app_state.push_back(first_scene_ptr);
+  app_state.back()->start();
 
   while (app_window->isOpen()) {
     process_events();
     while (app_frequency.time_to_update())
-      scene_proxy.update();
+      app_state.back()->update();
     clear_and_draw();
 
     clock_handler.restart_clock();
     clock_handler.restart_time_handler(&app_frequency);
-    scene_proxy.reset_time_handlers(clock_handler);
+    app_state.back()->reset_time_handlers(clock_handler);
   }
 }
 
@@ -44,13 +45,13 @@ void App::process_events() {
   sf::Event event;
 
   while (app_window->pollEvent(event)) {
-    scene_proxy.handle_event(event);
+    app_state.back()->handle_event(event);
   }
 }
 
 void App::clear_and_draw() {
   app_window->clear();
-  scene_proxy.draw_entities();
+  app_state.back()->draw_entities();
   app_window->display();
 }
 

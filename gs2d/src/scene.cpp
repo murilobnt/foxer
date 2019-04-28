@@ -21,14 +21,10 @@ void Scene::handle_event(sf::Event &event) {
 void Scene::on_exit() {}
 
 void Scene::change_scene(Scene *next_scene) {
-  SceneBuilder::build_scene(next_scene, scene_proxy, app_window, dt, app_clock);
-
-  scene_proxy->change_scene(next_scene);
-  delete this;
-}
-
-void Scene::set_scene_proxy(SceneProxy *scene_proxy) {
-  this->scene_proxy = scene_proxy;
+  SceneBuilder::build_scene(next_scene, app_window, app_state, dt, app_clock);
+  std::shared_ptr<Scene> next_scene_ptr(next_scene);
+  app_state->push_back(next_scene_ptr);
+  next_scene_ptr->start();
 }
 
 void Scene::set_app_window(sf::RenderWindow *app_window) {
@@ -45,6 +41,10 @@ void Scene::set_app_clock(ClockHandler *app_clock) {
 
 float Scene::get_frame_delta_time() const {
   return app_clock->get_elapsed_time().asSeconds();
+}
+
+void Scene::set_app_state(std::vector<std::shared_ptr<Scene>> *app_state) {
+  this->app_state = app_state;
 }
 
 } // namespace gs

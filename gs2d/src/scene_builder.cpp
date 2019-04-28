@@ -3,13 +3,13 @@
 
 namespace gs {
 
-void SceneBuilder::build_scene(Scene *scene, SceneProxy *scene_proxy,
-                               sf::RenderWindow *app_window, float dt,
-                               ClockHandler *app_clock) {
-  scene->set_scene_proxy(scene_proxy);
+void SceneBuilder::build_scene(Scene *scene, sf::RenderWindow *app_window,
+                               std::vector<std::shared_ptr<Scene>> *app_state,
+                               float dt, ClockHandler *app_clock) {
   scene->set_app_window(app_window);
   scene->set_app_dt(dt);
   scene->set_app_clock(app_clock);
+  scene->set_app_state(app_state);
 }
 
 } // namespace gs

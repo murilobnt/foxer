@@ -33,16 +33,15 @@
 #include <string>
 
 // # Internal
-#include "gs2d/app_cycle/scene_proxy.hpp"
 #include "gs2d/scene/scene.hpp"
 #include "gs2d/time/clock_handler.hpp"
 #include "gs2d/time/time_handler.hpp"
 
-// The entity that maintains the application cycle. It is responsable for
-// delegating actions for its scene managers, which repasses it
-// to its current scene. It also keeps the application to the framerate.
-
 namespace gs {
+
+// The entity that maintains the application cycle. It is responsable for
+// delegating actions for its scene manager, which repasses it
+// to its current scene. It also keeps the application to the framerate.
 
 class App {
 
@@ -57,6 +56,7 @@ private:
   int app_width;
   int app_height;
 
+  // The maximum FPS of the application and the delta time.
   float limit_framerate;
   float dt;
 
@@ -66,8 +66,7 @@ private:
   // The timehandler to define the framerate of the application.
   TimeHandler app_frequency;
 
-  // The scene proxy to delegate actions for the scene.
-  SceneProxy scene_proxy;
+  std::vector<std::shared_ptr<Scene>> app_state;
 
   // This will process the events.
   void process_events();

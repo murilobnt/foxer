@@ -32,14 +32,27 @@
 
 namespace gs {
 
+// Almost every playable level needs an exit area. This class represents an
+// an area that stores a string that can be used as an access method to a
+// destination area json object.
+
 class ExitArea : public CollidableArea {
 private:
+  // The identifier of the destination object of the next level.
   std::string destination_id;
 
 public:
+  // Empty constructor.
   ExitArea();
+
+  // Constructor. It takes the exit area json object from the level and the
+  // string to the field containing the destination identifier.
   ExitArea(const gs::TiledJsonObj &exit_json, const std::string &field);
+
+  // Loads the exit area with the json object and the field.
   void exit_load(const gs::TiledJsonObj &exit_json, const std::string &field);
+
+  // Getter.
   std::string get_destination_id() const;
 };
 

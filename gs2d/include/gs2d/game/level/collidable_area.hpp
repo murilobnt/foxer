@@ -31,16 +31,27 @@
 
 namespace gs {
 
+// This class represents a collidable area. It's basically a wrapper
+// to SFML intersection between two rects. This can be used to improve
+// the code's legibility.
+
 class CollidableArea {
 private:
+  // The area.
   sf::FloatRect area;
 
 protected:
+  // Loads the area by a sf::FloatRect.
   void load(const sf::FloatRect &area);
 
 public:
+  // Empty constructor.
   CollidableArea();
+
+  // Constructor. Calls the load function.
   explicit CollidableArea(const sf::FloatRect &area);
+
+  // Check if the area collides with something.
   bool collides_with(const sf::FloatRect &rect);
 };
 

@@ -27,8 +27,9 @@
 #define GS_SCENE_HPP
 
 #include <SFML/Graphics.hpp>
+#include <memory>
+#include <vector>
 
-#include "gs2d/app_cycle/scene_proxy.hpp"
 #include "gs2d/other/helpers/texture_loader.hpp"
 #include "gs2d/scene/components/graphic/sprited_entity.hpp"
 #include "gs2d/scene/components/object/movable_object.hpp"
@@ -49,14 +50,9 @@ namespace gs {
 class Scene {
 
 private:
-  // The reference to the scene manager of the game. It is important for
-  // the coder can change the current scene for another one inside the
-  // scene.
-  SceneProxy *scene_proxy;
-
   float dt;
-
   ClockHandler *app_clock;
+  std::vector<std::shared_ptr<Scene>> *app_state;
 
 protected:
   // The time handlers of the scene.
@@ -104,9 +100,6 @@ public:
   // so they can be sycronized to the clock of the entire application.
   void reset_time_handlers(ClockHandler &clock_handler);
 
-  // Will set a new scene manager to the scene.
-  void set_scene_proxy(SceneProxy *scene_proxy);
-
   // Setter of app_window.
   void set_app_window(sf::RenderWindow *app_window);
 
@@ -117,6 +110,8 @@ public:
   void set_app_clock(ClockHandler *app_clock);
 
   float get_frame_delta_time() const;
+
+  void set_app_state(std::vector<std::shared_ptr<Scene>> *app_state);
 };
 
 } // namespace gs
