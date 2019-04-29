@@ -42,7 +42,7 @@ own scenes and to set up the main method.
 
 ## Installation
 
-Read [this file](https://github.com/murilobnt/gs2d_engine/blob/master/.github/installation.md).
+Read [this file](https://github.com/murilobnt/gs2d_engine/blob/master/.github/installation/installation.md).
 
 ## Insight
 
