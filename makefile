@@ -1,3 +1,7 @@
+## Use these variables if SFML is not installed in a standard path.
+# SFML-DIR = SFML-2.5.1
+# SFML-INCLUDE = -I $(SFML-DIR)/include
+
 # SECTION: CLEAN COMMANDS ------------------------------------------------------
 
 CLEANENGINE = $(RM) $(BDIR)/*.o $(LDIR)/$(TARGET)
@@ -18,9 +22,6 @@ INCLUDE = -I ./gs2d/include
 
 ## The target's name
 TARGET = libgs2d.so
-
-## SFML
-SFML = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
 ## Binaries directory
 BDIR = ./gs2d/bin
@@ -60,7 +61,7 @@ $(LDIR)/$(TARGET) : $(OBJS)
 
 ## To satisfy the objects dependency above, we need the source code files.
 $(BDIR)/%.o: $(SRC)/%.cpp
-	$(CC) -fPIC $(OBJ-FLAG) $(STD) $(INCLUDE) ./$< -o ./$@
+	$(CC) -fPIC $(OBJ-FLAG) $(STD) $(INCLUDE) $(SFML-INCLUDE) ./$< -o ./$@
 
 ## For entry "clean" (make clean), delete the objects and the executable.
 clean :

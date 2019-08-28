@@ -1,16 +1,20 @@
-# Installation
+# Installation with sudo
 
 > This guide is related to the case you have SFML library installed in a
 g++ standard path (if you installed it with apt or moved it to /usr/local).
-If negative, I suggest altering the makefile.
 
 > This guide is only granted for the Linux Ubuntu distro.
 
 ## Step 1: Download the repository
+
 To install the gs2d library (the engine) you first need to clone or download the
 ZIP of this repository.
 
-## Step 2: Install the engine library
+## Step 2: Install this project's dependencies
+
+Check [this page of the wiki](https://github.com/murilobnt/gs2d_engine/wiki/Insight:-Starting-point#install-dependencies).
+
+## Step 3: Install the engine library
 
 Once you've downloaded/cloned this repository, and made sure you have GCC and
 SFML (in a recognizable library path of g++) installed, the following command,
@@ -20,7 +24,7 @@ through terminal, and at the root of the project, should suffice.
 sudo make install
 ```
 
-### Step 2.1: Exporting the library location
+### Step 3.1: Exporting the library location
 
 Following the GNU standards, the library and the headers of this engine will be
 located at */usr/local/lib* and */usr/local/include*. Those directories,
@@ -42,14 +46,14 @@ Go to the *sample* directory of this project. And run:
 make
 ```
 
-Now, if you followed the [Step 2.1: Exporting the library location](https://github.com/murilobnt/gs2d_engine/blob/master/.github/installation.md#step-21-exporting-the-library-location),
+Now, if you followed the [Step 3.1: Exporting the library location](https://github.com/murilobnt/gs2d_engine/blob/master/.github/installation.md#step-31-exporting-the-library-location),
 the following command should be successfully executed.
 
 ```
 ./bin/sample
 ```
 
-Otherwise, you need to export the path to the library **every execution**.
+Otherwise, you need to export the path to the library **on the first execution**.
 
 ```
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/lib" && ./bin/sample
