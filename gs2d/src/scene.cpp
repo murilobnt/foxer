@@ -20,11 +20,16 @@ void Scene::handle_event(sf::Event &event) {
 
 void Scene::on_exit() {}
 
-void Scene::change_scene(Scene *next_scene) {
+void Scene::push_scene(Scene *next_scene) {
   SceneBuilder::build_scene(next_scene, app_window, app_state, dt, app_clock);
   std::shared_ptr<Scene> next_scene_ptr(next_scene);
   app_state->push_back(next_scene_ptr);
   next_scene_ptr->start();
+}
+
+void Scene::rollback_scene() {
+  if (!app_state->empty())
+    app_state->pop_back();
 }
 
 void Scene::set_app_window(sf::RenderWindow *app_window) {

@@ -94,7 +94,9 @@ public:
   // This will change the current scene for another one.
   // The new scene is passed through the parameter, and it is
   // set into the scene manager, and used by the game.
-  void change_scene(Scene *next_scene);
+  void push_scene(Scene *next_scene);
+
+  void rollback_scene();
 
   // Reset all the time handlers used in the scene, in time_handlers vector
   // so they can be sycronized to the clock of the entire application.
