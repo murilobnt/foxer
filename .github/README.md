@@ -2,6 +2,8 @@
 
 <i>Game engine to create 2D games in C++ with SFML</i>
 
+<img src="assets/readme/example.gif" width=300/>
+
 <a href="https://www.codacy.com/app/murilobnt/gs2d_engine?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=murilobnt/gs2d_engine&amp;utm_campaign=Badge_Grade">
 <img src="https://api.codacy.com/project/badge/Grade/47bdb57771bf4c75bff39618e4935b72" alt="Codacy Badge"/></a>
 <a href="https://github.com/murilobnt/gs2d_engine/blob/master/LICENSE">
@@ -9,8 +11,6 @@
 <a href="https://github.com/murilobnt/gs2d_engine/graphs/contributors">
 <img src="https://img.shields.io/:contributors-1-yellow.svg"
 alt="contributors"/></a>
-
-<img src="assets/readme/example.gif" width=300>
 
 * * *
 
