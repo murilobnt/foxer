@@ -11,7 +11,7 @@
 
 class MyScene : public gs::Scene {
 private:
-  gs::ResourceManager<std::string> tex_manager;
+  gs::ResourceManager tex_manager;
   Character character;
   gs::Camera camera;
 
