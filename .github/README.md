@@ -1,14 +1,9 @@
-<p align=center>
+# GS2D Engine
 
-<img src="assets/readme/gs2d_logo.png" width=300/>
-
-</p>
-
-<p align=center>
 <i>Game engine to create 2D games in C++ with SFML</i>
-</p>
 
-<p align=center>
+<img src="assets/readme/example.gif" width=300/>
+
 <a href="https://www.codacy.com/app/murilobnt/gs2d_engine?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=murilobnt/gs2d_engine&amp;utm_campaign=Badge_Grade">
 <img src="https://api.codacy.com/project/badge/Grade/47bdb57771bf4c75bff39618e4935b72" alt="Codacy Badge"/></a>
 <a href="https://github.com/murilobnt/gs2d_engine/blob/master/LICENSE">
@@ -16,16 +11,8 @@
 <a href="https://github.com/murilobnt/gs2d_engine/graphs/contributors">
 <img src="https://img.shields.io/:contributors-1-yellow.svg"
 alt="contributors"/></a>
-</p>
-<p align=center>
 
 * * *
-
-<p align="center">
-<img src="assets/readme/example.gif">
-</p>
-
-## Description
 
 **GS2D Engine** aims to be a game engine for creating 2D games using SFML on the
 C++ programming language. Most of the classes here are based on my another
@@ -37,12 +24,12 @@ own scenes and to set up the main method.
 
 ## Requires
 
--   [GCC](http://gcc.gnu.org) (7 or later).
--   [SFML](https://www.sfml-dev.org).
+- [GCC](http://gcc.gnu.org) (7 or later).
+- [SFML](https://www.sfml-dev.org).
 
 ## Installation
 
-Read [this file](https://github.com/murilobnt/gs2d_engine/blob/master/.github/installation/installation.md).
+Read [Installation](https://github.com/murilobnt/gs2d_engine/blob/master/.github/installation/installation.md).
 
 ## Insight
 
@@ -52,7 +39,7 @@ Read [this file](https://github.com/murilobnt/gs2d_engine/blob/master/.github/in
 
 ## Contributors
 
--   [:cat: murilobnt](https://github.com/murilobnt) has created the GS2D Engine
+- [:cat: murilobnt](https://github.com/murilobnt) has created the GS2D Engine
 and currently is the only developer of it.
 
 ## License
