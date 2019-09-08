@@ -5,9 +5,8 @@ LevelTwo::LevelTwo() {}
 
 LevelTwo::LevelTwo(gs::MainObject *character, gs::LevelProxy *level_proxy,
                    const std::string &start_position_id, bool fade_in)
-    : SampleLevel::SampleLevel(character, level_proxy,
-                               "assets/levels/level02.json", start_position_id,
-                               fade_in) {}
+    : gs::SampleLevel(character, level_proxy, "assets/levels/level02.json",
+                      start_position_id, fade_in) {}
 
 void LevelTwo::level_init() {
   exit.exit_load(events.find("level_change")->second, "destination");
