@@ -1,4 +1,4 @@
-// File: resource_manager.hpp
+// File: texture_holder.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef RESOURCE_MANAGER_HPP
-#define RESOURCE_MANAGER_HPP
+#ifndef GS_TEXTURE_HOLDER_HPP
+#define GS_TEXTURE_HOLDER_HPP
 
 #include <SFML/Graphics.hpp>
 #include <map>
@@ -32,7 +32,7 @@
 
 namespace gs {
 
-class ResourceManager {
+class TextureHolder {
 private:
   std::map<std::string, std::shared_ptr<sf::Texture>> resources;
 

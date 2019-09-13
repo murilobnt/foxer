@@ -55,7 +55,7 @@ public:
   TiledLevel();
   TiledLevel(const std::string &json_tiled_file, bool call_load = true);
   void load();
-  void recycle_last_tex_manager(ResourceManager &tex_manager);
+  void recycle_last_tex_holder(TextureHolder &tex_holder);
   virtual void init() = 0;
   virtual void handle_events(const float &delta_time) = 0;
 };

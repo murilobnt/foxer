@@ -2,7 +2,7 @@
 
 void MyScene::start() {
   time_handlers.push_back(character.get_time_handler());
-  character = Character(tex_manager.load("assets/textures/character.png"));
+  character = Character(tex_holder.load("assets/textures/character.png"));
 
   l_proxy.change_level(
       new LevelOne(&character, &l_proxy, "player_start_pos", false));

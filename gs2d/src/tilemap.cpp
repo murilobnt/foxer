@@ -5,19 +5,19 @@ namespace gs {
 TileMap::TileMap() {}
 
 TileMap::TileMap(const std::vector<std::string> &tilesets,
-                 ResourceManager &tex_manager, const sf::Vector2u &tile_size,
+                 TextureHolder &tex_holder, const sf::Vector2u &tile_size,
                  const sf::Vector2u &level_size,
                  const std::vector<int> &tiles) {
-  load(tilesets, tex_manager, tile_size, level_size, tiles);
+  load(tilesets, tex_holder, tile_size, level_size, tiles);
 }
 
 bool TileMap::load(const std::vector<std::string> &tilesets,
-                   ResourceManager &tex_manager, const sf::Vector2u &tile_size,
+                   TextureHolder &tex_holder, const sf::Vector2u &tile_size,
                    const sf::Vector2u &level_size,
                    const std::vector<int> &tiles) {
 
   for (int i = 0; i < tilesets.size(); ++i) {
-    sf::Texture *texture = tex_manager.load_ptr(tilesets[i]);
+    sf::Texture *texture = tex_holder.load_ptr(tilesets[i]);
 
     std::shared_ptr<sf::VertexArray> m_v(new sf::VertexArray);
     m_v->setPrimitiveType(sf::Quads);

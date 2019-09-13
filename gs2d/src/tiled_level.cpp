@@ -40,17 +40,17 @@ std::vector<std::string> TiledLevel::get_tilesets(const std::string &sub_path,
   return tilesets;
 }
 
-void TiledLevel::recycle_last_tex_manager(ResourceManager &tex_manager) {
+void TiledLevel::recycle_last_tex_holder(TextureHolder &tex_holder) {
   load_level_json();
   std::vector<std::string> tilesets =
       get_tilesets(json_tiled_file.substr(0, json_tiled_file.find_last_of('/')),
                    level["tilesets"]);
 
   for (uint i = 0; i < tilesets.size(); ++i) {
-    if (tex_manager.has_texture(tilesets[i]))
-      this->tex_manager.set_texture(tilesets[i], tex_manager.get(tilesets[i]));
+    if (tex_holder.has_texture(tilesets[i]))
+      this->tex_holder.set_texture(tilesets[i], tex_holder.get(tilesets[i]));
     else
-      this->tex_manager.load(tilesets[i]);
+      this->tex_holder.load(tilesets[i]);
   }
 }
 
@@ -75,7 +75,7 @@ void TiledLevel::load() {
         collision_map.load(collision_layer.data, tile_size, level_size);
       } else {
         TiledJsonTileLayer tile_layer(*it);
-        layers.push_back(TileMap(tilesets, tex_manager, tile_size, level_size,
+        layers.push_back(TileMap(tilesets, tex_holder, tile_size, level_size,
                                  tile_layer.data));
       }
     } else if ((*it)["type"] == "objectgroup") {

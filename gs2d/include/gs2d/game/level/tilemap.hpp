@@ -33,7 +33,7 @@
 #include <utility>
 #include <vector>
 
-#include "gs2d/other/helpers/resource_manager.hpp"
+#include "gs2d/other/helpers/texture_holder.hpp"
 
 namespace gs {
 
@@ -58,7 +58,7 @@ public:
   TileMap();
 
   TileMap(const std::vector<std::string> &tilesets,
-          ResourceManager &tex_manager, const sf::Vector2u &tile_size,
+          TextureHolder &tex_holder, const sf::Vector2u &tile_size,
           const sf::Vector2u &level_size, const std::vector<int> &tiles);
 
   /**
@@ -72,7 +72,7 @@ public:
    * @param lenght the lenght of selected array
    */
   bool load(const std::vector<std::string> &tilesets,
-            ResourceManager &tex_manager, const sf::Vector2u &tile_size,
+            TextureHolder &tex_holder, const sf::Vector2u &tile_size,
             const sf::Vector2u &level_size, const std::vector<int> &tiles);
 };
 
