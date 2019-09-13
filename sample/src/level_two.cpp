@@ -11,7 +11,8 @@ LevelTwo::LevelTwo(gs::MainObject *character, gs::LevelProxy *level_proxy,
 void LevelTwo::level_init() {
   exit.exit_load(events.find("level_change")->second, "destination");
   level_one_loader.run(
-      new LevelOne(character, level_proxy, exit.get_destination_id()));
+      new LevelOne(character, level_proxy, exit.get_destination_id()),
+      tex_manager);
 }
 
 void LevelTwo::draw(sf::RenderTarget &target, sf::RenderStates states) const {

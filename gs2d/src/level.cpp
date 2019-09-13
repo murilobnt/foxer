@@ -21,4 +21,6 @@ void Level::change_level(std::shared_ptr<Level> level) {
   level_proxy->change_level(level);
 }
 
+void Level::recycle_last_tex_manager(ResourceManager &tex_manager) {}
+
 } // namespace gs

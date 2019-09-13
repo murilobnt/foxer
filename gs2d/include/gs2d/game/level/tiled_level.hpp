@@ -27,6 +27,7 @@
 #define GS_TILED_LEVEL_HPP
 
 #include <fstream>
+#include <iostream>
 #include <map>
 #include <string>
 
@@ -41,6 +42,10 @@ private:
   std::string json_tiled_file;
   std::vector<std::string> get_tilesets(const std::string &sub_path,
                                         json j_tilesets);
+  json level;
+  bool has_been_loaded;
+
+  void load_level_json();
 
 protected:
   std::map<std::string, TiledJsonObj> events;
@@ -50,6 +55,7 @@ public:
   TiledLevel();
   TiledLevel(const std::string &json_tiled_file, bool call_load = true);
   void load();
+  void recycle_last_tex_manager(ResourceManager &tex_manager);
   virtual void init() = 0;
   virtual void handle_events(const float &delta_time) = 0;
 };

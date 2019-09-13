@@ -5,26 +5,26 @@ namespace gs {
 TileMap::TileMap() {}
 
 TileMap::TileMap(const std::vector<std::string> &tilesets,
-                 const sf::Vector2u &tile_size, const sf::Vector2u &level_size,
+                 ResourceManager &tex_manager, const sf::Vector2u &tile_size,
+                 const sf::Vector2u &level_size,
                  const std::vector<int> &tiles) {
-  load(tilesets, tile_size, level_size, tiles);
+  load(tilesets, tex_manager, tile_size, level_size, tiles);
 }
 
 bool TileMap::load(const std::vector<std::string> &tilesets,
-                   const sf::Vector2u &tile_size,
+                   ResourceManager &tex_manager, const sf::Vector2u &tile_size,
                    const sf::Vector2u &level_size,
                    const std::vector<int> &tiles) {
 
   for (int i = 0; i < tilesets.size(); ++i) {
-    std::shared_ptr<sf::Texture> texture(new sf::Texture);
-    texture->loadFromFile(tilesets[i]);
+    sf::Texture *texture = tex_manager.load_ptr(tilesets[i]);
 
     std::shared_ptr<sf::VertexArray> m_v(new sf::VertexArray);
     m_v->setPrimitiveType(sf::Quads);
     m_v->resize(level_size.x * level_size.y * 4);
 
-    m_data.push_back(std::pair<std::shared_ptr<sf::Texture>,
-                               std::shared_ptr<sf::VertexArray>>(texture, m_v));
+    m_data.push_back(std::pair<sf::Texture *, std::shared_ptr<sf::VertexArray>>(
+        texture, m_v));
   }
 
   for (unsigned int i = 0; i < level_size.x; ++i)
@@ -34,8 +34,7 @@ bool TileMap::load(const std::vector<std::string> &tilesets,
       if (tile_number == 0)
         continue;
 
-      std::pair<std::shared_ptr<sf::Texture>, std::shared_ptr<sf::VertexArray>>
-          current;
+      std::pair<sf::Texture *, std::shared_ptr<sf::VertexArray>> current;
       int acumulator = 0;
 
       for (int i = 0; i < m_data.size(); ++i) {
@@ -81,9 +80,9 @@ void TileMap::draw(sf::RenderTarget &target, sf::RenderStates states) const {
   states.transform *= getTransform();
 
   for (int i = 0; i < m_data.size(); ++i) {
-    std::pair<std::shared_ptr<sf::Texture>, std::shared_ptr<sf::VertexArray>>
-        context = m_data[i];
-    states.texture = context.first.get();
+    std::pair<sf::Texture *, std::shared_ptr<sf::VertexArray>> context =
+        m_data[i];
+    states.texture = context.first;
     target.draw(*context.second, states);
   }
 }

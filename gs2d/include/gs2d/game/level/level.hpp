@@ -34,6 +34,7 @@
 #include "gs2d/game/level/layer_container.hpp"
 #include "gs2d/game/level/level_proxy.hpp"
 #include "gs2d/game/level/tilemap.hpp"
+#include "gs2d/other/helpers/resource_manager.hpp"
 
 namespace gs {
 
@@ -43,6 +44,7 @@ namespace gs {
 class Level : public sf::Drawable {
 protected:
   LevelProxy *level_proxy;
+  ResourceManager tex_manager;
 
   sf::Vector2u tile_size;
   sf::Vector2u level_size;
@@ -61,6 +63,7 @@ public:
   virtual void load() = 0;
   virtual void init() = 0;
   virtual void handle_events(const float &delta_time) = 0;
+  virtual void recycle_last_tex_manager(ResourceManager &tex_manager);
   void set_level_proxy(LevelProxy *level_proxy);
   void change_level(Level *level);
   void change_level(std::shared_ptr<Level> level);

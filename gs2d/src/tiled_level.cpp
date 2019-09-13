@@ -2,12 +2,23 @@
 
 namespace gs {
 
-TiledLevel::TiledLevel() {}
+TiledLevel::TiledLevel() : has_been_loaded(false) {}
 
-TiledLevel::TiledLevel(const std::string &json_tiled_file, bool call_load) {
+TiledLevel::TiledLevel(const std::string &json_tiled_file, bool call_load)
+    : has_been_loaded(false) {
   this->json_tiled_file = json_tiled_file;
   if (call_load)
     load();
+}
+
+void TiledLevel::load_level_json() {
+  if (!has_been_loaded) {
+    std::ifstream my_json;
+    my_json.open(json_tiled_file);
+    level = json::parse(my_json);
+    my_json.close();
+    has_been_loaded = true;
+  }
 }
 
 std::vector<std::string> TiledLevel::get_tilesets(const std::string &sub_path,
@@ -29,11 +40,22 @@ std::vector<std::string> TiledLevel::get_tilesets(const std::string &sub_path,
   return tilesets;
 }
 
+void TiledLevel::recycle_last_tex_manager(ResourceManager &tex_manager) {
+  load_level_json();
+  std::vector<std::string> tilesets =
+      get_tilesets(json_tiled_file.substr(0, json_tiled_file.find_last_of('/')),
+                   level["tilesets"]);
+
+  for (uint i = 0; i < tilesets.size(); ++i) {
+    if (tex_manager.has_texture(tilesets[i]))
+      this->tex_manager.set_texture(tilesets[i], tex_manager.get(tilesets[i]));
+    else
+      this->tex_manager.load(tilesets[i]);
+  }
+}
+
 void TiledLevel::load() {
-  std::ifstream my_json;
-  my_json.open(json_tiled_file);
-  json level = json::parse(my_json);
-  my_json.close();
+  load_level_json();
 
   std::vector<std::string> tilesets =
       get_tilesets(json_tiled_file.substr(0, json_tiled_file.find_last_of('/')),
@@ -53,8 +75,8 @@ void TiledLevel::load() {
         collision_map.load(collision_layer.data, tile_size, level_size);
       } else {
         TiledJsonTileLayer tile_layer(*it);
-        layers.push_back(
-            TileMap(tilesets, tile_size, level_size, tile_layer.data));
+        layers.push_back(TileMap(tilesets, tex_manager, tile_size, level_size,
+                                 tile_layer.data));
       }
     } else if ((*it)["type"] == "objectgroup") {
       for (json::iterator it2 = (*it)["objects"].begin();

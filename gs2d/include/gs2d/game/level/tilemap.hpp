@@ -33,6 +33,8 @@
 #include <utility>
 #include <vector>
 
+#include "gs2d/other/helpers/resource_manager.hpp"
+
 namespace gs {
 
 class TileMap : public sf::Drawable, public sf::Transformable {
@@ -49,16 +51,15 @@ private:
   // sf::VertexArray m_vertices;
 
   // The texture of the tiles
-  std::vector<
-      std::pair<std::shared_ptr<sf::Texture>, std::shared_ptr<sf::VertexArray>>>
+  std::vector<std::pair<sf::Texture *, std::shared_ptr<sf::VertexArray>>>
       m_data;
 
 public:
   TileMap();
 
   TileMap(const std::vector<std::string> &tilesets,
-          const sf::Vector2u &tile_size, const sf::Vector2u &level_size,
-          const std::vector<int> &tiles);
+          ResourceManager &tex_manager, const sf::Vector2u &tile_size,
+          const sf::Vector2u &level_size, const std::vector<int> &tiles);
 
   /**
    * Load the tileset.
@@ -71,8 +72,8 @@ public:
    * @param lenght the lenght of selected array
    */
   bool load(const std::vector<std::string> &tilesets,
-            const sf::Vector2u &tile_size, const sf::Vector2u &level_size,
-            const std::vector<int> &tiles);
+            ResourceManager &tex_manager, const sf::Vector2u &tile_size,
+            const sf::Vector2u &level_size, const std::vector<int> &tiles);
 };
 
 } // namespace gs

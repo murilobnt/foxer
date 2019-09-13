@@ -34,10 +34,15 @@ namespace gs {
 
 class ResourceManager {
 private:
-  std::map<std::string, std::unique_ptr<sf::Texture>> resources;
+  std::map<std::string, std::shared_ptr<sf::Texture>> resources;
 
 public:
   const sf::Texture &load(const std::string &path);
+  sf::Texture *load_ptr(const std::string &path);
+  std::shared_ptr<sf::Texture> get(const std::string &path);
+  bool has_texture(const std::string &path);
+  void set_texture(const std::string &path,
+                   std::shared_ptr<sf::Texture> resource);
 };
 
 } // namespace gs
