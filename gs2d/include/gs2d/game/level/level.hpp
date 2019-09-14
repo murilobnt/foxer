@@ -35,6 +35,7 @@
 #include "gs2d/game/level/level_proxy.hpp"
 #include "gs2d/game/level/tilemap.hpp"
 #include "gs2d/other/helpers/texture_holder.hpp"
+#include "gs2d/scene/components/camera/camera.hpp"
 
 namespace gs {
 
@@ -43,6 +44,8 @@ namespace gs {
 
 class Level : public sf::Drawable {
 protected:
+  Camera *camera;
+
   LevelProxy *level_proxy;
   TextureHolder tex_holder;
 

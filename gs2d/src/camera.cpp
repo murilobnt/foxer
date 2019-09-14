@@ -35,6 +35,10 @@ void Camera::center_at_position(sf::Vector2f position) {
   view.setCenter(position);
 }
 
+sf::Vector2f Camera::get_center() const { return view.getCenter(); }
+
 sf::View Camera::get_view() const { return view; }
+
+void Camera::move(sf::Vector2f movement) { view.move(movement); }
 
 } // namespace gs

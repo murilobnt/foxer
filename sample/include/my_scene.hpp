@@ -16,6 +16,7 @@ private:
   gs::Camera camera;
 
   gs::LevelProxy l_proxy;
+  sf::Vector2f delay;
 
 public:
   void start();

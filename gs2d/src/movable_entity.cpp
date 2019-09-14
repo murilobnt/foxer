@@ -17,4 +17,8 @@ void MovableObject::set_movement(sf::Vector2f movement) {
 
 sf::Vector2f MovableObject::get_movement() const { return movement; }
 
+sf::Vector2f MovableObject::get_current_movement() const {
+  return current_movement;
+}
+
 } // namespace gs

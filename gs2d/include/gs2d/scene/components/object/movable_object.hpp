@@ -44,11 +44,13 @@ public:
 
 protected:
   sf::Vector2f movement;
+  sf::Vector2f current_movement;
 
 public:
   MovableObject();
 
   sf::Vector2f get_movement() const;
+  sf::Vector2f get_current_movement() const;
   void nullfy_movement();
 
   void set_movement_x(float x);

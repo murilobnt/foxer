@@ -41,6 +41,7 @@ private:
   void handle_fade(const gs::FadeState &fade_state);
 
 protected:
+  int fading_speed;
   gs::MainObject *character;
   std::string start_position_id;
 
@@ -54,7 +55,7 @@ protected:
 
 public:
   SampleLevel();
-  SampleLevel(gs::MainObject *character, gs::LevelProxy *level_proxy,
+  SampleLevel(gs::LevelProxy *level_proxy, gs::MainObject *character,
               const std::string &json_level,
               const std::string &start_position_id, bool fade_in = true);
 

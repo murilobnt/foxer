@@ -4,7 +4,7 @@ namespace gs {
 
 SampleLevel::SampleLevel() {}
 
-SampleLevel::SampleLevel(MainObject *character, LevelProxy *level_proxy,
+SampleLevel::SampleLevel(LevelProxy *level_proxy, MainObject *character,
                          const std::string &json_level,
                          const std::string &start_position_id, bool fade_in)
     : TiledLevel(json_level) {
@@ -12,6 +12,7 @@ SampleLevel::SampleLevel(MainObject *character, LevelProxy *level_proxy,
   this->character = character;
   this->start_position_id = start_position_id;
   this->fade_in = fade_in;
+  fading_speed = 15;
 }
 
 void SampleLevel::init() {
@@ -39,11 +40,11 @@ void SampleLevel::handle_fade(const FadeState &fade_state) {
   character->time_trigger();
   switch (fade_state) {
   case FADING_OUT:
-    if (fader.fade_out(15))
+    if (fader.fade_out(fading_speed))
       on_fade_out();
     break;
   case FADING_IN:
-    if (fader.fade_in(15))
+    if (fader.fade_in(fading_speed))
       on_fade_in();
     break;
   }

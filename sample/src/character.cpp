@@ -42,13 +42,13 @@ void Character::control_entity(float delta_time) {
     moving_up = false;
 
   if (moving_left)
-    movement.x = -200 * delta_time;
+    movement.x = -150 * delta_time;
   if (moving_down)
-    movement.y = 200 * delta_time;
+    movement.y = 150 * delta_time;
   if (moving_right)
-    movement.x = 200 * delta_time;
+    movement.x = 150 * delta_time;
   if (moving_up)
-    movement.y = -200 * delta_time;
+    movement.y = -150 * delta_time;
 
   if ((moving_up || moving_down || moving_left || moving_right) &&
       !do_animate) {
@@ -63,6 +63,7 @@ void Character::move(float delta_time) {}
 
 void Character::move() {
   move_sprite(movement);
+  current_movement = movement;
   movement.x = 0;
   movement.y = 0;
 }

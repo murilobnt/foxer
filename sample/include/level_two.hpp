@@ -8,6 +8,9 @@ class LevelOne;
 
 class LevelTwo : public gs::SampleLevel {
 private:
+  gs::Camera *camera;
+  sf::Vector2f *delay;
+
   void draw(sf::RenderTarget &target, sf::RenderStates states) const;
   gs::ExitArea exit;
   gs::ThreadedLevelLoader level_one_loader;
@@ -19,8 +22,9 @@ private:
 
 public:
   LevelTwo();
-  LevelTwo(gs::MainObject *character, gs::LevelProxy *level_proxy,
-           const std::string &start_position_id, bool fade_in = true);
+  LevelTwo(gs::LevelProxy *level_proxy, gs::MainObject *character,
+           const std::string &start_position_id, gs::Camera *camera,
+           sf::Vector2f *delay, bool fade_in = true);
 };
 
 #endif

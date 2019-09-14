@@ -3,16 +3,22 @@
 
 LevelTwo::LevelTwo() {}
 
-LevelTwo::LevelTwo(gs::MainObject *character, gs::LevelProxy *level_proxy,
-                   const std::string &start_position_id, bool fade_in)
-    : gs::SampleLevel(character, level_proxy, "assets/levels/level02.json",
-                      start_position_id, fade_in) {}
+LevelTwo::LevelTwo(gs::LevelProxy *level_proxy, gs::MainObject *character,
+                   const std::string &start_position_id, gs::Camera *camera,
+                   sf::Vector2f *delay, bool fade_in)
+    : gs::SampleLevel(level_proxy, character, "assets/levels/level02.json",
+                      start_position_id, fade_in) {
+  this->camera = camera;
+  this->delay = delay;
+}
 
 void LevelTwo::level_init() {
   exit.exit_load(events.find("level_change")->second, "destination");
-  level_one_loader.run(
-      new LevelOne(character, level_proxy, exit.get_destination_id()),
-      tex_holder);
+  level_one_loader.run(new LevelOne(level_proxy, character,
+                                    exit.get_destination_id(), camera, delay),
+                       tex_holder);
+  camera->center_at_position(character->get_sprite_position() -
+                             ((*delay) * (fading_speed / 5.f)));
 }
 
 void LevelTwo::draw(sf::RenderTarget &target, sf::RenderStates states) const {
@@ -35,6 +41,9 @@ void LevelTwo::handle_level_events(const float &delta_time) {
   if (exit.collides_with(char_rect)) {
     character->set_movement(sf::Vector2f(0, 0));
     character->animate();
+    *delay =
+        sf::Vector2f((character->get_sprite_position() - camera->get_center()) *
+                     (delta_time * 5));
     fader.start_fade_out();
     loader = &level_one_loader;
   }

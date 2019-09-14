@@ -49,7 +49,9 @@ public:
   void apply_zoom(float const zoom);
   void center_at_sprite(const sf::Sprite &sprite);
   void center_at_position(sf::Vector2f position);
+  sf::Vector2f get_center() const;
   sf::View get_view() const;
+  void move(sf::Vector2f movement);
 };
 
 } // namespace gs
