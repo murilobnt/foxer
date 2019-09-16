@@ -53,7 +53,8 @@ protected:
 
 public:
   TiledLevel();
-  TiledLevel(const std::string &json_tiled_file, bool call_load = true);
+  TiledLevel(const std::string &json_tiled_file, Camera *camera,
+             bool call_load = true);
   void load();
   void recycle_last_tex_holder(TextureHolder &tex_holder);
   virtual void init() = 0;

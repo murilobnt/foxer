@@ -28,12 +28,14 @@
 
 // # External
 #include <SFML/Graphics.hpp>
+#include <cmath>
 #include <iostream>
 #include <memory>
 #include <utility>
 #include <vector>
 
 #include "gs2d/other/helpers/texture_holder.hpp"
+#include "gs2d/scene/components/camera/camera.hpp"
 
 namespace gs {
 
@@ -54,12 +56,20 @@ private:
   std::vector<std::pair<sf::Texture *, std::shared_ptr<sf::VertexArray>>>
       m_data;
 
+  std::vector<std::pair<sf::Texture *, std::shared_ptr<sf::VertexArray>>>
+      to_draw;
+
+  sf::Vector2u tile_size;
+  sf::Vector2u level_size;
+
+  Camera *camera;
+
 public:
   TileMap();
 
-  TileMap(const std::vector<std::string> &tilesets,
-          TextureHolder &tex_holder, const sf::Vector2u &tile_size,
-          const sf::Vector2u &level_size, const std::vector<int> &tiles);
+  TileMap(const std::vector<std::string> &tilesets, TextureHolder &tex_holder,
+          const sf::Vector2u &tile_size, const sf::Vector2u &level_size,
+          const std::vector<int> &tiles, Camera *camera);
 
   /**
    * Load the tileset.
@@ -71,9 +81,9 @@ public:
    * @param selected the selected tiles to be collided
    * @param lenght the lenght of selected array
    */
-  bool load(const std::vector<std::string> &tilesets,
-            TextureHolder &tex_holder, const sf::Vector2u &tile_size,
-            const sf::Vector2u &level_size, const std::vector<int> &tiles);
+  bool load(const std::vector<std::string> &tilesets, TextureHolder &tex_holder,
+            const sf::Vector2u &tile_size, const sf::Vector2u &level_size,
+            const std::vector<int> &tiles, Camera *camera);
 };
 
 } // namespace gs

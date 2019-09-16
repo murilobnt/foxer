@@ -6,8 +6,8 @@ LevelTwo::LevelTwo() {}
 LevelTwo::LevelTwo(gs::LevelProxy *level_proxy, gs::MainObject *character,
                    const std::string &start_position_id, gs::Camera *camera,
                    sf::Vector2f *delay, bool fade_in)
-    : gs::SampleLevel(level_proxy, character, "assets/levels/level03.json",
-                      start_position_id, fade_in),
+    : gs::SampleLevel(level_proxy, character, camera,
+                      "assets/levels/level03.json", start_position_id, fade_in),
       CommonLevel(delay) {
   this->camera = camera;
 }
@@ -18,7 +18,6 @@ void LevelTwo::level_init() {
                                     exit.get_destination_id(), camera, delay),
                        tex_holder);
   initialise_camera(character, camera, fading_speed);
-  // adjust_camera(camera, level_size, tile_size);
 }
 
 void LevelTwo::draw(sf::RenderTarget &target, sf::RenderStates states) const {
@@ -27,10 +26,7 @@ void LevelTwo::draw(sf::RenderTarget &target, sf::RenderStates states) const {
     target.draw(fader);
     target.draw(*character);
   } else {
-    // target.draw(get_layers(1, 3));
-    // target.draw(*character);
-    // target.draw(get_layer(4));
-    target.draw(get_layers());
+    target.draw(get_layers(1, 4));
     target.draw(*character);
   }
 }

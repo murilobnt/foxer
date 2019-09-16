@@ -6,15 +6,18 @@ TileMap::TileMap() {}
 
 TileMap::TileMap(const std::vector<std::string> &tilesets,
                  TextureHolder &tex_holder, const sf::Vector2u &tile_size,
-                 const sf::Vector2u &level_size,
-                 const std::vector<int> &tiles) {
-  load(tilesets, tex_holder, tile_size, level_size, tiles);
+                 const sf::Vector2u &level_size, const std::vector<int> &tiles,
+                 Camera *camera)
+    : tile_size(tile_size), level_size(level_size) {
+  this->camera = camera;
+  load(tilesets, tex_holder, tile_size, level_size, tiles, camera);
 }
 
 bool TileMap::load(const std::vector<std::string> &tilesets,
                    TextureHolder &tex_holder, const sf::Vector2u &tile_size,
                    const sf::Vector2u &level_size,
-                   const std::vector<int> &tiles) {
+                   const std::vector<int> &tiles, Camera *camera) {
+  this->camera = camera;
 
   for (int i = 0; i < tilesets.size(); ++i) {
     sf::Texture *texture = tex_holder.load_ptr(tilesets[i]);
@@ -78,12 +81,31 @@ bool TileMap::load(const std::vector<std::string> &tilesets,
 
 void TileMap::draw(sf::RenderTarget &target, sf::RenderStates states) const {
   states.transform *= getTransform();
+  sf::Vector2f camera_center = camera->get_center();
+  sf::Vector2f camera_size = camera->get_size();
+
+  int start_x =
+      (int)floorf((camera_center.x - (camera_size.x / 2)) / tile_size.x);
+  int start_y =
+      (int)floorf((camera_center.y - (camera_size.y / 2)) / tile_size.y);
+
+  int end_x = start_x + (int)(camera_size.x / tile_size.x) + 1;
+  int end_y = start_y + (int)(camera_size.y / tile_size.y) + 1;
+
+  start_x = (start_x < 0 ? 0 : start_x);
+  start_y = (start_y < 0 ? 0 : start_y);
+  end_x = (end_x > level_size.x ? level_size.x : end_x);
+  end_y = (end_y > level_size.y ? level_size.y : end_y);
 
   for (int i = 0; i < m_data.size(); ++i) {
     std::pair<sf::Texture *, std::shared_ptr<sf::VertexArray>> context =
         m_data[i];
     states.texture = context.first;
-    target.draw(*context.second, states);
+    for (unsigned int i = start_x; i < end_x; ++i)
+      for (unsigned int j = start_y; j < end_y; ++j) {
+        sf::Vertex *quad = &(*context.second)[(i + j * level_size.x) * 4];
+        target.draw(quad, 4, sf::Quads, states);
+      }
   }
 }
 

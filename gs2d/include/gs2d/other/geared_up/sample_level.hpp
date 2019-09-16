@@ -56,7 +56,7 @@ protected:
 public:
   SampleLevel();
   SampleLevel(gs::LevelProxy *level_proxy, gs::MainObject *character,
-              const std::string &json_level,
+              Camera *camera, const std::string &json_level,
               const std::string &start_position_id, bool fade_in = true);
 
   void init();

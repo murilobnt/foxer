@@ -5,11 +5,9 @@ LevelOne::LevelOne() {}
 LevelOne::LevelOne(gs::LevelProxy *level_proxy, gs::MainObject *character,
                    const std::string &start_position_id, gs::Camera *camera,
                    sf::Vector2f *delay, bool fade_in)
-    : gs::SampleLevel(level_proxy, character, "assets/levels/level01.json",
-                      start_position_id, fade_in),
-      CommonLevel(delay) {
-  this->camera = camera;
-}
+    : gs::SampleLevel(level_proxy, character, camera,
+                      "assets/levels/level01.json", start_position_id, fade_in),
+      CommonLevel(delay) {}
 
 void LevelOne::level_init() {
   exit.exit_load(events.find("level_change")->second, "destination");

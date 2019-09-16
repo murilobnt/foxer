@@ -4,8 +4,10 @@ namespace gs {
 
 TiledLevel::TiledLevel() : has_been_loaded(false) {}
 
-TiledLevel::TiledLevel(const std::string &json_tiled_file, bool call_load)
+TiledLevel::TiledLevel(const std::string &json_tiled_file, Camera *camera,
+                       bool call_load)
     : has_been_loaded(false) {
+  this->camera = camera;
   this->json_tiled_file = json_tiled_file;
   if (call_load)
     load();
@@ -76,7 +78,7 @@ void TiledLevel::load() {
       } else {
         TiledJsonTileLayer tile_layer(*it);
         layers.push_back(TileMap(tilesets, tex_holder, tile_size, level_size,
-                                 tile_layer.data));
+                                 tile_layer.data, camera));
       }
     } else if ((*it)["type"] == "objectgroup") {
       for (json::iterator it2 = (*it)["objects"].begin();
