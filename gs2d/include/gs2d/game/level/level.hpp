@@ -66,6 +66,7 @@ public:
   virtual void load() = 0;
   virtual void init() = 0;
   virtual void handle_events(const float &delta_time) = 0;
+  virtual void control_camera(const float &delta_time) = 0;
   virtual void recycle_last_tex_holder(TextureHolder &tex_holder);
   void set_level_proxy(LevelProxy *level_proxy);
   void change_level(Level *level);

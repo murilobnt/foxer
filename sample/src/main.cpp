@@ -4,6 +4,6 @@
 
 int main() {
   XInitThreads();
-  gs::App app(544, 416, "GS2D Game Sample");
+  gs::App app(480, 320, "GS2D Game Sample");
   app.app_start(new MyScene(), false, false);
 }

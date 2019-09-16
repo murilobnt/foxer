@@ -29,4 +29,8 @@ void LevelProxy::handle_events(const float &delta_time) {
   current_level->handle_events(delta_time);
 }
 
+void LevelProxy::control_camera(const float &delta_time) {
+  current_level->control_camera(delta_time);
+}
+
 } // namespace gs

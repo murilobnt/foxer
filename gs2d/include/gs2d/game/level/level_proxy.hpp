@@ -46,6 +46,7 @@ public:
   void change_level(std::shared_ptr<Level> next_level);
   void init();
   void handle_events(const float &delta_time);
+  void control_camera(const float &delta_time);
 };
 
 } // namespace gs

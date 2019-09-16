@@ -44,7 +44,12 @@ TileGrid::TileGrid(sf::Vector2u tile_size, sf::Vector2u level_size,
   unities.resize(x_cells * y_cells);
 }
 
-Unity *TileGrid::get_unity(int x, int y) { return &unities[x + y * x_cells]; }
+Unity *TileGrid::get_unity(int x, int y) {
+  if (x + y * x_cells < x_cells * y_cells)
+    return &unities[x + y * x_cells];
+  else
+    return &unities[(x_cells * y_cells) - 1];
+}
 
 void TileGrid::add_tile(Tile tile) {
   int tileX = tile.get_position_x();

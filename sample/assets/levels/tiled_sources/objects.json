@@ -1,0 +1,12 @@
+{ "columns":33,
+ "image":"..\/tilesets\/gfx\/objects.png",
+ "imageheight":320,
+ "imagewidth":528,
+ "margin":0,
+ "name":"Objects",
+ "spacing":0,
+ "tilecount":660,
+ "tileheight":16,
+ "tilewidth":16,
+ "type":"tileset"
+}

@@ -29,6 +29,8 @@
 // # External
 #include <SFML/Graphics.hpp>
 
+#include <iostream>
+
 namespace gs {
 
 class Tile {

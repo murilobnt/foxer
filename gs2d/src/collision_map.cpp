@@ -9,7 +9,7 @@ void CollisionMap::load(const std::vector<int> &collision_layer,
                         const sf::Vector2u &level_size) {
   sf::Vector2u real_level_size(level_size.x * tile_size.x,
                                level_size.y * tile_size.y);
-  tile_grid = TileGrid(tile_size, real_level_size, 100);
+  tile_grid = TileGrid(tile_size, real_level_size, tile_size.x * 6);
   for (unsigned int i = 0; i < level_size.x; ++i)
     for (unsigned int j = 0; j < level_size.y; ++j) {
       int tile_number = collision_layer[i + j * level_size.x];
