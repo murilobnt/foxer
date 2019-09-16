@@ -97,6 +97,8 @@ void TileMap::draw(sf::RenderTarget &target, sf::RenderStates states) const {
   end_x = (end_x > level_size.x ? level_size.x : end_x);
   end_y = (end_y > level_size.y ? level_size.y : end_y);
 
+  sf::Vector2f empty(0, 0);
+
   for (int i = 0; i < m_data.size(); ++i) {
     std::pair<sf::Texture *, std::shared_ptr<sf::VertexArray>> context =
         m_data[i];
@@ -104,6 +106,10 @@ void TileMap::draw(sf::RenderTarget &target, sf::RenderStates states) const {
     for (unsigned int i = start_x; i < end_x; ++i)
       for (unsigned int j = start_y; j < end_y; ++j) {
         sf::Vertex *quad = &(*context.second)[(i + j * level_size.x) * 4];
+        if (quad[0].position == empty && quad[1].position == empty &&
+            quad[2].position == empty && quad[3].position == empty) {
+          continue;
+        }
         target.draw(quad, 4, sf::Quads, states);
       }
   }
