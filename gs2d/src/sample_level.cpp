@@ -6,8 +6,9 @@ SampleLevel::SampleLevel() {}
 
 SampleLevel::SampleLevel(LevelProxy *level_proxy, MainObject *character,
                          Camera *camera, const std::string &json_level,
-                         const std::string &start_position_id, bool fade_in)
-    : TiledLevel(json_level, camera) {
+                         const std::string &start_position_id, bool load,
+                         bool fade_in)
+    : TiledLevel(json_level, camera, load) {
   set_level_proxy(level_proxy);
   this->character = character;
   this->start_position_id = start_position_id;

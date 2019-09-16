@@ -22,7 +22,7 @@ public:
   LevelOne();
   LevelOne(gs::LevelProxy *level_proxy, gs::MainObject *character,
            const std::string &start_position_id, gs::Camera *camera,
-           sf::Vector2f *delay, bool fade_in = true);
+           sf::Vector2f *delay, bool load = false, bool fade_in = true);
   void control_camera(const float &delta_time);
 };
 

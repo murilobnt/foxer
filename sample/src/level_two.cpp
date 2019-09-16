@@ -5,9 +5,10 @@ LevelTwo::LevelTwo() {}
 
 LevelTwo::LevelTwo(gs::LevelProxy *level_proxy, gs::MainObject *character,
                    const std::string &start_position_id, gs::Camera *camera,
-                   sf::Vector2f *delay, bool fade_in)
+                   sf::Vector2f *delay, bool load, bool fade_in)
     : gs::SampleLevel(level_proxy, character, camera,
-                      "assets/levels/level03.json", start_position_id, fade_in),
+                      "assets/levels/level03.json", start_position_id, load,
+                      fade_in),
       CommonLevel(delay) {
   this->camera = camera;
 }
