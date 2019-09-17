@@ -9,9 +9,8 @@ ThreadedLevelLoader::~ThreadedLevelLoader() {
 
 void ThreadedLevelLoader::load_level() { level->load(); }
 
-void ThreadedLevelLoader::run(Level *level, TextureHolder tex_holder) {
+void ThreadedLevelLoader::run(Level *level) {
   this->level = std::shared_ptr<Level>(level);
-  this->level->recycle_last_tex_holder(tex_holder);
   level_loader = std::thread(&ThreadedLevelLoader::load_level, this);
 }
 

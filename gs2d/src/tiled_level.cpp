@@ -2,11 +2,12 @@
 
 namespace gs {
 
-TiledLevel::TiledLevel() : has_been_loaded(false) {}
+TiledLevel::TiledLevel() : has_been_loaded(false), Level(nullptr) {}
 
-TiledLevel::TiledLevel(const std::string &json_tiled_file, Camera *camera,
+TiledLevel::TiledLevel(SharedTextureHolder *shared_holder,
+                       const std::string &json_tiled_file, Camera *camera,
                        bool call_load)
-    : has_been_loaded(false) {
+    : has_been_loaded(false), Level(shared_holder) {
   this->camera = camera;
   this->json_tiled_file = json_tiled_file;
   if (call_load)
@@ -40,20 +41,6 @@ std::vector<std::string> TiledLevel::get_tilesets(const std::string &sub_path,
     tilesets.push_back(img_path);
   }
   return tilesets;
-}
-
-void TiledLevel::recycle_last_tex_holder(TextureHolder &tex_holder) {
-  load_level_json();
-  std::vector<std::string> tilesets =
-      get_tilesets(json_tiled_file.substr(0, json_tiled_file.find_last_of('/')),
-                   level["tilesets"]);
-
-  for (uint i = 0; i < tilesets.size(); ++i) {
-    if (tex_holder.has_texture(tilesets[i]))
-      this->tex_holder.set_texture(tilesets[i], tex_holder.get(tilesets[i]));
-    else
-      this->tex_holder.load(tilesets[i]);
-  }
 }
 
 void TiledLevel::load() {

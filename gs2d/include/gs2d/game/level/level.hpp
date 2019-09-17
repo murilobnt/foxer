@@ -34,6 +34,7 @@
 #include "gs2d/game/level/layer_container.hpp"
 #include "gs2d/game/level/level_proxy.hpp"
 #include "gs2d/game/level/tilemap.hpp"
+#include "gs2d/other/helpers/shared_texture_holder.hpp"
 #include "gs2d/other/helpers/texture_holder.hpp"
 #include "gs2d/scene/components/camera/camera.hpp"
 
@@ -45,8 +46,9 @@ namespace gs {
 class Level : public sf::Drawable {
 protected:
   Camera *camera;
-
   LevelProxy *level_proxy;
+
+  SharedTextureHolder *shared_holder;
   TextureHolder tex_holder;
 
   sf::Vector2u tile_size;
@@ -63,11 +65,12 @@ protected:
                     sf::RenderStates states) const = 0;
 
 public:
+  Level(SharedTextureHolder *shared_holder);
+
   virtual void load() = 0;
   virtual void init() = 0;
   virtual void handle_events(const float &delta_time) = 0;
   virtual void control_camera(const float &delta_time) = 0;
-  virtual void recycle_last_tex_holder(TextureHolder &tex_holder);
   void set_level_proxy(LevelProxy *level_proxy);
   void change_level(Level *level);
   void change_level(std::shared_ptr<Level> level);

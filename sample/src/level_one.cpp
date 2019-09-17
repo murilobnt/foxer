@@ -2,19 +2,19 @@
 
 LevelOne::LevelOne() {}
 
-LevelOne::LevelOne(gs::LevelProxy *level_proxy, gs::MainObject *character,
+LevelOne::LevelOne(gs::SharedTextureHolder *shared_holder,
+                   gs::LevelProxy *level_proxy, gs::MainObject *character,
                    const std::string &start_position_id, gs::Camera *camera,
                    sf::Vector2f *delay, bool load, bool fade_in)
-    : gs::SampleLevel(level_proxy, character, camera,
+    : gs::SampleLevel(shared_holder, level_proxy, character, camera,
                       "assets/levels/level01.json", start_position_id, load,
                       fade_in),
       CommonLevel(delay) {}
 
 void LevelOne::level_init() {
   exit.exit_load(events.find("level_change")->second, "destination");
-  level_two_loader.run(new LevelTwo(level_proxy, character,
-                                    exit.get_destination_id(), camera, delay),
-                       tex_holder);
+  level_two_loader.run(new LevelTwo(shared_holder, level_proxy, character,
+                                    exit.get_destination_id(), camera, delay));
   initialise_camera(character, camera, fading_speed);
 }
 

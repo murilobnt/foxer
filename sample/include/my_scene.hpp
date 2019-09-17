@@ -3,7 +3,6 @@
 
 #include <SFML/Graphics.hpp>
 #include <gs2d/game/level/level_proxy.hpp>
-#include <gs2d/other/helpers/texture_holder.hpp>
 #include <gs2d/scene.hpp>
 
 #include "character.hpp"
@@ -11,7 +10,6 @@
 
 class MyScene : public gs::Scene {
 private:
-  gs::TextureHolder tex_holder;
   Character character;
   gs::Camera camera;
 

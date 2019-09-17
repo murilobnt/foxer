@@ -1,9 +1,9 @@
-// File: tiled_level.hpp
+// File: shared_texture_holder.hpp
 // Author: Murilo Bento
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,42 +23,22 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef GS_TILED_LEVEL_HPP
-#define GS_TILED_LEVEL_HPP
+#ifndef GS_SHARED_TEXTURE_HOLDER_HPP
+#define GS_SHARED_TEXTURE_HOLDER_HPP
 
-#include <fstream>
-#include <iostream>
+#include <SFML/Graphics.hpp>
 #include <map>
+#include <memory>
 #include <string>
-
-#include "gs2d/external/json.hpp"
-#include "gs2d/game/level/level.hpp"
-#include "gs2d/game/level/tiled_json_container.hpp"
 
 namespace gs {
 
-class TiledLevel : public Level {
+class SharedTextureHolder {
 private:
-  std::string json_tiled_file;
-  std::vector<std::string> get_tilesets(const std::string &sub_path,
-                                        json j_tilesets);
-  json level;
-  bool has_been_loaded;
-
-  void load_level_json();
-
-protected:
-  std::map<std::string, TiledJsonObj> events;
-  TiledJsonObj get_event(const std::string &event_id) const;
+  std::map<std::string, std::weak_ptr<sf::Texture>> holder;
 
 public:
-  TiledLevel();
-  TiledLevel(SharedTextureHolder *shared_holder,
-             const std::string &json_tiled_file, Camera *camera,
-             bool call_load = true);
-  void load();
-  virtual void init() = 0;
-  virtual void handle_events(const float &delta_time) = 0;
+  std::shared_ptr<sf::Texture> load(const std::string &path);
 };
 
 } // namespace gs

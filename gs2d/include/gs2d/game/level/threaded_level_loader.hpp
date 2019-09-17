@@ -2,7 +2,6 @@
 #define GS_THREADED_LEVEL_LOADER_HPP
 
 #include "gs2d/game/level/level.hpp"
-#include "gs2d/other/helpers/texture_holder.hpp"
 #include <thread>
 
 namespace gs {
@@ -16,7 +15,7 @@ private:
 
 public:
   ~ThreadedLevelLoader();
-  void run(Level *level, TextureHolder tex_holder);
+  void run(Level *level);
   std::shared_ptr<Level> get_level();
 };
 

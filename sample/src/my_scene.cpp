@@ -6,8 +6,9 @@ void MyScene::start() {
 
   camera = gs::Camera(sf::Vector2f(480, 320));
 
-  l_proxy.change_level(new LevelOne(&l_proxy, &character, "player_start_pos",
-                                    &camera, &delay, true, false));
+  l_proxy.change_level(new LevelOne(&shared_holder, &l_proxy, &character,
+                                    "player_start_pos", &camera, &delay, true,
+                                    false));
 
   camera.center_at_position(character.get_sprite_position());
   app_window->setView(camera.get_view());

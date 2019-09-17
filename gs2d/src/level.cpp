@@ -2,6 +2,9 @@
 
 namespace gs {
 
+Level::Level(SharedTextureHolder *shared_holder)
+    : shared_holder(shared_holder), tex_holder(shared_holder) {}
+
 TileMap Level::get_layer(int index) const { return layers.at(index - 1); }
 
 LayerContainer Level::get_layers(int from, int to) const {
@@ -20,7 +23,5 @@ void Level::change_level(Level *level) { level_proxy->change_level(level); }
 void Level::change_level(std::shared_ptr<Level> level) {
   level_proxy->change_level(level);
 }
-
-void Level::recycle_last_tex_holder(TextureHolder &tex_holder) {}
 
 } // namespace gs

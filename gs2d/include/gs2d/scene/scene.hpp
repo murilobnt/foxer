@@ -30,6 +30,8 @@
 #include <memory>
 #include <vector>
 
+#include "gs2d/other/helpers/shared_texture_holder.hpp"
+#include "gs2d/other/helpers/texture_holder.hpp"
 #include "gs2d/other/helpers/texture_loader.hpp"
 #include "gs2d/scene/components/graphic/sprited_entity.hpp"
 #include "gs2d/scene/components/object/movable_object.hpp"
@@ -60,6 +62,9 @@ protected:
 
   // The window of the application.
   sf::RenderWindow *app_window;
+
+  SharedTextureHolder shared_holder;
+  TextureHolder tex_holder;
 
 public:
   Scene();

@@ -30,19 +30,20 @@
 #include <map>
 #include <memory>
 
+#include "gs2d/other/helpers/shared_texture_holder.hpp"
+
 namespace gs {
 
 class TextureHolder {
 private:
-  std::map<std::string, std::shared_ptr<sf::Texture>> resources;
+  SharedTextureHolder *shared_holder;
+  std::map<std::string, std::shared_ptr<sf::Texture>> textures;
 
 public:
+  TextureHolder();
+  explicit TextureHolder(SharedTextureHolder *shared_holder);
   const sf::Texture &load(const std::string &path);
   sf::Texture *load_ptr(const std::string &path);
-  std::shared_ptr<sf::Texture> get(const std::string &path);
-  bool has_texture(const std::string &path);
-  void set_texture(const std::string &path,
-                   std::shared_ptr<sf::Texture> resource);
 };
 
 } // namespace gs

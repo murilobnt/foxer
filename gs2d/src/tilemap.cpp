@@ -107,9 +107,8 @@ void TileMap::draw(sf::RenderTarget &target, sf::RenderStates states) const {
       for (unsigned int j = start_y; j < end_y; ++j) {
         sf::Vertex *quad = &(*context.second)[(i + j * level_size.x) * 4];
         if (quad[0].position == empty && quad[1].position == empty &&
-            quad[2].position == empty && quad[3].position == empty) {
+            quad[2].position == empty && quad[3].position == empty)
           continue;
-        }
         target.draw(quad, 4, sf::Quads, states);
       }
   }

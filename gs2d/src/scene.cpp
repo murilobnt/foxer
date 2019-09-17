@@ -2,7 +2,7 @@
 
 namespace gs {
 
-Scene::Scene() {}
+Scene::Scene() { tex_holder = TextureHolder(&shared_holder); }
 
 Scene::~Scene() {}
 

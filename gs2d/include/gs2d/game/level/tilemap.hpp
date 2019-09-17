@@ -56,9 +56,6 @@ private:
   std::vector<std::pair<sf::Texture *, std::shared_ptr<sf::VertexArray>>>
       m_data;
 
-  std::vector<std::pair<sf::Texture *, std::shared_ptr<sf::VertexArray>>>
-      to_draw;
-
   sf::Vector2u tile_size;
   sf::Vector2u level_size;
 
