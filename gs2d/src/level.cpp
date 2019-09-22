@@ -2,8 +2,11 @@
 
 namespace gs {
 
-Level::Level(SharedTextureHolder *shared_holder)
-    : shared_holder(shared_holder), tex_holder(shared_holder) {}
+Level::Level(LevelBundle *bundle) {
+  this->bundle = bundle;
+  tex_holder = TextureHolder(bundle->shared_holder);
+  camera = bundle->camera;
+}
 
 TileMap Level::get_layer(int index) const { return layers.at(index - 1); }
 
@@ -15,13 +18,22 @@ LayerContainer Level::get_layers(int from, int to) const {
 LayerContainer Level::get_layers() const { return LayerContainer(layers); }
 
 void Level::set_level_proxy(LevelProxy *level_proxy) {
-  this->level_proxy = level_proxy;
+  bundle->level_proxy = level_proxy;
 }
 
-void Level::change_level(Level *level) { level_proxy->change_level(level); }
+void Level::set_shared_holder(SharedTextureHolder *shared_holder) {
+  bundle->shared_holder = shared_holder;
+  tex_holder = TextureHolder(bundle->shared_holder);
+}
+
+void Level::set_camera(Camera *camera) { bundle->camera = camera; }
+
+void Level::change_level(Level *level) {
+  bundle->level_proxy->change_level(level);
+}
 
 void Level::change_level(std::shared_ptr<Level> level) {
-  level_proxy->change_level(level);
+  bundle->level_proxy->change_level(level);
 }
 
 } // namespace gs

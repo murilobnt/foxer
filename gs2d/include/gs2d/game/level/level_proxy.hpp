@@ -26,6 +26,7 @@
 #ifndef GS_LEVEL_PROXY_HPP
 #define GS_LEVEL_PROXY_HPP
 
+#include <SFML/Graphics.hpp>
 #include <memory>
 
 namespace gs {

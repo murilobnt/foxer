@@ -9,8 +9,8 @@ ThreadedLevelLoader::~ThreadedLevelLoader() {
 
 void ThreadedLevelLoader::load_level() { level->load(); }
 
-void ThreadedLevelLoader::run(Level *level) {
-  this->level = std::shared_ptr<Level>(level);
+void ThreadedLevelLoader::run(std::shared_ptr<Level> level) {
+  this->level = level;
   level_loader = std::thread(&ThreadedLevelLoader::load_level, this);
 }
 

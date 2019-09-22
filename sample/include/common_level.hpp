@@ -3,6 +3,7 @@
 
 #include <gs2d/scene/components/camera/camera.hpp>
 #include <gs2d/scene/components/object/main_object.hpp>
+#include <iostream>
 
 class CommonLevel {
 protected:
@@ -10,7 +11,7 @@ protected:
 
 public:
   CommonLevel();
-  CommonLevel(sf::Vector2f *delay);
+  explicit CommonLevel(sf::Vector2f *delay);
 
   void stop_character(gs::MainObject *character, gs::Camera *camera,
                       const float &delta_time);

@@ -1,4 +1,4 @@
-#include "gs2d/game/level/collidable_area.hpp"
+#include "gs2d/game/level/components/collidable_area.hpp"
 
 namespace gs {
 

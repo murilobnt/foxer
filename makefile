@@ -17,6 +17,8 @@ STD = -std=c++17
 ## Object flag
 OBJ-FLAG = -c
 
+OPTIMIZATION = -O3
+
 ## Headers' inclusion
 INCLUDE = -I ./gs2d/include
 
@@ -61,7 +63,7 @@ $(LDIR)/$(TARGET) : $(OBJS)
 
 ## To satisfy the objects dependency above, we need the source code files.
 $(BDIR)/%.o: $(SRC)/%.cpp
-	$(CC) -fPIC $(OBJ-FLAG) $(STD) $(INCLUDE) $(SFML-INCLUDE) ./$< -o ./$@
+	$(CC) -fPIC $(OPTIMIZATION) $(OBJ-FLAG) $(STD) $(INCLUDE) $(SFML-INCLUDE) ./$< -o ./$@
 
 ## For entry "clean" (make clean), delete the objects and the executable.
 clean :

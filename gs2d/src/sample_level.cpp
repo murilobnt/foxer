@@ -4,17 +4,23 @@ namespace gs {
 
 SampleLevel::SampleLevel() {}
 
-SampleLevel::SampleLevel(SharedTextureHolder *shared_holder,
-                         LevelProxy *level_proxy, MainObject *character,
-                         Camera *camera, const std::string &json_level,
-                         const std::string &start_position_id, bool load,
-                         bool fade_in)
-    : TiledLevel(shared_holder, json_level, camera, load) {
-  set_level_proxy(level_proxy);
+SampleLevel::SampleLevel(LevelBundle *bundle, MainObject *character,
+                         const std::string &json_level, bool load, bool fade_in)
+    : TiledLevel(bundle, json_level, load) {
   this->character = character;
-  this->start_position_id = start_position_id;
   this->fade_in = fade_in;
   fading_speed = 15;
+}
+
+SampleLevel::SampleLevel(LevelBundle *bundle, MainObject *character,
+                         const std::string &json_level,
+                         const std::string &start_position_id, bool load,
+                         bool fade_in)
+    : TiledLevel(bundle, json_level, load) {
+  this->character = character;
+  this->fade_in = fade_in;
+  fading_speed = 15;
+  this->start_position_id = start_position_id;
 }
 
 void SampleLevel::init() {
@@ -57,6 +63,10 @@ void SampleLevel::handle_events(const float &delta_time) {
     handle_fade(fader.get_fade_state());
   else
     handle_game_events(delta_time);
+}
+
+void SampleLevel::set_start_position_id(const std::string &start_position_id) {
+  this->start_position_id = start_position_id;
 }
 
 } // namespace gs

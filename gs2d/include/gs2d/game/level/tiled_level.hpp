@@ -42,6 +42,7 @@ private:
   std::string json_tiled_file;
   std::vector<std::string> get_tilesets(const std::string &sub_path,
                                         json j_tilesets);
+
   json level;
   bool has_been_loaded;
 
@@ -53,8 +54,7 @@ protected:
 
 public:
   TiledLevel();
-  TiledLevel(SharedTextureHolder *shared_holder,
-             const std::string &json_tiled_file, Camera *camera,
+  TiledLevel(LevelBundle *bundle, const std::string &json_tiled_file,
              bool call_load = true);
   void load();
   virtual void init() = 0;

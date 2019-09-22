@@ -15,7 +15,7 @@ private:
 
 public:
   ~ThreadedLevelLoader();
-  void run(Level *level);
+  void run(std::shared_ptr<Level> level);
   std::shared_ptr<Level> get_level();
 };
 

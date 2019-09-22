@@ -62,6 +62,7 @@ private:
 
   // The clock of the application.
   ClockHandler clock_handler;
+  sf::Clock clock;
 
   // The timehandler to define the framerate of the application.
   TimeHandler app_frequency;

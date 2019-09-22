@@ -38,6 +38,9 @@ void App::app_start(Scene *first_scene, bool vsync, bool fullscreen) {
     clock_handler.restart_clock();
     clock_handler.restart_time_handler(&app_frequency);
     app_state.back()->reset_time_handlers(clock_handler);
+
+    float current = clock.restart().asSeconds();
+    std::cout << "FPS: " << 1 / current << std::endl;
   }
 }
 

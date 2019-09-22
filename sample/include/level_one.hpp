@@ -3,15 +3,18 @@
 
 #include "common_level.hpp"
 #include "level_two.hpp"
-#include <gs2d/game/level/exit_area.hpp>
+#include "sample_bundle.hpp"
+#include "sample_exit_area.hpp"
+
+#include <gs2d/game/level/components/exit_callbackable.hpp>
 #include <gs2d/other/geared_up/sample_level.hpp>
 
-class LevelOne : public gs::SampleLevel, CommonLevel {
+class LevelOne : public gs::SampleLevel, gs::ExitCallbackable, CommonLevel {
 private:
-  void draw(sf::RenderTarget &target, sf::RenderStates states) const;
+  SampleBundle *s_bundle;
+  SampleExitArea m_exit;
 
-  gs::ExitArea exit;
-  gs::ThreadedLevelLoader level_two_loader;
+  void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
   void on_fade_out();
   void on_fade_in();
@@ -20,11 +23,13 @@ private:
 
 public:
   LevelOne();
-  LevelOne(gs::SharedTextureHolder *shared_holder, gs::LevelProxy *level_proxy,
-           gs::MainObject *character, const std::string &start_position_id,
-           gs::Camera *camera, sf::Vector2f *delay, bool load = false,
+  LevelOne(gs::LevelBundle *bundle, SampleBundle *s_bundle,
+           const std::string &start_position_id, bool load = false,
+           bool fade_in = true);
+  LevelOne(gs::LevelBundle *bundle, SampleBundle *s_bundle, bool load = false,
            bool fade_in = true);
   void control_camera(const float &delta_time);
+  void exit_callback(const float &delta_time);
 };
 
 #endif

@@ -2,18 +2,23 @@
 #define MY_SCENE_HPP
 
 #include <SFML/Graphics.hpp>
+#include <gs2d/game/level/level_bundle.hpp>
 #include <gs2d/game/level/level_proxy.hpp>
 #include <gs2d/scene.hpp>
 
 #include "character.hpp"
 #include "level_one.hpp"
+#include "sample_bundle.hpp"
 
 class MyScene : public gs::Scene {
 private:
-  Character character;
-  gs::Camera camera;
+  SampleBundle s_bundle;
+  gs::LevelBundle bundle;
 
   gs::LevelProxy l_proxy;
+  gs::Camera camera;
+
+  Character character;
   sf::Vector2f delay;
 
 public:

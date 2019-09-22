@@ -4,11 +4,9 @@ namespace gs {
 
 TiledLevel::TiledLevel() : has_been_loaded(false), Level(nullptr) {}
 
-TiledLevel::TiledLevel(SharedTextureHolder *shared_holder,
-                       const std::string &json_tiled_file, Camera *camera,
+TiledLevel::TiledLevel(LevelBundle *bundle, const std::string &json_tiled_file,
                        bool call_load)
-    : has_been_loaded(false), Level(shared_holder) {
-  this->camera = camera;
+    : has_been_loaded(false), Level(bundle) {
   this->json_tiled_file = json_tiled_file;
   if (call_load)
     load();
@@ -65,7 +63,7 @@ void TiledLevel::load() {
       } else {
         TiledJsonTileLayer tile_layer(*it);
         layers.push_back(TileMap(tilesets, tex_holder, tile_size, level_size,
-                                 tile_layer.data, camera));
+                                 tile_layer.data, bundle->camera));
       }
     } else if ((*it)["type"] == "objectgroup") {
       for (json::iterator it2 = (*it)["objects"].begin();

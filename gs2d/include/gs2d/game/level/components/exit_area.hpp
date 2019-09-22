@@ -28,7 +28,10 @@
 
 #include <string>
 
-#include "gs2d/game/level/collidable_area.hpp"
+#include "gs2d/game/level/components/collidable_area.hpp"
+#include "gs2d/game/level/threaded_level_loader.hpp"
+#include "gs2d/other/geared_up/sample_level.hpp"
+#include "gs2d/scene/components/graphic/sprited_entity.hpp"
 
 namespace gs {
 
@@ -40,20 +43,28 @@ class ExitArea : public CollidableArea {
 private:
   // The identifier of the destination object of the next level.
   std::string destination_id;
+  ThreadedLevelLoader loader;
+  std::shared_ptr<SampleLevel> next_level;
 
 public:
   // Empty constructor.
   ExitArea();
 
-  // Constructor. It takes the exit area json object from the level and the
-  // string to the field containing the destination identifier.
-  ExitArea(const gs::TiledJsonObj &exit_json, const std::string &field);
-
   // Loads the exit area with the json object and the field.
-  void exit_load(const gs::TiledJsonObj &exit_json, const std::string &field);
+  void exit_load(const gs::TiledJsonObj &exit_json,
+                 std::shared_ptr<SampleLevel> next_level,
+                 const std::string &field = "destination");
 
   // Getter.
   std::string get_destination_id() const;
+
+  ThreadedLevelLoader *get_loader();
+
+  virtual void verify_collision_with(SpritedEntity *entity,
+                                     const float &delta_time);
+  virtual void on_collision(const float &delta_time) = 0;
+
+  void run();
 };
 
 } // namespace gs

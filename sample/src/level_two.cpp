@@ -3,27 +3,21 @@
 
 LevelTwo::LevelTwo() {}
 
-LevelTwo::LevelTwo(gs::SharedTextureHolder *shared_holder,
-                   gs::LevelProxy *level_proxy, gs::MainObject *character,
-                   const std::string &start_position_id, gs::Camera *camera,
-                   sf::Vector2f *delay, bool load, bool fade_in)
-    : gs::SampleLevel(shared_holder, level_proxy, character, camera,
-                      "assets/levels/level03.json", start_position_id, load,
-                      fade_in),
-      CommonLevel(delay) {
-  this->camera = camera;
-}
+LevelTwo::LevelTwo(gs::LevelBundle *bundle, SampleBundle *s_bundle, bool load,
+                   bool fade_in)
+    : gs::SampleLevel(bundle, s_bundle->character, "assets/levels/level03.json",
+                      load, fade_in),
+      CommonLevel(s_bundle->delay), s_bundle(s_bundle) {}
 
 void LevelTwo::level_init() {
-  exit.exit_load(events.find("level_change")->second, "destination");
-  level_one_loader.run(new LevelOne(shared_holder, level_proxy, character,
-                                    exit.get_destination_id(), camera, delay));
+  m_exit._load(this, events.find("level_change")->second,
+               std::make_shared<LevelOne>(bundle, s_bundle));
   initialise_camera(character, camera, fading_speed);
 }
 
 void LevelTwo::draw(sf::RenderTarget &target, sf::RenderStates states) const {
   if (fader.get_fade_state() != gs::NOT_FADING) {
-    target.draw(get_layers());
+    target.draw(get_layers(1, 4));
     target.draw(fader);
     target.draw(*character);
   } else {
@@ -33,15 +27,7 @@ void LevelTwo::draw(sf::RenderTarget &target, sf::RenderStates states) const {
 }
 
 void LevelTwo::handle_level_events(const float &delta_time) {
-  sf::FloatRect char_rect = character->get_sprite_global_bounds();
-  char_rect.height -= 22;
-  char_rect.top += 15;
-
-  if (exit.collides_with(char_rect)) {
-    stop_character(character, camera, delta_time);
-    fader.start_fade_out();
-    loader = &level_one_loader;
-  }
+  m_exit.verify_collision_with(character, delta_time);
 }
 
 void LevelTwo::on_fade_out() { change_level(loader->get_level()); }
@@ -54,4 +40,10 @@ void LevelTwo::control_camera(const float &delta_time) {
       (delta_time * 5));
 
   adjust_camera(camera, level_size, tile_size);
+}
+
+void LevelTwo::exit_callback(const float &delta_time) {
+  stop_character(character, camera, delta_time);
+  fader.start_fade_out();
+  loader = m_exit.get_loader();
 }

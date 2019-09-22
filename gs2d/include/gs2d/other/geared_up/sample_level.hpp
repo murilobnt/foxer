@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef SAMPLE_LEVEL_HPP
-#define SAMPLE_LEVEL_HPP
+#ifndef GS_SAMPLE_LEVEL_HPP
+#define GS_SAMPLE_LEVEL_HPP
 
 #include "gs2d/game/level/threaded_level_loader.hpp"
 #include "gs2d/game/level/tiled_level.hpp"
@@ -33,20 +33,20 @@
 
 namespace gs {
 
-class SampleLevel : public gs::TiledLevel {
+class SampleLevel : public TiledLevel {
 private:
   bool fade_in;
 
   void handle_game_events(const float &delta_time);
-  void handle_fade(const gs::FadeState &fade_state);
+  void handle_fade(const FadeState &fade_state);
 
 protected:
   int fading_speed;
-  gs::MainObject *character;
+  MainObject *character;
   std::string start_position_id;
 
-  gs::ThreadedLevelLoader *loader;
-  gs::Fader fader;
+  ThreadedLevelLoader *loader;
+  Fader fader;
 
   virtual void on_fade_out() = 0;
   virtual void on_fade_in() = 0;
@@ -55,14 +55,17 @@ protected:
 
 public:
   SampleLevel();
-  SampleLevel(SharedTextureHolder *shared_holder, gs::LevelProxy *level_proxy,
-              gs::MainObject *character, Camera *camera,
+  SampleLevel(LevelBundle *bundle, MainObject *character,
+              const std::string &json_level, bool load = false,
+              bool fade_in = true);
+  SampleLevel(LevelBundle *bundle, MainObject *character,
               const std::string &json_level,
               const std::string &start_position_id, bool load = false,
               bool fade_in = true);
 
   void init();
   void handle_events(const float &delta_time);
+  void set_start_position_id(const std::string &start_position_id);
 };
 
 } // namespace gs
