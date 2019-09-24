@@ -30,6 +30,7 @@
 #include <memory>
 #include <vector>
 
+#include "gs2d/game/level/level_bundle.hpp"
 #include "gs2d/other/helpers/shared_texture_holder.hpp"
 #include "gs2d/other/helpers/texture_holder.hpp"
 #include "gs2d/other/helpers/texture_loader.hpp"
@@ -56,6 +57,8 @@ private:
   ClockHandler *app_clock;
   std::vector<std::shared_ptr<Scene>> *app_state;
 
+  SharedTextureHolder shared_holder;
+
 protected:
   // The time handlers of the scene.
   std::vector<TimeHandler *> time_handlers;
@@ -63,8 +66,11 @@ protected:
   // The window of the application.
   sf::RenderWindow *app_window;
 
-  SharedTextureHolder shared_holder;
   TextureHolder tex_holder;
+  LevelBundle level_bundle;
+
+  gs::LevelProxy l_proxy;
+  gs::Camera camera;
 
 public:
   Scene();

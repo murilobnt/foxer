@@ -5,13 +5,13 @@ LevelTwo::LevelTwo() {}
 
 LevelTwo::LevelTwo(gs::LevelBundle *bundle, SampleBundle *s_bundle, bool load,
                    bool fade_in)
-    : gs::SampleLevel(bundle, s_bundle->character, "assets/levels/level03.json",
-                      load, fade_in),
-      CommonLevel(s_bundle->delay), s_bundle(s_bundle) {}
+    : SampleLevel(bundle, s_bundle, "assets/levels/level03.json", load,
+                  fade_in) {}
 
 void LevelTwo::level_init() {
-  m_exit._load(this, events.find("level_change")->second,
-               std::make_shared<LevelOne>(bundle, s_bundle));
+  add_exit_area(std::make_unique<SampleExitArea>(
+      0, this, events.find("level_change")->second,
+      std::make_shared<LevelOne>(bundle, s_bundle)));
   initialise_camera(character, camera, fading_speed);
 }
 
@@ -26,24 +26,14 @@ void LevelTwo::draw(sf::RenderTarget &target, sf::RenderStates states) const {
   }
 }
 
-void LevelTwo::handle_level_events(const float &delta_time) {
-  m_exit.verify_collision_with(character, delta_time);
+void LevelTwo::adjust_camera() {
+  CommonLevel::adjust_camera(camera, level_size, tile_size);
 }
 
-void LevelTwo::on_fade_out() { change_level(loader->get_level()); }
-
-void LevelTwo::on_fade_in() {}
-
-void LevelTwo::control_camera(const float &delta_time) {
-  camera->move(
-      sf::Vector2f((character->get_sprite_position() - camera->get_center())) *
-      (delta_time * 5));
-
-  adjust_camera(camera, level_size, tile_size);
-}
-
-void LevelTwo::exit_callback(const float &delta_time) {
-  stop_character(character, camera, delta_time);
-  fader.start_fade_out();
-  loader = m_exit.get_loader();
+void LevelTwo::exit_callback(const float &delta_time, const int &pos) {
+  if (pos == 0) {
+    stop_character(character, camera, delta_time);
+    fader.start_fade_out();
+    loader = exit_areas.at(0)->get_loader();
+  }
 }

@@ -2,7 +2,10 @@
 
 namespace gs {
 
-Scene::Scene() { tex_holder = TextureHolder(&shared_holder); }
+Scene::Scene() {
+  level_bundle = gs::LevelBundle(&l_proxy, &shared_holder, &camera);
+  tex_holder = TextureHolder(&shared_holder);
+}
 
 Scene::~Scene() {}
 

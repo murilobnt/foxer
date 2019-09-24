@@ -13,10 +13,6 @@
 class MyScene : public gs::Scene {
 private:
   SampleBundle s_bundle;
-  gs::LevelBundle bundle;
-
-  gs::LevelProxy l_proxy;
-  gs::Camera camera;
 
   Character character;
   sf::Vector2f delay;

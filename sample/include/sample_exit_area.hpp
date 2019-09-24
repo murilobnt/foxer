@@ -8,11 +8,17 @@
 class SampleExitArea : public gs::ExitArea {
 private:
   gs::ExitCallbackable *callbackable;
+  int pos;
 
 public:
   SampleExitArea();
+  SampleExitArea(const int &pos, gs::ExitCallbackable *callbackable,
+                 const gs::TiledJsonObj &exit_json,
+                 std::shared_ptr<gs::SampleLevel> next_level,
+                 const std::string &field = "destination");
+
   void set_callbackable(gs::ExitCallbackable *callbackable);
-  void _load(gs::ExitCallbackable *callbackable,
+  void _load(const int &pos, gs::ExitCallbackable *callbackable,
              const gs::TiledJsonObj &exit_json,
              std::shared_ptr<gs::SampleLevel> next_level,
              const std::string &field = "destination");
