@@ -34,19 +34,17 @@
 namespace gs {
 
 class SampleLevel : public TiledLevel {
-private:
-  bool fade_in;
-
-  void handle_game_events(const float &delta_time);
-  void handle_fade(const FadeState &fade_state);
-
 protected:
   int fading_speed;
-  MainObject *character;
+  MainObject *player;
+
   std::string start_position_id;
 
   ThreadedLevelLoader *loader;
   Fader fader;
+
+  virtual void handle_game_events(const float &delta_time);
+  virtual void handle_fade(const FadeState &fade_state);
 
   virtual void on_fade_out() = 0;
   virtual void on_fade_in() = 0;
@@ -55,17 +53,14 @@ protected:
 
 public:
   SampleLevel();
-  SampleLevel(LevelBundle *bundle, MainObject *character,
-              const std::string &json_level, bool load = false,
-              bool fade_in = true);
-  SampleLevel(LevelBundle *bundle, MainObject *character,
-              const std::string &json_level,
-              const std::string &start_position_id, bool load = false,
-              bool fade_in = true);
+  SampleLevel(const std::string &json_level);
+  SampleLevel(const std::string &json_level,
+              const std::string &start_position_id);
 
   void init();
   void handle_events(const float &delta_time);
   void set_start_position_id(const std::string &start_position_id);
+  void set_player(MainObject *player);
 };
 
 } // namespace gs

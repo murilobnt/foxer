@@ -12,7 +12,7 @@
 CC = g++
 RM = rm -f
 
-FLAGS = -O3
+FLAGS = 
 LANGUAGE = c++17
 TARGET = sample
 

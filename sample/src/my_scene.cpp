@@ -5,10 +5,16 @@ void MyScene::start() {
   character = Character(tex_holder.load("assets/textures/character.png"));
 
   camera = gs::Camera(sf::Vector2f(480, 320));
-  s_bundle = SampleBundle(&character, &delay);
 
-  l_proxy.change_level(
-      new LevelOne(&level_bundle, &s_bundle, "player_start_pos", true, false));
+  std::shared_ptr<LevelOne> level_one =
+      std::make_shared<LevelOne>("player_start_pos");
+
+  level_one->set_player(&character);
+  level_one->set_delay(&delay);
+  level_one->set_level_bundle(&level_bundle);
+  level_one->load();
+
+  l_proxy.change_level(level_one);
 }
 
 void MyScene::update() {

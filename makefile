@@ -17,7 +17,7 @@ STD = -std=c++17
 ## Object flag
 OBJ-FLAG = -c
 
-OPTIMIZATION = -O3
+FLAGS = 
 
 ## Headers' inclusion
 INCLUDE = -I ./gs2d/include

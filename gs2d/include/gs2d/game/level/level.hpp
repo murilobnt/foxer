@@ -62,16 +62,12 @@ protected:
                     sf::RenderStates states) const = 0;
 
 public:
-  Level(LevelBundle *bundle);
-
   virtual void load() = 0;
   virtual void init() = 0;
   virtual void handle_events(const float &delta_time) = 0;
   virtual void control_camera(const float &delta_time) = 0;
 
-  void set_level_proxy(LevelProxy *level_proxy);
-  void set_shared_holder(SharedTextureHolder *shared_holder);
-  void set_camera(Camera *camera);
+  void set_level_bundle(LevelBundle *bundle);
 
   void change_level(Level *level);
   void change_level(std::shared_ptr<Level> level);

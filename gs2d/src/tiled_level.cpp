@@ -2,14 +2,11 @@
 
 namespace gs {
 
-TiledLevel::TiledLevel() : has_been_loaded(false), Level(nullptr) {}
+TiledLevel::TiledLevel() : has_been_loaded(false) {}
 
-TiledLevel::TiledLevel(LevelBundle *bundle, const std::string &json_tiled_file,
-                       bool call_load)
-    : has_been_loaded(false), Level(bundle) {
+TiledLevel::TiledLevel(const std::string &json_tiled_file)
+    : has_been_loaded(false) {
   this->json_tiled_file = json_tiled_file;
-  if (call_load)
-    load();
 }
 
 void TiledLevel::load_level_json() {
