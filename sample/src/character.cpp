@@ -20,19 +20,19 @@ void Character::control_entity(float delta_time) {
   } else
     moving_left = false;
 
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) ||
-      sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-    moving_down = true;
-    current_facing_pos = DOWN;
-  } else
-    moving_down = false;
-
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) ||
       sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
     moving_right = true;
     current_facing_pos = RIGHT;
   } else
     moving_right = false;
+
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) ||
+      sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+    moving_down = true;
+    current_facing_pos = DOWN;
+  } else
+    moving_down = false;
 
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) ||
       sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
