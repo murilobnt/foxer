@@ -1,4 +1,5 @@
 <img src="assets/readme/example.gif" width=300/>
+
 ## GS2D Framework
 
 **A lightweight easy to learn, use and extend open-source framework for 2D games
