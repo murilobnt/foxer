@@ -38,9 +38,9 @@ About the lines of codes, **Implementation 1** shows the lowest number, followed
 
 **Implementation 1** feels faster and easier to do. It works as it is, but it **would be a nightmare to maintain and expand**.
 
-**Implementation 2** feels the hardest. To carefully think what every class would contain and what should it be responsible to do was no easy task. I thought of making classes to act like the ones in the engine, but I gave up. **It would take a lot of time to implement and test everything to make it work**.
+**Implementation 2** feels the hardest. To carefully think what every class would contain and what should it be responsible to do was no easy task. I thought of making classes to act like the ones in the framework, but I gave up. **It would take a lot of time to implement and test everything to make it work**.
 
-**Implementation 3** feels the mixed experience. You have an engine with a lot of "work done" for you, but now you gotta learn how to use it. However, it pays off: **Everything is organized and simple to expand, and the programmer don't need to worry about controlling the game cycle**.
+**Implementation 3** feels the mixed experience. You have an framework with a lot of "work done" for you, but now you gotta learn how to use it. However, it pays off: **Everything is organized and simple to expand, and the programmer don't need to worry about controlling the game cycle**.
 
 ### Gists of the implementations
 

@@ -7,14 +7,13 @@ g++ standard path (if you installed it with apt or moved it to /usr/local).
 
 ## Step 1: Download the repository
 
-To install the gs2d library (the engine) you first need to clone or download the
-ZIP of this repository.
+To install GS2D you first need to clone or download the ZIP of this repository.
 
 ## Step 2: Install this project's dependencies
 
-Check [this page of the wiki](https://github.com/murilobnt/gs2d_engine/wiki/Insight:-Starting-point#install-dependencies).
+Check [this page of the wiki](https://github.com/murilobnt/gs2d/wiki/Insight:-Starting-point#install-dependencies).
 
-## Step 3: Install the engine library
+## Step 3: Install the Framework library
 
 Once you've downloaded/cloned this repository, and made sure you have GCC and
 SFML (in a recognizable library path of g++) installed, the following command,
@@ -26,7 +25,7 @@ sudo make install
 
 ### Step 3.1: Exporting the library location
 
-Following the GNU standards, the library and the headers of this engine will be
+Following the GNU standards, the library and the headers of this Framework will be
 located at */usr/local/lib* and */usr/local/include*. Those directories,
 however, are commonly not searched by default.
 
@@ -46,7 +45,7 @@ Go to the *sample* directory of this project. And run:
 make
 ```
 
-Now, if you followed the [Step 3.1: Exporting the library location](https://github.com/murilobnt/gs2d_engine/blob/master/.github/installation.md#step-31-exporting-the-library-location),
+Now, if you followed the [Step 3.1: Exporting the library location](https://github.com/murilobnt/gs2d/blob/master/.github/installation/installation_sudo.md#step-31-exporting-the-library-location),
 the following command should be successfully executed.
 
 ```
@@ -59,4 +58,4 @@ Otherwise, you need to export the path to the library **on the first execution**
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/lib" && ./bin/sample
 ```
 
-[Return to readme](https://github.com/murilobnt/gs2d_engine#installation)
+[Return to readme](https://github.com/murilobnt/gs2d#installation)

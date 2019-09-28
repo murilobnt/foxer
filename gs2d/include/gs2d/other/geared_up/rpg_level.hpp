@@ -33,7 +33,7 @@ public:
   void _change_level(std::shared_ptr<RPGLevel> level);
 
   void set_delay(sf::Vector2f *delay);
-  std::shared_ptr<RPGLevel> make_level(std::shared_ptr<RPGLevel> level);
+  std::shared_ptr<RPGLevel> build_level(std::shared_ptr<RPGLevel> level);
 };
 
 }; // namespace gs

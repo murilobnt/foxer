@@ -1,47 +1,44 @@
-# GS2D Engine
-
-<i>Game engine to create 2D games in C++ with SFML</i>
-
 <img src="assets/readme/example.gif" width=300/>
+## GS2D Framework
 
-<a href="https://www.codacy.com/app/murilobnt/gs2d_engine?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=murilobnt/gs2d_engine&amp;utm_campaign=Badge_Grade">
-<img src="https://api.codacy.com/project/badge/Grade/47bdb57771bf4c75bff39618e4935b72" alt="Codacy Badge"/></a>
-<a href="https://github.com/murilobnt/gs2d_engine/blob/master/LICENSE">
-<img src="https://img.shields.io/:license-MIT-blue.svg" alt="license"/></a>
-<a href="https://github.com/murilobnt/gs2d_engine/graphs/contributors">
-<img src="https://img.shields.io/:contributors-1-yellow.svg"
-alt="contributors"/></a>
+**A lightweight easy to learn, use and extend open-source framework for 2D games
+over the C++ programming language**. That's the main goal of the GS2D Framework.
+It hopes to provide pratical (yet simple) usage of Object-Oriented Programming
+for a game that can be built with any text editor.
 
-* * *
+**Code simplicity and readability** are two of its objects, being able to
+express the demo in the GIF with only about 299 lines of code
+(which 97 are for headers).
 
-**GS2D Engine** aims to be a game engine for creating 2D games using SFML on the
-C++ programming language. Most of the classes here are based on my another
-project, [vulnus](https://github.com/murilobnt/vulnus), which is a 2D platform
-game in development.
+**It uses [SFML](https://www.sfml-dev.org) and supports
+[Tiled](https://www.mapeditor.org/) orthogonal maps!** For Tiled, you just
+need to export (save) everything it creates (tilesets and tilemaps) in JSON
+and GS2D can understand it into a visual and collidable level.
 
-This tool will help you focus on the game. All you have to do is to create your
-own scenes and to set up the main method.
+![Code Example](assets/readme/code_example.png)
 
-## Requires
+#### Requires
 
 - [GCC](http://gcc.gnu.org) (7 or later).
 - [SFML](https://www.sfml-dev.org).
+- [JSON For Modern C++](https://github.com/nlohmann/json) (already embed within
+  the project's structure).
 
-## Installation
+#### How to install
 
-Read [Installation](https://github.com/murilobnt/gs2d_engine/blob/master/.github/installation/installation.md).
+You can see the
+[installation](https://github.com/murilobnt/gs2d/blob/master/.github/installation/installation.md)
+page of this repository for further information
+about it.
 
-## Insight
+#### Project details
+- [Wiki](https://github.com/murilobnt/gs2d/wiki).
+- [Code comparison](https://github.com/murilobnt/gs2d/blob/master/.github/comparison.md)
+of different implementations of a simple game scenario.
 
-- [Features and TO-DOs](https://github.com/murilobnt/gs2d_engine/blob/master/.github/features-todo.md).
-- [Code comparison](https://github.com/murilobnt/gs2d_engine/blob/master/.github/comparison.md).
-- [Wiki](https://github.com/murilobnt/gs2d_engine/wiki).
+#### License
 
-## Contributors
+GS2D is licensed under the [MIT License](https://github.com/murilobnt/gs2d/blob/master/LICENSE).
 
-- [:cat: murilobnt](https://github.com/murilobnt) has created the GS2D Engine
-and currently is the only developer of it.
-
-## License
-
-GS2D Engine is licensed under the [MIT License](https://github.com/murilobnt/gs2d_engine/blob/master/LICENSE).
+[![Codacy Code Quality](https://api.codacy.com/project/badge/Grade/47bdb57771bf4c75bff39618e4935b72)](https://api.codacy.com/project/badge/Grade/47bdb57771bf4c75bff39618e4935b72)
+[![License](https://img.shields.io/:license-MIT-blue.svg)](https://github.com/murilobnt/gs2d/blob/master/LICENSE)

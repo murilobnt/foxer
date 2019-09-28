@@ -1,10 +1,10 @@
 # Sample GS2D Game
 
-This is a sample game developed using the GS2D engine and SFML.
+This is a sample game developed using the GS2D Framework and SFML.
 
 ## How to run
 
-Read [this file](https://github.com/murilobnt/gs2d_engine/blob/master/.github/installation.md#check-if-the-sample-is-working).
+Read [this file](https://github.com/murilobnt/gs2d/blob/master/.github/installation/installation_sudo.md#check-if-the-sample-is-working).
 
 ## Fast explanation
 

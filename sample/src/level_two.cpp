@@ -6,7 +6,7 @@ LevelTwo::LevelTwo() : gs::RPGLevel("assets/levels/level03.json") {}
 void LevelTwo::level_init() {
   add_exit_area(std::make_unique<SampleExitArea>(
       0, this, events.find("level_change")->second,
-      make_level(std::make_shared<LevelOne>())));
+      build_level(std::make_shared<LevelOne>())));
   initialise_camera();
 }
 

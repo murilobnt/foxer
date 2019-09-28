@@ -65,7 +65,7 @@ void RPGLevel::_change_level(std::shared_ptr<RPGLevel> level) {
 void RPGLevel::set_delay(sf::Vector2f *delay) { this->delay = delay; }
 
 std::shared_ptr<RPGLevel>
-RPGLevel::make_level(std::shared_ptr<RPGLevel> level) {
+RPGLevel::build_level(std::shared_ptr<RPGLevel> level) {
   level->set_delay(delay);
   level->set_player(player);
   level->set_level_bundle(bundle);

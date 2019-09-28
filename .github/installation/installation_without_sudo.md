@@ -8,8 +8,7 @@ guide won't be able to help you about it.
 
 ## Step 1: Download the repository
 
-To install the gs2d library (the engine) you first need to clone or download the
-ZIP of this repository.
+To install GS2D you first need to clone or download the ZIP of this repository.
 
 ## Step 2: Download the newest version of SFML
 
@@ -17,11 +16,11 @@ In this no-sudo case, you must download the Linux version of SFML. It can be
 obtained [here](https://www.sfml-dev.org/download.php).
 
 When complete, extract the directory inside the .tar.gz to somewhere. **It's advised to
-extract it to the root of the project (the gs2d_engine directory)**.
+extract it to the root of the project (the gs2d directory)**.
 
-## Step 3: Adjust the makefile of the engine
+## Step 3: Adjust the makefile of the framework
 
-In order to use the engine, you will first need to alter some variables inside the makefile.
+In order to use the framework, you will first need to alter some variables inside the makefile.
 It's no big deal.
 
 You might run into something like this in the first three lines of the file.
@@ -34,7 +33,7 @@ You might run into something like this in the first three lines of the file.
 
 So, you need uncomment those two last lines. If SFML directory is not located at the root
 of the project, or if the downloaded version is not 2.5.1, you will need to alter it's
-value to the path of the extracted directory at the moment of [Step 2: Download the newest version of SFML](https://github.com/murilobnt/gs2d_engine/blob/master/.github/installation_without_sudo.md#step-3-download-the-newest-version-of-sfml).
+value to the path of the extracted directory at the moment of [Step 2: Download the newest version of SFML](https://github.com/murilobnt/gs2d/blob/master/.github/installation_without_sudo.md#step-3-download-the-newest-version-of-sfml).
 
 ## Step 4: Compile the library
 
@@ -65,7 +64,7 @@ export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:<GS2D-DIRECTORY-PATH>/gs2d/lib"
 ## But first...
 
 ... you will have to adjust the makefile of the sample. Just like the makefile of the
-engine, you will only need to alter some variables of it.
+framework, you will only need to alter some variables of it.
 
 ```
 ## Use these variables if SFML is not installed in a standard path.
@@ -92,7 +91,7 @@ Go to the *sample* directory of this project. And run:
 make
 ```
 
-Now, if you followed the [Step 4.1: Exporting the libraries locations](https://github.com/murilobnt/gs2d_engine/blob/master/.github/installation.md#step-41-exporting-the-libraries-locations),
+Now, if you followed the [Step 4.1: Exporting the libraries locations](https://github.com/murilobnt/gs2d/blob/master/.github/installation/installation_without_sudo.md#step-41-exporting-the-libraries-locations),
 the following command should be successfully executed.
 
 ```
@@ -105,4 +104,4 @@ Otherwise, you need to export the path to the GS2D and SFML libraries **on the f
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:<SFML-DIRECTORY-PATH>/lib" && export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:<GS2D-DIRECTORY-PATH>/gs2d/lib" && ./bin/sample
 ```
 
-[Return to readme](https://github.com/murilobnt/gs2d_engine#installation)
+[Return to readme](https://github.com/murilobnt/gs2d#installation)

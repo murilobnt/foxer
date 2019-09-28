@@ -8,7 +8,7 @@ LevelOne::LevelOne(const std::string &start_position_id)
 void LevelOne::level_init() {
   add_exit_area(std::make_unique<SampleExitArea>(
       0, this, events.find("level_change")->second,
-      make_level(std::make_shared<LevelTwo>())));
+      build_level(std::make_shared<LevelTwo>())));
   initialise_camera();
 }
 

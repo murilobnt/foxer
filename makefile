@@ -4,7 +4,7 @@
 
 # SECTION: CLEAN COMMANDS ------------------------------------------------------
 
-CLEANENGINE = $(RM) $(BDIR)/*.o $(LDIR)/$(TARGET)
+CLEANGS2D = $(RM) $(BDIR)/*.o $(LDIR)/$(TARGET)
 
 # SECTION: LIBRARY VARIABLES ---------------------------------------------------
 
@@ -17,7 +17,7 @@ STD = -std=c++17
 ## Object flag
 OBJ-FLAG = -c
 
-FLAGS = 
+FLAGS =
 
 ## Headers' inclusion
 INCLUDE = -I ./gs2d/include
@@ -67,7 +67,7 @@ $(BDIR)/%.o: $(SRC)/%.cpp
 
 ## For entry "clean" (make clean), delete the objects and the executable.
 clean :
-	$(CLEANENGINE)
+	$(CLEANGS2D)
 
 install : $(TARGET)
 	cp gs2d/lib/libgs2d.so /usr/local/lib && chmod 755 /usr/local/lib/libgs2d.so
