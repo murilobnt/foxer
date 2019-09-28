@@ -21,9 +21,7 @@ and GS2D can understand it into a visual and collidable level.
 ### Requires
 
 - [GCC](http://gcc.gnu.org) (7 or later).
-
 - [SFML](https://www.sfml-dev.org).
-
 - [JSON For Modern C++](https://github.com/nlohmann/json) (already embed within the project's structure).
 
 ### How to install

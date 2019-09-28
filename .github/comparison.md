@@ -7,7 +7,6 @@ This file will present comparisons of implementations of examples.
 For **Example 1** it's required to:
 
 - Draw a 32x32 sprite and position it at the center of the screen (point 400x 300y);
-
 - Move the sprite to the left and to the right with the A and D keys, respectively;
 - Animate the sprite when moving (1st row, columns 1 and 2 for right. 2nd row, columns 1 and 2 for left).
 
