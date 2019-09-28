@@ -20,12 +20,11 @@ and GS2D can understand it into a visual and collidable level.
 
 ### Requires
 
-  - [GCC](http://gcc.gnu.org) (7 or later).
+- [GCC](http://gcc.gnu.org) (7 or later).
 
-  - [SFML](https://www.sfml-dev.org).
+- [SFML](https://www.sfml-dev.org).
 
-  - [JSON For Modern C++](https://github.com/nlohmann/json) (already embed within
-  the project's structure).
+- [JSON For Modern C++](https://github.com/nlohmann/json) (already embed within the project's structure).
 
 ### How to install
 
@@ -35,9 +34,8 @@ page of this repository for information about it.
 
 ### Project details
 
-  - [Wiki](https://github.com/murilobnt/gs2d/wiki).
-
-  - [Code comparison](https://github.com/murilobnt/gs2d/blob/master/.github/comparison.md) of different implementations of a simple game scenario.
+- [Wiki](https://github.com/murilobnt/gs2d/wiki).
+- [Code comparison](https://github.com/murilobnt/gs2d/blob/master/.github/comparison.md) of different implementations of a simple game scenario.
 
 ### License
 
