@@ -29,8 +29,7 @@ and GS2D can understand it into a visual and collidable level.
 
 You can see the
 [installation](https://github.com/murilobnt/gs2d/blob/master/.github/installation/installation.md)
-page of this repository for further information
-about it.
+page of this repository for information about it.
 
 #### Project details
 - [Wiki](https://github.com/murilobnt/gs2d/wiki).
