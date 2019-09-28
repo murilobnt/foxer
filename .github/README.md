@@ -21,8 +21,10 @@ and GS2D can understand it into a visual and collidable level.
 #### Requires
 
 - [GCC](http://gcc.gnu.org) (7 or later).
-- [SFML](https://www.sfml-dev.org).
-- [JSON For Modern C++](https://github.com/nlohmann/json) (already embed within
+
+-  [SFML](https://www.sfml-dev.org).
+
+-  [JSON For Modern C++](https://github.com/nlohmann/json) (already embed within
   the project's structure).
 
 #### How to install
@@ -32,13 +34,15 @@ You can see the
 page of this repository for information about it.
 
 #### Project details
+
 - [Wiki](https://github.com/murilobnt/gs2d/wiki).
-- [Code comparison](https://github.com/murilobnt/gs2d/blob/master/.github/comparison.md)
+
+-  [Code comparison](https://github.com/murilobnt/gs2d/blob/master/.github/comparison.md)
 of different implementations of a simple game scenario.
 
 #### License
 
 GS2D is licensed under the [MIT License](https://github.com/murilobnt/gs2d/blob/master/LICENSE).
 
-[![Codacy Code Quality](https://api.codacy.com/project/badge/Grade/47bdb57771bf4c75bff39618e4935b72)](https://api.codacy.com/project/badge/Grade/47bdb57771bf4c75bff39618e4935b72)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/02e6682822d149bf8e2e0472476f41ea)](https://www.codacy.com/manual/murilobnt/gs2d?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=murilobnt/gs2d&amp;utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/:license-MIT-blue.svg)](https://github.com/murilobnt/gs2d/blob/master/LICENSE)
