@@ -33,14 +33,14 @@ You might run into something like this in the first three lines of the file.
 
 So, you need uncomment those two last lines. If SFML directory is not located at the root
 of the project, or if the downloaded version is not 2.5.1, you will need to alter it's
-value to the path of the extracted directory at the moment of [Step 2: Download the newest version of SFML](https://github.com/murilobnt/gs2d/blob/master/.github/installation_without_sudo.md#step-3-download-the-newest-version-of-sfml).
+value to the path of the extracted directory at the moment of [Step 2: Download the newest version of SFML](https://github.com/murilobnt/gs2d/blob/master/.github/installation-without-sudo.md#step-3-download-the-newest-version-of-sfml).
 
 ## Step 4: Compile the library
 
 You can simply compile the library by going, through terminal, to the root of
 this project and entering the following command.
 
-```
+```sh
 make
 ```
 
@@ -87,14 +87,14 @@ of the project, or if the downloaded version is not 2.5.1.
 
 Go to the *sample* directory of this project. And run:
 
-```
+```sh
 make
 ```
 
-Now, if you followed the [Step 4.1: Exporting the libraries locations](https://github.com/murilobnt/gs2d/blob/master/.github/installation/installation_without_sudo.md#step-41-exporting-the-libraries-locations),
+Now, if you followed the [Step 4.1: Exporting the libraries locations](https://github.com/murilobnt/gs2d/blob/master/.github/installation/installation-without-sudo.md#step-41-exporting-the-libraries-locations),
 the following command should be successfully executed.
 
-```
+```sh
 ./bin/sample
 ```
 

@@ -18,29 +18,28 @@ and GS2D can understand it into a visual and collidable level.
 
 ![Code Example](assets/readme/code_example.png)
 
-#### Requires
+### Requires
 
-- [GCC](http://gcc.gnu.org) (7 or later).
+  - [GCC](http://gcc.gnu.org) (7 or later).
 
--  [SFML](https://www.sfml-dev.org).
+  - [SFML](https://www.sfml-dev.org).
 
--  [JSON For Modern C++](https://github.com/nlohmann/json) (already embed within
+  - [JSON For Modern C++](https://github.com/nlohmann/json) (already embed within
   the project's structure).
 
-#### How to install
+### How to install
 
 You can see the
 [installation](https://github.com/murilobnt/gs2d/blob/master/.github/installation/installation.md)
 page of this repository for information about it.
 
-#### Project details
+### Project details
 
-- [Wiki](https://github.com/murilobnt/gs2d/wiki).
+  - [Wiki](https://github.com/murilobnt/gs2d/wiki).
 
--  [Code comparison](https://github.com/murilobnt/gs2d/blob/master/.github/comparison.md)
-of different implementations of a simple game scenario.
+  - [Code comparison](https://github.com/murilobnt/gs2d/blob/master/.github/comparison.md) of different implementations of a simple game scenario.
 
-#### License
+### License
 
 GS2D is licensed under the [MIT License](https://github.com/murilobnt/gs2d/blob/master/LICENSE).
 

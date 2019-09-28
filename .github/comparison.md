@@ -6,11 +6,11 @@ This file will present comparisons of implementations of examples.
 
 For **Example 1** it's required to:
 
--  Draw a 32x32 sprite and position it at the center of the screen (point 400x 300y);
+  - Draw a 32x32 sprite and position it at the center of the screen (point 400x 300y);
 
--  Move the sprite to the left and to the right with the A and D keys, respectively;
+  - Move the sprite to the left and to the right with the A and D keys, respectively;
 
--  Animate the sprite when moving (1st row, columns 1 and 2 for right. 2nd row, columns 1 and 2 for left).
+  - Animate the sprite when moving (1st row, columns 1 and 2 for right. 2nd row, columns 1 and 2 for left).
 
 ### Implementation 1 (without GS2D)
 
@@ -46,7 +46,6 @@ About the lines of codes, **Implementation 1** shows the lowest number, followed
 
 ### Gists of the implementations
 
--  [Implementation 1](https://gist.github.com/murilobnt/e1e40a17df6cf7a83e308ff86b5aa739)
-
--  [Implementation 2](https://gist.github.com/murilobnt/80ea16af536e169e3ae50fea4004cb2a)
--  [Implementation 3](https://gist.github.com/murilobnt/d589f25365879338a6d76345141cb67c)
+  - [Implementation 1](https://gist.github.com/murilobnt/e1e40a17df6cf7a83e308ff86b5aa739)
+  - [Implementation 2](https://gist.github.com/murilobnt/80ea16af536e169e3ae50fea4004cb2a)
+  - [Implementation 3](https://gist.github.com/murilobnt/d589f25365879338a6d76345141cb67c)

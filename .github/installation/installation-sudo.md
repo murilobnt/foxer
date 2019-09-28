@@ -19,7 +19,7 @@ Once you've downloaded/cloned this repository, and made sure you have GCC and
 SFML (in a recognizable library path of g++) installed, the following command,
 through terminal, and at the root of the project, should suffice.
 
-```
+```sh
 sudo make install
 ```
 
@@ -41,14 +41,14 @@ export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/lib"
 
 Go to the *sample* directory of this project. And run:
 
-```
+```sh
 make
 ```
 
-Now, if you followed the [Step 3.1: Exporting the library location](https://github.com/murilobnt/gs2d/blob/master/.github/installation/installation_sudo.md#step-31-exporting-the-library-location),
+Now, if you followed the [Step 3.1: Exporting the library location](https://github.com/murilobnt/gs2d/blob/master/.github/installation/installation-sudo.md#step-31-exporting-the-library-location),
 the following command should be successfully executed.
 
-```
+```sh
 ./bin/sample
 ```
 
