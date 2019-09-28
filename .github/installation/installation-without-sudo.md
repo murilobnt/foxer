@@ -1,9 +1,9 @@
 # Installation without sudo
 
 > This guide is related to the case the machine has GCC installed.
-If GCC is not installed and you don't have sudo permission, this
-guide won't be able to help you about it.
-
+> If GCC is not installed and you don't have sudo permission, this
+> guide won't be able to help you about it.
+>
 > This guide is only granted for the Linux Ubuntu distro.
 
 ## Step 1: Download the repository
@@ -25,7 +25,7 @@ It's no big deal.
 
 You might run into something like this in the first three lines of the file.
 
-```
+```makefile
 ## Use these variables if SFML is not installed in a standard path
 # SFML-DIR = SFML-2.5.1
 # SFML-INCLUDE = -I $(SFML-DIR)/include
@@ -54,19 +54,19 @@ To easily solve this, you can
 (if you use zsh) file, altering the <SFML-DIRECTORY-PATH> and <GS2D-DIRECTORY-PATH>
 to their paths in the machine**.
 
-```
+```sh
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:<SFML-DIRECTORY-PATH>/lib"
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:<GS2D-DIRECTORY-PATH>/gs2d/lib"
 ```
 
-# Check if the sample is working
+## Check if the sample is working
 
-## But first...
+### But first
 
 ... you will have to adjust the makefile of the sample. Just like the makefile of the
 framework, you will only need to alter some variables of it.
 
-```
+```makefile
 ## Use these variables if SFML is not installed in a standard path.
 ## Also use these variables if GS2D library couldn't be installed with sudo.
 
@@ -100,7 +100,7 @@ the following command should be successfully executed.
 
 Otherwise, you need to export the path to the GS2D and SFML libraries **on the first execution**.
 
-```
+```sh
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:<SFML-DIRECTORY-PATH>/lib" && export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:<GS2D-DIRECTORY-PATH>/gs2d/lib" && ./bin/sample
 ```
 

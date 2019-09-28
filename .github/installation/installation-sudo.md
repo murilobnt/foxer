@@ -1,8 +1,8 @@
 # Installation with sudo
 
 > This guide is related to the case you have SFML library installed in a
-g++ standard path (if you installed it with apt or moved it to /usr/local).
-
+> g++ standard path (if you installed it with apt or moved it to /usr/local).
+>
 > This guide is only granted for the Linux Ubuntu distro.
 
 ## Step 1: Download the repository
@@ -33,11 +33,11 @@ This shows true for Ubuntu 18.04, too. To easily solve this, you can
 **add this line to the end of your ~/.bashrc (if you use bash) or ~/.zshrc
 (if you use zsh) file**.
 
-```
+```sh
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/lib"
 ```
 
-# Check if the sample is working
+## Check if the sample is working
 
 Go to the *sample* directory of this project. And run:
 
@@ -54,7 +54,7 @@ the following command should be successfully executed.
 
 Otherwise, you need to export the path to the library **on the first execution**.
 
-```
+```sh
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/lib" && ./bin/sample
 ```
 

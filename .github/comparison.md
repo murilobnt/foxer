@@ -6,9 +6,9 @@ This file will present comparisons of implementations of examples.
 
 For **Example 1** it's required to:
 
-  - Draw a 32x32 sprite and position it at the center of the screen (point 400x 300y);
-  - Move the sprite to the left and to the right with the A and D keys, respectively;
-  - Animate the sprite when moving (1st row, columns 1 and 2 for right. 2nd row, columns 1 and 2 for left).
+- Draw a 32x32 sprite and position it at the center of the screen (point 400x 300y);
+- Move the sprite to the left and to the right with the A and D keys, respectively;
+- Animate the sprite when moving (1st row, columns 1 and 2 for right. 2nd row, columns 1 and 2 for left).
 
 ### Implementation 1 (without GS2D)
 
@@ -24,11 +24,11 @@ The third implementation of **Example 1** has two classes: GameScene and Player.
 
 ### Results
 
-| Implementation ID | Lines of Code | McCabe's Complexity Number |
-| --- | --- | --- |
-| 1 | 55 | Overall: 11, Per Module: 11 |
-| 2 | 99 | Overall: 13, Per Module: 1.444 |
-| 3 | 72 | Overall: 5, Per Module: 0.556 |
+| Implementation ID | Lines of Code | McCabe's Complexity Number     |
+| ----------------- | ------------- | ------------------------------ |
+| 1                 | 55            | Overall: 11, Per Module: 11    |
+| 2                 | 99            | Overall: 13, Per Module: 1.444 |
+| 3                 | 72            | Overall: 5, Per Module: 0.556  |
 
 The results shows that **Implementation 3**'s McCabe's Complexity Number is **2.2 and 2.6 times lower than Implementation 1 and Implementation 2, respectively**.
 
@@ -44,6 +44,8 @@ About the lines of codes, **Implementation 1** shows the lowest number, followed
 
 ### Gists of the implementations
 
-- [Implementation 1](https://gist.github.com/murilobnt/e1e40a17df6cf7a83e308ff86b5aa739)
-- [Implementation 2](https://gist.github.com/murilobnt/80ea16af536e169e3ae50fea4004cb2a)
-- [Implementation 3](https://gist.github.com/murilobnt/d589f25365879338a6d76345141cb67c)
+-  [Implementation 1](https://gist.github.com/murilobnt/e1e40a17df6cf7a83e308ff86b5aa739)
+
+-  [Implementation 2](https://gist.github.com/murilobnt/80ea16af536e169e3ae50fea4004cb2a)
+
+-  [Implementation 3](https://gist.github.com/murilobnt/d589f25365879338a6d76345141cb67c)
