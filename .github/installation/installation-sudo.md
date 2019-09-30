@@ -7,11 +7,11 @@
 
 ## Step 1: Download the repository
 
-To install GS2D you first need to clone or download the ZIP of this repository.
+To install Foxer you first need to clone or download the ZIP of this repository.
 
 ## Step 2: Install this project's dependencies
 
-Check [this page of the wiki](https://github.com/murilobnt/gs2d/wiki/Insight:-Starting-point#install-dependencies).
+Check [this page of the wiki](https://github.com/murilobnt/foxer/wiki/Insight:-Starting-point#install-dependencies).
 
 ## Step 3: Install the Framework library
 
@@ -45,7 +45,7 @@ Go to the *sample* directory of this project. And run:
 make
 ```
 
-Now, if you followed the [Step 3.1: Exporting the library location](https://github.com/murilobnt/gs2d/blob/master/.github/installation/installation-sudo.md#step-31-exporting-the-library-location),
+Now, if you followed the [Step 3.1: Exporting the library location](https://github.com/murilobnt/foxer/blob/master/.github/installation/installation-sudo.md#step-31-exporting-the-library-location),
 the following command should be successfully executed.
 
 ```sh
@@ -58,4 +58,4 @@ Otherwise, you need to export the path to the library **on the first execution**
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/lib" && ./bin/sample
 ```
 
-[Return to readme](https://github.com/murilobnt/gs2d#installation)
+[Return to readme](https://github.com/murilobnt/foxer#installation)

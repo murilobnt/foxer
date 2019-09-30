@@ -1,7 +1,7 @@
 #include "level_one.hpp"
 #include "level_two.hpp"
 
-LevelTwo::LevelTwo() : gs::RPGLevel("assets/levels/level03.json") {}
+LevelTwo::LevelTwo() : fox::RPGLevel("assets/levels/level03.json") {}
 
 void LevelTwo::level_init() {
   add_exit_area(std::make_unique<SampleExitArea>(
@@ -11,7 +11,7 @@ void LevelTwo::level_init() {
 }
 
 void LevelTwo::draw(sf::RenderTarget &target, sf::RenderStates states) const {
-  if (fader.get_fade_state() != gs::NOT_FADING) {
+  if (fader.get_fade_state() != fox::NOT_FADING) {
     target.draw(get_layers(1, 4));
     target.draw(fader);
     target.draw(*player);

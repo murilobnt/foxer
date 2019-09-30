@@ -1,9 +1,9 @@
 <img src="assets/readme/example.gif" width=300/>
 
-## GS2D Framework
+## Foxer Framework
 
 **A lightweight easy to learn, use and extend open-source framework for 2D games
-over the C++ programming language**. That's the main goal of the GS2D Framework.
+over the C++ programming language**. That's the main goal of the Foxer Framework.
 It hopes to provide pratical (yet simple) usage of Object-Oriented Programming
 for a game that can be built with any text editor.
 
@@ -14,7 +14,7 @@ express the demo in the GIF with only about 299 lines of code
 **It uses [SFML](https://www.sfml-dev.org) and supports
 [Tiled](https://www.mapeditor.org/) orthogonal maps!** For Tiled, you just
 need to export (save) everything it creates (tilesets and tilemaps) in JSON
-and GS2D can understand it into a visual and collidable level.
+and Foxer can understand it into a visual and collidable level.
 
 ![Code Example](assets/readme/code_example.png)
 
@@ -27,17 +27,17 @@ and GS2D can understand it into a visual and collidable level.
 ### How to install
 
 You can see the
-[installation](https://github.com/murilobnt/gs2d/blob/master/.github/installation/installation.md)
+[installation](https://github.com/murilobnt/foxer/blob/master/.github/installation/installation.md)
 page of this repository for information about it.
 
 ### Project details
 
-- [Wiki](https://github.com/murilobnt/gs2d/wiki).
-- [Code comparison](https://github.com/murilobnt/gs2d/blob/master/.github/comparison.md) of different implementations of a simple game scenario.
+- [Wiki](https://github.com/murilobnt/foxer/wiki).
+- [Code comparison](https://github.com/murilobnt/foxer/blob/master/.github/comparison.md) of different implementations of a simple game scenario.
 
 ### License
 
-GS2D is licensed under the [MIT License](https://github.com/murilobnt/gs2d/blob/master/LICENSE).
+Foxer is licensed under the [MIT License](https://github.com/murilobnt/foxer/blob/master/LICENSE).
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/02e6682822d149bf8e2e0472476f41ea)](https://www.codacy.com/manual/murilobnt/gs2d?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=murilobnt/gs2d&amp;utm_campaign=Badge_Grade)
-[![License](https://img.shields.io/:license-MIT-blue.svg)](https://github.com/murilobnt/gs2d/blob/master/LICENSE)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/02e6682822d149bf8e2e0472476f41ea)](https://www.codacy.com/manual/murilobnt/foxer?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=murilobnt/foxer&amp;utm_campaign=Badge_Grade)
+[![License](https://img.shields.io/:license-MIT-blue.svg)](https://github.com/murilobnt/foxer/blob/master/LICENSE)

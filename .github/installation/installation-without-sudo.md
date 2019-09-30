@@ -8,7 +8,7 @@
 
 ## Step 1: Download the repository
 
-To install GS2D you first need to clone or download the ZIP of this repository.
+To install Foxer you first need to clone or download the ZIP of this repository.
 
 ## Step 2: Download the newest version of SFML
 
@@ -16,7 +16,7 @@ In this no-sudo case, you must download the Linux version of SFML. It can be
 obtained [here](https://www.sfml-dev.org/download.php).
 
 When complete, extract the directory inside the .tar.gz to somewhere. **It's advised to
-extract it to the root of the project (the gs2d directory)**.
+extract it to the root of the project (the foxer directory)**.
 
 ## Step 3: Adjust the makefile of the framework
 
@@ -33,7 +33,7 @@ You might run into something like this in the first three lines of the file.
 
 So, you need uncomment those two last lines. If SFML directory is not located at the root
 of the project, or if the downloaded version is not 2.5.1, you will need to alter it's
-value to the path of the extracted directory at the moment of [Step 2: Download the newest version of SFML](https://github.com/murilobnt/gs2d/blob/master/.github/installation-without-sudo.md#step-3-download-the-newest-version-of-sfml).
+value to the path of the extracted directory at the moment of [Step 2: Download the newest version of SFML](https://github.com/murilobnt/foxer/blob/master/.github/installation-without-sudo.md#step-3-download-the-newest-version-of-sfml).
 
 ## Step 4: Compile the library
 
@@ -46,17 +46,17 @@ make
 
 ### Step 4.1: Exporting the libraries locations
 
-In order for the linker to acknowledge the location of the .so files of SFML and GS2D,
+In order for the linker to acknowledge the location of the .so files of SFML and Foxer,
 it's a good idea to export the library locations beforehand.
 
 To easily solve this, you can
 **add these lines to the end of your ~/.bashrc (if you use bash) or ~/.zshrc
-(if you use zsh) file, altering the <SFML-DIRECTORY-PATH> and <GS2D-DIRECTORY-PATH>
+(if you use zsh) file, altering the <SFML-DIRECTORY-PATH> and <FOXER-DIRECTORY-PATH>
 to their paths in the machine**.
 
 ```sh
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:<SFML-DIRECTORY-PATH>/lib"
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:<GS2D-DIRECTORY-PATH>/gs2d/lib"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:<FOXER-DIRECTORY-PATH>/foxer/lib"
 ```
 
 ## Check if the sample is working
@@ -68,14 +68,14 @@ framework, you will only need to alter some variables of it.
 
 ```makefile
 ## Use these variables if SFML is not installed in a standard path.
-## Also use these variables if GS2D library couldn't be installed with sudo.
+## Also use these variables if Foxer library couldn't be installed with sudo.
 
 # SFML-DIR = ../SFML-2.5.1
 
 # SFML-INCLUDE = -I $(SFML-DIR)/include
-# GS2D-INCLUDE = -I ../gs2d/include
+# FOXER-INCLUDE = -I ../foxer/include
 
-# GS2D-LIB-LOCATION = -L ../gs2d/lib
+# FOXER-LIB-LOCATION = -L ../foxer/lib
 # SFML-LIB-LOCATION = -L $(SFML-DIR)/lib
 ```
 
@@ -91,17 +91,17 @@ Go to the *sample* directory of this project. And run:
 make
 ```
 
-Now, if you followed the [Step 4.1: Exporting the libraries locations](https://github.com/murilobnt/gs2d/blob/master/.github/installation/installation-without-sudo.md#step-41-exporting-the-libraries-locations),
+Now, if you followed the [Step 4.1: Exporting the libraries locations](https://github.com/murilobnt/foxer/blob/master/.github/installation/installation-without-sudo.md#step-41-exporting-the-libraries-locations),
 the following command should be successfully executed.
 
 ```sh
 ./bin/sample
 ```
 
-Otherwise, you need to export the path to the GS2D and SFML libraries **on the first execution**.
+Otherwise, you need to export the path to the Foxer and SFML libraries **on the first execution**.
 
 ```sh
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:<SFML-DIRECTORY-PATH>/lib" && export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:<GS2D-DIRECTORY-PATH>/gs2d/lib" && ./bin/sample
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:<SFML-DIRECTORY-PATH>/lib" && export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:<FOXER-DIRECTORY-PATH>/foxer/lib" && ./bin/sample
 ```
 
-[Return to readme](https://github.com/murilobnt/gs2d#installation)
+[Return to readme](https://github.com/murilobnt/foxer#installation)

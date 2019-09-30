@@ -4,7 +4,7 @@
 
 # SECTION: CLEAN COMMANDS ------------------------------------------------------
 
-CLEANGS2D = $(RM) $(BDIR)/*.o $(LDIR)/$(TARGET)
+CLEANFOXER = $(RM) $(BDIR)/*.o $(LDIR)/$(TARGET)
 
 # SECTION: LIBRARY VARIABLES ---------------------------------------------------
 
@@ -20,19 +20,19 @@ OBJ-FLAG = -c
 FLAGS =
 
 ## Headers' inclusion
-INCLUDE = -I ./gs2d/include
+INCLUDE = -I ./foxer/include
 
 ## The target's name
-TARGET = libgs2d.so
+TARGET = libfoxer.so
 
 ## Binaries directory
-BDIR = ./gs2d/bin
+BDIR = ./foxer/bin
 
 ## Library directory
-LDIR = ./gs2d/lib
+LDIR = ./foxer/lib
 
 ## Source files directory
-SRC = ./gs2d/src
+SRC = ./foxer/src
 
 ## Code coverage dir
 CDIR = ./coverage
@@ -67,12 +67,12 @@ $(BDIR)/%.o: $(SRC)/%.cpp
 
 ## For entry "clean" (make clean), delete the objects and the executable.
 clean :
-	$(CLEANGS2D)
+	$(CLEANFOXER)
 
 install : $(TARGET)
-	cp gs2d/lib/libgs2d.so /usr/local/lib && chmod 755 /usr/local/lib/libgs2d.so
-	cp -r gs2d/include/gs2d /usr/local/include && chmod -R 755 /usr/local/include/gs2d
+	cp foxer/lib/libfoxer.so /usr/local/lib && chmod 755 /usr/local/lib/libfoxer.so
+	cp -r foxer/include/foxer /usr/local/include && chmod -R 755 /usr/local/include/foxer
 
 uninstall :
-	rm /usr/local/lib/libgs2d.so
-	rm -r /usr/local/include/gs2d
+	rm /usr/local/lib/libfoxer.so
+	rm -r /usr/local/include/foxer

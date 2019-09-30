@@ -10,15 +10,15 @@ For **Example 1** it's required to:
 - Move the sprite to the left and to the right with the A and D keys, respectively;
 - Animate the sprite when moving (1st row, columns 1 and 2 for right. 2nd row, columns 1 and 2 for left).
 
-### Implementation 1 (without GS2D)
+### Implementation 1 (without Foxer)
 
 An implementation of **Example 1** was developed in a single, source file. This file only makes use of a main method.
 
-### Implementation 2 (without GS2D)
+### Implementation 2 (without Foxer)
 
 Another implementation of **Example 1** has two classes: Game and Player.
 
-### Implementation 3 (with GS2D)
+### Implementation 3 (with Foxer)
 
 The third implementation of **Example 1** has two classes: GameScene and Player.
 

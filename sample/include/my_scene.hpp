@@ -2,13 +2,13 @@
 #define MY_SCENE_HPP
 
 #include <SFML/Graphics.hpp>
-#include <gs2d/game/level/level_proxy.hpp>
-#include <gs2d/scene.hpp>
+#include <foxer/game/level/level_proxy.hpp>
+#include <foxer/scene.hpp>
 
 #include "character.hpp"
 #include "level_one.hpp"
 
-class MyScene : public gs::Scene {
+class MyScene : public fox::Scene {
 private:
   Character character;
   sf::Vector2f delay;

@@ -1,7 +1,7 @@
 #include "character.hpp"
 
 Character::Character(sf::Texture const &texture, sf::Vector2f position)
-    : gs::MainObject::MainObject(texture, 5, sf::Vector2i(16, 23)) {
+    : fox::MainObject::MainObject(texture, 5, sf::Vector2i(16, 23)) {
   set_sprite_position(position);
   current_facing_pos = DOWN;
   collision_offset_down = 22;

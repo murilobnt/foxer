@@ -1,24 +1,24 @@
 ## Use these variables if SFML is not installed in a standard path.
-## Also use these variables if GS2D library couldn't be installed with sudo.
+## Also use these variables if Foxer library couldn't be installed with sudo.
 
 # SFML-DIR = ../SFML-2.5.1
 
 # SFML-INCLUDE = -I $(SFML-DIR)/include
-# GS2D-INCLUDE = -I ../gs2d/include
+# FOXER-INCLUDE = -I ../foxer/include
 
-# GS2D-LIB-LOCATION = -L ../gs2d/lib
+# FOXER-LIB-LOCATION = -L ../foxer/lib
 # SFML-LIB-LOCATION = -L $(SFML-DIR)/lib
 
 CC = g++
 RM = rm -f
 
-FLAGS = 
+FLAGS =
 LANGUAGE = c++17
 TARGET = sample
 
 INCLUDE = -I ./include
 
-GS2D = -lgs2d
+FOXER = -lfoxer
 
 ODIR = ./bin
 SRC = ./src
@@ -29,15 +29,15 @@ THREADED = -pthread
 
 CPPS = $(wildcard $(SRC)/*.cpp)
 OBJS = $(addprefix $(ODIR)/,$(notdir $(CPPS:.cpp=.o)))
-GS2DOBJS = $(wildcard $(GS2DODIR)/*.o)
+FOXEROBJS = $(wildcard $(FOXERODIR)/*.o)
 
 all : $(TARGET)
 
 $(TARGET) : $(OBJS)
-	$(CC) $(FLAGS) $(THREADED) -std=$(LANGUAGE) ./$^ $(SFML-LIB-LOCATION) $(GS2D-LIB-LOCATION) $(SFML) $(GS2D) -o $(ODIR)/$@ $(X11)
+	$(CC) $(FLAGS) $(THREADED) -std=$(LANGUAGE) ./$^ $(SFML-LIB-LOCATION) $(FOXER-LIB-LOCATION) $(SFML) $(FOXER) -o $(ODIR)/$@ $(X11)
 
 $(ODIR)/%.o: $(SRC)/%.cpp
-	$(CC) $(FLAGS) -c -std=$(LANGUAGE) $(INCLUDE) $(SFML-INCLUDE) $(GS2D-INCLUDE) ./$< -o ./$@
+	$(CC) $(FLAGS) -c -std=$(LANGUAGE) $(INCLUDE) $(SFML-INCLUDE) $(FOXER-INCLUDE) ./$< -o ./$@
 
 clean :
 	$(RM) $(ODIR)/*.o $(ODIR)/$(TARGET)

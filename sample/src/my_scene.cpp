@@ -4,7 +4,7 @@ void MyScene::start() {
   time_handlers.push_back(character.get_time_handler());
   character = Character(tex_holder.load("assets/textures/character.png"));
 
-  camera = gs::Camera(sf::Vector2f(480, 320));
+  camera = fox::Camera(sf::Vector2f(480, 320));
 
   std::shared_ptr<LevelOne> level_one =
       std::make_shared<LevelOne>("player_start_pos");

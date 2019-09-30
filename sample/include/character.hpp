@@ -2,12 +2,12 @@
 #define CHARACTER_HPP
 
 #include <SFML/Graphics.hpp>
-#include <gs2d/scene_components.hpp>
+#include <foxer/scene_components.hpp>
 #include <iostream>
 
 #include "facing_position.hpp"
 
-class Character : public gs::MainObject {
+class Character : public fox::MainObject {
 private:
   FacingPosition current_facing_pos;
   bool do_animate;
