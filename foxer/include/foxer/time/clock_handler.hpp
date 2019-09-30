@@ -3,7 +3,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_CLOCK_HANDLER_HPP
-#define FOX_CLOCK_HANDLER_HPP
+#ifndef FOX_CLOCK_HANDLER_HPP_
+#define FOX_CLOCK_HANDLER_HPP_
 
 #include "foxer/time/time_handler.hpp"
 
@@ -35,14 +35,6 @@
 namespace fox {
 
 class ClockHandler {
-
-private:
-  // The SFML clock.
-  sf::Clock clock;
-
-  // The elapsed time of the clock.
-  sf::Time elapsed_time;
-
 public:
   // Constructor.
   ClockHandler();
@@ -55,6 +47,13 @@ public:
 
   // Getters.
   sf::Time get_elapsed_time() const;
+
+private:
+  // The SFML clock.
+  sf::Clock clock;
+
+  // The elapsed time of the clock.
+  sf::Time elapsed_time;
 };
 
 } // namespace fox

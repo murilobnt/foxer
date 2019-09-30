@@ -3,7 +3,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_LEVEL_HPP
-#define FOX_LEVEL_HPP
+#ifndef FOX_LEVEL_HPP_
+#define FOX_LEVEL_HPP_
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -42,6 +42,17 @@ namespace fox {
 // to create a scene for every existent level.
 
 class Level : public sf::Drawable {
+public:
+  virtual void load() = 0;
+  virtual void init() = 0;
+  virtual void handle_events(const float &delta_time) = 0;
+  virtual void control_camera(const float &delta_time) = 0;
+
+  void set_level_bundle(LevelBundle *bundle);
+
+  void change_level(Level *level);
+  void change_level(std::shared_ptr<Level> level);
+
 protected:
   LevelBundle *bundle;
   Camera *camera;
@@ -60,17 +71,6 @@ protected:
 
   virtual void draw(sf::RenderTarget &target,
                     sf::RenderStates states) const = 0;
-
-public:
-  virtual void load() = 0;
-  virtual void init() = 0;
-  virtual void handle_events(const float &delta_time) = 0;
-  virtual void control_camera(const float &delta_time) = 0;
-
-  void set_level_bundle(LevelBundle *bundle);
-
-  void change_level(Level *level);
-  void change_level(std::shared_ptr<Level> level);
 };
 
 } // namespace fox

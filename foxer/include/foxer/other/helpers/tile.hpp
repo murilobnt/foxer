@@ -3,7 +3,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_TILE_HPP
-#define FOX_TILE_HPP
+#ifndef FOX_TILE_HPP_
+#define FOX_TILE_HPP_
 
 // # External
 #include <SFML/Graphics.hpp>
@@ -34,13 +34,6 @@
 namespace fox {
 
 class Tile {
-private:
-  // The position of the tile
-  sf::Vector2f tile_position;
-
-  // The rect of the tile
-  sf::FloatRect tile_rect;
-
 public:
   /**
    * Constructor.
@@ -71,6 +64,13 @@ public:
    * @return the tile rect
    */
   sf::FloatRect get_tile_rect() const;
+
+private:
+  // The position of the tile
+  sf::Vector2f tile_position;
+
+  // The rect of the tile
+  sf::FloatRect tile_rect;
 };
 
 } // namespace fox

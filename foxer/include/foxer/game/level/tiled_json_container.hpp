@@ -3,7 +3,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_TILED_JSON_CONTAINER_HPP
-#define FOX_TILED_JSON_CONTAINER_HPP
+#ifndef FOX_TILED_JSON_CONTAINER_HPP_
+#define FOX_TILED_JSON_CONTAINER_HPP_
 
 #include <iostream>
 #include <string>

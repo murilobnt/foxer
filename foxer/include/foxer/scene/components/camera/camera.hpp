@@ -1,9 +1,9 @@
-// File: sprited_entity.hpp
+// File: camera.hpp
 // Author: Murilo Bento
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,17 +23,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_CAMERA_HPP
-#define FOX_CAMERA_HPP
+#ifndef FOX_CAMERA_HPP_
+#define FOX_CAMERA_HPP_
 
 #include <SFML/Graphics.hpp>
 
 namespace fox {
 
 class Camera {
-private:
-  sf::View view;
-
 public:
   Camera(sf::Vector2f const camera_center_position,
          sf::Vector2f const camera_dimensions);
@@ -55,6 +52,9 @@ public:
   sf::View get_view() const;
   sf::Vector2f get_size() const;
   void move(sf::Vector2f movement);
+
+private:
+  sf::View view;
 };
 
 } // namespace fox

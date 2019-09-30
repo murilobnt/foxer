@@ -3,7 +3,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_APP_HPP
-#define FOX_APP_HPP
+#ifndef FOX_APP_HPP_
+#define FOX_APP_HPP_
 
 // # External
 #include <SFML/Audio.hpp>
@@ -44,6 +44,25 @@ namespace fox {
 // to its current scene. It also keeps the application to the framerate.
 
 class App {
+public:
+  App();
+  // Constructor. Requires the width and height of the application window and
+  // its title too.
+  App(int app_width, int app_height, std::string app_title,
+      float timestep = 60.f, float limit_framerate = 0);
+
+  // Destructor.
+  ~App();
+
+  // Start the application. This begins the application cycle, verifying if the
+  // window is still open to do the operations. It requires the first
+  // scene to be played and the bool to use vsync.
+  void app_start(Scene *first_scene, bool vsync = false,
+                 bool fullscreen = true);
+
+  // Getters for the application width and height.
+  int get_app_width() const;
+  int get_app_height() const;
 
 private:
   // The window of the application.
@@ -75,26 +94,6 @@ private:
   // the current scene. It calls for the draw_entities method from the
   // scene.
   void clear_and_draw();
-
-public:
-  App();
-  // Constructor. Requires the width and height of the application window and
-  // its title too.
-  App(int app_width, int app_height, std::string app_title,
-      float timestep = 60.f, float limit_framerate = 0);
-
-  // Destructor.
-  ~App();
-
-  // Start the application. This begins the application cycle, verifying if the
-  // window is still open to do the operations. It requires the first
-  // scene to be played and the bool to use vsync.
-  void app_start(Scene *first_scene, bool vsync = false,
-                 bool fullscreen = true);
-
-  // Getters for the application width and height.
-  int get_app_width() const;
-  int get_app_height() const;
 };
 
 } // namespace fox

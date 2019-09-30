@@ -3,7 +3,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_TILE_GRID_HPP
-#define FOX_TILE_GRID_HPP
+#ifndef FOX_TILE_GRID_HPP_
+#define FOX_TILE_GRID_HPP_
 
 // # External
 #include <SFML/Graphics.hpp>
@@ -46,16 +46,6 @@ public:
 };
 
 class TileGrid : public GenericGrid {
-
-private:
-  std::vector<Unity> unities;
-  void check_boundaries(sf::Vector2i &before);
-  sf::Vector2u tile_size;
-  void add_unity(std::vector<Unity> &adjacent, std::set<int> &added, int index);
-  sf::Vector2i transform_to_grid_coordinate(const sf::Vector2f &spl,
-                                            int modifier_x = 0,
-                                            int modifier_y = 0);
-
 public:
   TileGrid();
 
@@ -68,6 +58,15 @@ public:
   std::vector<Unity>
   get_unities_in_position(const sf::Vector2f &sprite_upper_left,
                           const sf::FloatRect &gb);
+
+private:
+  std::vector<Unity> unities;
+  void check_boundaries(sf::Vector2i &before);
+  sf::Vector2u tile_size;
+  void add_unity(std::vector<Unity> &adjacent, std::set<int> &added, int index);
+  sf::Vector2i transform_to_grid_coordinate(const sf::Vector2f &spl,
+                                            int modifier_x = 0,
+                                            int modifier_y = 0);
 };
 
 } // namespace fox

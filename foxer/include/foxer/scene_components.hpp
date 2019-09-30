@@ -3,7 +3,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_SCENE_COMPONENTS_HPP
-#define FOX_SCENE_COMPONENTS_HPP
+#ifndef FOX_SCENE_COMPONENTS_HPP_
+#define FOX_SCENE_COMPONENTS_HPP_
 
 #include "foxer/scene/components/control/eb_controlable_entity.hpp"
 #include "foxer/scene/components/control/ib_controlable_entity.hpp"

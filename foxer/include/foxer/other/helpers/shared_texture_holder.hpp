@@ -3,7 +3,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2019 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_SHARED_TEXTURE_HOLDER_HPP
-#define FOX_SHARED_TEXTURE_HOLDER_HPP
+#ifndef FOX_SHARED_TEXTURE_HOLDER_HPP_
+#define FOX_SHARED_TEXTURE_HOLDER_HPP_
 
 #include <SFML/Graphics.hpp>
 #include <map>
@@ -34,11 +34,11 @@
 namespace fox {
 
 class SharedTextureHolder {
-private:
-  std::map<std::string, std::weak_ptr<sf::Texture>> holder;
-
 public:
   std::shared_ptr<sf::Texture> load(const std::string &path);
+
+private:
+  std::map<std::string, std::weak_ptr<sf::Texture>> holder;
 };
 
 } // namespace fox

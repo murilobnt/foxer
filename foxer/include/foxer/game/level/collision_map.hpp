@@ -3,7 +3,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_COLLISION_MAP_HPP
-#define FOX_COLLISION_MAP_HPP
+#ifndef FOX_COLLISION_MAP_HPP_
+#define FOX_COLLISION_MAP_HPP_
 
 #include <SFML/Graphics.hpp>
 #include <cmath>
@@ -40,6 +40,20 @@ namespace fox {
 // As it is now, this class stops the movement of a Game Object on collision.
 
 class CollisionMap {
+public:
+  // Empty constructor.
+  CollisionMap();
+
+  // Loads the collision map. It needs a vector of integers, the size of the
+  // tile and the size of the level. In the vector, 0 means no collision and
+  // any number that is not 0 means that the tile is collidable.
+  void load(const std::vector<int> &collision_layer_data,
+            const sf::Vector2u &tile_size, const sf::Vector2u &level_size);
+
+  // Verifies the collision of a tile to a game object. Calls handle_collision
+  // if there is a collision.
+  void verify_collision(GameObject &game_object);
+
 private:
   // Stores the boolean value of a loaded map.
   bool loaded;
@@ -55,20 +69,6 @@ private:
                                 const sf::FloatRect &gb,
                                 const sf::FloatRect &tile_rect,
                                 const sf::Vector2f &movement);
-
-public:
-  // Empty constructor.
-  CollisionMap();
-
-  // Loads the collision map. It needs a vector of integers, the size of the
-  // tile and the size of the level. In the vector, 0 means no collision and
-  // any number that is not 0 means that the tile is collidable.
-  void load(const std::vector<int> &collision_layer_data,
-            const sf::Vector2u &tile_size, const sf::Vector2u &level_size);
-
-  // Verifies the collision of a tile to a game object. Calls handle_collision
-  // if there is a collision.
-  void verify_collision(GameObject &game_object);
 };
 
 } // namespace fox

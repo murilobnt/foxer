@@ -3,7 +3,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_SPRITED_ENTITY_HPP
-#define FOX_SPRITED_ENTITY_HPP
+#ifndef FOX_SPRITED_ENTITY_HPP_
+#define FOX_SPRITED_ENTITY_HPP_
 
 #include <SFML/Graphics.hpp>
 
@@ -36,18 +36,6 @@
 namespace fox {
 
 class SpritedEntity : public sf::Drawable {
-
-private:
-  // The sprite of the entity.
-  sf::Sprite sprite;
-
-  // The dimensions of the entity. This is a two-dimensional
-  // vector of int which contains, respectively, the width and
-  // the height of the sprite.
-  sf::Vector2i sprite_dimensions;
-
-  void draw(sf::RenderTarget &target, sf::RenderStates states) const;
-
 public:
   // Constructor. It takes the texture, the X and Y positions,
   // and the width and height of this sprite.
@@ -95,6 +83,17 @@ public:
   sf::FloatRect get_sprite_local_bounds() const;
 
   sf::RectangleShape get_rectangle_shape() const;
+
+private:
+  // The sprite of the entity.
+  sf::Sprite sprite;
+
+  // The dimensions of the entity. This is a two-dimensional
+  // vector of int which contains, respectively, the width and
+  // the height of the sprite.
+  sf::Vector2i sprite_dimensions;
+
+  void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 };
 
 } // namespace fox

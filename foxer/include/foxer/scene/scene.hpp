@@ -3,7 +3,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_SCENE_HPP
-#define FOX_SCENE_HPP
+#ifndef FOX_SCENE_HPP_
+#define FOX_SCENE_HPP_
 
 #include <SFML/Graphics.hpp>
 #include <memory>
@@ -51,27 +51,6 @@
 namespace fox {
 
 class Scene {
-
-private:
-  float dt;
-  ClockHandler *app_clock;
-  std::vector<std::shared_ptr<Scene>> *app_state;
-
-  SharedTextureHolder shared_holder;
-
-protected:
-  // The time handlers of the scene.
-  std::vector<TimeHandler *> time_handlers;
-
-  // The window of the application.
-  sf::RenderWindow *app_window;
-
-  TextureHolder tex_holder;
-  LevelBundle level_bundle;
-
-  LevelProxy l_proxy;
-  Camera camera;
-
 public:
   Scene();
 
@@ -125,6 +104,26 @@ public:
   float get_frame_delta_time() const;
 
   void set_app_state(std::vector<std::shared_ptr<Scene>> *app_state);
+
+protected:
+  // The time handlers of the scene.
+  std::vector<TimeHandler *> time_handlers;
+
+  // The window of the application.
+  sf::RenderWindow *app_window;
+
+  TextureHolder tex_holder;
+  LevelBundle level_bundle;
+
+  LevelProxy l_proxy;
+  Camera camera;
+
+private:
+  float dt;
+  ClockHandler *app_clock;
+  std::vector<std::shared_ptr<Scene>> *app_state;
+
+  SharedTextureHolder shared_holder;
 };
 
 } // namespace fox

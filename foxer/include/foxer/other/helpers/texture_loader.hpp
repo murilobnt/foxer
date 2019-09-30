@@ -3,7 +3,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_TEXTURE_LOADER_HPP
-#define FOX_TEXTURE_LOADER_HPP
+#ifndef FOX_TEXTURE_LOADER_HPP_
+#define FOX_TEXTURE_LOADER_HPP_
 
 // # External
 #include <SFML/Graphics.hpp>
@@ -37,11 +37,6 @@
 namespace fox {
 
 class TextureLoader {
-
-private:
-  // Load the given texture by the path to its corresponding image.
-  static void load_texture(sf::Texture &texture, std::string path);
-
 public:
   // Set the given texture with the image from the given path, with
   // the given width and height, also defining if the texture is repeated
@@ -52,6 +47,10 @@ public:
 
   // Create the given texture with the given width and height.
   static void create_texture(sf::Texture &texture, int w, int h);
+
+private:
+  // Load the given texture by the path to its corresponding image.
+  static void load_texture(sf::Texture &texture, std::string path);
 };
 
 } // namespace fox

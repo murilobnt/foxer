@@ -3,7 +3,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_SAMPLE_LEVEL_HPP
-#define FOX_SAMPLE_LEVEL_HPP
+#ifndef FOX_SAMPLE_LEVEL_HPP_
+#define FOX_SAMPLE_LEVEL_HPP_
 
 #include "foxer/game/level/threaded_level_loader.hpp"
 #include "foxer/game/level/tiled_level.hpp"
@@ -34,6 +34,17 @@
 namespace fox {
 
 class SampleLevel : public TiledLevel {
+public:
+  SampleLevel();
+  SampleLevel(const std::string &json_level);
+  SampleLevel(const std::string &json_level,
+              const std::string &start_position_id);
+
+  void init();
+  void handle_events(const float &delta_time);
+  void set_start_position_id(const std::string &start_position_id);
+  void set_player(MainObject *player);
+
 protected:
   int fading_speed;
   MainObject *player;
@@ -50,17 +61,6 @@ protected:
   virtual void on_fade_in() = 0;
   virtual void handle_level_events(const float &delta_time) = 0;
   virtual void level_init() = 0;
-
-public:
-  SampleLevel();
-  SampleLevel(const std::string &json_level);
-  SampleLevel(const std::string &json_level,
-              const std::string &start_position_id);
-
-  void init();
-  void handle_events(const float &delta_time);
-  void set_start_position_id(const std::string &start_position_id);
-  void set_player(MainObject *player);
 };
 
 } // namespace fox

@@ -1,4 +1,4 @@
-// File: timed_entity.hpp
+// File: level.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,27 +23,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef TIMED_ENTITY_HPP_
-#define TIMED_ENTITY_HPP_
+#ifndef FOX_SHORTCUT_LEVEL_HPP_
+#define FOX_SHORTCUT_LEVEL_HPP_
 
-#include "foxer/time/time_handler.hpp"
-
-namespace fox {
-
-class TimedEntity {
-public:
-  TimedEntity();
-  TimedEntity(sf::Time update_rate);
-  TimeHandler *get_time_handler();
-  void time_trigger();
-  virtual void on_update_time() = 0;
-  void reset_last_update();
-  void ready_to_update();
-
-private:
-  TimeHandler time_handler;
-};
-
-} // namespace fox
+#include "foxer/game/level/components/exit_area.hpp"
+#include "foxer/game/level/components/exit_callbackable.hpp"
+#include "foxer/game/level/level.hpp"
+#include "foxer/game/level/level_proxy.hpp"
+#include "foxer/game/level/tiled_level.hpp"
+#include "foxer/other/geared_up/rpg_level.hpp"
+#include "foxer/other/geared_up/rpg_level_indoor.hpp"
+#include "foxer/other/geared_up/sample_level.hpp"
 
 #endif

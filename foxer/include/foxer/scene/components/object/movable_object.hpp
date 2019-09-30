@@ -3,7 +3,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_MOVABLE_OBJECT_HPP
-#define FOX_MOVABLE_OBJECT_HPP
+#ifndef FOX_MOVABLE_OBJECT_HPP_
+#define FOX_MOVABLE_OBJECT_HPP_
 
 #include <SFML/Graphics.hpp>
 
@@ -42,11 +42,6 @@ public:
   float collision_offset_up;
   float collision_offset_down;
 
-protected:
-  sf::Vector2f movement;
-  sf::Vector2f current_movement;
-
-public:
   MovableObject();
 
   sf::Vector2f get_movement() const;
@@ -59,6 +54,10 @@ public:
 
   virtual void move(float delta_time) = 0;
   virtual void move() = 0;
+
+protected:
+  sf::Vector2f movement;
+  sf::Vector2f current_movement;
 };
 
 } // namespace fox

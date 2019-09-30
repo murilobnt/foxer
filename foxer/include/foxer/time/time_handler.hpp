@@ -3,7 +3,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_TIME_HANDLER_HPP
-#define FOX_TIME_HANDLER_HPP
+#ifndef FOX_TIME_HANDLER_HPP_
+#define FOX_TIME_HANDLER_HPP_
 
 #include <SFML/Graphics.hpp>
 
@@ -34,14 +34,6 @@
 namespace fox {
 
 class TimeHandler {
-
-private:
-  // The time since the last update.
-  sf::Time last_update;
-
-  // The framerate, in seconds.
-  sf::Time update_rate;
-
 public:
   // Constructor.
   TimeHandler();
@@ -71,6 +63,13 @@ public:
   // Getters.
   sf::Time get_last_update() const;
   sf::Time get_update_rate() const;
+
+private:
+  // The time since the last update.
+  sf::Time last_update;
+
+  // The framerate, in seconds.
+  sf::Time update_rate;
 };
 
 } // namespace fox

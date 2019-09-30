@@ -3,7 +3,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_COLLIDABLE_AREA_HPP
-#define FOX_COLLIDABLE_AREA_HPP
+#ifndef FOX_COLLIDABLE_AREA_HPP_
+#define FOX_COLLIDABLE_AREA_HPP_
 
 #include <SFML/Graphics.hpp>
 #include <foxer/game/level/tiled_json_container.hpp>
@@ -36,14 +36,6 @@ namespace fox {
 // the code's legibility.
 
 class CollidableArea {
-private:
-  // The area.
-  sf::FloatRect area;
-
-protected:
-  // Loads the area by a sf::FloatRect.
-  void load(const sf::FloatRect &area);
-
 public:
   // Empty constructor.
   CollidableArea();
@@ -53,6 +45,14 @@ public:
 
   // Check if the area collides with something.
   bool collides_with(const sf::FloatRect &rect);
+
+private:
+  // The area.
+  sf::FloatRect area;
+
+protected:
+  // Loads the area by a sf::FloatRect.
+  void load(const sf::FloatRect &area);
 };
 
 } // namespace fox

@@ -3,7 +3,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_ANIMATED_ENTITY_HPP
-#define FOX_ANIMATED_ENTITY_HPP
+#ifndef FOX_ANIMATED_ENTITY_HPP_
+#define FOX_ANIMATED_ENTITY_HPP_
 
 #include "foxer/scene/components/graphic/sprited_entity.hpp"
 #include "foxer/time/timed_entity.hpp"
@@ -42,13 +42,6 @@
 namespace fox {
 
 class AnimatedEntity : public TimedEntity {
-private:
-  // The integer to iterate through the animation frames. It is initialized
-  // by zero (the first frame) and it is incremented when a frame is already
-  // set to the sprite. When it reaches the final sprite, it is reseted to
-  // zero once again.
-  int animation_loop_state;
-
 public:
   // Constructor. It takes the texture, the X and Y positions of
   // the unnanimated, and the width and height of this sprite,
@@ -80,6 +73,13 @@ public:
   void on_update_time();
 
   void set_animation_loop_state(const int &animation_loop_state);
+
+private:
+  // The integer to iterate through the animation frames. It is initialized
+  // by zero (the first frame) and it is incremented when a frame is already
+  // set to the sprite. When it reaches the final sprite, it is reseted to
+  // zero once again.
+  int animation_loop_state;
 };
 
 } // namespace fox

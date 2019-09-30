@@ -3,7 +3,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_EXIT_AREA_HPP
-#define FOX_EXIT_AREA_HPP
+#ifndef FOX_EXIT_AREA_HPP_
+#define FOX_EXIT_AREA_HPP_
 
 #include <string>
 
@@ -40,12 +40,6 @@ namespace fox {
 // destination area json object.
 
 class ExitArea : public CollidableArea {
-private:
-  // The identifier of the destination object of the next level.
-  std::string destination_id;
-  ThreadedLevelLoader loader;
-  std::shared_ptr<SampleLevel> next_level;
-
 public:
   // Empty constructor.
   ExitArea();
@@ -65,6 +59,12 @@ public:
   virtual void on_collision(const float &delta_time) = 0;
 
   void run();
+
+private:
+  // The identifier of the destination object of the next level.
+  std::string destination_id;
+  ThreadedLevelLoader loader;
+  std::shared_ptr<SampleLevel> next_level;
 };
 
 } // namespace fox

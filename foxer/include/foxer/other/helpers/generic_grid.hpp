@@ -3,7 +3,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2018 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,14 +23,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_GENERIC_GRID_HPP
-#define FOX_GENERIC_GRID_HPP
+#ifndef FOX_GENERIC_GRID_HPP_
+#define FOX_GENERIC_GRID_HPP_
 
 #include <cmath>
 
 namespace fox {
 
 class GenericGrid {
+public:
+  GenericGrid();
+  GenericGrid(int w, int h, int unity_size);
 
 protected:
   int w;
@@ -39,10 +42,6 @@ protected:
 
   int x_cells;
   int y_cells;
-
-public:
-  GenericGrid();
-  GenericGrid(int w, int h, int unity_size);
 };
 
 } // namespace fox
