@@ -2,6 +2,8 @@
 
 ## Foxer Framework
 
+*Let a fox help your code to be swift and smart, like a fox.*
+
 **A lightweight easy to learn, use and extend open-source framework for 2D games
 over the C++ programming language**. That's the main goal of the Foxer Framework.
 It hopes to provide practical (yet simple) usage of Object-Oriented Programming
@@ -15,8 +17,6 @@ express the demo in the GIF with only about 299 lines of code
 [Tiled](https://www.mapeditor.org/) orthogonal maps!** For Tiled, you just
 need to export (save) everything it creates (tilesets and tilemaps) in JSON
 and Foxer can understand it into a visual and collidable level.
-
-Let a fox help your code to be swift and smart, like a fox.
 
 ![Code Example](.github/assets/readme/code_example.png)
 
