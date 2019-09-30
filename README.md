@@ -1,4 +1,4 @@
-<img src="assets/readme/example.gif" width=300/>
+<img src=".github/assets/readme/example.gif" width=300/>
 
 ## Foxer Framework
 
@@ -18,7 +18,7 @@ and Foxer can understand it into a visual and collidable level.
 
 Let a fox help your code to be swift and smart, like a fox.
 
-![Code Example](assets/readme/code_example.png)
+![Code Example](.github/assets/readme/code_example.png)
 
 ### Requires
 
