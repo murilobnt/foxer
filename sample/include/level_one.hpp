@@ -32,14 +32,14 @@
 #include "sample_exit_area.hpp"
 
 class LevelOne : public fox::RPGLevelIndoor, public fox::ExitCallbackable {
-private:
-  void draw(sf::RenderTarget &target, sf::RenderStates states) const;
-  void level_init();
-
 public:
   LevelOne();
   explicit LevelOne(const std::string &start_position_id);
   void exit_callback(const float &delta_time, const int &pos);
+
+private:
+  void draw(sf::RenderTarget &target, sf::RenderStates states) const;
+  void level_init();
 };
 
 #endif

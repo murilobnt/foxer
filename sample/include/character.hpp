@@ -33,10 +33,6 @@
 #include "facing_position.hpp"
 
 class Character : public fox::MainObject {
-private:
-  FacingPosition current_facing_pos;
-  bool do_animate;
-
 public:
   Character(sf::Texture const &texture,
             sf::Vector2f position = sf::Vector2f(0, 0));
@@ -45,6 +41,10 @@ public:
   void move(float delta_time);
   void move();
   void animate();
+
+private:
+  FacingPosition current_facing_pos;
+  bool do_animate;
 };
 
 #endif

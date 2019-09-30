@@ -33,13 +33,13 @@
 class LevelOne;
 
 class LevelTwo : public fox::RPGLevel, public fox::ExitCallbackable {
-private:
-  void draw(sf::RenderTarget &target, sf::RenderStates states) const;
-  void level_init();
-
 public:
   LevelTwo();
   void exit_callback(const float &delta_time, const int &pos);
+
+private:
+  void draw(sf::RenderTarget &target, sf::RenderStates states) const;
+  void level_init();
 };
 
 #endif

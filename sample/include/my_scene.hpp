@@ -34,14 +34,14 @@
 #include "level_one.hpp"
 
 class MyScene : public fox::Scene {
-private:
-  Character character;
-  sf::Vector2f delay;
-
 public:
   void start();
   void update();
   void draw_entities();
+
+private:
+  Character character;
+  sf::Vector2f delay;
 };
 
 #endif

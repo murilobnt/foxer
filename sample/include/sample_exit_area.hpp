@@ -30,10 +30,6 @@
 #include <foxer/level.hpp>
 
 class SampleExitArea : public fox::ExitArea {
-private:
-  fox::ExitCallbackable *callbackable;
-  int pos;
-
 public:
   SampleExitArea();
   SampleExitArea(const int &pos, fox::ExitCallbackable *callbackable,
@@ -50,6 +46,10 @@ public:
   void verify_collision_with(fox::SpritedEntity *entity,
                              const float &delta_time);
   void on_collision(const float &delta_time);
+
+private:
+  fox::ExitCallbackable *callbackable;
+  int pos;
 };
 
 #endif
