@@ -41,5 +41,5 @@ page of this repository for information about it.
 
 Foxer is licensed under the [MIT License](https://github.com/murilobnt/foxer/blob/master/LICENSE).
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/02e6682822d149bf8e2e0472476f41ea)](https://www.codacy.com/manual/murilobnt/foxer?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=murilobnt/foxer&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/da29c15684344ebb9177cdd3eb266dec)](https://www.codacy.com/manual/murilobnt/foxer?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=murilobnt/foxer&amp;utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/:license-MIT-blue.svg)](https://github.com/murilobnt/foxer/blob/master/LICENSE)
