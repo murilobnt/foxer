@@ -29,6 +29,7 @@
 #include <SFML/Graphics.hpp>
 #include <foxer/scene_components.hpp>
 #include <iostream>
+#include <cmath>
 
 #include "facing_position.hpp"
 
@@ -37,14 +38,19 @@ public:
   Character(sf::Texture const &texture,
             sf::Vector2f position = sf::Vector2f(0, 0));
   Character();
+  void jump(const float &delta_time);
   void control_entity(float delta_time);
   void move(float delta_time);
   void move();
   void animate();
 
 private:
+  sf::Vector3f player_position;
+  bool falling;
   FacingPosition current_facing_pos;
   bool do_animate;
+  float jump_height;
+  float z_movement;
 };
 
 #endif

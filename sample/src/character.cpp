@@ -1,8 +1,12 @@
 #include "character.hpp"
 
 Character::Character(sf::Texture const &texture, sf::Vector2f position)
-    : fox::MainObject::MainObject(texture, 5, sf::Vector2i(16, 23)) {
+    : fox::MainObject::MainObject(texture, 5, sf::Vector2i(16, 23)),
+    falling(false),
+    jump_height(32),
+    z_movement(0) {
   set_sprite_position(position);
+  player_position = sf::Vector3f(position.x, position.y, 0);
   current_facing_pos = DOWN;
   collision_offset_down = 22;
   collision_offset_up = 3;
@@ -12,7 +16,18 @@ Character::Character(sf::Texture const &texture, sf::Vector2f position)
 
 Character::Character() {}
 
+void Character::jump(const float &delta_time){
+  z_movement = sqrt(2 * 32 * delta_time * jump_height);
+  movement.y = -z_movement;
+  player_position.z += z_movement;
+  player_position.y = get_sprite_position().y;
+}
+
 void Character::control_entity(float delta_time) {
+  if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !falling){
+    falling = true;
+    jump(delta_time);
+  }
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) ||
       sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
     moving_left = true;
@@ -59,13 +74,23 @@ void Character::control_entity(float delta_time) {
   }
 }
 
-void Character::move(float delta_time) {}
-
-void Character::move() {
+void Character::move(float delta_time) {
+  if(falling){
+    z_movement -= 32 * delta_time;
+    if(player_position.z + z_movement <= 0){
+      z_movement = -player_position.z;
+      falling = false;
+    }
+    player_position.z += z_movement;
+    movement.y += -z_movement;
+  }
   move_sprite(movement);
   current_movement = movement;
   movement.x = 0;
   movement.y = 0;
+}
+
+void Character::move() {
 }
 
 void Character::animate() {

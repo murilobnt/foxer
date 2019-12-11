@@ -31,7 +31,7 @@ void SampleLevel::handle_game_events(const float &delta_time) {
   player->control_entity(delta_time);
   collision_map.verify_collision(*player);
   player->time_trigger();
-  player->move();
+  player->move(delta_time);
 
   handle_level_events(delta_time);
 }
