@@ -1,0 +1,14 @@
+{ "columns":17,
+ "image":"..\/..\/textures\/character.png",
+ "imageheight":256,
+ "imagewidth":272,
+ "margin":0,
+ "name":"character",
+ "spacing":0,
+ "tilecount":272,
+ "tiledversion":"1.3.1",
+ "tileheight":16,
+ "tilewidth":16,
+ "type":"tileset",
+ "version":1.2
+}

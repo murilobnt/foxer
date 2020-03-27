@@ -29,17 +29,19 @@
 #include "foxer/game/level/level_proxy.hpp"
 #include "foxer/other/helpers/shared_texture_holder.hpp"
 #include "foxer/scene/components/camera/camera.hpp"
+#include "foxer/scene/components/object/main_object.hpp"
 
 namespace fox {
 
 struct LevelBundle {
-  LevelProxy *level_proxy;
-  SharedTextureHolder *shared_holder;
-  Camera *camera;
+  LevelProxy level_proxy;
+  SharedTextureHolder shared_t_holder;
+  Camera camera;
 
+  MainObject *player_ref;
+  
   LevelBundle();
-  explicit LevelBundle(LevelProxy *level_proxy,
-                       SharedTextureHolder *shared_holder, Camera *camera);
+  LevelBundle(MainObject *player_ref, const sf::Vector2f &cam_viewport_size);
 };
 
 } // namespace fox

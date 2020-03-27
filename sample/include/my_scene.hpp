@@ -31,6 +31,7 @@
 #include <foxer/scene.hpp>
 
 #include "character.hpp"
+#include "level_test.hpp"
 #include "level_one.hpp"
 
 class MyScene : public fox::Scene {

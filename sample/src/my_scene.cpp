@@ -6,8 +6,8 @@ void MyScene::start() {
 
   camera = fox::Camera(sf::Vector2f(480, 320));
 
-  std::shared_ptr<LevelOne> level_one =
-      std::make_shared<LevelOne>("player_start_pos");
+  std::shared_ptr<LevelTest> level_one =
+      std::make_shared<LevelTest>("player_start_pos");
 
   level_one->set_player(&character);
   level_one->set_delay(&delay);

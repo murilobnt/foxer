@@ -2,7 +2,7 @@
 
 namespace fox {
 
-void TileGrid::check_boundaries(sf::Vector2i &before) {
+void TileGrid::check_boundaries(sf::Vector2i &before) const {
   if (before.x < 0)
     before.x = 0;
 
@@ -17,7 +17,7 @@ void TileGrid::check_boundaries(sf::Vector2i &before) {
 }
 
 void TileGrid::add_unity(std::vector<Unity> &adjacent, std::set<int> &added,
-                         int index) {
+                         int index) const {
   if (added.find(index) == added.end()) {
     adjacent.push_back(index >= (x_cells * y_cells)
                            ? unities[x_cells * y_cells - 1]
@@ -28,7 +28,7 @@ void TileGrid::add_unity(std::vector<Unity> &adjacent, std::set<int> &added,
 
 sf::Vector2i TileGrid::transform_to_grid_coordinate(const sf::Vector2f &spl,
                                                     int modifier_x,
-                                                    int modifier_y) {
+                                                    int modifier_y) const {
   sf::Vector2i to_return((int)(spl.x + modifier_x) / unity_size,
                          (int)(spl.y + modifier_y) / unity_size);
   check_boundaries(to_return);
@@ -81,9 +81,9 @@ void TileGrid::add_tile(Tile tile) {
     unity_lr->tiles.push_back(tile);
 }
 
-std::vector<Unity>
+const std::vector<Unity>
 TileGrid::get_unities_in_position(const sf::Vector2f &sprite_pos,
-                                  const sf::FloatRect &gb) {
+                                  const sf::FloatRect &gb) const {
   std::vector<Unity> adjacent;
   std::set<int> added;
 

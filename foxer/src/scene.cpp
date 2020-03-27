@@ -3,7 +3,6 @@
 namespace fox {
 
 Scene::Scene() {
-  level_bundle = LevelBundle(&l_proxy, &shared_holder, &camera);
   tex_holder = TextureHolder(&shared_holder);
 }
 

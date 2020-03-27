@@ -113,9 +113,6 @@ protected:
   sf::RenderWindow *app_window;
 
   TextureHolder tex_holder;
-  LevelBundle level_bundle;
-
-  LevelProxy l_proxy;
   Camera camera;
 
 private:

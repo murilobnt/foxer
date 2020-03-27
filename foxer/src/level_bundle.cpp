@@ -4,11 +4,10 @@ namespace fox {
 
 LevelBundle::LevelBundle() {}
 
-LevelBundle::LevelBundle(LevelProxy *level_proxy,
-                         SharedTextureHolder *shared_holder, Camera *camera) {
-  this->level_proxy = level_proxy;
-  this->shared_holder = shared_holder;
-  this->camera = camera;
+LevelBundle::LevelBundle(MainObject *player_ref,
+                         const sf::Vector2f &cam_viewport_size) {
+  this->player_ref = player_ref;
+  this->camera = Camera(cam_viewport_size);
 }
 
 } // namespace fox

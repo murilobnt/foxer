@@ -27,14 +27,6 @@
 #define FOX_LEVEL_HPP_
 
 #include <SFML/Graphics.hpp>
-#include <iostream>
-#include <vector>
-
-#include "foxer/game/level/collision_map.hpp"
-#include "foxer/game/level/layer_container.hpp"
-#include "foxer/game/level/level_bundle.hpp"
-#include "foxer/game/level/tilemap.hpp"
-#include "foxer/other/helpers/texture_holder.hpp"
 
 namespace fox {
 
@@ -47,27 +39,6 @@ public:
   virtual void init() = 0;
   virtual void handle_events(const float &delta_time) = 0;
   virtual void control_camera(const float &delta_time) = 0;
-
-  void set_level_bundle(LevelBundle *bundle);
-
-  void change_level(Level *level);
-  void change_level(std::shared_ptr<Level> level);
-
-protected:
-  LevelBundle *bundle;
-  Camera *camera;
-
-  TextureHolder tex_holder;
-
-  sf::Vector2u tile_size;
-  sf::Vector2u level_size;
-
-  std::vector<TileMap> layers;
-  CollisionMap collision_map;
-
-  TileMap get_layer(int index) const;
-  LayerContainer get_layers(int from, int to) const;
-  LayerContainer get_layers() const;
 
   virtual void draw(sf::RenderTarget &target,
                     sf::RenderStates states) const = 0;

@@ -55,18 +55,18 @@ public:
 
   void add_tile(Tile tile);
 
-  std::vector<Unity>
+  const std::vector<Unity>
   get_unities_in_position(const sf::Vector2f &sprite_upper_left,
-                          const sf::FloatRect &gb);
+                                const sf::FloatRect &gb) const;
 
 private:
   std::vector<Unity> unities;
-  void check_boundaries(sf::Vector2i &before);
+  void check_boundaries(sf::Vector2i &before) const;
   sf::Vector2u tile_size;
-  void add_unity(std::vector<Unity> &adjacent, std::set<int> &added, int index);
+  void add_unity(std::vector<Unity> &adjacent, std::set<int> &added, int index) const;
   sf::Vector2i transform_to_grid_coordinate(const sf::Vector2f &spl,
                                             int modifier_x = 0,
-                                            int modifier_y = 0);
+                                            int modifier_y = 0) const;
 };
 
 } // namespace fox
