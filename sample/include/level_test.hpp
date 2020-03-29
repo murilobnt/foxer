@@ -28,14 +28,18 @@
 
 #include <foxer/level.hpp>
 
-class LevelTest : public fox::RPGLevelIndoor {
+#include "character.hpp"
+
+class LevelTest : public fox::FoxerLevel {
 public:
   LevelTest();
-  explicit LevelTest(const std::string &start_position_id);
+  LevelTest(Character *player, fox::LevelBundle *bundle);
+
 
 private:
+  Character *player;
   void draw(sf::RenderTarget &target, sf::RenderStates states) const;
-  void level_init();
+  void init();
 };
 
 #endif

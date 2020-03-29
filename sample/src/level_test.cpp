@@ -1,13 +1,12 @@
 #include "level_test.hpp"
 
-LevelTest::LevelTest() : RPGLevelIndoor("assets/levels/level_test.json") {}
+LevelTest::LevelTest() {}
 
-LevelTest::LevelTest(const std::string &start_position_id)
-    : RPGLevelIndoor("assets/levels/level_test.json", start_position_id) {}
+LevelTest::LevelTest(Character *player, fox::LevelBundle *bundle) :
+                     FoxerLevel("assets/levels/level_test.json", bundle),
+                     player(player) {}
 
-void LevelTest::level_init() {
-  initialise_camera();
-}
+void LevelTest::init(){}
 
 void LevelTest::draw(sf::RenderTarget &target, sf::RenderStates states) const {
   target.draw(get_layers(1, 2));

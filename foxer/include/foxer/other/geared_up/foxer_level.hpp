@@ -32,6 +32,7 @@
 #include "foxer/game/level/tld_loader.hpp"
 #include "foxer/scene/components/object/main_object.hpp"
 #include "foxer/game/level/level_bundle.hpp"
+#include "foxer/game/level/layer_container.hpp"
 #include "foxer/game/level/level_collision_verifier.hpp"
 #include "foxer/other/geared_up/default_level_col_verifier.hpp"
 
@@ -48,11 +49,15 @@ public:
   void change_level(Level *level);
   void change_level(std::shared_ptr<Level> level);
 
+  TileMap get_layer(int index) const;
+  LayerContainer get_layers(const int &from, const int &to) const;
+  LayerContainer get_layers() const;
+
   // ===================== Inherited from Level ================================
   virtual void load();
   virtual void handle_events(const float &delta_time);
+  virtual void control_camera(const float &delta_time);
   virtual void init() = 0;
-  virtual void control_camera(const float &delta_time) = 0;
 
   virtual void draw(sf::RenderTarget &target,
                     sf::RenderStates states) const = 0;

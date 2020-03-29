@@ -5,12 +5,12 @@ namespace fox {
 ExitArea::ExitArea() {}
 
 void ExitArea::exit_load(const TiledJsonObj &exit_json,
-                         std::shared_ptr<SampleLevel> next_level,
+                         std::shared_ptr<Level> next_level,
                          const std::string &field) {
   load(sf::FloatRect(exit_json.x, exit_json.y, exit_json.width,
                      exit_json.height));
-  next_level->set_start_position_id(
-      exit_json.properties[field].get<std::string>());
+  // next_level->set_start_position_id(
+  //     exit_json.properties[field].get<std::string>());
   loader.run(next_level);
 }
 

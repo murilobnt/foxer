@@ -29,9 +29,8 @@
 #include "foxer/game/level/components/exit_area.hpp"
 #include "foxer/game/level/components/exit_callbackable.hpp"
 #include "foxer/game/level/level.hpp"
+#include "foxer/game/level/level_bundle.hpp"
 #include "foxer/game/level/level_proxy.hpp"
-#include "foxer/other/geared_up/rpg_level.hpp"
-#include "foxer/other/geared_up/rpg_level_indoor.hpp"
-#include "foxer/other/geared_up/sample_level.hpp"
+#include "foxer/other/geared_up/foxer_level.hpp"
 
 #endif

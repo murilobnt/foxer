@@ -30,7 +30,7 @@
 
 #include "foxer/game/level/components/collidable_area.hpp"
 #include "foxer/game/level/threaded_level_loader.hpp"
-#include "foxer/other/geared_up/sample_level.hpp"
+#include "foxer/game/level/level.hpp"
 #include "foxer/scene/components/graphic/sprited_entity.hpp"
 
 namespace fox {
@@ -46,7 +46,7 @@ public:
 
   // Loads the exit area with the json object and the field.
   void exit_load(const TiledJsonObj &exit_json,
-                 std::shared_ptr<SampleLevel> next_level,
+                 std::shared_ptr<Level> next_level,
                  const std::string &field = "destination");
 
   // Getter.
@@ -64,7 +64,7 @@ private:
   // The identifier of the destination object of the next level.
   std::string destination_id;
   ThreadedLevelLoader loader;
-  std::shared_ptr<SampleLevel> next_level;
+  std::shared_ptr<Level> next_level;
 };
 
 } // namespace fox

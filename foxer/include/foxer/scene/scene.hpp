@@ -111,16 +111,13 @@ protected:
 
   // The window of the application.
   sf::RenderWindow *app_window;
-
   TextureHolder tex_holder;
-  Camera camera;
+  SharedTextureHolder shared_holder;
 
 private:
   float dt;
   ClockHandler *app_clock;
   std::vector<std::shared_ptr<Scene>> *app_state;
-
-  SharedTextureHolder shared_holder;
 };
 
 } // namespace fox

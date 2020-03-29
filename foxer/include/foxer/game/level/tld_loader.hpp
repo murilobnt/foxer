@@ -41,8 +41,8 @@ namespace fox::TLDLoader {
 
   json load_json(const std::string &path);
   std::vector<std::string> get_tilesets(const std::string &sub_path,
-                                               const json &j_tilesets);
-  TiledLevelData load_level(const json &level, const std::vector<std::string> &tilesets, TextureHolder &tex_holder, Camera *camera);
+                                               json &j_tilesets);
+  TiledLevelData load_level(json &level, const std::vector<std::string> &tilesets, TextureHolder &tex_holder, Camera *camera);
   TiledLevelData load(const std::string &path, TextureHolder &tex_holder, Camera *camera);
 
 }

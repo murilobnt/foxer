@@ -28,7 +28,7 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "foxer/other/geared_up/fade_state.hpp"
+#include "foxer/other/helpers/fade_state.hpp"
 
 namespace fox {
 

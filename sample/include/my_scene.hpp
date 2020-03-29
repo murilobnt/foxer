@@ -32,7 +32,6 @@
 
 #include "character.hpp"
 #include "level_test.hpp"
-#include "level_one.hpp"
 
 class MyScene : public fox::Scene {
 public:
@@ -42,7 +41,9 @@ public:
 
 private:
   Character character;
-  sf::Vector2f delay;
+
+  fox::LevelProxy l_proxy;
+  fox::LevelBundle bundle;
 };
 
 #endif

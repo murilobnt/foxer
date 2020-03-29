@@ -1,9 +1,9 @@
-// File: level_one.hpp
+// File: fade_state.hpp
 // Author: Murilo Bento
 //
 // MIT License
 //
-// Copyright (c) 2018-2020 Murilo Bento
+// Copyright (c) 2018-2019 Murilo Bento
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,23 +23,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef LEVEL_ONE_HPP_
-#define LEVEL_ONE_HPP_
+#ifndef FOX_FADE_STATE_HPP_
+#define FOX_FADE_STATE_HPP_
 
-#include <foxer/level.hpp>
+namespace fox {
 
-#include "level_two.hpp"
-#include "sample_exit_area.hpp"
+enum FadeState { NOT_FADING, FADING_IN, FADING_OUT };
 
-class LevelOne : public fox::RPGLevelIndoor, public fox::ExitCallbackable {
-public:
-  LevelOne();
-  explicit LevelOne(const std::string &start_position_id);
-  void exit_callback(const float &delta_time, const int &pos);
-
-private:
-  void draw(sf::RenderTarget &target, sf::RenderStates states) const;
-  void level_init();
-};
+} // namespace fox
 
 #endif

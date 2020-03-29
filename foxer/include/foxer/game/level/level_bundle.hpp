@@ -35,13 +35,10 @@ namespace fox {
 
 struct LevelBundle {
   LevelProxy level_proxy;
-  SharedTextureHolder shared_t_holder;
   Camera camera;
 
   MainObject *player_ref;
-  
-  LevelBundle();
-  LevelBundle(MainObject *player_ref, const sf::Vector2f &cam_viewport_size);
+  SharedTextureHolder *shared_t_holder;
 };
 
 } // namespace fox
