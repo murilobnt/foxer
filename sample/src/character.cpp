@@ -8,8 +8,8 @@ Character::Character(sf::Texture const &texture, sf::Vector2f position)
   set_sprite_position(position);
   player_position = sf::Vector3f(position.x, position.y, 0);
   current_facing_pos = DOWN;
-  collision_offset_down = 22;
-  collision_offset_up = 3;
+  collision_offset_down = 3;
+  collision_offset_up = 22;
   collision_offset_right = 3;
   collision_offset_left = 3;
 }
