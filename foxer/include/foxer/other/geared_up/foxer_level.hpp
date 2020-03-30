@@ -33,17 +33,15 @@
 #include "foxer/scene/components/object/main_object.hpp"
 #include "foxer/game/level/level_bundle.hpp"
 #include "foxer/game/level/layer_container.hpp"
-#include "foxer/game/level/level_collision_verifier.hpp"
-#include "foxer/other/geared_up/default_level_col_verifier.hpp"
+#include "foxer/game/level/collision_handler.hpp"
+#include "foxer/other/geared_up/foxer_collision_handler.hpp"
 
 namespace fox {
 
 class FoxerLevel : public Level {
 public:
   FoxerLevel();
-  FoxerLevel(const std::string &level_path, LevelBundle *bundle,
-             std::unique_ptr<LevelCollisionVerifier> col_ver =
-             std::make_unique<DefaultLevelColVerifier>());
+  FoxerLevel(const std::string &level_path, LevelBundle *bundle);
 
   void set_level_bundle(LevelBundle *bundle);
   void change_level(Level *level);
@@ -62,12 +60,15 @@ public:
   virtual void draw(sf::RenderTarget &target,
                     sf::RenderStates states) const = 0;
   // ===========================================================================
+protected:
+  void set_collision_handler(std::unique_ptr<CollisionHandler> col_ver);
+
 private:
   std::string level_path;
 
   TiledLevelData data;
   TextureHolder tex_holder;
-  std::unique_ptr<LevelCollisionVerifier> col_ver;
+  std::unique_ptr<CollisionHandler> col_ver;
   LevelBundle *bundle;
 };
 

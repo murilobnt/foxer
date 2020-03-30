@@ -1,4 +1,4 @@
-// File: level_collision_verifier.hpp
+// File: collision_handler.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,24 +23,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_LEVEL_COLLISION_VERIFIER_HPP_
-#define FOX_LEVEL_COLLISION_VERIFIER_HPP_
-
-#include "foxer/scene/components/object/game_object.hpp"
-#include "foxer/other/helpers/tile_grid.hpp"
+#ifndef FOX_COLLISION_HANDLER_HPP_
+#define FOX_COLLISION_HANDLER_HPP_
 
 namespace fox {
 
-struct CollisionOn {
-  bool x = false;
-  bool y = false;
-};
-
-class LevelCollisionVerifier {
+class CollisionHandler {
 public:
-  virtual const
-  CollisionOn verify_collision(const GameObject &go,
-                               const TileGrid &level_tile_grid) const = 0;
+  virtual void handle_collision() = 0;
 };
 
 }

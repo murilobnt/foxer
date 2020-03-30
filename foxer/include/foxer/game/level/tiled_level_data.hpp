@@ -42,6 +42,8 @@ public:
   const TileGrid &get_collision_tile_grid() const;
   const std::map<std::string, TiledJsonObj> &get_events() const;
 
+  const TileGrid *get_collision_tile_grid_ref() const;
+
   TiledLevelData();
   TiledLevelData(std::vector<TileMap> layers,
                  TileGrid collision_tile_grid,

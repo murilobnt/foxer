@@ -10,6 +10,10 @@ const TileGrid &TiledLevelData::get_collision_tile_grid() const{
   return collision_tile_grid;
 }
 
+const TileGrid *TiledLevelData::get_collision_tile_grid_ref() const{
+  return &collision_tile_grid;
+}
+
 const std::map<std::string, TiledJsonObj> &TiledLevelData::get_events() const{
   return events;
 }
