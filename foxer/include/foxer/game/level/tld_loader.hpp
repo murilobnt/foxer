@@ -37,13 +37,16 @@
 #include "foxer/game/level/tiled_level_data.hpp"
 #include "foxer/game/level/tg_loader.hpp"
 
-namespace fox::TLDLoader {
+// Namespace to load a TiledLevelData from a path.
 
+namespace fox::TLDLoader {
+  // Loads a TiledLevelData from a path. It requires a texture holder and a
+  // reference to the camera (for the creation of the TileMaps) 
+  TiledLevelData load(const std::string &path, TextureHolder &tex_holder, Camera *camera);
   json load_json(const std::string &path);
   std::vector<std::string> get_tilesets(const std::string &sub_path,
                                                json &j_tilesets);
   TiledLevelData load_level(json &level, const std::vector<std::string> &tilesets, TextureHolder &tex_holder, Camera *camera);
-  TiledLevelData load(const std::string &path, TextureHolder &tex_holder, Camera *camera);
 
 }
 

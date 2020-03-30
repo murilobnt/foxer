@@ -35,6 +35,8 @@ namespace fox {
 
 class Scene;
 
+// Builder of a scene.
+
 class SceneBuilder {
 public:
   static void build_scene(Scene *scene, sf::RenderWindow *app_window,

@@ -32,14 +32,24 @@
 
 namespace fox {
 
-class FoxerCollisionHandler : public CollisionHandler {
-private:
-  GameObject *go;
-  const TileGrid &level_tile_grid;
+// The default collision handler used by FoxerLevel.
 
+class FoxerCollisionHandler : public CollisionHandler {
 public:
+
+  // Constructor.
   FoxerCollisionHandler(GameObject *go, const TileGrid &level_tile_grid);
-  void handle_collision();
+
+  // ==================== Implemented from CollisionHandler ====================
+  virtual void handle_collision();
+  // ===========================================================================
+
+private:
+  // A reference to the player.
+  GameObject *go;
+
+  // The const reference to the collision tile grid.
+  const TileGrid &level_tile_grid;
 };
 
 }

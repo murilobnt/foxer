@@ -45,7 +45,9 @@ namespace fox {
 
 class App {
 public:
+  // Empty constructor.
   App();
+  
   // Constructor. Requires the width and height of the application window and
   // its title too.
   App(int app_width, int app_height, std::string app_title,

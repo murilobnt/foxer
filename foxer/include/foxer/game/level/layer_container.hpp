@@ -32,7 +32,8 @@
 
 namespace fox {
 
-// This class represents a container for layers of TileMaps.
+// This class represents a container for layers of TileMaps. It makes easier
+// to draw multiple layers of TileMaps.
 
 class LayerContainer : public sf::Drawable {
 public:

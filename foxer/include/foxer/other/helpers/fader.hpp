@@ -32,6 +32,8 @@
 
 namespace fox {
 
+// Experimental class to fade the screen. Pretty much a workaround.
+
 class Fader : public sf::Drawable {
 public:
   Fader();

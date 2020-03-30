@@ -33,11 +33,21 @@
 
 namespace fox {
 
+// The common repository of textures. If a texture was loaded previously,
+// it doesn't loads it again. It just returns the reference of it.
+// If a texture isn't being referenced by anyone, the texture is deleted.
+
 class SharedTextureHolder {
 public:
+
+  // Loads a texture. If it finds the texture from that path, it returns it.
+  // Otherwise, it creates a new shared_ptr, references it in the holder,
+  // and returns it.
   std::shared_ptr<sf::Texture> load(const std::string &path);
 
 private:
+
+  // Map of textures. They are indexed by their path in the PC.
   std::map<std::string, std::weak_ptr<sf::Texture>> holder;
 };
 

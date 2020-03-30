@@ -34,6 +34,8 @@
 
 namespace fox {
 
+// Experimental class for "smart" level loading. Not used anywhere, yet.
+
 class LevelGraph {
 public:
   explicit LevelGraph(int V);

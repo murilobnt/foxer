@@ -31,17 +31,26 @@
 namespace fox {
 
 // This class represents a level. Its purpose is to prevent the coder
-// to create a scene for every existent level.
+// to create a scene for every existent level of a game.
 
 class Level : public sf::Drawable {
 public:
+  // Resources loading.
   virtual void load() = 0;
+
+  // Initial settings of the level (called once the level is changed).
   virtual void init() = 0;
+
+  // Handle events that happen every tick, like moving the player.
   virtual void handle_events(const float &delta_time) = 0;
+
+  // Controls the camera. Placed after handle_events is executed.
   virtual void control_camera(const float &delta_time) = 0;
 
+  // ======================= Inherited from sf::Drawable =======================
   virtual void draw(sf::RenderTarget &target,
                     sf::RenderStates states) const = 0;
+  // ===========================================================================
 };
 
 } // namespace fox

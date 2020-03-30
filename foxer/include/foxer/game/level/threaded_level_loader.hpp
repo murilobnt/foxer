@@ -31,16 +31,30 @@
 
 namespace fox {
 
+// ThreadedLevelLoader is a class that allows one to load a level using threads.
+// That's why the load() method of Level might sound the same as the
+// constructor. However, the constructor is called once any level is created,
+// while load() can be called inside the run() method of this class.
+
 class ThreadedLevelLoader {
 public:
+  // Destructor.
   ~ThreadedLevelLoader();
+
+  // Loads a level and stores it.
   void run(std::shared_ptr<Level> level);
+
+  // Getter for the reference of a loaded level.
   std::shared_ptr<Level> get_level();
 
 private:
+  // Loaded level reference.
   std::shared_ptr<Level> level;
+
+  // Thread to load a level.
   std::thread level_loader;
 
+  // Method that is passed to the thread. Calls level->load();
   void load_level();
 };
 

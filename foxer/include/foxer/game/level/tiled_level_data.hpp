@@ -36,15 +36,21 @@
 
 namespace fox {
 
+// TiledLevelData store Tiled level aspects such as the tile layers, the
+// collision layer and the events of a level.
+// All information that one might get from are going to be a const reference.
+
 class TiledLevelData {
 public:
+  // Getters.
   const std::vector<TileMap> &get_layers() const;
   const TileGrid &get_collision_tile_grid() const;
   const std::map<std::string, TiledJsonObj> &get_events() const;
 
-  const TileGrid *get_collision_tile_grid_ref() const;
-
+  // Empty constructor.
   TiledLevelData();
+
+  // Constructor.
   TiledLevelData(std::vector<TileMap> layers,
                  TileGrid collision_tile_grid,
                  std::map<std::string, TiledJsonObj> events);

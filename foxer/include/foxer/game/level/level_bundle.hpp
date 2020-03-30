@@ -33,6 +33,13 @@
 
 namespace fox {
 
+// LevelBundle represents the data that must be shared from a level to
+// another. Right now, it holds a level proxy to enable level changing from
+// inside of a level, and a camera.
+// It also holds a reference to the player of the level (so FoxerLevel can
+// "see" it from above), and a reference to the repository of textures of the
+// scene (TextureHolders need to be initialised with it).
+
 struct LevelBundle {
   LevelProxy level_proxy;
   Camera camera;

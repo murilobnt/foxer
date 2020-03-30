@@ -36,12 +36,16 @@ using json = nlohmann::json;
 
 namespace fox {
 
+// Container to a tile layer in JSON.
+
 struct TiledJsonTileLayer {
   std::vector<int> data;
 
   TiledJsonTileLayer();
   explicit TiledJsonTileLayer(json json_obj);
 };
+
+// Container to a tiled object in JSON.
 
 struct TiledJsonObj {
   std::string id;

@@ -30,16 +30,26 @@
 
 namespace fox {
 
+// Represents a grid. Only stores meta values about the grid.
+
 class GenericGrid {
 public:
+  // Empty constructor.
   GenericGrid();
+
+  // Constructor. Receives a width, height, and the size of what's considered
+  // a unity. x_cells then becomes the width divided by the unity_size, and
+  // y_cells becomes the height divided by the unity_size. If the division isn't
+  // exact, it gets the ceil.
   GenericGrid(int w, int h, int unity_size);
 
 protected:
+  // Width, height and the size of an unity of the grid.
   int w;
   int h;
   int unity_size;
 
+  // The number of cells in the X and Y axis of the grid.
   int x_cells;
   int y_cells;
 };

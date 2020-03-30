@@ -34,15 +34,28 @@
 
 namespace fox {
 
+// Local repository of textures. It uses a SharedTextureHolder to load textures,
+// and it keeps the references to a local map. As soon as all references to
+// a texture are gone, the texture is deleted (because no one is using it).
+
 class TextureHolder {
 public:
+  // Empty constructor.
   TextureHolder();
+
+  // Constructor. Receives a reference to the shared_holder (usually from the
+  // scene).
   explicit TextureHolder(SharedTextureHolder *shared_holder);
+
+  // Load a texture and return a texture (or a reference to it).
   const sf::Texture &load(const std::string &path);
   sf::Texture *load_ptr(const std::string &path);
 
 private:
+  // A reference to the shared holder.
   SharedTextureHolder *shared_holder;
+
+  // The map containing all loaded textures from the local repository.
   std::map<std::string, std::shared_ptr<sf::Texture>> textures;
 };
 

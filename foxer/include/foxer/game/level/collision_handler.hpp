@@ -28,8 +28,14 @@
 
 namespace fox {
 
+// Interface for collision handlers. The FoxerLevel has a setter for a
+// collision handler subclass, so changing the default collision handler
+// shouldn't be hard.
+
 class CollisionHandler {
 public:
+  
+  // Verifies and applies any collision.
   virtual void handle_collision() = 0;
 };
 

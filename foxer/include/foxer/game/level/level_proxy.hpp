@@ -35,19 +35,36 @@ namespace fox {
 
 class Level;
 
+// The LevelProxy contains a reference to a level, and the level
+// has a reference to the LevelProxy of a scene through the use of a bundle.
+// Levels can call change_level to change to another level.
+
 class LevelProxy : public sf::Drawable {
 public:
+  // Empty constructor.
   LevelProxy();
+
+  // Constructor. Requires a reference to a first level.
   explicit LevelProxy(Level *first_level);
+
+  // Changes the local reference of the level to another one.
   void change_level(Level *next_level);
   void change_level(std::shared_ptr<Level> next_level);
+
+  // ====================== Delegated functions to Level =======================
+  // The functions below just delegates the call to the current_level reference.
   void init();
   void handle_events(const float &delta_time);
   void control_camera(const float &delta_time);
+  // ===========================================================================
 
 private:
+  // Reference to the level to be interacted with.
   std::shared_ptr<Level> current_level;
+
+  // ======================= Inherited from sf::Drawable =======================
   void draw(sf::RenderTarget &target, sf::RenderStates states) const;
+  // ===========================================================================
 };
 
 } // namespace fox

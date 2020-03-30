@@ -34,6 +34,9 @@
 
 namespace fox {
 
+// Reads a tiled level from a CSV (might not work with the latest version of
+// Tiled). Deprecated.
+
 class TiledCSVLoader {
 public:
   static void load_tilemap_array_from_file(std::string csv_file,
