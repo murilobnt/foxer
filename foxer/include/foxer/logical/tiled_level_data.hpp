@@ -46,16 +46,23 @@ public:
   const std::vector<TileMap> &get_layers() const;
   const TileGrid &get_collision_tile_grid() const;
   const std::map<std::string, TiledJsonObj> &get_events() const;
+  const sf::Vector2u &get_tile_size() const;
+  const sf::Vector2u &get_level_size() const;
 
   // Empty constructor.
   TiledLevelData();
 
   // Constructor.
-  TiledLevelData(std::vector<TileMap> layers,
-                 TileGrid collision_tile_grid,
-                 std::map<std::string, TiledJsonObj> events);
+  TiledLevelData(const sf::Vector2u &tile_size,
+                 const sf::Vector2u &level_size,
+                 const std::vector<TileMap> &layers,
+                 const TileGrid &collision_tile_grid,
+                 const std::map<std::string, TiledJsonObj> &events);
 
 private:
+  sf::Vector2u tile_size;
+  sf::Vector2u level_size;
+
   std::vector<TileMap> layers;
   TileGrid collision_tile_grid;
   std::map<std::string, TiledJsonObj> events;

@@ -58,7 +58,7 @@ namespace fox::TLDLoader {
       }
     }
 
-    TiledLevelData data(layers, collision_tile_grid, events);
+    TiledLevelData data(tile_size, level_size, layers, collision_tile_grid, events);
     return data;
   }
 

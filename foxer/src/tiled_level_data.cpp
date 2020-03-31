@@ -14,14 +14,27 @@ const std::map<std::string, TiledJsonObj> &TiledLevelData::get_events() const {
   return events;
 }
 
+const sf::Vector2u &TiledLevelData::get_tile_size() const {
+  return tile_size;
+}
+
+const sf::Vector2u &TiledLevelData::get_level_size() const {
+  return level_size;
+}
+
+
 TiledLevelData::TiledLevelData() {}
 
-TiledLevelData::TiledLevelData(std::vector<TileMap> layers,
-               TileGrid collision_tile_grid,
-               std::map<std::string, TiledJsonObj> events) :
+TiledLevelData::TiledLevelData(const sf::Vector2u &tile_size,
+               const sf::Vector2u &level_size,
+               const std::vector<TileMap> &layers,
+               const TileGrid &collision_tile_grid,
+               const std::map<std::string, TiledJsonObj> &events) :
                layers(layers),
                collision_tile_grid(collision_tile_grid),
-               events(events){
+               events(events),
+               tile_size(tile_size),
+               level_size(level_size){
 
 }
 
