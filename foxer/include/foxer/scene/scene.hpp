@@ -31,8 +31,8 @@
 #include <vector>
 
 #include "foxer/game/level/level_bundle.hpp"
-#include "foxer/other/helpers/shared_texture_holder.hpp"
-#include "foxer/other/helpers/texture_holder.hpp"
+#include "foxer/other/helpers/shared_texture_repository.hpp"
+#include "foxer/other/helpers/local_texture_repository.hpp"
 #include "foxer/other/helpers/texture_loader.hpp"
 #include "foxer/scene/components/graphic/sprited_entity.hpp"
 #include "foxer/scene/components/object/movable_object.hpp"
@@ -111,8 +111,8 @@ protected:
 
   // The window of the application.
   sf::RenderWindow *app_window;
-  TextureHolder tex_holder;
-  SharedTextureHolder shared_holder;
+  LocalTextureRepository ltex_repo;
+  SharedTextureRepository stex_repo;
 
 private:
   float dt;

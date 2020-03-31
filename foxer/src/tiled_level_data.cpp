@@ -2,15 +2,15 @@
 
 namespace fox {
 
-const std::vector<TileMap> &TiledLevelData::get_layers() const{
+const std::vector<TileMap> &TiledLevelData::get_layers() const {
   return layers;
 }
 
-const TileGrid &TiledLevelData::get_collision_tile_grid() const{
+const TileGrid &TiledLevelData::get_collision_tile_grid() const {
   return collision_tile_grid;
 }
 
-const std::map<std::string, TiledJsonObj> &TiledLevelData::get_events() const{
+const std::map<std::string, TiledJsonObj> &TiledLevelData::get_events() const {
   return events;
 }
 

@@ -25,7 +25,7 @@ namespace fox::TLDLoader {
     return tilesets;
   }
 
-  TiledLevelData load_level(json &level, const std::vector<std::string> &tilesets, TextureHolder &tex_holder, Camera *camera){
+  TiledLevelData load_level(json &level, const std::vector<std::string> &tilesets, LocalTextureRepository &ltex_repo, Camera *camera){
     sf::Vector2u tile_size(level["tilewidth"].get<int>(), level["tileheight"].get<int>());
     sf::Vector2u level_size(level["width"].get<int>(), level["height"].get<int>());
 
@@ -47,7 +47,7 @@ namespace fox::TLDLoader {
         }
 
         if(!collision_layer)
-          layers.push_back(TileMap(tilesets, tex_holder, tile_size, level_size, (*it)["data"].get<std::vector<int>>(), camera));
+          layers.push_back(TileMap(tilesets, ltex_repo, tile_size, level_size, (*it)["data"].get<std::vector<int>>(), camera));
 
       } else if ((*it)["type"] == "objectgroup") {
         for (auto it2 = (*it)["objects"].begin();
@@ -62,9 +62,9 @@ namespace fox::TLDLoader {
     return data;
   }
 
-  TiledLevelData load(const std::string &path, TextureHolder &tex_holder, Camera *camera){
+  TiledLevelData load(const std::string &path, LocalTextureRepository &ltex_repo, Camera *camera){
     json level = load_json(path);
-    return load_level(level, get_tilesets(path.substr(0, path.find_last_of('/')), level["tilesets"]), tex_holder, camera);
+    return load_level(level, get_tilesets(path.substr(0, path.find_last_of('/')), level["tilesets"]), ltex_repo, camera);
   }
 
 }

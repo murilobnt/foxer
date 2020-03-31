@@ -34,7 +34,7 @@
 #include <utility>
 #include <vector>
 
-#include "foxer/other/helpers/texture_holder.hpp"
+#include "foxer/other/helpers/local_texture_repository.hpp"
 #include "foxer/scene/components/camera/camera.hpp"
 
 namespace fox {
@@ -43,7 +43,8 @@ class TileMap : public sf::Drawable, public sf::Transformable {
 public:
   TileMap();
 
-  TileMap(const std::vector<std::string> &tilesets, TextureHolder &tex_holder,
+  TileMap(const std::vector<std::string> &tilesets,
+          LocalTextureRepository &ltex_repo,
           const sf::Vector2u &tile_size, const sf::Vector2u &level_size,
           const std::vector<int> &tiles, Camera *camera);
 
@@ -57,7 +58,8 @@ public:
    * @param selected the selected tiles to be collided
    * @param lenght the lenght of selected array
    */
-  bool load(const std::vector<std::string> &tilesets, TextureHolder &tex_holder,
+  bool load(const std::vector<std::string> &tilesets,
+            LocalTextureRepository &ltex_repo,
             const sf::Vector2u &tile_size, const sf::Vector2u &level_size,
             const std::vector<int> &tiles, Camera *camera);
 

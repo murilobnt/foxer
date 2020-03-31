@@ -1,19 +1,20 @@
-#include "foxer/other/helpers/texture_holder.hpp"
+#include "foxer/other/helpers/local_texture_repository.hpp"
 
 namespace fox {
 
-TextureHolder::TextureHolder() {}
+LocalTextureRepository::LocalTextureRepository() {}
 
-TextureHolder::TextureHolder(SharedTextureHolder *shared_holder) {
-  this->shared_holder = shared_holder;
+LocalTextureRepository::LocalTextureRepository
+(SharedTextureRepository *stex_repo) {
+  this->stex_repo = stex_repo;
 }
 
-const sf::Texture &TextureHolder::load(const std::string &path) {
+const sf::Texture &LocalTextureRepository::load(const std::string &path) {
   std::map<std::string, std::shared_ptr<sf::Texture>>::const_iterator it =
       textures.find(path);
 
   if (it == textures.end()) {
-    std::shared_ptr<sf::Texture> tex = shared_holder->load(path);
+    std::shared_ptr<sf::Texture> tex = stex_repo->load(path);
     textures.insert(std::make_pair(path, tex));
     return *tex;
   } else {
@@ -21,12 +22,12 @@ const sf::Texture &TextureHolder::load(const std::string &path) {
   }
 }
 
-sf::Texture *TextureHolder::load_ptr(const std::string &path) {
+sf::Texture *LocalTextureRepository::load_ptr(const std::string &path) {
   std::map<std::string, std::shared_ptr<sf::Texture>>::const_iterator it =
       textures.find(path);
 
   if (it == textures.end()) {
-    std::shared_ptr<sf::Texture> tex = shared_holder->load(path);
+    std::shared_ptr<sf::Texture> tex = stex_repo->load(path);
     textures.insert(std::make_pair(path, tex));
     return tex.get();
   } else {

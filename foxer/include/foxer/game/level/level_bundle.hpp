@@ -27,7 +27,7 @@
 #define FOX_LEVEL_BUNDLE_HPP_
 
 #include "foxer/game/level/level_proxy.hpp"
-#include "foxer/other/helpers/shared_texture_holder.hpp"
+#include "foxer/other/helpers/shared_texture_repository.hpp"
 #include "foxer/scene/components/camera/camera.hpp"
 #include "foxer/scene/components/object/main_object.hpp"
 
@@ -38,14 +38,14 @@ namespace fox {
 // inside of a level, and a camera.
 // It also holds a reference to the player of the level (so FoxerLevel can
 // "see" it from above), and a reference to the repository of textures of the
-// scene (TextureHolders need to be initialised with it).
+// scene (LocalTextureRepositories need to be initialised with it).
 
 struct LevelBundle {
   LevelProxy level_proxy;
   Camera camera;
 
   MainObject *player_ref;
-  SharedTextureHolder *shared_t_holder;
+  SharedTextureRepository *stex_repo;
 };
 
 } // namespace fox

@@ -9,7 +9,7 @@ FoxerLevel::FoxerLevel(const std::string &level_path,
                        :
                        level_path(level_path),
                        bundle(bundle),
-                       tex_holder(bundle->shared_t_holder)
+                       ltex_repo(bundle->stex_repo)
 {}
 
 TileMap FoxerLevel::get_layer(int index) const { return data.get_layers().at(index - 1); }
@@ -22,8 +22,16 @@ LayerContainer FoxerLevel::get_layers(const int &from, const int &to) const {
 
 LayerContainer FoxerLevel::get_layers() const { return LayerContainer(data.get_layers()); }
 
+TiledJsonObj FoxerLevel::get_event(const std::string &event_id) const {
+  return data.get_events().find(event_id)->second;
+}
+
+const TiledLevelData &FoxerLevel::get_level_data() const{
+  return data;
+}
+
 void FoxerLevel::load(){
-  this->data = TLDLoader::load(level_path, tex_holder, &bundle->camera);
+  this->data = TLDLoader::load(level_path, ltex_repo, &bundle->camera);
   col_ver = std::make_unique<FoxerCollisionHandler>(bundle->player_ref,
                                               data.get_collision_tile_grid());
 }
@@ -51,7 +59,7 @@ void FoxerLevel::change_level(std::shared_ptr<Level> level) {
 
 void FoxerLevel::set_level_bundle(LevelBundle *bundle) {
   this->bundle = bundle;
-  tex_holder = TextureHolder(bundle->shared_t_holder);
+  ltex_repo = LocalTextureRepository(bundle->stex_repo);
 }
 
 void FoxerLevel::set_collision_handler(std::unique_ptr<CollisionHandler> col_ver){

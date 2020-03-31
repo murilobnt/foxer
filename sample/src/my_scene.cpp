@@ -2,9 +2,9 @@
 
 void MyScene::start() {
   time_handlers.push_back(character.get_time_handler());
-  character = Character(tex_holder.load("assets/textures/character.png"));
+  character = Character(ltex_repo.load("assets/textures/character.png"));
   bundle.camera = fox::Camera(sf::Vector2f(480, 320));
-  bundle.shared_t_holder = &shared_holder;
+  bundle.stex_repo = &stex_repo;
   bundle.player_ref = &character;
 
   std::shared_ptr<LevelTest> level_one =

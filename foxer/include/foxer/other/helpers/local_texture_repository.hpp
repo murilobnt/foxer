@@ -1,4 +1,4 @@
-// File: shared_texture_holder.hpp
+// File: local_texture_repository.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,32 +23,42 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_SHARED_TEXTURE_HOLDER_HPP_
-#define FOX_SHARED_TEXTURE_HOLDER_HPP_
+#ifndef FOX_LOCAL_TEXTURE_REPOSITORY_HPP_
+#define FOX_LOCAL_TEXTURE_REPOSITORY_HPP_
 
 #include <SFML/Graphics.hpp>
 #include <map>
 #include <memory>
-#include <string>
+
+#include "foxer/other/helpers/shared_texture_repository.hpp"
 
 namespace fox {
 
-// The common repository of textures. If a texture was loaded previously,
-// it doesn't loads it again. It just returns the reference of it.
-// If a texture isn't being referenced by anyone, the texture is deleted.
+// Local repository of textures. It uses a SharedTextureRepository to load textures,
+// and it keeps the references to a local map. As soon as all references to
+// a texture are gone, the texture is deleted (because no one is using it).
 
-class SharedTextureHolder {
+class LocalTextureRepository {
 public:
 
-  // Loads a texture. If it finds the texture from that path, it returns it.
-  // Otherwise, it creates a new shared_ptr, references it in the holder,
-  // and returns it.
-  std::shared_ptr<sf::Texture> load(const std::string &path);
+  // Empty constructor.
+  LocalTextureRepository();
+
+  // Constructor. Receives a reference to the stex_repo (usually from the
+  // scene).
+  explicit LocalTextureRepository(SharedTextureRepository *stex_repo);
+
+  // Load a texture and return a texture (or a reference to it).
+  const sf::Texture &load(const std::string &path);
+  sf::Texture *load_ptr(const std::string &path);
 
 private:
+  
+  // A reference to the shared holder.
+  SharedTextureRepository *stex_repo;
 
-  // Map of textures. They are indexed by their path in the PC.
-  std::map<std::string, std::weak_ptr<sf::Texture>> holder;
+  // The map containing all loaded textures from the local repository.
+  std::map<std::string, std::shared_ptr<sf::Texture>> textures;
 };
 
 } // namespace fox

@@ -5,22 +5,23 @@ namespace fox {
 TileMap::TileMap() {}
 
 TileMap::TileMap(const std::vector<std::string> &tilesets,
-                 TextureHolder &tex_holder, const sf::Vector2u &tile_size,
+                 LocalTextureRepository &ltex_repo, const sf::Vector2u &tile_size,
                  const sf::Vector2u &level_size, const std::vector<int> &tiles,
                  Camera *camera)
     : tile_size(tile_size), level_size(level_size) {
   this->camera = camera;
-  load(tilesets, tex_holder, tile_size, level_size, tiles, camera);
+  load(tilesets, ltex_repo, tile_size, level_size, tiles, camera);
 }
 
 bool TileMap::load(const std::vector<std::string> &tilesets,
-                   TextureHolder &tex_holder, const sf::Vector2u &tile_size,
+                   LocalTextureRepository &ltex_repo,
+                   const sf::Vector2u &tile_size,
                    const sf::Vector2u &level_size,
                    const std::vector<int> &tiles, Camera *camera) {
   this->camera = camera;
 
   for (int i = 0; i < tilesets.size(); ++i) {
-    sf::Texture *texture = tex_holder.load_ptr(tilesets[i]);
+    sf::Texture *texture = ltex_repo.load_ptr(tilesets[i]);
 
     std::shared_ptr<sf::VertexArray> m_v(new sf::VertexArray);
     m_v->setPrimitiveType(sf::Quads);

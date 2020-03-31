@@ -1,9 +1,9 @@
-#include "foxer/other/helpers/shared_texture_holder.hpp"
+#include "foxer/other/helpers/shared_texture_repository.hpp"
 
 namespace fox {
 
 std::shared_ptr<sf::Texture>
-SharedTextureHolder::load(const std::string &path) {
+SharedTextureRepository::load(const std::string &path) {
   std::map<std::string, std::weak_ptr<sf::Texture>>::iterator it =
       holder.find(path);
 

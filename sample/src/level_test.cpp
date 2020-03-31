@@ -3,12 +3,16 @@
 LevelTest::LevelTest() {}
 
 LevelTest::LevelTest(Character *player, fox::LevelBundle *bundle) :
-                     FoxerLevel("assets/levels/level_test.json", bundle),
+                     FoxerLevel("assets/levels/level02.json", bundle),
                      player(player) {}
 
-void LevelTest::init(){}
+void LevelTest::init(){
+  const fox::TiledJsonObj start_pos = get_event("gate0");
+  player->set_sprite_position(start_pos.x, start_pos.y);
+  bundle->camera.center_at_sprite(player->get_sprite());
+}
 
 void LevelTest::draw(sf::RenderTarget &target, sf::RenderStates states) const {
-  target.draw(get_layers(1, 2));
+  target.draw(get_layers(1, 4));
   target.draw(*player);
 }

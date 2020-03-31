@@ -1,4 +1,4 @@
-// File: texture_holder.hpp
+// File: shared_texture_repository.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,40 +23,32 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_TEXTURE_HOLDER_HPP_
-#define FOX_TEXTURE_HOLDER_HPP_
+#ifndef FOX_SHARED_TEXTURE_HOLDER_HPP_
+#define FOX_SHARED_TEXTURE_HOLDER_HPP_
 
 #include <SFML/Graphics.hpp>
 #include <map>
 #include <memory>
-
-#include "foxer/other/helpers/shared_texture_holder.hpp"
+#include <string>
 
 namespace fox {
 
-// Local repository of textures. It uses a SharedTextureHolder to load textures,
-// and it keeps the references to a local map. As soon as all references to
-// a texture are gone, the texture is deleted (because no one is using it).
+// The common repository of textures. If a texture was loaded previously,
+// it doesn't loads it again. It just returns the reference of it.
+// If a texture isn't being referenced by anyone, the texture is deleted.
 
-class TextureHolder {
+class SharedTextureRepository {
 public:
-  // Empty constructor.
-  TextureHolder();
 
-  // Constructor. Receives a reference to the shared_holder (usually from the
-  // scene).
-  explicit TextureHolder(SharedTextureHolder *shared_holder);
-
-  // Load a texture and return a texture (or a reference to it).
-  const sf::Texture &load(const std::string &path);
-  sf::Texture *load_ptr(const std::string &path);
+  // Loads a texture. If it finds the texture from that path, it returns it.
+  // Otherwise, it creates a new shared_ptr, references it in the holder,
+  // and returns it.
+  std::shared_ptr<sf::Texture> load(const std::string &path);
 
 private:
-  // A reference to the shared holder.
-  SharedTextureHolder *shared_holder;
 
-  // The map containing all loaded textures from the local repository.
-  std::map<std::string, std::shared_ptr<sf::Texture>> textures;
+  // Map of textures. They are indexed by their path in the PC.
+  std::map<std::string, std::weak_ptr<sf::Texture>> holder;
 };
 
 } // namespace fox

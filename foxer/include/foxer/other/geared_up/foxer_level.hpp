@@ -59,6 +59,8 @@ public:
   TileMap get_layer(int index) const;
   LayerContainer get_layers(const int &from, const int &to) const;
   LayerContainer get_layers() const;
+  TiledJsonObj get_event(const std::string &event_id) const;
+  const TiledLevelData &get_level_data() const;
 
   // ===================== Inherited from Level ================================
   virtual void init() = 0;
@@ -69,9 +71,16 @@ public:
   virtual void handle_events(const float &delta_time);
   virtual void control_camera(const float &delta_time);
   // ===========================================================================
+
 protected:
   // Setter to the reference of the collision handler.
   void set_collision_handler(std::unique_ptr<CollisionHandler> col_ver);
+
+  // The reference to a bundle. The bundle better be created at the scene.
+  LevelBundle *bundle;
+
+  // The texture holder of the level. Loads and store textures.
+  LocalTextureRepository ltex_repo;
 
 private:
   // The string with the path of the JSON of the level.
@@ -80,15 +89,9 @@ private:
   // The data of the level (Tile layers, collision tiles and the map of events).
   TiledLevelData data;
 
-  // The texture holder of the level. Loads and store textures.
-  TextureHolder tex_holder;
-
   // The collision handler. It can be any child class of CollisionHandler,
   // but it is a FoxerCollisionHandler by default.
   std::unique_ptr<CollisionHandler> col_ver;
-
-  // The reference to a bundle. The bundle better be created at the scene.
-  LevelBundle *bundle;
 };
 
 }

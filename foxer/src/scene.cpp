@@ -3,7 +3,7 @@
 namespace fox {
 
 Scene::Scene() {
-  tex_holder = TextureHolder(&shared_holder);
+  ltex_repo = LocalTextureRepository(&stex_repo);
 }
 
 Scene::~Scene() {}
