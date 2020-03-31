@@ -3,11 +3,11 @@
 LevelTest::LevelTest() {}
 
 LevelTest::LevelTest(Character *player, fox::LevelBundle *bundle) :
-                     FoxerLevel("assets/levels/level01.json", bundle),
+                     FoxerLevel("assets/levels/level02.json", bundle),
                      player(player) {}
 
 void LevelTest::init(){
-  const fox::TiledJsonObj start_pos = get_event("player_start_pos");
+  const fox::TiledJsonObj start_pos = get_event("gate0");
   player->set_sprite_position(start_pos.x, start_pos.y);
   bundle->camera.center_at_sprite(player->get_sprite());
 }
