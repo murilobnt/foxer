@@ -26,7 +26,7 @@
 #ifndef LEVEL_TEST_HPP_
 #define LEVEL_TEST_HPP_
 
-#include <foxer/level.hpp>
+#include <foxer/abstract_components.hpp>
 
 #include "character.hpp"
 

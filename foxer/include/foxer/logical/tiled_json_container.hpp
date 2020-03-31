@@ -1,4 +1,4 @@
-// File: my_scene.hpp
+// File: tiled_json_container.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,27 +23,41 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef MY_SCENE_HPP_
-#define MY_SCENE_HPP_
+#ifndef FOX_TILED_JSON_CONTAINER_HPP_
+#define FOX_TILED_JSON_CONTAINER_HPP_
 
-#include <SFML/Graphics.hpp>
-#include <foxer/app.hpp>
-#include <foxer/logical.hpp>
+#include <string>
+#include <vector>
 
-#include "character.hpp"
-#include "level_test.hpp"
+#include "foxer/external/json.hpp"
 
-class MyScene : public fox::Scene {
-public:
-  void start();
-  void update();
-  void draw_entities();
+using json = nlohmann::json;
 
-private:
-  Character character;
+namespace fox {
 
-  fox::LevelProxy l_proxy;
-  fox::LevelBundle bundle;
+// Container to a tile layer in JSON.
+
+struct TiledJsonTileLayer {
+  std::vector<int> data;
+
+  TiledJsonTileLayer();
+  explicit TiledJsonTileLayer(json json_obj);
 };
+
+// Container to a tiled object in JSON.
+
+struct TiledJsonObj {
+  std::string id;
+  float x;
+  float y;
+  float width;
+  float height;
+  json properties;
+
+  TiledJsonObj();
+  TiledJsonObj(json json_obj, int tile_height);
+};
+
+} // namespace fox
 
 #endif

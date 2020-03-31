@@ -1,4 +1,4 @@
-// File: my_scene.hpp
+// File: threaded_level_loader.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,27 +23,42 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef MY_SCENE_HPP_
-#define MY_SCENE_HPP_
+#ifndef FOX_THREADED_LEVEL_LOADER_HPP_
+#define FOX_THREADED_LEVEL_LOADER_HPP_
 
-#include <SFML/Graphics.hpp>
-#include <foxer/app.hpp>
-#include <foxer/logical.hpp>
+#include <thread>
 
-#include "character.hpp"
-#include "level_test.hpp"
+#include "foxer/app/level.hpp"
 
-class MyScene : public fox::Scene {
+namespace fox {
+
+// ThreadedLevelLoader is a class that allows one to load a level using threads.
+// That's why the load() method of Level might sound the same as the
+// constructor. However, the constructor is called once any level is created,
+// while load() can be called inside the run() method of this class.
+
+class ThreadedLevelLoader {
 public:
-  void start();
-  void update();
-  void draw_entities();
+  // Destructor.
+  ~ThreadedLevelLoader();
+
+  // Loads a level and stores it.
+  void run(std::shared_ptr<Level> level);
+
+  // Getter for the reference of a loaded level.
+  std::shared_ptr<Level> get_level();
 
 private:
-  Character character;
+  // Loaded level reference.
+  std::shared_ptr<Level> level;
 
-  fox::LevelProxy l_proxy;
-  fox::LevelBundle bundle;
+  // Thread to load a level.
+  std::thread level_loader;
+
+  // Method that is passed to the thread. Calls level->load();
+  void load_level();
 };
+
+} // namespace fox
 
 #endif

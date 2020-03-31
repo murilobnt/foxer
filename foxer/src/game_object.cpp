@@ -1,4 +1,4 @@
-#include "foxer/scene/components/object/game_object.hpp"
+#include "foxer/abstract_components/game_object.hpp"
 
 namespace fox {
 

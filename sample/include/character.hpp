@@ -27,8 +27,7 @@
 #define CHARACTER_HPP_
 
 #include <SFML/Graphics.hpp>
-#include <foxer/scene_components.hpp>
-#include <iostream>
+#include <foxer/abstract_components.hpp>
 #include <cmath>
 
 #include "facing_position.hpp"

@@ -1,4 +1,4 @@
-// File: my_scene.hpp
+// File: main_object.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,27 +23,26 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef MY_SCENE_HPP_
-#define MY_SCENE_HPP_
+#ifndef FOX_MAIN_OBJECT_HPP_
+#define FOX_MAIN_OBJECT_HPP_
 
-#include <SFML/Graphics.hpp>
-#include <foxer/app.hpp>
-#include <foxer/logical.hpp>
+#include "foxer/abstract_components/animated_entity.hpp"
+#include "foxer/abstract_components/game_object.hpp"
+#include "foxer/abstract_components/ib_controlable_entity.hpp"
 
-#include "character.hpp"
-#include "level_test.hpp"
+namespace fox {
 
-class MyScene : public fox::Scene {
+class MainObject : public IBControlableEntity,
+                   public GameObject,
+                   public AnimatedEntity {
+
 public:
-  void start();
-  void update();
-  void draw_entities();
-
-private:
-  Character character;
-
-  fox::LevelProxy l_proxy;
-  fox::LevelBundle bundle;
+  MainObject();
+  MainObject(sf::Texture const &texture, float animation_framerate,
+             sf::Vector2i sprite_dimensions,
+             sf::Vector2i sprite_pos_at_tex = sf::Vector2i(0, 0));
 };
+
+} // namespace fox
 
 #endif

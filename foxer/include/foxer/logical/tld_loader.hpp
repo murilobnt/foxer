@@ -1,4 +1,4 @@
-// File: my_scene.hpp
+// File: tld_loader.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,27 +23,33 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef MY_SCENE_HPP_
-#define MY_SCENE_HPP_
+#ifndef FOX_TLD_LOADER_HPP_
+#define FOX_TLD_LOADER_HPP_
 
-#include <SFML/Graphics.hpp>
-#include <foxer/app.hpp>
-#include <foxer/logical.hpp>
+#include <fstream>
+#include <map>
+#include <set>
+#include <string>
 
-#include "character.hpp"
-#include "level_test.hpp"
+#include "foxer/external/json.hpp"
+#include "foxer/app/level.hpp"
+#include "foxer/logical/tiled_json_container.hpp"
+#include "foxer/logical/tiled_level_data.hpp"
+#include "foxer/logical/tg_loader.hpp"
 
-class MyScene : public fox::Scene {
-public:
-  void start();
-  void update();
-  void draw_entities();
+// Namespace to load a TiledLevelData from a path.
 
-private:
-  Character character;
+namespace fox::TLDLoader {
+  // Loads a TiledLevelData from a path. It requires a texture holder and a
+  // reference to the camera (for the creation of the TileMaps)
+  TiledLevelData load(const std::string &path,
+                      LocalTextureRepository &ltex_repo,
+                      Camera *camera);
+  json load_json(const std::string &path);
+  std::vector<std::string> get_tilesets(const std::string &sub_path,
+                                               json &j_tilesets);
+  TiledLevelData load_level(json &level, const std::vector<std::string> &tilesets, LocalTextureRepository &ltex_repo, Camera *camera);
 
-  fox::LevelProxy l_proxy;
-  fox::LevelBundle bundle;
-};
+}
 
 #endif

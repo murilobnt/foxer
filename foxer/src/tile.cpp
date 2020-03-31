@@ -1,4 +1,4 @@
-#include "foxer/other/helpers/tile.hpp"
+#include "foxer/logical/tile.hpp"
 
 namespace fox {
 

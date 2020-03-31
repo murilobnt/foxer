@@ -1,4 +1,4 @@
-#include "foxer/other/helpers/texture_loader.hpp"
+#include "foxer/logical/texture_loader.hpp"
 
 namespace fox {
 

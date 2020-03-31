@@ -1,5 +1,5 @@
-#include "foxer/game/level/level.hpp"
-#include "foxer/game/level/level_proxy.hpp"
+#include "foxer/app/level.hpp"
+#include "foxer/logical/level_proxy.hpp"
 
 namespace fox {
 

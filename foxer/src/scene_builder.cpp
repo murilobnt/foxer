@@ -1,5 +1,5 @@
-#include "foxer/scene/scene.hpp"
-#include "foxer/scene/scene_builder.hpp"
+#include "foxer/app/scene.hpp"
+#include "foxer/logical/scene_builder.hpp"
 
 namespace fox {
 

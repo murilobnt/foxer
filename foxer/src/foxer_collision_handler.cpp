@@ -1,4 +1,4 @@
-#include "foxer/other/geared_up/foxer_collision_handler.hpp"
+#include "foxer/logical/foxer_collision_handler.hpp"
 
 namespace fox {
 

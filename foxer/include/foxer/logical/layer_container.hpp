@@ -1,4 +1,4 @@
-// File: my_scene.hpp
+// File: layer_container.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,27 +23,31 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef MY_SCENE_HPP_
-#define MY_SCENE_HPP_
+#ifndef FOX_LAYER_CONTAINER_HPP_
+#define FOX_LAYER_CONTAINER_HPP_
 
-#include <SFML/Graphics.hpp>
-#include <foxer/app.hpp>
-#include <foxer/logical.hpp>
+#include <vector>
 
-#include "character.hpp"
-#include "level_test.hpp"
+#include "foxer/components/tilemap.hpp"
 
-class MyScene : public fox::Scene {
+namespace fox {
+
+// This class represents a container for layers of TileMaps. It makes easier
+// to draw multiple layers of TileMaps.
+
+class LayerContainer : public sf::Drawable {
 public:
-  void start();
-  void update();
-  void draw_entities();
+  // Constructor. It takes a vector of TileMaps.
+  explicit LayerContainer(std::vector<TileMap> tile_layers);
 
 private:
-  Character character;
+  // The layers of tiles.
+  std::vector<TileMap> tile_layers;
 
-  fox::LevelProxy l_proxy;
-  fox::LevelBundle bundle;
+  // The draw method.
+  virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 };
+
+} // namespace fox
 
 #endif

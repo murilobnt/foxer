@@ -1,4 +1,4 @@
-// File: my_scene.hpp
+// File: scene_builder.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,27 +23,27 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef MY_SCENE_HPP_
-#define MY_SCENE_HPP_
+#ifndef FOX_SCENE_BUILDER_HPP_
+#define FOX_SCENE_BUILDER_HPP_
 
 #include <SFML/Graphics.hpp>
-#include <foxer/app.hpp>
-#include <foxer/logical.hpp>
 
-#include "character.hpp"
-#include "level_test.hpp"
+#include "foxer/app/scene.hpp"
+#include "foxer/time/clock_handler.hpp"
 
-class MyScene : public fox::Scene {
+namespace fox {
+
+class Scene;
+
+// Builder of a scene.
+
+class SceneBuilder {
 public:
-  void start();
-  void update();
-  void draw_entities();
-
-private:
-  Character character;
-
-  fox::LevelProxy l_proxy;
-  fox::LevelBundle bundle;
+  static void build_scene(Scene *scene, sf::RenderWindow *app_window,
+                          std::vector<std::shared_ptr<Scene>> *app_state,
+                          float dt, ClockHandler *app_clock);
 };
+
+} // namespace fox
 
 #endif

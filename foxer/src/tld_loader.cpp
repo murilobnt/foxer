@@ -1,4 +1,4 @@
-#include "foxer/game/level/tld_loader.hpp"
+#include "foxer/logical/tld_loader.hpp"
 
 namespace fox::TLDLoader {
 

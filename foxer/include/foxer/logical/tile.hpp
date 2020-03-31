@@ -1,4 +1,4 @@
-// File: my_scene.hpp
+// File: tile.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,27 +23,54 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef MY_SCENE_HPP_
-#define MY_SCENE_HPP_
+#ifndef FOX_TILE_HPP_
+#define FOX_TILE_HPP_
 
+// # External
 #include <SFML/Graphics.hpp>
-#include <foxer/app.hpp>
-#include <foxer/logical.hpp>
 
-#include "character.hpp"
-#include "level_test.hpp"
+namespace fox {
 
-class MyScene : public fox::Scene {
+class Tile {
 public:
-  void start();
-  void update();
-  void draw_entities();
+  /**
+   * Constructor.
+   * @param tile_position the position of the tile
+   */
+  Tile(const sf::Vector2f &tile_position, const sf::Vector2u &tile_size);
+
+  /**
+   * Get the position of the tile.
+   * @return the position of the tile
+   */
+  sf::Vector2f get_position() const;
+
+  /**
+   * Get the position in x axis.
+   * @return the position in x axis
+   */
+  float get_position_x() const;
+
+  /**
+   * Get the position in y axis.
+   * @return the position in y axis
+   */
+  float get_position_y() const;
+
+  /**
+   * Get the tile rect.
+   * @return the tile rect
+   */
+  sf::FloatRect get_tile_rect() const;
 
 private:
-  Character character;
+  // The position of the tile
+  sf::Vector2f tile_position;
 
-  fox::LevelProxy l_proxy;
-  fox::LevelBundle bundle;
+  // The rect of the tile
+  sf::FloatRect tile_rect;
 };
+
+} // namespace fox
 
 #endif

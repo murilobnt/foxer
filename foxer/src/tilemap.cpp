@@ -1,4 +1,4 @@
-#include "foxer/game/level/tilemap.hpp"
+#include "foxer/components/tilemap.hpp"
 
 namespace fox {
 

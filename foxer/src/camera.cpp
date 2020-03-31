@@ -1,4 +1,4 @@
-#include "foxer/scene/components/camera/camera.hpp"
+#include "foxer/components/camera.hpp"
 
 namespace fox {
 

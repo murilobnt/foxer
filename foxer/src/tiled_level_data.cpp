@@ -1,4 +1,4 @@
-#include "foxer/game/level/tiled_level_data.hpp"
+#include "foxer/logical/tiled_level_data.hpp"
 
 namespace fox {
 

@@ -1,4 +1,4 @@
-#include "foxer/other/helpers/tile_grid.hpp"
+#include "foxer/logical/tile_grid.hpp"
 
 namespace fox {
 

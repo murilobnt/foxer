@@ -1,4 +1,4 @@
-#include "foxer/app_cycle/app.hpp"
+#include "foxer/app/app.hpp"
 
 namespace fox {
 

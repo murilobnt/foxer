@@ -1,4 +1,4 @@
-#include "foxer/game/level/tg_loader.hpp"
+#include "foxer/logical/tg_loader.hpp"
 
 namespace fox::TGLoader {
 

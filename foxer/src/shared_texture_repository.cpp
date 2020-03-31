@@ -1,4 +1,4 @@
-#include "foxer/other/helpers/shared_texture_repository.hpp"
+#include "foxer/logical/shared_texture_repository.hpp"
 
 namespace fox {
 

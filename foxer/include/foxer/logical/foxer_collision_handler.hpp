@@ -1,4 +1,4 @@
-// File: my_scene.hpp
+// File: foxer_collision_handler.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,27 +23,35 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef MY_SCENE_HPP_
-#define MY_SCENE_HPP_
+#ifndef FOX_FOXER_COLLISION_HANDLER_HPP_
+#define FOX_FOXER_COLLISION_HANDLER_HPP_
 
-#include <SFML/Graphics.hpp>
-#include <foxer/app.hpp>
-#include <foxer/logical.hpp>
+#include "foxer/abstract_components/collision_handler.hpp"
+#include "foxer/abstract_components/game_object.hpp"
+#include "foxer/logical/tile_grid.hpp"
 
-#include "character.hpp"
-#include "level_test.hpp"
+namespace fox {
 
-class MyScene : public fox::Scene {
+// The default collision handler used by FoxerLevel.
+
+class FoxerCollisionHandler : public CollisionHandler {
 public:
-  void start();
-  void update();
-  void draw_entities();
+
+  // Constructor.
+  FoxerCollisionHandler(GameObject *go, const TileGrid &level_tile_grid);
+
+  // ==================== Implemented from CollisionHandler ====================
+  virtual void handle_collision();
+  // ===========================================================================
 
 private:
-  Character character;
+  // A reference to the player.
+  GameObject *go;
 
-  fox::LevelProxy l_proxy;
-  fox::LevelBundle bundle;
+  // The const reference to the collision tile grid.
+  const TileGrid &level_tile_grid;
 };
+
+}
 
 #endif

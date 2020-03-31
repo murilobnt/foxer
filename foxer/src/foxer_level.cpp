@@ -1,4 +1,4 @@
-#include "foxer/other/geared_up/foxer_level.hpp"
+#include "foxer/abstract_components/foxer_level.hpp"
 
 namespace fox {
 

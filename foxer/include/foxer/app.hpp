@@ -1,4 +1,4 @@
-// File: my_scene.hpp
+// File: core.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,27 +23,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef MY_SCENE_HPP_
-#define MY_SCENE_HPP_
+#ifndef FOX_APP_HPP_
+#define FOX_APP_HPP_
 
-#include <SFML/Graphics.hpp>
-#include <foxer/app.hpp>
-#include <foxer/logical.hpp>
-
-#include "character.hpp"
-#include "level_test.hpp"
-
-class MyScene : public fox::Scene {
-public:
-  void start();
-  void update();
-  void draw_entities();
-
-private:
-  Character character;
-
-  fox::LevelProxy l_proxy;
-  fox::LevelBundle bundle;
-};
+#include "foxer/app/app.hpp"
+#include "foxer/app/level.hpp"
+#include "foxer/app/scene.hpp"
 
 #endif

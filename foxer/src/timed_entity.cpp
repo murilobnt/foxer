@@ -1,4 +1,4 @@
-#include "foxer/time/timed_entity.hpp"
+#include "foxer/abstract_components/timed_entity.hpp"
 
 namespace fox {
 

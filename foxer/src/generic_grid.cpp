@@ -1,4 +1,4 @@
-#include "foxer/other/helpers/generic_grid.hpp"
+#include "foxer/logical/generic_grid.hpp"
 
 namespace fox {
 

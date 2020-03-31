@@ -1,4 +1,4 @@
-// File: my_scene.hpp
+// File: tiled_level_data.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,27 +23,44 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef MY_SCENE_HPP_
-#define MY_SCENE_HPP_
+#ifndef FOX_TILED_LEVEL_DATA_HPP_
+#define FOX_TILED_LEVEL_DATA_HPP_
 
-#include <SFML/Graphics.hpp>
-#include <foxer/app.hpp>
-#include <foxer/logical.hpp>
+#include <map>
+#include <string>
+#include <vector>
 
-#include "character.hpp"
-#include "level_test.hpp"
+#include "foxer/components/tilemap.hpp"
+#include "foxer/logical/tile_grid.hpp"
+#include "foxer/logical/tiled_json_container.hpp"
 
-class MyScene : public fox::Scene {
+namespace fox {
+
+// TiledLevelData store Tiled level aspects such as the tile layers, the
+// collision layer and the events of a level.
+// All information that one might get from are going to be a const reference.
+
+class TiledLevelData {
 public:
-  void start();
-  void update();
-  void draw_entities();
+  // Getters.
+  const std::vector<TileMap> &get_layers() const;
+  const TileGrid &get_collision_tile_grid() const;
+  const std::map<std::string, TiledJsonObj> &get_events() const;
+
+  // Empty constructor.
+  TiledLevelData();
+
+  // Constructor.
+  TiledLevelData(std::vector<TileMap> layers,
+                 TileGrid collision_tile_grid,
+                 std::map<std::string, TiledJsonObj> events);
 
 private:
-  Character character;
-
-  fox::LevelProxy l_proxy;
-  fox::LevelBundle bundle;
+  std::vector<TileMap> layers;
+  TileGrid collision_tile_grid;
+  std::map<std::string, TiledJsonObj> events;
 };
+
+} // namespace fox
 
 #endif

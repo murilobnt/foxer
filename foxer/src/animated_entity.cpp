@@ -1,4 +1,4 @@
-#include "foxer/scene/components/graphic/animated_entity.hpp"
+#include "foxer/abstract_components/animated_entity.hpp"
 
 namespace fox {
 

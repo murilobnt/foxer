@@ -1,4 +1,4 @@
-#include "foxer/scene/components/graphic/sprited_entity.hpp"
+#include "foxer/components/sprited_entity.hpp"
 
 namespace fox {
 

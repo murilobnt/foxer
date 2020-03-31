@@ -1,4 +1,4 @@
-#include "foxer/game/level/threaded_level_loader.hpp"
+#include "foxer/logical/threaded_level_loader.hpp"
 
 namespace fox {
 

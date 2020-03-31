@@ -1,4 +1,4 @@
-// File: my_scene.hpp
+// File: level_bundle.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,27 +23,31 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef MY_SCENE_HPP_
-#define MY_SCENE_HPP_
+#ifndef FOX_LEVEL_BUNDLE_HPP_
+#define FOX_LEVEL_BUNDLE_HPP_
 
-#include <SFML/Graphics.hpp>
-#include <foxer/app.hpp>
-#include <foxer/logical.hpp>
+#include "foxer/abstract_components/main_object.hpp"
+#include "foxer/components/camera.hpp"
+#include "foxer/logical/level_proxy.hpp"
+#include "foxer/logical/shared_texture_repository.hpp"
 
-#include "character.hpp"
-#include "level_test.hpp"
+namespace fox {
 
-class MyScene : public fox::Scene {
-public:
-  void start();
-  void update();
-  void draw_entities();
+// LevelBundle represents the data that must be shared from a level to
+// another. Right now, it holds a level proxy to enable level changing from
+// inside of a level, and a camera.
+// It also holds a reference to the player of the level (so FoxerLevel can
+// "see" it from above), and a reference to the repository of textures of the
+// scene (LocalTextureRepositories need to be initialised with it).
 
-private:
-  Character character;
+struct LevelBundle {
+  LevelProxy level_proxy;
+  Camera camera;
 
-  fox::LevelProxy l_proxy;
-  fox::LevelBundle bundle;
+  MainObject *player_ref;
+  SharedTextureRepository *stex_repo;
 };
+
+} // namespace fox
 
 #endif
