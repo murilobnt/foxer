@@ -40,7 +40,6 @@ private:
   Character *player;
   void draw(sf::RenderTarget &target, sf::RenderStates states) const;
   void init();
-  void control_camera(const float &delta_time);
 };
 
 #endif

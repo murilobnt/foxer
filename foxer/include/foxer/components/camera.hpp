@@ -27,6 +27,7 @@
 #define FOX_CAMERA_HPP_
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 namespace fox {
 
@@ -48,6 +49,9 @@ public:
   void center_at_sprite(const sf::Sprite &sprite,
                         const sf::Vector2u &level_size);
   void center_at_position(sf::Vector2f position);
+  void correction(const sf::Vector2u &tile_size,
+                  const sf::Vector2u &level_size);
+
   sf::Vector2f get_center() const;
   sf::View get_view() const;
   sf::Vector2f get_size() const;
@@ -55,6 +59,10 @@ public:
 
 private:
   sf::View view;
+
+  float axis_correction(const float &camera_size_axis,
+                        const float &center_axis,
+                        const unsigned int &level_real_size_axis);
 };
 
 } // namespace fox

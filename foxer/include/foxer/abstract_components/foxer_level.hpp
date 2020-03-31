@@ -29,6 +29,7 @@
 #include <memory>
 
 #include "foxer/app/level.hpp"
+#include "foxer/components/camera.hpp"
 #include "foxer/abstract_components/collision_handler.hpp"
 #include "foxer/abstract_components/main_object.hpp"
 #include "foxer/logical/foxer_collision_handler.hpp"

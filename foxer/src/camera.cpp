@@ -61,6 +61,34 @@ void Camera::center_at_position(sf::Vector2f position) {
   view.setCenter(position);
 }
 
+float Camera::axis_correction(const float &camera_size_axis,
+                             const float &center_axis,
+                             const unsigned int &level_real_size_axis){
+  if(camera_size_axis < level_real_size_axis){
+    if(center_axis - (camera_size_axis / 2) < 0)
+      return camera_size_axis / 2;
+    if(center_axis + (camera_size_axis / 2) > level_real_size_axis)
+      return level_real_size_axis - (camera_size_axis / 2);
+    return center_axis;
+  } else {
+    return level_real_size_axis / 2;
+  }
+}
+
+void Camera::correction(const sf::Vector2u &tile_size,
+                        const sf::Vector2u &level_size) {
+  sf::Vector2f camera_size = view.getSize();
+  sf::Vector2f center = view.getCenter();
+  sf::Vector2f final_position = center;
+
+  final_position.x = axis_correction(camera_size.x, center.x,
+                                     tile_size.x * level_size.x);
+  final_position.y = axis_correction(camera_size.y, center.y,
+                                     tile_size.y * level_size.y);
+
+  view.setCenter(final_position);
+}
+
 sf::Vector2f Camera::get_center() const { return view.getCenter(); }
 
 sf::View Camera::get_view() const { return view; }
