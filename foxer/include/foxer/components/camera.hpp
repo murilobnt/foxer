@@ -27,7 +27,6 @@
 #define FOX_CAMERA_HPP_
 
 #include <SFML/Graphics.hpp>
-#include <iostream>
 #include <cmath>
 
 namespace fox {

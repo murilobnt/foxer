@@ -5,6 +5,6 @@
 
 int main() {
   XInitThreads();
-  fox::App app(960, 640, "Foxer Game Sample");
+  fox::App app(960, 640, "Foxer Game Sample", 60, 60);
   app.app_start(new MyScene(), true, true);
 }

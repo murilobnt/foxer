@@ -44,9 +44,11 @@ void FoxerLevel::handle_events(const float &delta_time) {
 }
 
 void FoxerLevel::control_camera(const float &delta_time) {
-  bundle->camera.move((bundle->player_ref->get_sprite_position() -
+  sf::Vector2f pos = (bundle->player_ref->get_sprite_position() -
   bundle->camera.get_center()) *
-  (delta_time * 5));
+  (delta_time * 4);
+
+  bundle->camera.move(pos);
   bundle->camera.correction(data.get_tile_size(), data.get_level_size());
 }
 

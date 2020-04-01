@@ -18,7 +18,9 @@ void MyScene::start() {
 void MyScene::update() {
   bundle.level_proxy.handle_events(get_delta_time());
   bundle.level_proxy.control_camera(get_delta_time());
-  app_window->setView(bundle.camera.get_view());
 }
 
-void MyScene::draw_entities() { app_window->draw(bundle.level_proxy); }
+void MyScene::draw_entities() {
+  app_window->setView(bundle.camera.get_view());
+  app_window->draw(bundle.level_proxy);
+}
