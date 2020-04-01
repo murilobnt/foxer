@@ -16,7 +16,7 @@ express the demo in the GIF with only about 299 lines of code
 **It uses [SFML](https://www.sfml-dev.org) and supports
 [Tiled](https://www.mapeditor.org/) orthogonal maps!** For Tiled, you just
 need to export (save) everything it creates (tilesets and tilemaps) in JSON
-and Foxer can understand it into a visual and collidable level.
+and Foxer can translate it into a visual, collidable and playable level.
 
 ![Code Example](.github/assets/readme/code_example.png)
 

@@ -1,4 +1,4 @@
-// File: scene_components.hpp
+// File: event_area.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,12 +23,29 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_COMPONENTS_HPP_
-#define FOX_COMPONENTS_HPP_
+#ifndef FOX_EVENT_AREA_HPP_
+#define FOX_EVENT_AREA_HPP_
 
-#include "foxer/components/camera.hpp"
-#include "foxer/components/event_area.hpp"
-#include "foxer/components/sprited_entity.hpp"
-#include "foxer/components/tilemap.hpp"
+#include <SFML/Graphics.hpp>
+#include <memory>
+
+#include "foxer/logical/tiled_json_container.hpp"
+#include "foxer/abstract_components/collision_handler.hpp"
+
+namespace fox {
+
+class EventArea {
+public:
+  EventArea();
+  EventArea(const TiledJsonObj &data,
+            std::unique_ptr<CollisionHandler> collision_handler);
+  virtual void verify_collision(const sf::FloatRect &what);
+
+private:
+  sf::FloatRect area;
+  std::unique_ptr<CollisionHandler> collision_handler;
+};
+
+}
 
 #endif

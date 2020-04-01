@@ -27,6 +27,7 @@
 #define FOX_LOGICAL_HPP_
 
 #include "foxer/logical/foxer_collision_handler.hpp"
+#include "foxer/logical/foxer_exit_area_ch.hpp"
 #include "foxer/logical/generic_grid.hpp"
 #include "foxer/logical/layer_container.hpp"
 #include "foxer/logical/level_bundle.hpp"

@@ -26,18 +26,28 @@
 #ifndef LEVEL_TEST_HPP_
 #define LEVEL_TEST_HPP_
 
+#include <memory>
+#include <string>
+
 #include <foxer/abstract_components.hpp>
+#include <foxer/components.hpp>
+#include <foxer/logical/foxer_exit_area_ch.hpp>
 
 #include "character.hpp"
+#include "level_two.hpp"
 
 class LevelTest : public fox::FoxerLevel {
 public:
   LevelTest();
-  LevelTest(Character *player, fox::LevelBundle *bundle);
-
+  LevelTest(Character *player, fox::LevelBundle *bundle,
+            const std::string start_id = "player_start_pos");
 
 private:
   Character *player;
+  fox::EventArea exit;
+  std::string start_id;
+
+  void handle_events(const float &delta_time);
   void draw(sf::RenderTarget &target, sf::RenderStates states) const;
   void init();
 };

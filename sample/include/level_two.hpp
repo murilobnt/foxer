@@ -1,4 +1,4 @@
-// File: scene_components.hpp
+// File: level_test.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,12 +23,34 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_COMPONENTS_HPP_
-#define FOX_COMPONENTS_HPP_
+#ifndef LEVEL_TWO_HPP_
+#define LEVEL_TWO_HPP_
 
-#include "foxer/components/camera.hpp"
-#include "foxer/components/event_area.hpp"
-#include "foxer/components/sprited_entity.hpp"
-#include "foxer/components/tilemap.hpp"
+#include <memory>
+#include <string>
+
+#include <foxer/abstract_components.hpp>
+#include <foxer/components.hpp>
+#include <foxer/logical/foxer_exit_area_ch.hpp>
+
+#include "character.hpp"
+
+class LevelTest;
+
+class LevelTwo : public fox::FoxerLevel {
+public:
+  LevelTwo();
+  LevelTwo(Character *player, fox::LevelBundle *bundle,
+           const std::string start_id);
+
+private:
+  Character *player;
+  fox::EventArea exit;
+  std::string start_id;
+
+  void handle_events(const float &delta_time);
+  void draw(sf::RenderTarget &target, sf::RenderStates states) const;
+  void init();
+};
 
 #endif

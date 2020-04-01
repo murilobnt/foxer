@@ -11,13 +11,13 @@ void MyScene::start() {
       std::make_shared<LevelTest>(&character, &bundle);
 
   level_one->load();
-  l_proxy.change_level(level_one);
+  bundle.level_proxy.change_level(level_one);
 }
 
 void MyScene::update() {
-  l_proxy.handle_events(get_delta_time());
-  l_proxy.control_camera(get_delta_time());
+  bundle.level_proxy.handle_events(get_delta_time());
+  bundle.level_proxy.control_camera(get_delta_time());
   app_window->setView(bundle.camera.get_view());
 }
 
-void MyScene::draw_entities() { app_window->draw(l_proxy); }
+void MyScene::draw_entities() { app_window->draw(bundle.level_proxy); }
