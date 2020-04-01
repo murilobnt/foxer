@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_APP_HPP_
-#define FOX_APP_HPP_
+#ifndef FOX_SHORTCUT_APP_HPP_
+#define FOX_SHORTCUT_APP_HPP_
 
 #include "foxer/app/app.hpp"
 #include "foxer/app/level.hpp"

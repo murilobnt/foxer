@@ -32,14 +32,14 @@
 #include <memory>
 #include <vector>
 
-#include "foxer/other/helpers/local_texture_repository.hpp"
-#include "foxer/scene/components/camera/camera.hpp"
+#include "foxer/logical/local_texture_repository.hpp"
+#include "foxer/components/camera.hpp"
 
 namespace fox {
 
 class TileMap : public sf::Drawable, public sf::Transformable {
 public:
-  
+
   TileMap();
 
   TileMap(const std::vector<std::string> &tilesets,

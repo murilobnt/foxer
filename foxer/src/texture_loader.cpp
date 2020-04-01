@@ -23,6 +23,7 @@ void TextureLoader::set_texture_from_file(sf::Texture &texture_to_be_loaded,
     Collision::CreateTextureAndBitmask(texture_to_be_loaded, path);
 
   texture_to_be_loaded.setRepeated(is_repeated);
+  texture_to_be_loaded.setSmooth(true);
 }
 
 } // namespace fox

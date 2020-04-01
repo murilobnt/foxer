@@ -57,13 +57,13 @@ void Character::control_entity(float delta_time) {
     moving_up = false;
 
   if (moving_left)
-    movement.x = -150 * delta_time;
+    movement.x = round(-100 * delta_time);
   if (moving_down)
-    movement.y = 150 * delta_time;
+    movement.y = round(100 * delta_time);
   if (moving_right)
-    movement.x = 150 * delta_time;
+    movement.x = round(100 * delta_time);
   if (moving_up)
-    movement.y = -150 * delta_time;
+    movement.y = round(-100 * delta_time);
 
   if ((moving_up || moving_down || moving_left || moving_right) &&
       !do_animate) {

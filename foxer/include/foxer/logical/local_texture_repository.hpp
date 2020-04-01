@@ -30,7 +30,7 @@
 #include <map>
 #include <memory>
 
-#include "foxer/other/helpers/shared_texture_repository.hpp"
+#include "foxer/logical/shared_texture_repository.hpp"
 
 namespace fox {
 
@@ -53,7 +53,7 @@ public:
   sf::Texture *load_ptr(const std::string &path);
 
 private:
-  
+
   // A reference to the shared holder.
   SharedTextureRepository *stex_repo;
 

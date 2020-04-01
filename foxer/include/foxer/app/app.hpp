@@ -31,7 +31,7 @@
 #include <string>
 
 // # Internal
-#include "foxer/scene/scene.hpp"
+#include "foxer/app/scene.hpp"
 #include "foxer/time/clock_handler.hpp"
 #include "foxer/time/time_handler.hpp"
 
@@ -51,9 +51,6 @@ public:
   App(int app_width, int app_height, std::string app_title,
       float timestep = 60.f, float limit_framerate = 0);
 
-  // Destructor.
-  ~App();
-
   // Start the application. This begins the application cycle, verifying if the
   // window is still open to do the operations. It requires the first
   // scene to be played and the bool to use vsync.
@@ -66,7 +63,7 @@ public:
 
 private:
   // The window of the application.
-  sf::RenderWindow *app_window;
+  sf::RenderWindow app_window;
 
   // The title of the application window.
   std::string app_title;

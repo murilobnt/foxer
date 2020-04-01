@@ -1,4 +1,4 @@
-#include "foxer/abstract_components/event_area.hpp"
+#include "foxer/components/event_area.hpp"
 
 namespace fox {
 

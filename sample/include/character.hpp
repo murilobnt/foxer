@@ -29,6 +29,7 @@
 #include <SFML/Graphics.hpp>
 #include <foxer/abstract_components.hpp>
 #include <cmath>
+#include <iostream>
 
 #include "facing_position.hpp"
 

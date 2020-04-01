@@ -86,12 +86,12 @@ void TileMap::draw(sf::RenderTarget &target, sf::RenderStates states) const {
   sf::Vector2f camera_size = camera->get_size();
 
   int start_x =
-      (int)floorf((camera_center.x - (camera_size.x / 2)) / tile_size.x);
+      floorf((camera_center.x - (camera_size.x / 2)) / tile_size.x);
   int start_y =
-      (int)floorf((camera_center.y - (camera_size.y / 2)) / tile_size.y);
+      floorf((camera_center.y - (camera_size.y / 2)) / tile_size.y);
 
-  int end_x = start_x + (int)(camera_size.x / tile_size.x) + 1;
-  int end_y = start_y + (int)(camera_size.y / tile_size.y) + 1;
+  int end_x = start_x + ceilf(camera_size.x / tile_size.x) + 1;
+  int end_y = start_y + ceilf(camera_size.y / tile_size.y) + 1;
 
   start_x = (start_x < 0 ? 0 : start_x);
   start_y = (start_y < 0 ? 0 : start_y);

@@ -3,7 +3,8 @@
 void MyScene::start() {
   time_handlers.push_back(character.get_time_handler());
   character = Character(ltex_repo.load("assets/textures/character.png"));
-  bundle.camera = fox::Camera(sf::Vector2f(480, 320));
+  sf::Vector2u window_size = fox::Scene::app_window->getSize();
+  bundle.camera = fox::Camera(sf::Vector2f(window_size.x/2, window_size.y/2));
   bundle.stex_repo = &stex_repo;
   bundle.player_ref = &character;
 
