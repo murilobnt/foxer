@@ -9,12 +9,13 @@ LocalTextureRepository::LocalTextureRepository
   this->stex_repo = stex_repo;
 }
 
-const sf::Texture &LocalTextureRepository::load(const std::string &path) {
+const sf::Texture &LocalTextureRepository::load(const std::string &path,
+                                                bool smooth, bool repeated) {
   std::map<std::string, std::shared_ptr<sf::Texture>>::const_iterator it =
       textures.find(path);
 
   if (it == textures.end()) {
-    std::shared_ptr<sf::Texture> tex = stex_repo->load(path);
+    std::shared_ptr<sf::Texture> tex = stex_repo->load(path, smooth, repeated);
     textures.insert(std::make_pair(path, tex));
     return *tex;
   } else {
@@ -22,12 +23,13 @@ const sf::Texture &LocalTextureRepository::load(const std::string &path) {
   }
 }
 
-sf::Texture *LocalTextureRepository::load_ptr(const std::string &path) {
+sf::Texture *LocalTextureRepository::load_ptr(const std::string &path,
+                                              bool smooth, bool repeated) {
   std::map<std::string, std::shared_ptr<sf::Texture>>::const_iterator it =
       textures.find(path);
 
   if (it == textures.end()) {
-    std::shared_ptr<sf::Texture> tex = stex_repo->load(path);
+    std::shared_ptr<sf::Texture> tex = stex_repo->load(path, smooth, repeated);
     textures.insert(std::make_pair(path, tex));
     return tex.get();
   } else {

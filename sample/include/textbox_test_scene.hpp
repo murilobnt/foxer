@@ -1,4 +1,4 @@
-// File: scene_components.hpp
+// File: textbox_test_scene.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,13 +23,27 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_COMPONENTS_HPP_
-#define FOX_COMPONENTS_HPP_
+#ifndef TEXTBOX_TEST_SCENE_HPP_
+#define TEXTBOX_TEST_SCENE_HPP_
 
-#include "foxer/components/camera.hpp"
-#include "foxer/components/event_area.hpp"
-#include "foxer/components/sprited_entity.hpp"
-#include "foxer/components/text.hpp"
-#include "foxer/components/tilemap.hpp"
+#include <SFML/Graphics.hpp>
+#include <foxer/app.hpp>
+#include <foxer/components.hpp>
+#include <iostream>
+
+#include "textbox.hpp"
+
+class TextBoxTestScene : public fox::Scene {
+public:
+  void start();
+  void update();
+  void draw_entities();
+
+private:
+  bool begin;
+  sf::Font font;
+  fox::Text text;
+  Textbox box;
+};
 
 #endif

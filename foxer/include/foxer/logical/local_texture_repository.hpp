@@ -49,8 +49,10 @@ public:
   explicit LocalTextureRepository(SharedTextureRepository *stex_repo);
 
   // Load a texture and return a texture (or a reference to it).
-  const sf::Texture &load(const std::string &path);
-  sf::Texture *load_ptr(const std::string &path);
+  const sf::Texture &load(const std::string &path, bool smooth = false,
+                                    bool repeated = false);
+  sf::Texture *load_ptr(const std::string &path, bool smooth = false,
+                                    bool repeated = false);
 
 private:
 

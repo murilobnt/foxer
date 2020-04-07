@@ -43,7 +43,8 @@ public:
   // Loads a texture. If it finds the texture from that path, it returns it.
   // Otherwise, it creates a new shared_ptr, references it in the holder,
   // and returns it.
-  std::shared_ptr<sf::Texture> load(const std::string &path);
+  std::shared_ptr<sf::Texture> load(const std::string &path, bool smooth,
+                                    bool repeated);
 
 private:
 

@@ -1,4 +1,4 @@
-// File: scene_components.hpp
+// File: textbox.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,13 +23,22 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_COMPONENTS_HPP_
-#define FOX_COMPONENTS_HPP_
+#include <SFML/Graphics.hpp>
 
-#include "foxer/components/camera.hpp"
-#include "foxer/components/event_area.hpp"
-#include "foxer/components/sprited_entity.hpp"
-#include "foxer/components/text.hpp"
-#include "foxer/components/tilemap.hpp"
+class Textbox : public sf::Drawable {
+public:
+  Textbox();
+  Textbox(const sf::Texture &bg_texture,
+          const sf::Vector2u &window_size);
 
-#endif
+  void set_window_size(const sf::Vector2u &window_size);
+
+  virtual void load();
+
+private:
+  virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
+
+  sf::VertexArray tb_va;
+  sf::Texture bg_texture;
+  sf::Vector2u window_size;
+};
