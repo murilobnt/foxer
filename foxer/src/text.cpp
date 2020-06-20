@@ -23,12 +23,12 @@ position(pos)
 }
 
 void Text::tokenize_text(const std::string &text){
-  std::stringstream str_strm(text);
-  std::string tmp;
-  char delim = ' ';
+  std::regex words_regex("\\w+|\\\n");
+  std::sregex_iterator words_begin = std::sregex_iterator(text.begin(), text.end(), words_regex);
+  std::sregex_iterator words_end = std::sregex_iterator();
 
-  while (std::getline(str_strm, tmp, delim))
-    tac.tokenized_text.push(tmp);
+  for (std::sregex_iterator i = words_begin; i != words_end; ++i)
+    tac.tokenized_text.push((*i).str());
 }
 
 void Text::clear_text() {
@@ -53,8 +53,15 @@ void Text::display_text(const std::string &what) {
 
 void Text::on_update_time(){
   if(!tac.complete && !tac.full){
-    if(tac.text_iterator == tac.current_word.end()){
+    if(text.getString().isEmpty() && tac.current_word == "\n"){
+      tac.tokenized_text.pop();
+      tac.current_word = tac.tokenized_text.front();
+      tac.text_iterator = tac.current_word.begin();
+      return;
+    }
 
+    if(tac.text_iterator == tac.current_word.end()){
+      std::string last_word = tac.current_word;
       tac.tokenized_text.pop();
 
       if(tac.tokenized_text.empty()){
@@ -65,23 +72,29 @@ void Text::on_update_time(){
       tac.current_word = tac.tokenized_text.front();
       tac.text_iterator = tac.current_word.begin();
 
-      tac.copy = text;
-      text.setString(text.getString() + " ");
-      tac.text_rect = text.getGlobalBounds();
-      if(tac.text_rect.left + tac.text_rect.width > position.x + container_size.x)
-        text = tac.copy;
+      if(last_word != "\n"){
+        tac.copy = text;
+        text.setString(text.getString() + " ");
+        tac.text_rect = text.getGlobalBounds();
+        if(tac.text_rect.left + tac.text_rect.width > position.x + container_size.x)
+          text = tac.copy;
+      }
     }
 
     if(tac.text_iterator == tac.current_word.begin()){
       tac.copy = text;
       text.setString(text.getString() + tac.current_word);
       tac.text_rect = text.getGlobalBounds();
-      if(tac.text_rect.left + tac.text_rect.width > position.x + container_size.x){
+
+      if(tac.text_rect.top + tac.text_rect.height > position.y + container_size.y){
+        tac.full = true;
+      } else if(tac.text_rect.left + tac.text_rect.width > position.x + container_size.x){
         tac.copy.setString(tac.copy.getString() + "\n");
         tac.text_rect = tac.copy.getGlobalBounds();
         if(tac.text_rect.top + tac.text_rect.height > position.y + container_size.y)
           tac.full = true;
       }
+
       text = tac.copy;
       if(tac.full)
         return;

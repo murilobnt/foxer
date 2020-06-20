@@ -6,6 +6,6 @@
 
 int main() {
   XInitThreads();
-  fox::App app(400, 300, "Foxer Game Sample");
-  app.app_start(new TextBoxTestScene(), false, true);
+  fox::App app(640, 480, "Foxer Game Sample");
+  app.app_start(new TextBoxTestScene(), false, false);
 }

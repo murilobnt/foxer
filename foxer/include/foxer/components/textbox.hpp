@@ -1,4 +1,4 @@
-// File: text.hpp
+// File: tilemap.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,59 +23,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef FOX_TEXT_HPP_
-#define FOX_TEXT_HPP_
+#ifndef FOX_TEXTBOX_HPP_
+#define FOX_TEXTBOX_HPP_
 
-#include <SFML/Graphics.hpp>
-#include <queue>
-#include <string>
-#include <sstream>
-#include <iostream>
-#include <regex>
 
-#include "foxer/abstract_components/timed_entity.hpp"
-
-namespace fox {
-
-struct TextAnimationControl {
-  std::string::iterator text_iterator;
-
-  std::queue<std::string> tokenized_text;
-  std::string current_word;
-  sf::FloatRect text_rect;
-  sf::Text copy;
-
-  bool complete;
-  bool full;
-
-  TextAnimationControl();
-  explicit TextAnimationControl(bool complete);
-};
-
-class Text : public sf::Drawable,
-             public TimedEntity {
-public:
-  Text();
-  Text(const sf::Font &font, const sf::Vector2u container_size,
-       const sf::Vector2f &pos, float update_rate);
-
-  void display_text(const std::string &what);
-  void clear_text();
-  void on_update_time();
-
-  const bool &is_complete() const;
-  const bool &is_full() const;
-
-private:
-  void tokenize_text(const std::string &text);
-  virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
-
-  sf::Vector2u container_size;
-  sf::Vector2f position;
-  sf::Text text;
-  TextAnimationControl tac;
-};
-
-}
 
 #endif
