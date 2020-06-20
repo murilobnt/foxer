@@ -41,7 +41,7 @@ class SceneBuilder {
 public:
   static void build_scene(Scene *scene, sf::RenderWindow *app_window,
                           std::vector<std::shared_ptr<Scene>> *app_state,
-                          float dt, ClockHandler *app_clock);
+                          ClockHandler *app_clock);
 };
 
 } // namespace fox

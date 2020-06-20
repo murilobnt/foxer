@@ -15,10 +15,10 @@ Text::Text(){}
 Text::Text(const sf::Font &font, const sf::Vector2u container_size,
            const sf::Vector2f &pos, float update_rate) :
 TimedEntity(sf::seconds(1.f / update_rate)),
-container_size(container_size)
+container_size(container_size),
+position(pos)
 {
   text.setPosition(pos);
-  text.setCharacterSize(40);
   text.setFont(font);
 }
 
@@ -34,6 +34,10 @@ void Text::tokenize_text(const std::string &text){
 void Text::clear_text() {
   text.setString("");
   tac.full = false;
+}
+
+const bool &Text::is_complete() const {
+  return tac.complete;
 }
 
 const bool &Text::is_full() const {
@@ -64,7 +68,7 @@ void Text::on_update_time(){
       tac.copy = text;
       text.setString(text.getString() + " ");
       tac.text_rect = text.getGlobalBounds();
-      if(tac.text_rect.left + tac.text_rect.width > container_size.x)
+      if(tac.text_rect.left + tac.text_rect.width > position.x + container_size.x)
         text = tac.copy;
     }
 
@@ -72,10 +76,10 @@ void Text::on_update_time(){
       tac.copy = text;
       text.setString(text.getString() + tac.current_word);
       tac.text_rect = text.getGlobalBounds();
-      if(tac.text_rect.left + tac.text_rect.width > container_size.x){
+      if(tac.text_rect.left + tac.text_rect.width > position.x + container_size.x){
         tac.copy.setString(tac.copy.getString() + "\n");
         tac.text_rect = tac.copy.getGlobalBounds();
-        if(tac.text_rect.top + tac.text_rect.height > container_size.y)
+        if(tac.text_rect.top + tac.text_rect.height > position.y + container_size.y)
           tac.full = true;
       }
       text = tac.copy;

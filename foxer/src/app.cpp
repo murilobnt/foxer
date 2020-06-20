@@ -4,10 +4,9 @@ namespace fox {
 
 App::App() {}
 
-App::App(int app_width, int app_height, std::string app_title, float timestep,
+App::App(int app_width, int app_height, std::string app_title,
          float limit_framerate)
-    : app_frequency(sf::seconds(1.f / timestep)), app_title(app_title),
-      app_width(app_width), app_height(app_height), dt(1.f / timestep),
+    : app_title(app_title), app_width(app_width), app_height(app_height),
       limit_framerate(limit_framerate) {}
 
 void App::app_start(Scene *first_scene, bool vsync, bool fullscreen) {
@@ -23,7 +22,7 @@ void App::app_start(Scene *first_scene, bool vsync, bool fullscreen) {
   if (limit_framerate > 0)
     app_window.setFramerateLimit(limit_framerate);
 
-  SceneBuilder::build_scene(first_scene, &app_window, &app_state, dt,
+  SceneBuilder::build_scene(first_scene, &app_window, &app_state,
                             &clock_handler);
   std::shared_ptr<Scene> first_scene_ptr(first_scene);
   app_state.push_back(first_scene_ptr);
@@ -31,12 +30,10 @@ void App::app_start(Scene *first_scene, bool vsync, bool fullscreen) {
 
   while (app_window.isOpen()) {
     process_events();
-    while (app_frequency.time_to_update())
-      app_state.back()->update();
+    app_state.back()->update();
     clear_and_draw();
 
     clock_handler.restart_clock();
-    clock_handler.restart_time_handler(&app_frequency);
     app_state.back()->reset_time_handlers(clock_handler);
   }
 }

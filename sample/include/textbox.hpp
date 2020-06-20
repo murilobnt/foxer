@@ -24,21 +24,37 @@
 // SOFTWARE.
 
 #include <SFML/Graphics.hpp>
+#include <foxer/components.hpp>
+#include <foxer/time.hpp>
 
 class Textbox : public sf::Drawable {
 public:
   Textbox();
-  Textbox(const sf::Texture &bg_texture,
-          const sf::Vector2u &window_size);
+  Textbox(const sf::Font     &font,
+          const sf::Vector2f &box_position,
+          const sf::Texture  &box_texture,
+          const sf::Vector2u &box_size,
+          float              update_rate = 120.f,
+          short              margin = 25);
 
-  void set_window_size(const sf::Vector2u &window_size);
+  fox::TimeHandler *get_text_time_handler();
+  const bool &is_active() const;
 
   virtual void load();
+  void display_text(const std::string &what);
+  void start();
+  void update_text_state();
+  void next();
 
 private:
   virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
   sf::VertexArray tb_va;
-  sf::Texture bg_texture;
-  sf::Vector2u window_size;
+  sf::Texture     box_texture;
+  sf::Vector2f    box_position;
+  sf::Vector2u    window_size;
+  sf::Vector2u    box_size;
+
+  fox::Text       text;
+  bool            active;
 };

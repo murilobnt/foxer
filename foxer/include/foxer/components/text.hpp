@@ -57,10 +57,12 @@ public:
   Text();
   Text(const sf::Font &font, const sf::Vector2u container_size,
        const sf::Vector2f &pos, float update_rate);
+
   void display_text(const std::string &what);
   void clear_text();
   void on_update_time();
 
+  const bool &is_complete() const;
   const bool &is_full() const;
 
 private:
@@ -68,6 +70,7 @@ private:
   virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
   sf::Vector2u container_size;
+  sf::Vector2f position;
   sf::Text text;
   TextAnimationControl tac;
 };

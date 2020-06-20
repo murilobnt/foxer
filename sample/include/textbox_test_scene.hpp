@@ -42,7 +42,6 @@ public:
 private:
   bool begin;
   sf::Font font;
-  fox::Text text;
   Textbox box;
 };
 

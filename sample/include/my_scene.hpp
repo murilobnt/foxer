@@ -29,6 +29,7 @@
 #include <SFML/Graphics.hpp>
 #include <foxer/app.hpp>
 #include <foxer/logical.hpp>
+#include <foxer/time.hpp>
 
 #include "character.hpp"
 #include "level_test.hpp"
@@ -36,13 +37,16 @@
 
 class MyScene : public fox::Scene {
 public:
+  MyScene();
   void start();
   void update();
   void draw_entities();
 
 private:
+  const float delta_time;
+  
+  fox::TimeHandler physics_rate;
   Character character;
-
   fox::LevelBundle bundle;
 };
 

@@ -3,39 +3,32 @@
 void TextBoxTestScene::start() {
   begin = false;
   sf::Vector2u window_size = fox::Scene::app_window->getSize();
-  box = Textbox(ltex_repo.load("assets/textures/box-highres.png", true),
-                window_size);
+  float y_scale = (window_size.y / 768.f) * 200;
+  if(y_scale > 200)
+    y_scale = 200;
   font.loadFromFile("assets/fonts/Ubuntu-C.ttf");
-  text = fox::Text(font,
-                   sf::Vector2u(window_size.x - 25, window_size.y - 25),
-                   sf::Vector2f(25, fox::Scene::app_window->getSize().y - 175),
-                   120.f);
-  time_handlers.push_back(text.get_time_handler());
-  text.display_text("Lorem\nipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+  box = Textbox(font,
+                sf::Vector2f(0, window_size.y - 200),
+                ltex_repo.load("assets/textures/box-highres.png", true),
+                sf::Vector2u(window_size.x, y_scale));
+  time_handlers.push_back(box.get_text_time_handler());
+  box.display_text("Lorem\nipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
 }
 
 void TextBoxTestScene::update() {
-  if(text.is_full() && sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)){
-    text.get_time_handler()->set_update_rate(sf::seconds(1.f/60.f));
-    text.clear_text();
-    text.reset_last_update();
+  if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)){
+    if(box.is_active())
+      box.next();
+    else
+      box.start();
   }
 
-  if(!begin && sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
-    begin = true;
-    text.reset_last_update();
-  }
-
-  if(begin && sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-    text.get_time_handler()->set_update_rate(sf::seconds(1.f/240.f));
+  if(box.is_active())
+    box.update_text_state();
 }
 
-// TODO: "Free" update (not bound to a timestep).
-
 void TextBoxTestScene::draw_entities() {
-  if(begin){
-    text.time_trigger();
+  if(box.is_active()){
     app_window->draw(box);
-    app_window->draw(text);
   }
 }

@@ -23,7 +23,7 @@ void Scene::handle_event(sf::Event &event) {
 void Scene::on_exit() {}
 
 void Scene::push_scene(Scene *next_scene) {
-  SceneBuilder::build_scene(next_scene, app_window, app_state, dt, app_clock);
+  SceneBuilder::build_scene(next_scene, app_window, app_state, app_clock);
   std::shared_ptr<Scene> next_scene_ptr(next_scene);
   app_state->push_back(next_scene_ptr);
   next_scene_ptr->start();
@@ -37,10 +37,6 @@ void Scene::rollback_scene() {
 void Scene::set_app_window(sf::RenderWindow *app_window) {
   this->app_window = app_window;
 }
-
-void Scene::set_app_dt(float dt) { this->dt = dt; }
-
-float Scene::get_delta_time() const { return dt; }
 
 void Scene::set_app_clock(ClockHandler *app_clock) {
   this->app_clock = app_clock;

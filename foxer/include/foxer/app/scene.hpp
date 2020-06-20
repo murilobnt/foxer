@@ -93,10 +93,6 @@ public:
   // Setter of app_window.
   void set_app_window(sf::RenderWindow *app_window);
 
-  void set_app_dt(float dt);
-
-  float get_delta_time() const;
-
   void set_app_clock(ClockHandler *app_clock);
 
   float get_frame_delta_time() const;
@@ -113,7 +109,6 @@ protected:
   SharedTextureRepository stex_repo;
 
 private:
-  float dt;
   ClockHandler *app_clock;
   std::vector<std::shared_ptr<Scene>> *app_state;
 };

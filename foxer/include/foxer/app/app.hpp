@@ -48,8 +48,7 @@ public:
 
   // Constructor. Requires the width and height of the application window and
   // its title too.
-  App(int app_width, int app_height, std::string app_title,
-      float timestep = 60.f, float limit_framerate = 0);
+  App(int app_width, int app_height, std::string app_title, float limit_framerate = 0);
 
   // Start the application. This begins the application cycle, verifying if the
   // window is still open to do the operations. It requires the first
@@ -74,7 +73,6 @@ private:
 
   // The maximum FPS of the application and the delta time.
   float limit_framerate;
-  float dt;
 
   // The clock of the application.
   ClockHandler clock_handler;
