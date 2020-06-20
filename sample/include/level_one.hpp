@@ -1,4 +1,4 @@
-// File: level_test.hpp
+// File: level_one.hpp
 // Author: Murilo Bento
 //
 // MIT License
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef LEVEL_TEST_HPP_
-#define LEVEL_TEST_HPP_
+#ifndef LEVEL_ONE_HPP_
+#define LEVEL_ONE_HPP_
 
 #include <memory>
 #include <string>
@@ -36,10 +36,10 @@
 #include "character.hpp"
 #include "level_two.hpp"
 
-class LevelTest : public fox::FoxerLevel {
+class LevelOne : public fox::FoxerLevel {
 public:
-  LevelTest();
-  LevelTest(Character *player, fox::LevelBundle *bundle,
+  LevelOne();
+  LevelOne(Character *player, fox::LevelBundle *bundle,
             const std::string start_id = "player_start_pos");
 
 private:

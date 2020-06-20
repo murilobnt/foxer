@@ -35,7 +35,7 @@
 
 #include "character.hpp"
 
-class LevelTest;
+class LevelOne;
 
 class LevelTwo : public fox::FoxerLevel {
 public:

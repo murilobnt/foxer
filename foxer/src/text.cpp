@@ -4,26 +4,28 @@ namespace fox {
 
 TextAnimationControl::TextAnimationControl() :
 complete(true),
-full(false) {}
+full(false) {
+}
 
 TextAnimationControl::TextAnimationControl(bool complete) :
 complete(complete),
-full(false){}
+full(false){
+}
 
 Text::Text(){}
 
 Text::Text(const sf::Font &font, const sf::Vector2u container_size,
-           const sf::Vector2f &pos, float update_rate) :
+           const sf::Vector2f &pos, float update_rate, unsigned int char_size) :
 TimedEntity(sf::seconds(1.f / update_rate)),
-container_size(container_size),
-position(pos)
+container_size(container_size)
 {
   text.setPosition(pos);
   text.setFont(font);
+  text.setCharacterSize(char_size);
 }
 
 void Text::tokenize_text(const std::string &text){
-  std::regex words_regex("\\w+|\\\n");
+  std::regex words_regex("\\w+[-!$%^&*()_+|~=`{}\\[\\]:\";'<>?,.\\/]*|\\\n");
   std::sregex_iterator words_begin = std::sregex_iterator(text.begin(), text.end(), words_regex);
   std::sregex_iterator words_end = std::sregex_iterator();
 
@@ -44,7 +46,12 @@ const bool &Text::is_full() const {
   return tac.full;
 }
 
+void Text::set_position(float x, float y){
+  text.setPosition(x, y);
+}
+
 void Text::display_text(const std::string &what) {
+  text.setString("");
   tac = TextAnimationControl(false);
   tokenize_text(what);
   tac.current_word = tac.tokenized_text.front();
@@ -76,7 +83,7 @@ void Text::on_update_time(){
         tac.copy = text;
         text.setString(text.getString() + " ");
         tac.text_rect = text.getGlobalBounds();
-        if(tac.text_rect.left + tac.text_rect.width > position.x + container_size.x)
+        if(tac.text_rect.left + tac.text_rect.width > text.getPosition().x + container_size.x)
           text = tac.copy;
       }
     }
@@ -86,12 +93,12 @@ void Text::on_update_time(){
       text.setString(text.getString() + tac.current_word);
       tac.text_rect = text.getGlobalBounds();
 
-      if(tac.text_rect.top + tac.text_rect.height > position.y + container_size.y){
+      if(tac.text_rect.top + tac.text_rect.height > text.getPosition().y + container_size.y){
         tac.full = true;
-      } else if(tac.text_rect.left + tac.text_rect.width > position.x + container_size.x){
+      } else if(tac.text_rect.left + tac.text_rect.width > text.getPosition().x + container_size.x){
         tac.copy.setString(tac.copy.getString() + "\n");
         tac.text_rect = tac.copy.getGlobalBounds();
-        if(tac.text_rect.top + tac.text_rect.height > position.y + container_size.y)
+        if(tac.text_rect.top + tac.text_rect.height > text.getPosition().y + container_size.y)
           tac.full = true;
       }
 

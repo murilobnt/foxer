@@ -32,7 +32,7 @@
 #include <foxer/time.hpp>
 
 #include "character.hpp"
-#include "level_test.hpp"
+#include "level_one.hpp"
 #include "level_two.hpp"
 
 class MyScene : public fox::Scene {
@@ -44,10 +44,14 @@ public:
 
 private:
   const float delta_time;
-  
+
   fox::TimeHandler physics_rate;
   Character character;
   fox::LevelBundle bundle;
+
+  fox::Textbox textbox;
+  sf::Font font;
+  float y_scale;
 };
 
 #endif

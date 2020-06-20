@@ -1,4 +1,4 @@
-#include "level_test.hpp"
+#include "level_one.hpp"
 #include "level_two.hpp"
 
 LevelTwo::LevelTwo() {}
@@ -12,10 +12,10 @@ LevelTwo::LevelTwo(Character *player, fox::LevelBundle *bundle,
 void LevelTwo::init(){
   const fox::TiledJsonObj start_pos = get_event(start_id);
   const fox::TiledJsonObj level_change = get_event("level_change");
-  
+
   exit = fox::EventArea(level_change,
   std::make_unique<fox::FoxerExitAreaCH>(&bundle->level_proxy,
-  std::make_shared<LevelTest>(player, bundle, "gate0")));
+  std::make_shared<LevelOne>(player, bundle, "gate0")));
 
   player->set_sprite_position(start_pos.x, start_pos.y);
 }

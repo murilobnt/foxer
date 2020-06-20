@@ -29,8 +29,6 @@
 #include <SFML/Graphics.hpp>
 #include <queue>
 #include <string>
-#include <sstream>
-#include <iostream>
 #include <regex>
 
 #include "foxer/abstract_components/timed_entity.hpp"
@@ -56,8 +54,10 @@ class Text : public sf::Drawable,
              public TimedEntity {
 public:
   Text();
-  Text(const sf::Font &font, const sf::Vector2u container_size,
-       const sf::Vector2f &pos, float update_rate);
+  Text(const sf::Font &font,
+       const sf::Vector2u container_size,
+       const sf::Vector2f &pos, float update_rate,
+       unsigned int char_size);
 
   void display_text(const std::string &what);
   void clear_text();
@@ -66,12 +66,13 @@ public:
   const bool &is_complete() const;
   const bool &is_full() const;
 
+  void set_position(float x, float y);
+
 private:
   void tokenize_text(const std::string &text);
   virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
   sf::Vector2u container_size;
-  sf::Vector2f position;
   sf::Text text;
   TextAnimationControl tac;
 };

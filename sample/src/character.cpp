@@ -1,7 +1,7 @@
 #include "character.hpp"
 
 Character::Character(sf::Texture const &texture, sf::Vector2f position)
-    : fox::MainObject::MainObject(texture, 5, sf::Vector2i(16, 23)),
+    : fox::MainObject::MainObject(texture, 5, sf::Vector2i(16, 22), sf::Vector2i(0, 5)),
     falling(false),
     jump_height(32),
     z_movement(0) {
