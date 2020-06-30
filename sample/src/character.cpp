@@ -1,11 +1,11 @@
 #include "character.hpp"
 
 Character::Character(sf::Texture const &texture, sf::Vector2f position)
-    : fox::MainObject::MainObject(texture, 5, sf::Vector2i(16, 22), sf::Vector2i(0, 5)),
+    : fox::MainObject::MainObject(texture, sf::IntRect(0, 5, 16, 22), 5),
     falling(false),
     jump_height(32),
     z_movement(0) {
-  set_sprite_position(position);
+  setPosition(position);
   player_position = sf::Vector3f(position.x, position.y, 0);
   current_facing_pos = DOWN;
   collision_offset_down = 3;
@@ -20,7 +20,7 @@ void Character::jump(const float &delta_time){
   z_movement = sqrt(2 * 32 * delta_time * jump_height);
   movement.y = -z_movement;
   player_position.z += z_movement;
-  player_position.y = get_sprite_position().y;
+  player_position.y = getPosition().y;
 }
 
 void Character::control_entity(float delta_time) {
@@ -84,7 +84,7 @@ void Character::move(float delta_time) {
     player_position.z += z_movement;
     movement.y += -z_movement;
   }
-  move_sprite(movement);
+  sf::Sprite::move(movement);
   current_movement = movement;
   movement.x = 0;
   movement.y = 0;
@@ -98,16 +98,16 @@ void Character::animate() {
     do_animate = false;
     switch (current_facing_pos) {
     case UP:
-      configure_sprite_rect(0, 68);
+      setTextureRect(0, 68);
       break;
     case DOWN:
-      configure_sprite_rect(0, 5);
+      setTextureRect(0, 5);
       break;
     case LEFT:
-      configure_sprite_rect(0, 101);
+      setTextureRect(0, 101);
       break;
     case RIGHT:
-      configure_sprite_rect(0, 37);
+      setTextureRect(0, 37);
       break;
     }
     return;

@@ -28,7 +28,6 @@
 
 #include "foxer/components/camera.hpp"
 #include "foxer/components/event_area.hpp"
-#include "foxer/components/sprited_entity.hpp"
 #include "foxer/components/text.hpp"
 #include "foxer/components/textbox.hpp"
 #include "foxer/components/tilemap.hpp"

@@ -26,8 +26,9 @@
 #ifndef FOX_ANIMATED_ENTITY_HPP_
 #define FOX_ANIMATED_ENTITY_HPP_
 
+#include <SFML/Graphics.hpp>
+
 #include "foxer/abstract_components/timed_entity.hpp"
-#include "foxer/components/sprited_entity.hpp"
 
 // An animated entity can be used by entities that have
 // a sprite and it requires an animation. In this class,
@@ -60,10 +61,10 @@ public:
   // Applies the animation of the row. This means it will iterate through
   // the first frame until the last frame, and go back to the first frame
   // again in a loop.
-  virtual void apply_animation_on_row(SpritedEntity *sprited_entity,
+  virtual void apply_animation_on_row(sf::Sprite *sprite,
                                       sf::Vector2i anim_x, int anim_y);
 
-  virtual void apply_animation_on_column(SpritedEntity *sprited_entity,
+  virtual void apply_animation_on_column(sf::Sprite *sprite,
                                          int anim_x, sf::Vector2i anim_y);
 
   // Defines what will trigger the animation and which/how the

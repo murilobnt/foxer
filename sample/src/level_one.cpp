@@ -16,7 +16,7 @@ void LevelOne::init(){
   std::make_unique<fox::FoxerExitAreaCH>(&bundle->level_proxy,
   std::make_shared<LevelTwo>(player, bundle, "gate0")));
 
-  player->set_sprite_position(start_pos.x, start_pos.y);
+  player->setPosition(start_pos.x, start_pos.y);
   bundle->textbox->display_text("Hey. This is a demo.\n\nIt took me quite some long time to figure out the proper way to code this textbox.\nBut here it is! Finally complete.");
 }
 
@@ -33,7 +33,7 @@ void LevelOne::level_update(const float &delta_time){
     bundle->textbox->update_text_state();
   }
 
-  exit.verify_collision(player->get_sprite_global_bounds());
+  exit.verify_collision(player->getGlobalBounds());
 }
 
 void LevelOne::draw(sf::RenderTarget &target,

@@ -38,9 +38,9 @@ class MainObject : public IBControlableEntity,
 
 public:
   MainObject();
-  MainObject(sf::Texture const &texture, float animation_framerate,
-             sf::Vector2i sprite_dimensions,
-             sf::Vector2i sprite_pos_at_tex = sf::Vector2i(0, 0));
+  MainObject(const sf::Texture &texture, const sf::IntRect &rect,
+             float animation_framerate);
+  MainObject(const sf::Texture &texture, float animation_framerate);
 };
 
 } // namespace fox

@@ -29,19 +29,23 @@
 #include <SFML/Graphics.hpp>
 
 #include "foxer/abstract_components/movable_object.hpp"
-#include "foxer/components/sprited_entity.hpp"
 
 namespace fox {
 
-class GameObject : public SpritedEntity, public MovableObject {
+class GameObject : public sf::Sprite, public MovableObject {
 public:
-  GameObject(sf::Texture const &texture, sf::Vector2i sprite_dimensions,
-             sf::Vector2i sprite_pos_at_tex = sf::Vector2i(0, 0));
+  GameObject(const sf::Texture &texture, const sf::IntRect& rect);
+  GameObject(const sf::Texture &texture);
 
   GameObject();
 
+  void setTextureRect(int x, int y);
+
   virtual void move(float delta_time) = 0;
   virtual void move() = 0;
+
+private:
+  sf::Vector2i size;
 };
 
 } // namespace fox

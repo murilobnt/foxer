@@ -8,27 +8,29 @@ AnimatedEntity::AnimatedEntity(float animation_framerate)
 
 AnimatedEntity::AnimatedEntity() {}
 
-void AnimatedEntity::apply_animation_on_row(SpritedEntity *sprited_entity,
+void AnimatedEntity::apply_animation_on_row(sf::Sprite *sprite,
                                             sf::Vector2i anim_x, int anim_y) {
-  sf::Vector2i sprite_dimensions = sprited_entity->get_sprite_dimensions();
-  if (anim_x.x + animation_loop_state * sprite_dimensions.x >= anim_x.y)
+  sf::FloatRect local_bounds = sprite->getLocalBounds();
+  if (anim_x.x + animation_loop_state * local_bounds.width >= anim_x.y)
     animation_loop_state = 0;
 
-  sprited_entity->configure_sprite_rect(
-      anim_x.x + animation_loop_state * sprite_dimensions.x, anim_y);
+  sprite->setTextureRect(sf::IntRect(
+      anim_x.x + animation_loop_state * local_bounds.width, anim_y,
+      local_bounds.width, local_bounds.height));
 
   ++animation_loop_state;
 }
 
-void AnimatedEntity::apply_animation_on_column(SpritedEntity *sprited_entity,
+void AnimatedEntity::apply_animation_on_column(sf::Sprite *sprite,
                                                int anim_x,
                                                sf::Vector2i anim_y) {
-  sf::Vector2i sprite_dimensions = sprited_entity->get_sprite_dimensions();
-  if (anim_y.x + animation_loop_state * sprite_dimensions.y >= anim_y.y)
+  sf::FloatRect local_bounds = sprite->getLocalBounds();
+  if (anim_y.x + animation_loop_state * local_bounds.height >= anim_y.y)
     animation_loop_state = 0;
 
-  sprited_entity->configure_sprite_rect(
-      anim_x, anim_y.x + animation_loop_state * sprite_dimensions.y);
+  sprite->setTextureRect(sf::IntRect(
+      anim_x, anim_y.x + animation_loop_state * local_bounds.height,
+      local_bounds.width, local_bounds.height));
 
   ++animation_loop_state;
 }

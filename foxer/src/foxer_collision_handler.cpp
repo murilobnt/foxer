@@ -12,7 +12,7 @@ level_tile_grid(level_tile_grid)
 void FoxerCollisionHandler::handle_collision() {
   sf::Vector2f movement = go->get_movement();
 
-  sf::FloatRect gb = go->get_sprite_global_bounds();
+  sf::FloatRect gb = go->getGlobalBounds();
   gb.height -= go->collision_offset_up + go->collision_offset_down;
   gb.width -= go->collision_offset_left + go->collision_offset_right;
   gb.top += go->collision_offset_up;
@@ -25,8 +25,8 @@ void FoxerCollisionHandler::handle_collision() {
   gb_y.top += movement.y;
 
   std::vector<Unity> unities =
-      level_tile_grid.get_unities_in_position(go->get_sprite_position(),
-                                              go->get_sprite_global_bounds());
+      level_tile_grid.get_unities_in_position(go->getPosition(),
+                                              go->getGlobalBounds());
 
   for (std::vector<Unity>::iterator it = unities.begin(); it != unities.end();
        ++it) {

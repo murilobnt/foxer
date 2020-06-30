@@ -4,10 +4,13 @@ namespace fox {
 
 MainObject::MainObject() {}
 
-MainObject::MainObject(sf::Texture const &texture, float animation_framerate,
-                       sf::Vector2i sprite_dimensions,
-                       sf::Vector2i sprite_pos_at_tex)
-    : GameObject(texture, sprite_dimensions, sprite_pos_at_tex),
+MainObject::MainObject(sf::Texture const &texture, const sf::IntRect &rect,
+                       float animation_framerate)
+    : GameObject(texture, rect),
+      AnimatedEntity(animation_framerate) {}
+
+MainObject::MainObject(const sf::Texture &texture, float animation_framerate)
+    : GameObject(texture),
       AnimatedEntity(animation_framerate) {}
 
 } // namespace fox

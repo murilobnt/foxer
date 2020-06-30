@@ -19,13 +19,13 @@ void LevelTwo::init(){
   std::make_unique<fox::FoxerExitAreaCH>(&bundle->level_proxy,
   std::make_shared<LevelOne>(player, bundle, "gate0")));
 
-  player->set_sprite_position(start_pos.x, start_pos.y);
+  player->setPosition(start_pos.x, start_pos.y);
 }
 
 void LevelTwo::level_update(const float &delta_time){
   fox::FoxerLevel::level_update(delta_time);
   rays.setPosition(bundle->camera.get_center().x- bundle->camera.get_size().x/2, bundle->camera.get_center().y - bundle->camera.get_size().y/2);
-  exit.verify_collision(player->get_sprite_global_bounds());
+  exit.verify_collision(player->getGlobalBounds());
 }
 
 void LevelTwo::draw(sf::RenderTarget &target,
