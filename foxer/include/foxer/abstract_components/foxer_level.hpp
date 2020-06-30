@@ -69,7 +69,7 @@ public:
                     sf::RenderStates states) const = 0;
   // ==================== Implemented from Level ===============================
   virtual void load();
-  virtual void handle_events(const float &delta_time);
+  virtual void level_update(const float &delta_time);
   virtual void control_camera(const float &delta_time);
   // ===========================================================================
 

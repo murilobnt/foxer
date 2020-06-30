@@ -36,7 +36,7 @@ void FoxerLevel::load() {
                                               data.get_collision_tile_grid());
 }
 
-void FoxerLevel::handle_events(const float &delta_time) {
+void FoxerLevel::level_update(const float &delta_time) {
   bundle->player_ref->control_entity(delta_time);
   col_ver->handle_collision();
   bundle->player_ref->time_trigger();

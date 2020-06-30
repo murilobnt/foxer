@@ -14,10 +14,9 @@ void Scene::reset_time_handlers(ClockHandler &clock_handler) {
     clock_handler.restart_time_handler(*it);
 }
 
-void Scene::handle_event(sf::Event &event) {
-  if (event.type == sf::Event::Closed) {
+void Scene::handle_event(const sf::Event &event) {
+  if (event.type == sf::Event::Closed)
     app_window->close();
-  }
 }
 
 void Scene::on_exit() {}

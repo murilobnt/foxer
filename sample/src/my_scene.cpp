@@ -1,6 +1,6 @@
 #include "my_scene.hpp"
 
-MyScene::MyScene() : delta_time(1.f/60.f) {}
+MyScene::MyScene() : delta_time(1.f/60.f), pause(false) {}
 
 void MyScene::start() {
   physics_rate = fox::TimeHandler(sf::seconds(delta_time));
@@ -35,7 +35,7 @@ void MyScene::start() {
 
 void MyScene::update() {
   while(physics_rate.time_to_update()){
-    bundle.level_proxy.handle_events(delta_time);
+    bundle.level_proxy.level_update(delta_time);
     bundle.level_proxy.control_camera(delta_time);
     textbox.setPosition(bundle.camera.get_center().x - bundle.camera.get_size().x/2, bundle.camera.get_center().y + bundle.camera.get_size().y/2 - y_scale);
   }
@@ -44,4 +44,21 @@ void MyScene::update() {
 void MyScene::draw_entities() {
   app_window->setView(bundle.camera.get_view());
   app_window->draw(bundle.level_proxy);
+}
+
+void MyScene::handle_event(const sf::Event &event){
+  Scene::handle_event(event);
+  switch(event.type){
+    case sf::Event::GainedFocus:
+      pause = false;
+    break;
+    case sf::Event::LostFocus:
+      pause = true;
+    break;
+  }
+}
+
+void MyScene::reset_time_handlers(fox::ClockHandler &clock_handler){
+  if(!pause)
+    Scene::reset_time_handlers(clock_handler);
 }

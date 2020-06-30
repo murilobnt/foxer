@@ -25,8 +25,8 @@ void LevelProxy::change_level(std::shared_ptr<Level> next_level) {
 
 void LevelProxy::init() { current_level->init(); }
 
-void LevelProxy::handle_events(const float &delta_time) {
-  current_level->handle_events(delta_time);
+void LevelProxy::level_update(const float &delta_time) {
+  current_level->level_update(delta_time);
 }
 
 void LevelProxy::control_camera(const float &delta_time) {

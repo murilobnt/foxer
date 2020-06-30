@@ -27,6 +27,7 @@
 #define MY_SCENE_HPP_
 
 #include <SFML/Graphics.hpp>
+
 #include <foxer/app.hpp>
 #include <foxer/logical.hpp>
 #include <foxer/time.hpp>
@@ -43,6 +44,7 @@ public:
   void draw_entities();
 
 private:
+  bool pause;
   const float delta_time;
 
   fox::TimeHandler physics_rate;
@@ -52,6 +54,9 @@ private:
   fox::Textbox textbox;
   sf::Font font;
   float y_scale;
+
+  void handle_event(const sf::Event &event);
+  void reset_time_handlers(fox::ClockHandler &clock_handler);
 };
 
 #endif

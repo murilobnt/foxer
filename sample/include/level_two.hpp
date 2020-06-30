@@ -48,7 +48,9 @@ private:
   fox::EventArea exit;
   std::string start_id;
 
-  void handle_events(const float &delta_time);
+  sf::Sprite rays;
+
+  void level_update(const float &delta_time);
   void draw(sf::RenderTarget &target, sf::RenderStates states) const;
   void init();
 };

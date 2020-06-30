@@ -54,7 +54,7 @@ public:
   // ====================== Delegated functions to Level =======================
   // The functions below just delegates the call to the current_level reference.
   void init();
-  void handle_events(const float &delta_time);
+  void level_update(const float &delta_time);
   void control_camera(const float &delta_time);
   // ===========================================================================
 

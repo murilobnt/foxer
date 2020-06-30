@@ -20,9 +20,9 @@ void LevelOne::init(){
   bundle->textbox->display_text("Hey. This is a demo.\n\nIt took me quite some long time to figure out the proper way to code this textbox.\nBut here it is! Finally complete.");
 }
 
-void LevelOne::handle_events(const float &delta_time){
+void LevelOne::level_update(const float &delta_time){
   if(!bundle->textbox->is_active()){
-    fox::FoxerLevel::handle_events(delta_time);
+    fox::FoxerLevel::level_update(delta_time);
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
       bundle->textbox->start();
   }

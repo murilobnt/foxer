@@ -42,9 +42,11 @@ public:
   virtual void init() = 0;
 
   // Handle events that happen every tick, like moving the player.
-  virtual void handle_events(const float &delta_time) = 0;
+  virtual void level_update(const float &delta_time) = 0;
 
-  // Controls the camera. Placed after handle_events is executed.
+  // virtual void handle_event(const sf::Event &event) = 0;
+
+  // Controls the camera. Placed after level_update is executed.
   virtual void control_camera(const float &delta_time) = 0;
 
   // ======================= Inherited from sf::Drawable =======================

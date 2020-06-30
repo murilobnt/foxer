@@ -69,7 +69,7 @@ public:
 
   // The method to implement this function will tell how an received event will
   // be handled. Using the EBControlableEntity class is recommended.
-  virtual void handle_event(sf::Event &event);
+  virtual void handle_event(const sf::Event &event);
 
   // Drawing phase. The method to implement this will be responsible
   // to draw every drawable entity of the scene.
@@ -88,7 +88,7 @@ public:
 
   // Reset all the time handlers used in the scene, in time_handlers vector
   // so they can be sycronized to the clock of the entire application.
-  void reset_time_handlers(ClockHandler &clock_handler);
+  virtual void reset_time_handlers(ClockHandler &clock_handler);
 
   // Setter of app_window.
   void set_app_window(sf::RenderWindow *app_window);
