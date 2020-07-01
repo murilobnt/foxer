@@ -3,11 +3,12 @@
 
 LevelTwo::LevelTwo() {}
 
-LevelTwo::LevelTwo(Character *player, fox::LevelBundle *bundle,
+LevelTwo::LevelTwo(Character *player, fox::LevelBundle *bundle, fox::Fader *fader,
                    const std::string start_id) :
                      FoxerLevel("assets/levels/level02.json", bundle),
                      player(player),
-                     start_id(start_id) {}
+                     start_id(start_id),
+                     fader(fader) {}
 
 void LevelTwo::init(){
   rays = sf::Sprite(ltex_repo.load("assets/textures/rays.png"));
@@ -16,21 +17,24 @@ void LevelTwo::init(){
   const fox::TiledJsonObj level_change = get_event("level_change");
 
   exit = fox::EventArea(level_change,
-  std::make_unique<fox::FoxerExitAreaCH>(&bundle->level_proxy,
-  std::make_shared<LevelOne>(player, bundle, "gate0")));
+  std::make_unique<SampleExitAreaCH>(&bundle->level_proxy,
+  std::make_shared<LevelOne>(player, bundle, fader, "gate0"), fader));
 
   player->setPosition(start_pos.x, start_pos.y);
 }
 
 void LevelTwo::level_update(const float &delta_time){
-  fox::FoxerLevel::level_update(delta_time);
-  rays.setPosition(bundle->camera.get_center().x- bundle->camera.get_size().x/2, bundle->camera.get_center().y - bundle->camera.get_size().y/2);
   exit.verify_collision(player->getGlobalBounds());
+
+  if(fader->is_complete()){
+    fox::FoxerLevel::level_update(delta_time);
+    rays.setPosition(bundle->camera.get_center().x- bundle->camera.get_size().x/2, bundle->camera.get_center().y - bundle->camera.get_size().y/2);
+  }
 }
 
 void LevelTwo::draw(sf::RenderTarget &target,
                      sf::RenderStates states) const {
-  target.draw(get_layers(1, 4));
-  target.draw(*player);
-  target.draw(rays);
+    target.draw(get_layers(1, 4));
+    target.draw(*player);
+    target.draw(rays);
 }

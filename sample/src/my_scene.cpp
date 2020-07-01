@@ -12,6 +12,9 @@ void MyScene::start() {
     y_scale = 200;
   font.loadFromFile("assets/fonts/Purisa.ttf");
 
+  rt.create(640, 480);
+  fader = fox::Fader(&rt, sf::seconds(1.f/400.f));
+
   bundle.camera = fox::Camera(sf::Vector2f(640, 480));
   textbox = fox::Textbox(font,
                          sf::Vector2f(0, 0),
@@ -23,7 +26,7 @@ void MyScene::start() {
   bundle.player_ref = &character;
 
   std::shared_ptr<LevelOne> level_one =
-      std::make_shared<LevelOne>(&character, &bundle);
+      std::make_shared<LevelOne>(&character, &bundle, &fader);
 
   level_one->load();
   bundle.level_proxy.change_level(level_one);
@@ -31,19 +34,25 @@ void MyScene::start() {
   time_handlers.push_back(character.get_time_handler());
   time_handlers.push_back(&physics_rate);
   time_handlers.push_back(textbox.get_text_time_handler());
+  time_handlers.push_back(fader.get_time_handler());
 }
 
 void MyScene::update() {
+  fader.time_trigger();
+
   while(physics_rate.time_to_update()){
     bundle.level_proxy.level_update(delta_time);
     bundle.level_proxy.control_camera(delta_time);
+    fader.setPosition(bundle.camera.get_center().x - bundle.camera.get_size().x/2, bundle.camera.get_center().y - bundle.camera.get_size().y/2);
     textbox.setPosition(bundle.camera.get_center().x - bundle.camera.get_size().x/2, bundle.camera.get_center().y + bundle.camera.get_size().y/2 - y_scale);
   }
 }
 
 void MyScene::draw_entities() {
+  rt.clear();
   app_window->setView(bundle.camera.get_view());
   app_window->draw(bundle.level_proxy);
+  app_window->draw(fader);
 }
 
 void MyScene::handle_event(const sf::Event &event){

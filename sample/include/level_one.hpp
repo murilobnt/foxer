@@ -33,17 +33,19 @@
 #include <foxer/components.hpp>
 #include <foxer/logical/foxer_exit_area_ch.hpp>
 
+#include "sample_exit_area_ch.hpp"
 #include "character.hpp"
 #include "level_two.hpp"
 
 class LevelOne : public fox::FoxerLevel {
 public:
   LevelOne();
-  LevelOne(Character *player, fox::LevelBundle *bundle,
+  LevelOne(Character *player, fox::LevelBundle *bundle, fox::Fader *fader,
             const std::string start_id = "player_start_pos");
 
 private:
   Character *player;
+  fox::Fader *fader;
   fox::EventArea exit;
   std::string start_id;
 

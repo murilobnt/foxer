@@ -28,9 +28,10 @@
 
 #include "foxer/abstract_components/main_object.hpp"
 #include "foxer/components/camera.hpp"
+#include "foxer/components/textbox.hpp"
+#include "foxer/components/fader.hpp"
 #include "foxer/logical/level_proxy.hpp"
 #include "foxer/logical/shared_texture_repository.hpp"
-#include "foxer/components/textbox.hpp"
 
 namespace fox {
 
@@ -44,8 +45,9 @@ namespace fox {
 struct LevelBundle {
   LevelProxy level_proxy;
   Camera camera;
+  Fader fader;
+  Textbox textbox;
 
-  Textbox *textbox;
   MainObject *player_ref;
   SharedTextureRepository *stex_repo;
 };

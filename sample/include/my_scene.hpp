@@ -31,6 +31,7 @@
 #include <foxer/app.hpp>
 #include <foxer/logical.hpp>
 #include <foxer/time.hpp>
+#include <foxer/components.hpp>
 
 #include "character.hpp"
 #include "level_one.hpp"
@@ -54,6 +55,9 @@ private:
   fox::Textbox textbox;
   sf::Font font;
   float y_scale;
+
+  sf::RenderTexture rt;
+  fox::Fader fader;
 
   void handle_event(const sf::Event &event);
   void reset_time_handlers(fox::ClockHandler &clock_handler);
