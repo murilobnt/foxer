@@ -45,8 +45,8 @@ namespace fox {
 struct LevelBundle {
   LevelProxy level_proxy;
   Camera camera;
-  Fader fader;
-  Textbox textbox;
+  Fader *fader;
+  Textbox *textbox;
 
   MainObject *player_ref;
   SharedTextureRepository *stex_repo;

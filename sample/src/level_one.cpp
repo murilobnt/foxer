@@ -2,12 +2,10 @@
 
 LevelOne::LevelOne() {}
 
-LevelOne::LevelOne(Character *player, fox::LevelBundle *bundle, fox::Fader *fader,
-                     const std::string start_id) :
+LevelOne::LevelOne(Character *player, fox::LevelBundle *bundle, const std::string start_id) :
                      FoxerLevel("assets/levels/level01.json", bundle),
                      player(player),
-                     start_id(start_id),
-                     fader(fader) {}
+                     start_id(start_id){}
 
 void LevelOne::init(){
   const fox::TiledJsonObj start_pos = get_event(start_id);
@@ -15,7 +13,7 @@ void LevelOne::init(){
 
   exit = fox::EventArea(level_change,
   std::make_unique<SampleExitAreaCH>(&bundle->level_proxy,
-  std::make_shared<LevelTwo>(player, bundle, fader, "gate0"), fader));
+  std::make_shared<LevelTwo>(player, bundle, "gate0"), bundle->fader));
 
   player->setPosition(start_pos.x, start_pos.y);
   bundle->textbox->display_text("Hey. This is a demo.\n\nIt took me quite some long time to figure out the proper way to code this textbox.\nBut here it is! Finally complete.");
@@ -24,7 +22,7 @@ void LevelOne::init(){
 void LevelOne::level_update(const float &delta_time){
   exit.verify_collision(player->getGlobalBounds());
 
-  if (fader->is_complete()){
+  if (bundle->fader->is_complete()){
     if(!bundle->textbox->is_active()){
       fox::FoxerLevel::level_update(delta_time);
       if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z))

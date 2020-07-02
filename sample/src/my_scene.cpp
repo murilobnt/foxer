@@ -24,9 +24,10 @@ void MyScene::start() {
   bundle.textbox = &textbox;
   bundle.stex_repo = &stex_repo;
   bundle.player_ref = &character;
+  bundle.fader = &fader;
 
   std::shared_ptr<LevelOne> level_one =
-      std::make_shared<LevelOne>(&character, &bundle, &fader);
+      std::make_shared<LevelOne>(&character, &bundle);
 
   level_one->load();
   bundle.level_proxy.change_level(level_one);

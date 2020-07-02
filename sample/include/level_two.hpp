@@ -41,12 +41,11 @@ class LevelOne;
 class LevelTwo : public fox::FoxerLevel {
 public:
   LevelTwo();
-  LevelTwo(Character *player, fox::LevelBundle *bundle, fox::Fader *fader,
+  LevelTwo(Character *player, fox::LevelBundle *bundle,
            const std::string start_id);
 
 private:
   Character *player;
-  fox::Fader *fader;
   fox::EventArea exit;
   std::string start_id;
 
