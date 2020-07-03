@@ -20,6 +20,7 @@ void LevelTwo::init(){
   std::make_shared<LevelOne>(player, bundle, "gate0"), bundle->fader));
 
   player->setPosition(start_pos.x, start_pos.y);
+  bundle->fader->fade_in();
 }
 
 void LevelTwo::level_update(const float &delta_time){

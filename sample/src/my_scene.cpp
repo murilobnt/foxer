@@ -35,11 +35,11 @@ void MyScene::start() {
   time_handlers.push_back(character.get_time_handler());
   time_handlers.push_back(&physics_rate);
   time_handlers.push_back(textbox.get_text_time_handler());
-  time_handlers.push_back(fader.get_time_handler());
 }
 
 void MyScene::update() {
-  fader.time_trigger();
+  if(!fader.is_complete())
+    fader.time_trigger();
 
   while(physics_rate.time_to_update()){
     bundle.level_proxy.level_update(delta_time);
@@ -71,4 +71,6 @@ void MyScene::handle_event(const sf::Event &event){
 void MyScene::reset_time_handlers(fox::ClockHandler &clock_handler){
   if(!pause)
     Scene::reset_time_handlers(clock_handler);
+  if(!fader.is_complete())
+    clock_handler.restart_time_handler(fader.get_time_handler());
 }

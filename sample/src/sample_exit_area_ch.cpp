@@ -15,6 +15,5 @@ void SampleExitAreaCH::handle_collision() {
 
   if(fader->is_complete()){
     fox::FoxerExitAreaCH::handle_collision();
-    fader->fade_in();
   }
 }
