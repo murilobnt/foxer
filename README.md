@@ -4,6 +4,9 @@
 
 *Let a fox help your code to be swift and smart, like a fox.*
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/da29c15684344ebb9177cdd3eb266dec)](https://www.codacy.com/manual/murilobnt/foxer?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=murilobnt/foxer&amp;utm_campaign=Badge_Grade)
+[![License](https://img.shields.io/:license-MIT-blue.svg)](https://github.com/murilobnt/foxer/blob/master/LICENSE)
+
 **A lightweight easy to learn, use and extend open-source framework for 2D games
 over the C++ programming language**. That's the main goal of the Foxer Framework.
 It hopes to provide practical (yet simple) usage of Object-Oriented Programming
@@ -40,6 +43,3 @@ page of this repository for information about it.
 ### License
 
 Foxer is licensed under the [MIT License](https://github.com/murilobnt/foxer/blob/master/LICENSE).
-
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/da29c15684344ebb9177cdd3eb266dec)](https://www.codacy.com/manual/murilobnt/foxer?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=murilobnt/foxer&amp;utm_campaign=Badge_Grade)
-[![License](https://img.shields.io/:license-MIT-blue.svg)](https://github.com/murilobnt/foxer/blob/master/LICENSE)

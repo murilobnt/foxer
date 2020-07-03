@@ -1,4 +1,4 @@
-// File: tilemap.hpp
+// File: textbox.hpp
 // Author: Murilo Bento
 //
 // MIT License

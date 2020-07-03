@@ -31,7 +31,6 @@
 
 #include <foxer/abstract_components.hpp>
 #include <foxer/components.hpp>
-#include <foxer/logical/foxer_exit_area_ch.hpp>
 
 #include "character.hpp"
 #include "sample_exit_area_ch.hpp"

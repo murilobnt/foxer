@@ -12,6 +12,12 @@ The levels were created with [Tiled](https://www.mapeditor.org/).
 Everything must be saved as .json (even tileset files) if you use
 fox::FoxerLevel.
 
+## PS
+
+The sample is currently showing a segmentation fault behaviour with an
+Intel Graphics card (Intel HD Graphics 620) that is not
+present in Nvidia Graphics (Geforce 940mx), on Ubuntu 20.04.
+
 ## Assets credits
 
 ### Zelda-like tilesets and sprites

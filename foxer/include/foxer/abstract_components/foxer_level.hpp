@@ -27,6 +27,7 @@
 #define FOX_FOXER_LEVEL_HPP_
 
 #include <memory>
+#include <iostream>
 
 #include "foxer/app/level.hpp"
 #include "foxer/components/camera.hpp"
