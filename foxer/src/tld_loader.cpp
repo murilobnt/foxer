@@ -1,6 +1,7 @@
 #include "foxer/logical/tld_loader.hpp"
 
-namespace fox::TLDLoader {
+namespace fox { 
+namespace TLDLoader {
 
   json load_json(const std::string &path){
     std::ifstream my_json;
@@ -31,7 +32,7 @@ namespace fox::TLDLoader {
 
     json j_layers = level["layers"];
     std::vector<TileMap> layers;
-    TileGrid collision_tile_grid;
+    std::unique_ptr<TileGrid> collision_tile_grid;
     std::map<std::string, TiledJsonObj> events;
 
     for (auto it = j_layers.begin(); it != j_layers.end(); ++it) {
@@ -40,7 +41,7 @@ namespace fox::TLDLoader {
         if(!(*it)["properties"].is_null()){
           for (auto it2 = (*it)["properties"].begin(); it2 != (*it)["properties"].end(); ++it2) {
             if((*it2)["name"] == "collision" && (*it2)["value"]){
-              collision_tile_grid = TGLoader::load((*it)["data"].get<std::vector<int>>(), tile_size, level_size);
+              collision_tile_grid = std::unique_ptr<TileGrid>(new TileGrid(TGLoader::load((*it)["data"].get<std::vector<int>>(), tile_size, level_size)));
               collision_layer = true;
             }
           }
@@ -58,7 +59,7 @@ namespace fox::TLDLoader {
       }
     }
 
-    TiledLevelData data(tile_size, level_size, layers, collision_tile_grid, events);
+    TiledLevelData data(tile_size, level_size, layers, std::move(collision_tile_grid), events);
     return data;
   }
 
@@ -67,4 +68,5 @@ namespace fox::TLDLoader {
     return load_level(level, get_tilesets(path.substr(0, path.find_last_of('/')), level["tilesets"]), ltex_repo, camera);
   }
 
+}
 }

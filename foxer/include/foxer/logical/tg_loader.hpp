@@ -30,13 +30,15 @@
 
 // Namespace for loading the TileGrid of a collision tile layer.
 
-namespace fox::TGLoader {
+namespace fox {
+namespace TGLoader {
 
   // Loads a TileGrid.
   TileGrid load(const std::vector<int> &collision_layer,
                 const sf::Vector2u &tile_size,
                 const sf::Vector2u &level_size);
 
+} 
 }
 
 #endif

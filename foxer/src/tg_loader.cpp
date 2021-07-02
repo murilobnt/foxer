@@ -1,6 +1,7 @@
 #include "foxer/logical/tg_loader.hpp"
 
-namespace fox::TGLoader {
+namespace fox { 
+namespace TGLoader {
 
   TileGrid load(const std::vector<int> &collision_layer,
                 const sf::Vector2u &tile_size,
@@ -22,4 +23,5 @@ namespace fox::TGLoader {
     return tile_grid;
   }
 
+}
 }

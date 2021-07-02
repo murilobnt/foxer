@@ -23,34 +23,26 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef LEVEL_TWO_HPP_
-#define LEVEL_TWO_HPP_
-
-#include <memory>
-#include <string>
-
-#include <foxer/abstract_components.hpp>
-#include <foxer/components.hpp>
+#ifndef LEVEL_TEST_HPP_
+#define LEVEL_TEST_HPP_
 
 #include "character.hpp"
-#include "sample_exit_area_ch.hpp"
+#include <SFML/Graphics/RenderStates.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <foxer/abstract_components/foxer_level.hpp>
+#include <foxer/logical/level_bundle.hpp>
 
-class LevelOne;
-
-class LevelTwo : public fox::FoxerLevel {
+class LevelTest : public fox::FoxerLevel {
 public:
-  LevelTwo();
-  LevelTwo(Character *player, fox::LevelBundle *bundle,
-           const std::string start_id);
+	LevelTest();
+	LevelTest(Character *player, fox::LevelBundle *bundle, const std::string start_id = "player_start_pos");
 
 private:
-  Character *player;
-  fox::EventArea exit;
-  std::string start_id;
+	Character *player;
+	std::string start_id;
 
-  void level_update(const float &delta_time);
-  void draw(sf::RenderTarget &target, sf::RenderStates states) const;
-  void init();
+	void init();
+	void level_update(const float &delta_time);
+	void draw(sf::RenderTarget &target, sf::RenderStates states) const;
 };
-
 #endif

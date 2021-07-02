@@ -3,13 +3,13 @@
 namespace fox {
 
 FoxerCollisionHandler::FoxerCollisionHandler
-(GameObject *go, const TileGrid &level_tile_grid)
-: go(go),
-level_tile_grid(level_tile_grid)
-{
-}
+(GameObject *go, const std::unique_ptr<TileGrid> &level_tile_grid) : go(go),
+	level_tile_grid(level_tile_grid)
+{ }
 
 void FoxerCollisionHandler::handle_collision() {
+  if(!level_tile_grid)
+	  return;
   sf::Vector2f movement = go->get_movement();
 
   sf::FloatRect gb = go->getGlobalBounds();
@@ -25,7 +25,7 @@ void FoxerCollisionHandler::handle_collision() {
   gb_y.top += movement.y;
 
   std::vector<Unity> unities =
-      level_tile_grid.get_unities_in_position(go->getPosition(),
+      level_tile_grid->get_unities_in_position(go->getPosition(),
                                               go->getGlobalBounds());
 
   for (std::vector<Unity>::iterator it = unities.begin(); it != unities.end();

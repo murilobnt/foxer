@@ -10,6 +10,7 @@ void MyScene::start() {
   y_scale = (480 / 768.f) * 200;
   if(y_scale > 200)
     y_scale = 200;
+
   font.loadFromFile("assets/fonts/Purisa.ttf");
 
   rt.create(640, 480);

@@ -26,6 +26,6 @@
 #ifndef FACING_POSITION_HPP_
 #define FACING_POSITION_HPP_
 
-enum FacingPosition { UP, LEFT, DOWN, RIGHT, FREE };
+enum FacingPosition { UP, LEFT, DOWN, RIGHT };
 
 #endif

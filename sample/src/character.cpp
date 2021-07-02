@@ -1,17 +1,17 @@
 #include "character.hpp"
 
 Character::Character(sf::Texture const &texture, sf::Vector2f position)
-    : fox::MainObject::MainObject(texture, sf::IntRect(0, 5, 16, 22), 5),
+    : fox::MainObject::MainObject(texture, sf::IntRect(0, 0, 16, 32), 5),
     falling(false),
     jump_height(32),
     z_movement(0) {
   setPosition(position);
   player_position = sf::Vector3f(position.x, position.y, 0);
   current_facing_pos = DOWN;
-  collision_offset_down = 3;
+  collision_offset_down = 0;
   collision_offset_up = 22;
-  collision_offset_right = 3;
-  collision_offset_left = 3;
+  collision_offset_right = 2;
+  collision_offset_left = 2;
 }
 
 Character::Character() {}
@@ -98,16 +98,16 @@ void Character::animate() {
     do_animate = false;
     switch (current_facing_pos) {
     case UP:
-      setTextureRect(0, 68);
+      setTextureRect(0, 64);
       break;
     case DOWN:
-      setTextureRect(0, 5);
+      setTextureRect(0, 0);
       break;
     case LEFT:
-      setTextureRect(0, 101);
+      setTextureRect(0, 96);
       break;
     case RIGHT:
-      setTextureRect(0, 37);
+      setTextureRect(0, 32);
       break;
     }
     return;
@@ -115,16 +115,16 @@ void Character::animate() {
 
   switch (current_facing_pos) {
   case LEFT:
-    apply_animation_on_row(this, sf::Vector2i(0, 64), 101);
+    apply_animation_on_row(this, sf::Vector2i(0, 64), 96);
     break;
   case RIGHT:
-    apply_animation_on_row(this, sf::Vector2i(0, 64), 37);
+    apply_animation_on_row(this, sf::Vector2i(0, 64), 32);
     break;
   case DOWN:
-    apply_animation_on_row(this, sf::Vector2i(0, 64), 5);
+    apply_animation_on_row(this, sf::Vector2i(0, 64), 0);
     break;
   case UP:
-    apply_animation_on_row(this, sf::Vector2i(0, 64), 68);
+    apply_animation_on_row(this, sf::Vector2i(0, 64), 64);
     break;
   }
 }

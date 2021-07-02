@@ -81,8 +81,8 @@ void Camera::correction(const sf::Vector2u &tile_size,
   sf::Vector2f center = view.getCenter();
   sf::Vector2f final_position = center;
 
-  center.x = floor(center.x);
-  center.y = floor(center.y);
+  center.x = ceil(center.x);
+  center.y = ceil(center.y);
 
   final_position.x = axis_correction(camera_size.x, center.x,
                                      tile_size.x * level_size.x);

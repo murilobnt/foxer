@@ -39,7 +39,9 @@
 
 // Namespace to load a TiledLevelData from a path.
 
-namespace fox::TLDLoader {
+namespace fox {
+namespace TLDLoader {
+
   // Loads a TiledLevelData from a path. It requires a texture holder and a
   // reference to the camera (for the creation of the TileMaps)
   TiledLevelData load(const std::string &path,
@@ -50,6 +52,7 @@ namespace fox::TLDLoader {
                                                json &j_tilesets);
   TiledLevelData load_level(json &level, const std::vector<std::string> &tilesets, LocalTextureRepository &ltex_repo, Camera *camera);
 
+}
 }
 
 #endif

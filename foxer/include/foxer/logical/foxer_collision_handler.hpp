@@ -36,9 +36,8 @@ namespace fox {
 
 class FoxerCollisionHandler : public CollisionHandler {
 public:
-
   // Constructor.
-  FoxerCollisionHandler(GameObject *go, const TileGrid &level_tile_grid);
+  FoxerCollisionHandler(GameObject *go, const std::unique_ptr<TileGrid> &level_tile_grid);
 
   // ==================== Implemented from CollisionHandler ====================
   virtual void handle_collision();
@@ -49,7 +48,7 @@ private:
   GameObject *go;
 
   // The const reference to the collision tile grid.
-  const TileGrid &level_tile_grid;
+  const std::unique_ptr<TileGrid> &level_tile_grid;
 };
 
 }

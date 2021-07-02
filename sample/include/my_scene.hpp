@@ -35,6 +35,7 @@
 
 #include "character.hpp"
 #include "level_one.hpp"
+#include "level_test.hpp"
 #include "level_two.hpp"
 
 class MyScene : public fox::Scene {
